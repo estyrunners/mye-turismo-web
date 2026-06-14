@@ -596,6 +596,10 @@
       color: var(--muted);
     }
 
+    .weekly-heading .btn {
+      margin-top: 20px;
+    }
+
     .weekly-carousel-shell {
       position: relative;
       padding-inline: 58px;
@@ -618,7 +622,9 @@
     }
 
     .weekly-card {
-      min-height: 390px;
+      display: flex;
+      min-height: 0;
+      flex-direction: column;
       overflow: hidden;
       border: 1px solid rgba(18, 52, 71, 0.08);
       border-radius: 24px;
@@ -627,56 +633,45 @@
       scroll-snap-align: start;
     }
 
-    .weekly-placeholder {
+    .weekly-card-image {
+      width: 100%;
+      aspect-ratio: 934 / 1280;
+      object-fit: cover;
+      background: var(--turquoise-soft);
+    }
+
+    .weekly-card-body {
       display: flex;
-      height: 100%;
-      min-height: 390px;
+      flex: 1;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 36px 28px;
-      text-align: center;
-      background:
-        linear-gradient(145deg, rgba(232, 247, 246, 0.92), rgba(255, 250, 243, 0.92));
+      align-items: flex-start;
+      gap: 13px;
+      padding: 22px;
     }
 
-    .weekly-placeholder-icon {
-      display: grid;
-      width: 66px;
-      height: 66px;
-      margin-bottom: 22px;
-      place-items: center;
-      border-radius: 20px;
+    .weekly-card-body small {
       color: var(--turquoise-dark);
-      background: var(--white);
-      box-shadow: 0 12px 28px rgba(18, 52, 71, 0.1);
-    }
-
-    .weekly-placeholder-icon .icon {
-      width: 29px;
-      height: 29px;
-    }
-
-    .weekly-placeholder small {
-      margin-bottom: 9px;
-      color: var(--turquoise-dark);
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 800;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.11em;
       text-transform: uppercase;
     }
 
-    .weekly-placeholder h3 {
-      margin-bottom: 10px;
+    .weekly-card-body h3 {
       color: var(--navy);
       font-family: "Playfair Display", serif;
-      font-size: 1.65rem;
+      font-size: 1.55rem;
+      line-height: 1.15;
     }
 
-    .weekly-placeholder p {
-      max-width: 280px;
-      color: var(--muted);
-      font-size: 0.92rem;
+    .weekly-card-body .btn {
+      width: 100%;
+      margin-top: auto;
+    }
+
+    .weekly-card-body .icon {
+      width: 19px;
+      height: 19px;
     }
 
     .weekly-arrow {
@@ -2249,9 +2244,13 @@
     <section class="section weekly-highlights" id="destacados-semana">
       <div class="container">
         <div class="weekly-heading">
-          <span class="eyebrow">Selección especial</span>
-          <h2>Los destacados de la semana</h2>
-          <p>Este espacio reúne las propuestas especiales y promociones seleccionadas de MyE Turismo.</p>
+          <span class="eyebrow">Salidas especiales</span>
+          <h2>Feriado de Julio</h2>
+          <p>Elegí una de estas propuestas para el feriado. Si el destino que buscás no aparece, escribinos y consultá otras opciones disponibles.</p>
+          <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, busco otra opción para el feriado de julio. ¿Qué destinos tienen disponibles?">
+            <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+            Consultar otro destino
+          </a>
         </div>
 
         <div class="weekly-carousel-shell">
@@ -2260,31 +2259,99 @@
           </button>
 
           <div class="weekly-carousel" id="weeklyCarousel">
-            <!-- Reemplazar cada tarjeta por un paquete destacado cuando estén disponibles los datos. -->
             <article class="weekly-card">
-              <div class="weekly-placeholder">
-                <span class="weekly-placeholder-icon"><svg class="icon"><use href="#icon-map"></use></svg></span>
-                <small>Próximamente</small>
-                <h3>Nuevo destacado</h3>
-                <p>Este espacio está preparado para recibir el flyer y la información del paquete.</p>
+              <img class="weekly-card-image" src="destacado-federacion-julio.jpeg" alt="Paquete a Termas de Federación para el feriado de julio">
+              <div class="weekly-card-body">
+                <small>Bus · Feriado 9 de julio</small>
+                <h3>Termas de Federación</h3>
+                <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por el paquete a Termas de Federación para el feriado de julio.">
+                  <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+                  Consultar por WhatsApp
+                </a>
               </div>
             </article>
 
             <article class="weekly-card">
-              <div class="weekly-placeholder">
-                <span class="weekly-placeholder-icon"><svg class="icon"><use href="#icon-heart"></use></svg></span>
-                <small>Próximamente</small>
-                <h3>Nueva propuesta</h3>
-                <p>Acá se podrá mostrar el destino, la fecha, la duración y el botón de consulta.</p>
+              <img class="weekly-card-image" src="destacado-san-luis-julio.jpeg" alt="Paquete a San Luis y Sierras de las Quijadas para el feriado de julio">
+              <div class="weekly-card-body">
+                <small>Bus · Feriado 9 de julio</small>
+                <h3>San Luis y Sierras de las Quijadas</h3>
+                <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por el paquete a San Luis y Sierras de las Quijadas para el feriado de julio.">
+                  <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+                  Consultar por WhatsApp
+                </a>
               </div>
             </article>
 
             <article class="weekly-card">
-              <div class="weekly-placeholder">
-                <span class="weekly-placeholder-icon"><svg class="icon"><use href="#icon-globe"></use></svg></span>
-                <small>Próximamente</small>
-                <h3>Promoción semanal</h3>
-                <p>El carrusel está listo para sumar nuevas oportunidades sin modificar su estructura.</p>
+              <img class="weekly-card-image" src="destacado-san-bernardo-julio.jpeg" alt="Paquete a San Bernardo para el feriado de julio">
+              <div class="weekly-card-body">
+                <small>Bus · Feriado 9 de julio</small>
+                <h3>San Bernardo</h3>
+                <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por el paquete a San Bernardo para el feriado de julio.">
+                  <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+                  Consultar por WhatsApp
+                </a>
+              </div>
+            </article>
+
+            <article class="weekly-card">
+              <img class="weekly-card-image" src="destacado-mar-del-plata-julio.jpeg" alt="Paquete a Mar del Plata para el feriado de julio">
+              <div class="weekly-card-body">
+                <small>Bus · Feriado 9 de julio</small>
+                <h3>Mar del Plata</h3>
+                <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por el paquete a Mar del Plata para el feriado de julio.">
+                  <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+                  Consultar por WhatsApp
+                </a>
+              </div>
+            </article>
+
+            <article class="weekly-card">
+              <img class="weekly-card-image" src="destacado-salta-julio.jpeg" alt="Paquete aéreo a Salta para el feriado de julio">
+              <div class="weekly-card-body">
+                <small>Aéreo · Feriado 9 de julio</small>
+                <h3>Salta</h3>
+                <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por el paquete aéreo a Salta para el feriado de julio.">
+                  <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+                  Consultar por WhatsApp
+                </a>
+              </div>
+            </article>
+
+            <article class="weekly-card">
+              <img class="weekly-card-image" src="destacado-iguazu-julio.jpeg" alt="Paquete aéreo a Cataratas del Iguazú para el feriado de julio">
+              <div class="weekly-card-body">
+                <small>Aéreo · Feriado 9 de julio</small>
+                <h3>Cataratas del Iguazú</h3>
+                <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por el paquete aéreo a Cataratas del Iguazú para el feriado de julio.">
+                  <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+                  Consultar por WhatsApp
+                </a>
+              </div>
+            </article>
+
+            <article class="weekly-card">
+              <img class="weekly-card-image" src="destacado-jujuy-humahuaca-julio.jpeg" alt="Paquete aéreo a Jujuy y Humahuaca para el feriado de julio">
+              <div class="weekly-card-body">
+                <small>Aéreo · Feriado 9 de julio</small>
+                <h3>Jujuy y Humahuaca</h3>
+                <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por el paquete aéreo a Jujuy y Humahuaca para el feriado de julio.">
+                  <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+                  Consultar por WhatsApp
+                </a>
+              </div>
+            </article>
+
+            <article class="weekly-card">
+              <img class="weekly-card-image" src="destacado-mendoza-cacheuta-julio.jpeg" alt="Paquete aéreo a Mendoza y Termas de Cacheuta para el feriado de julio">
+              <div class="weekly-card-body">
+                <small>Aéreo · Feriado 9 de julio</small>
+                <h3>Mendoza y Termas de Cacheuta</h3>
+                <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por el paquete aéreo a Mendoza y Termas de Cacheuta para el feriado de julio.">
+                  <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+                  Consultar por WhatsApp
+                </a>
               </div>
             </article>
           </div>
