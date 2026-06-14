@@ -633,6 +633,10 @@
       scroll-snap-align: start;
     }
 
+    .weekly-card.search-highlight {
+      box-shadow: 0 0 0 5px rgba(8, 152, 155, 0.28), var(--shadow);
+    }
+
     .weekly-card-image {
       width: 100%;
       aspect-ratio: 934 / 1280;
@@ -1032,6 +1036,11 @@
       margin-bottom: 18px;
       color: var(--muted);
       font-size: 0.92rem;
+    }
+
+    .search-package-link {
+      width: 100%;
+      margin-bottom: 10px;
     }
 
     .package-meta {
@@ -2259,7 +2268,7 @@
           </button>
 
           <div class="weekly-carousel" id="weeklyCarousel">
-            <article class="weekly-card">
+            <article class="weekly-card" id="paquete-federacion-julio" data-search="Federacion Entre Rios termas litoral bus">
               <img class="weekly-card-image" src="destacado-federacion-julio.jpeg" alt="Paquete a Termas de Federación para el feriado de julio">
               <div class="weekly-card-body">
                 <small>Bus · Feriado 9 de julio</small>
@@ -2271,7 +2280,7 @@
               </div>
             </article>
 
-            <article class="weekly-card">
+            <article class="weekly-card" id="paquete-san-luis-julio" data-search="San Luis Sierras de las Quijadas centro bus">
               <img class="weekly-card-image" src="destacado-san-luis-julio.jpeg" alt="Paquete a San Luis y Sierras de las Quijadas para el feriado de julio">
               <div class="weekly-card-body">
                 <small>Bus · Feriado 9 de julio</small>
@@ -2283,7 +2292,7 @@
               </div>
             </article>
 
-            <article class="weekly-card">
+            <article class="weekly-card" id="paquete-san-bernardo-julio" data-search="San Bernardo Costa Atlantica Buenos Aires playa bus">
               <img class="weekly-card-image" src="destacado-san-bernardo-julio.jpeg" alt="Paquete a San Bernardo para el feriado de julio">
               <div class="weekly-card-body">
                 <small>Bus · Feriado 9 de julio</small>
@@ -2295,7 +2304,7 @@
               </div>
             </article>
 
-            <article class="weekly-card">
+            <article class="weekly-card" id="paquete-mar-del-plata-julio" data-search="Mar del Plata Costa Atlantica Buenos Aires playa bus">
               <img class="weekly-card-image" src="destacado-mar-del-plata-julio.jpeg" alt="Paquete a Mar del Plata para el feriado de julio">
               <div class="weekly-card-body">
                 <small>Bus · Feriado 9 de julio</small>
@@ -2307,7 +2316,7 @@
               </div>
             </article>
 
-            <article class="weekly-card">
+            <article class="weekly-card" id="paquete-salta-julio" data-search="Salta Norte Argentino NOA aereo">
               <img class="weekly-card-image" src="destacado-salta-julio.jpeg" alt="Paquete aéreo a Salta para el feriado de julio">
               <div class="weekly-card-body">
                 <small>Aéreo · Feriado 9 de julio</small>
@@ -2319,7 +2328,7 @@
               </div>
             </article>
 
-            <article class="weekly-card">
+            <article class="weekly-card" id="paquete-iguazu-julio" data-search="Cataratas Iguazu Misiones litoral aereo">
               <img class="weekly-card-image" src="destacado-iguazu-julio.jpeg" alt="Paquete aéreo a Cataratas del Iguazú para el feriado de julio">
               <div class="weekly-card-body">
                 <small>Aéreo · Feriado 9 de julio</small>
@@ -2331,7 +2340,7 @@
               </div>
             </article>
 
-            <article class="weekly-card">
+            <article class="weekly-card" id="paquete-jujuy-julio" data-search="Jujuy Humahuaca Norte Argentino NOA aereo">
               <img class="weekly-card-image" src="destacado-jujuy-humahuaca-julio.jpeg" alt="Paquete aéreo a Jujuy y Humahuaca para el feriado de julio">
               <div class="weekly-card-body">
                 <small>Aéreo · Feriado 9 de julio</small>
@@ -2343,7 +2352,7 @@
               </div>
             </article>
 
-            <article class="weekly-card">
+            <article class="weekly-card" id="paquete-mendoza-julio" data-search="Mendoza Termas Cacheuta Cuyo aereo">
               <img class="weekly-card-image" src="destacado-mendoza-cacheuta-julio.jpeg" alt="Paquete aéreo a Mendoza y Termas de Cacheuta para el feriado de julio">
               <div class="weekly-card-body">
                 <small>Aéreo · Feriado 9 de julio</small>
@@ -2858,6 +2867,12 @@
             ${item.departures ? `<div class="catalog-detail"><span>Salidas</span><strong>${item.departures}</strong></div>` : ""}
           </div>
           ${item.price ? `<div class="catalog-price">${item.price}</div>` : ""}
+          ${item.targetId ? `
+            <button class="btn btn-primary search-package-link" type="button" data-package-target="${item.targetId}">
+              Ver en Feriado de Julio
+              <svg class="icon"><use href="#icon-arrow"></use></svg>
+            </button>
+          ` : ""}
           <a class="btn btn-outline" href="${whatsappUrl(`Hola MyE Turismo, quiero consultar por ${item.name}${item.destination ? ` en ${item.destination}` : ""}.`)}" target="_blank" rel="noopener">
             Consultar por WhatsApp
             <svg class="icon"><use href="#icon-arrow"></use></svg>
@@ -2915,6 +2930,18 @@
       })[character]);
 
     const getAllSearchablePackages = () => {
+      const weeklyPackages = Array.from(document.querySelectorAll(".weekly-card")).map((card) => ({
+        name: card.querySelector("h3")?.textContent.trim() || "Paquete Feriado de Julio",
+        destination: card.dataset.search || "",
+        duration: "",
+        departures: card.querySelector("small")?.textContent.trim() || "Feriado de julio",
+        description: "Propuesta especial para el feriado de julio.",
+        price: "",
+        image: card.querySelector("img")?.getAttribute("src") || "",
+        categoryTitle: "Feriado de Julio",
+        targetId: card.id
+      }));
+
       const featured = packages.map((item) => ({
         name: item.name || item.title,
         destination: item.destination || item.category || "",
@@ -2935,7 +2962,7 @@
         )
       );
 
-      return [...featured, ...catalogPackages];
+      return [...weeklyPackages, ...featured, ...catalogPackages];
     };
 
     const packageSearchForm = document.getElementById("packageSearchForm");
@@ -3000,6 +3027,18 @@
         if (packageSearchInput.value.trim().length >= 2) runPackageSearch();
         else searchResults.classList.remove("active");
       }, 220);
+    });
+
+    searchResults.addEventListener("click", (event) => {
+      const link = event.target.closest("[data-package-target]");
+      if (!link) return;
+
+      const target = document.getElementById(link.dataset.packageTarget);
+      if (!target) return;
+
+      target.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
+      target.classList.add("search-highlight");
+      window.setTimeout(() => target.classList.remove("search-highlight"), 1800);
     });
 
     /* Controles del carrusel de destacados semanales. */
