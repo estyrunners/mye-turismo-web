@@ -209,6 +209,7 @@
       position: relative;
       z-index: 3;
       width: 138px;
+      margin-left: 14px;
     }
 
     .brand img {
@@ -224,9 +225,10 @@
     }
 
     .nav-links a:not(.btn) {
-      color: var(--white);
+      color: #123447;
       font-size: 0.9rem;
       font-weight: 700;
+      text-shadow: 0 1px 8px rgba(255, 255, 255, 0.42);
       transition: color 0.2s ease;
     }
 
@@ -235,7 +237,7 @@
     }
 
     .nav-links a:not(.btn):hover {
-      color: var(--sand);
+      color: var(--turquoise-dark);
     }
 
     .header.scrolled .nav-links a:not(.btn):hover {
@@ -432,8 +434,9 @@
     .search-heading h2 {
       margin-bottom: 5px;
       font-family: "Playfair Display", serif;
-      font-size: clamp(1.65rem, 2.5vw, 2.3rem);
+      font-size: clamp(1.45rem, 2vw, 1.9rem);
       line-height: 1.05;
+      white-space: nowrap;
     }
 
     .search-heading p {
@@ -1636,6 +1639,7 @@
 
       .brand {
         width: 118px;
+        margin-left: 4px;
       }
 
       .hero {
@@ -1668,6 +1672,10 @@
         gap: 18px;
         padding: 22px 18px;
         border-radius: 20px;
+      }
+
+      .search-heading h2 {
+        font-size: clamp(1.08rem, 5.2vw, 1.42rem);
       }
 
       .hero-actions {
