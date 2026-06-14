@@ -81,6 +81,20 @@
       margin-inline: auto;
     }
 
+    .header .container {
+      width: min(calc(100% - 48px), var(--container));
+    }
+
+    main,
+    section,
+    .container,
+    .nav,
+    .hero-content,
+    .quick-search-inner,
+    .package-search-box {
+      min-width: 0;
+    }
+
     .section {
       padding: 96px 0;
     }
@@ -129,12 +143,15 @@
     .btn {
       display: inline-flex;
       min-height: 52px;
+      max-width: 100%;
       align-items: center;
       justify-content: center;
       gap: 10px;
       padding: 13px 22px;
       border: 1px solid transparent;
       border-radius: 999px;
+      line-height: 1.25;
+      text-align: center;
       font-weight: 800;
       transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
     }
@@ -202,14 +219,15 @@
       min-height: 82px;
       align-items: center;
       justify-content: space-between;
-      gap: 30px;
+      gap: clamp(18px, 2.5vw, 30px);
     }
 
     .brand {
       position: relative;
       z-index: 3;
-      width: 138px;
-      margin-left: 14px;
+      width: clamp(118px, 12vw, 138px);
+      flex: 0 0 auto;
+      margin: 0;
     }
 
     .brand img {
@@ -219,8 +237,10 @@
 
     .nav-links {
       display: flex;
+      min-width: 0;
       align-items: center;
-      gap: 27px;
+      justify-content: flex-end;
+      gap: clamp(14px, 2vw, 27px);
       list-style: none;
     }
 
@@ -284,9 +304,9 @@
     .hero-content {
       position: relative;
       z-index: 1;
-      width: 50%;
-      max-width: 590px;
-      margin-left: clamp(18px, 2.5vw, 38px);
+      width: min(calc(100% - 56px), var(--container));
+      max-width: var(--container);
+      margin-inline: auto;
       padding-top: 92px;
     }
 
@@ -320,6 +340,7 @@
       margin-bottom: 30px;
       color: rgba(255, 255, 255, 0.86);
       font-size: clamp(0.98rem, 1.5vw, 1.1rem);
+      overflow-wrap: anywhere;
     }
 
     .hero-actions {
@@ -355,13 +376,30 @@
 
     .quick-search-inner {
       display: grid;
-      grid-template-columns: repeat(3, 1fr) auto;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
       gap: 14px;
       padding: 20px;
       border: 1px solid rgba(18, 52, 71, 0.06);
       border-radius: 22px;
       background: var(--white);
       box-shadow: var(--shadow);
+    }
+
+    .quick-search-inner > *,
+    .package-search-box > *,
+    .media-card > *,
+    .about-intro > *,
+    .packages-grid > *,
+    .destinations-grid > *,
+    .subcategory-grid > *,
+    .explorer-packages > *,
+    .benefits-grid > *,
+    .custom-trip > *,
+    .social-grid > *,
+    .contact-wrap > *,
+    .contact-form > *,
+    .footer-main > * {
+      min-width: 0;
     }
 
     .quick-item {
@@ -382,6 +420,7 @@
     .quick-item strong {
       color: var(--navy);
       font-size: 0.95rem;
+      overflow-wrap: anywhere;
     }
 
     /* Buscador de paquetes */
@@ -392,7 +431,7 @@
     .package-search-box {
       position: relative;
       display: grid;
-      grid-template-columns: minmax(270px, 0.8fr) minmax(420px, 1.35fr);
+      grid-template-columns: minmax(330px, 0.9fr) minmax(0, 1.35fr);
       align-items: center;
       gap: clamp(24px, 4vw, 54px);
       overflow: hidden;
@@ -417,7 +456,8 @@
     .search-heading {
       position: relative;
       z-index: 1;
-      max-width: 390px;
+      min-width: 0;
+      max-width: 430px;
       margin-bottom: 0;
     }
 
@@ -434,9 +474,9 @@
     .search-heading h2 {
       margin-bottom: 5px;
       font-family: "Playfair Display", serif;
-      font-size: clamp(1.45rem, 2vw, 1.9rem);
+      font-size: clamp(1.35rem, 1.65vw, 1.6rem);
       line-height: 1.05;
-      white-space: nowrap;
+      text-wrap: balance;
     }
 
     .search-heading p {
@@ -449,14 +489,16 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: 1fr auto;
+      grid-template-columns: minmax(0, 1fr) auto;
       gap: 12px;
+      min-width: 0;
       width: 100%;
       max-width: none;
     }
 
     .search-input-wrap {
       position: relative;
+      min-width: 0;
     }
 
     .search-input-wrap .icon {
@@ -520,7 +562,7 @@
 
     .search-results-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 20px;
     }
 
@@ -693,7 +735,7 @@
 
     .about-intro {
       display: grid;
-      grid-template-columns: 0.72fr 1.28fr;
+      grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
       gap: clamp(38px, 7vw, 90px);
       align-items: start;
       margin-bottom: 48px;
@@ -731,7 +773,7 @@
 
     .trust-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 22px;
     }
 
@@ -779,7 +821,7 @@
     /* Tarjetas de paquetes */
     .packages-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 24px;
     }
 
@@ -865,7 +907,7 @@
     /* Destinos */
     .destinations-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       grid-auto-rows: 220px;
       gap: 18px;
     }
@@ -1017,7 +1059,7 @@
 
     .subcategory-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
     }
 
@@ -1081,7 +1123,7 @@
 
     .explorer-packages {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 22px;
     }
 
@@ -1194,7 +1236,7 @@
     .benefits-grid {
       position: relative;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 20px;
     }
 
@@ -1229,7 +1271,7 @@
     /* Viajes a medida */
     .custom-trip {
       display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
       align-items: stretch;
       overflow: hidden;
       border-radius: 30px;
@@ -1268,7 +1310,7 @@
     /* Redes */
     .social-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
       gap: 22px;
     }
 
@@ -1349,7 +1391,7 @@
     /* Contacto */
     .contact-wrap {
       display: grid;
-      grid-template-columns: 0.82fr 1.18fr;
+      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
       gap: 56px;
       align-items: start;
     }
@@ -1388,7 +1430,7 @@
 
     .contact-form {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 16px;
       padding: clamp(24px, 5vw, 42px);
       border: 1px solid rgba(18, 52, 71, 0.07);
@@ -1458,7 +1500,7 @@
 
     .footer-main {
       display: grid;
-      grid-template-columns: 1.3fr 0.7fr 0.7fr;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr) minmax(0, 0.7fr);
       gap: 50px;
       padding-bottom: 38px;
     }
@@ -1525,6 +1567,39 @@
       height: 30px;
     }
 
+    @media (max-width: 1100px) {
+      .nav-links {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 26px;
+        visibility: hidden;
+        opacity: 0;
+        background: rgba(255, 255, 255, 0.98);
+        transition: opacity 0.25s ease, visibility 0.25s ease;
+      }
+
+      .nav-links.open {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .nav-links a:not(.btn) {
+        color: var(--navy);
+        font-size: 1.2rem;
+        text-shadow: none;
+      }
+
+      .menu-toggle {
+        display: grid;
+        flex: 0 0 auto;
+        place-items: center;
+      }
+    }
+
     @media (max-width: 980px) {
       .nav-links {
         position: fixed;
@@ -1556,7 +1631,7 @@
       }
 
       .quick-search-inner {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
       .quick-search-inner .btn {
@@ -1564,12 +1639,18 @@
       }
 
       .hero-content {
-        width: 56%;
-        max-width: 550px;
+        width: min(calc(100% - 40px), var(--container));
+        max-width: var(--container);
+        margin-inline: auto;
       }
 
       .hero h1 {
+        max-width: min(550px, 58%);
         font-size: clamp(2.7rem, 5.2vw, 4.1rem);
+      }
+
+      .hero-description {
+        max-width: min(540px, 58%);
       }
 
       .package-search-box {
@@ -1582,11 +1663,11 @@
       }
 
       .packages-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .search-results-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .about-intro {
@@ -1598,20 +1679,20 @@
       }
 
       .trust-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
       .destinations-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .subcategory-grid,
       .explorer-packages {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .benefits-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .social-grid,
@@ -1639,7 +1720,7 @@
 
       .brand {
         width: 118px;
-        margin-left: 4px;
+        margin: 0;
       }
 
       .hero {
@@ -1648,9 +1729,9 @@
       }
 
       .hero-content {
-        width: 100%;
+        width: min(calc(100% - 28px), var(--container));
         max-width: 520px;
-        margin-left: 8px;
+        margin-inline: auto;
         padding-top: 110px;
         padding-bottom: 110px;
       }
@@ -1676,6 +1757,7 @@
 
       .search-heading h2 {
         font-size: clamp(1.08rem, 5.2vw, 1.42rem);
+        text-wrap: pretty;
       }
 
       .hero-actions {
@@ -2668,6 +2750,10 @@
     });
 
     navLinks.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+    const desktopNavigation = window.matchMedia("(min-width: 1101px)");
+    desktopNavigation.addEventListener("change", (event) => {
+      if (event.matches) closeMenu();
+    });
     window.addEventListener("scroll", updateHeader, { passive: true });
     updateHeader();
 
