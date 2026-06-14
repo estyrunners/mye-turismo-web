@@ -1216,25 +1216,22 @@
 
     .subcategory-card {
       position: relative;
-      min-height: 145px;
+      min-height: 190px;
       padding: 24px;
       overflow: hidden;
       border: 1px solid rgba(18, 52, 71, 0.08);
       border-radius: 18px;
       text-align: left;
-      color: var(--navy);
-      background: linear-gradient(145deg, var(--white), var(--turquoise-soft));
+      color: var(--white);
+      background-position: center;
+      background-size: cover;
       transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .subcategory-card::after {
+    .subcategory-card::before {
       position: absolute;
-      right: -32px;
-      bottom: -38px;
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      background: rgba(8, 152, 155, 0.08);
+      inset: 0;
+      background: linear-gradient(180deg, rgba(8, 34, 48, 0.16), rgba(8, 34, 48, 0.9));
       content: "";
     }
 
@@ -1245,9 +1242,11 @@
     }
 
     .subcategory-card small {
+      position: relative;
+      z-index: 1;
       display: block;
       margin-bottom: 9px;
-      color: var(--turquoise-dark);
+      color: var(--sand);
       font-size: 0.68rem;
       font-weight: 800;
       letter-spacing: 0.11em;
@@ -1264,12 +1263,37 @@
       line-height: 1.22;
     }
 
+    .subcategory-cover-icon {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      width: 40px;
+      height: 40px;
+      margin-bottom: 26px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.18);
+      font-size: 1.15rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .subcategory-count {
+      position: relative;
+      z-index: 1;
+      display: block;
+      margin-top: 8px;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.74rem;
+      font-weight: 700;
+    }
+
     .subcategory-card .icon {
       position: absolute;
       z-index: 1;
       right: 20px;
       bottom: 19px;
-      color: var(--turquoise);
+      color: var(--white);
     }
 
     .explorer-packages {
@@ -1280,6 +1304,30 @@
 
     .catalog-card .package-body p {
       min-height: auto;
+    }
+
+    .catalog-card .package-image {
+      height: auto;
+      aspect-ratio: 9 / 16;
+      background: var(--turquoise-soft);
+    }
+
+    .catalog-card .package-image img {
+      object-fit: cover;
+    }
+
+    .catalog-card h3 {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+    }
+
+    .heading-icon {
+      flex: 0 0 auto;
+      color: var(--turquoise-dark);
+      font-family: Arial, sans-serif;
+      font-size: 0.8em;
+      line-height: 1.35;
     }
 
     .catalog-details {
@@ -2729,32 +2777,202 @@
       argentina: {
         title: "Argentina",
         categories: [
-          { key: "noa", title: "Norte Argentino / NOA", packages: [] },
-          { key: "patagonia", title: "Patagonia", packages: [] },
-          { key: "litoral", title: "Litoral", packages: [] },
-          { key: "cuyo", title: "Cuyo", packages: [] },
-          { key: "centro", title: "Centro", packages: [] },
-          { key: "buenos-aires", title: "Buenos Aires", packages: [] }
+          { key: "noa", title: "Norte Argentino / NOA", icon: "⛰️", image: "destacado-salta-julio.jpeg", packages: [] },
+          { key: "patagonia", title: "Patagonia", icon: "🏔️", image: "https://images.unsplash.com/photo-1601000785686-c45240e25f25?auto=format&fit=crop&w=900&q=85", packages: [] },
+          {
+            key: "litoral",
+            title: "Litoral",
+            icon: "🌿",
+            image: "argentina-federacion-septiembre.jpeg",
+            packages: [
+              {
+                name: "Federación - Entre Ríos",
+                icon: "♨️",
+                destination: "Federación, Entre Ríos",
+                duration: "3 días / 2 noches",
+                departures: "11 y 25 de septiembre",
+                description: "Hotel con clima termal suite, media pensión, coordinador permanente y traslado en bus mix.",
+                price: "$246.490 + gastos administrativos",
+                image: "argentina-federacion-septiembre.jpeg"
+              }
+            ]
+          },
+          { key: "cuyo", title: "Cuyo", icon: "🍇", image: "destacado-mendoza-cacheuta-julio.jpeg", packages: [] },
+          { key: "centro", title: "Centro", icon: "🧭", image: "destacado-san-luis-julio.jpeg", packages: [] },
+          { key: "buenos-aires", title: "Buenos Aires", icon: "🌊", image: "destacado-mar-del-plata-julio.jpeg", packages: [] }
         ]
       },
       escapadas: {
         title: "Escapadas",
         categories: [
-          { key: "fin-de-semana", title: "Escapadas de fin de semana", packages: [] },
-          { key: "romanticas", title: "Escapadas románticas", packages: [] },
-          { key: "familiares", title: "Escapadas familiares", packages: [] },
-          { key: "relax-spa", title: "Escapadas relax / spa", packages: [] },
-          { key: "naturaleza", title: "Escapadas naturaleza", packages: [] }
+          { key: "fin-de-semana", title: "Escapadas de fin de semana", icon: "🧳", image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=85", packages: [] },
+          { key: "romanticas", title: "Escapadas románticas", icon: "♡", image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=85", packages: [] },
+          { key: "familiares", title: "Escapadas familiares", icon: "👨‍👩‍👧", image: "https://images.unsplash.com/photo-1504150558240-0b4fd8946624?auto=format&fit=crop&w=900&q=85", packages: [] },
+          { key: "relax-spa", title: "Escapadas relax / spa", icon: "♨️", image: "full-day-villa-elisa-agosto-septiembre.jpeg", packages: [] },
+          { key: "naturaleza", title: "Escapadas naturaleza", icon: "🌱", image: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=85", packages: [] }
         ]
       },
       "full-day": {
         title: "Full Day",
         categories: [
-          { key: "culturales", title: "Full day culturales", packages: [] },
-          { key: "naturaleza", title: "Full day naturaleza", packages: [] },
-          { key: "gastronomicos", title: "Full day gastronómicos", packages: [] },
-          { key: "historicos", title: "Full day históricos", packages: [] },
-          { key: "aventura", title: "Full day aventura", packages: [] }
+          {
+            key: "dia-del-maestro",
+            title: "Día del Maestro",
+            icon: "🎓",
+            image: "full-day-maestro-villa-elisa.jpeg",
+            packages: [
+              {
+                name: "Día del Maestro en Termas Villa Elisa",
+                icon: "🎓",
+                destination: "Villa Elisa, Entre Ríos",
+                duration: "Full Day",
+                departures: "13 de septiembre",
+                description: "Traslado ida y vuelta, entrada al complejo termal, visita a regionales y coordinador permanente.",
+                price: "$99.990 en efectivo",
+                image: "full-day-maestro-villa-elisa.jpeg"
+              },
+              {
+                name: "Día del Maestro en Termas Colón",
+                icon: "🎓",
+                destination: "Colón, Entre Ríos",
+                duration: "Full Day",
+                departures: "12 de septiembre",
+                description: "Traslado ida y vuelta, entrada al complejo termal, visita a regionales y coordinador permanente.",
+                price: "$94.990 en efectivo",
+                image: "full-day-maestro-colon.jpeg"
+              }
+            ]
+          },
+          {
+            key: "culturales",
+            title: "Full day culturales",
+            icon: "🎭",
+            image: "full-day-gran-pena-agosto.jpeg",
+            packages: [
+              {
+                name: "La Gran Peña",
+                icon: "🎭",
+                destination: "Los Cardales",
+                duration: "Full Day",
+                departures: "8 de agosto",
+                description: "Parrilla libre con bebida, bandas musicales, ballet de folklore, paseos a caballo, desayuno, merienda y traslados.",
+                price: "$99.990 en efectivo",
+                image: "full-day-gran-pena-agosto.jpeg"
+              },
+              {
+                name: "Virgen San Nicolás y Rosario",
+                icon: "⛪",
+                destination: "San Nicolás y Rosario",
+                duration: "Full Day",
+                departures: "15 de agosto y 12 de septiembre",
+                description: "Almuerzo en Rosario, visita al Santuario de la Virgen de San Nicolás y Monumento a la Bandera.",
+                price: "$99.990 en efectivo",
+                image: "full-day-rosario-san-nicolas.jpeg"
+              }
+            ]
+          },
+          {
+            key: "naturaleza",
+            title: "Full day naturaleza",
+            icon: "🌿",
+            image: "full-day-laguna-chascomus.jpeg",
+            packages: [
+              {
+                name: "Termas Villa Elisa",
+                icon: "♨️",
+                destination: "Villa Elisa, Entre Ríos",
+                duration: "Full Day",
+                departures: "9 y 30 de agosto; 13 y 20 de septiembre",
+                description: "Traslado, entrada al complejo termal, visita a regionales y coordinador permanente.",
+                price: "$99.990 en efectivo",
+                image: "full-day-villa-elisa-agosto-septiembre.jpeg"
+              },
+              {
+                name: "Termas Colón",
+                icon: "♨️",
+                destination: "Colón, Entre Ríos",
+                duration: "Full Day",
+                departures: "16 de agosto y 27 de septiembre",
+                description: "Traslado, entrada al complejo termal, visita a regionales y coordinador permanente.",
+                price: "$94.990 en efectivo",
+                image: "full-day-colon-agosto-septiembre.jpeg"
+              },
+              {
+                name: "San Pedro y la Campiña",
+                icon: "🌾",
+                destination: "San Pedro",
+                duration: "Full Day",
+                departures: "15 y 29 de agosto; 6 y 27 de septiembre",
+                description: "Almuerzo con parrilla libre, visita a La Campiña y Vuelta de Obligado.",
+                price: "$99.990 en efectivo",
+                image: "full-day-san-pedro-campina.jpeg"
+              },
+              {
+                name: "Laguna de Chascomús",
+                icon: "🌊",
+                destination: "Chascomús",
+                duration: "Full Day",
+                departures: "22 de agosto y 20 de septiembre",
+                description: "Almuerzo con parrilla libre, paseo guiado y tiempo libre en la costanera.",
+                price: "$99.990 en efectivo",
+                image: "full-day-laguna-chascomus.jpeg"
+              }
+            ]
+          },
+          {
+            key: "gastronomicos",
+            title: "Full day gastronómicos",
+            icon: "🍽️",
+            image: "full-day-tomas-jofre-lujan.jpeg",
+            packages: [
+              {
+                name: "Tomás Jofré y Luján",
+                icon: "🍽️",
+                destination: "Tomás Jofré y Luján",
+                duration: "Full Day",
+                departures: "23 de agosto y 12 de septiembre",
+                description: "Almuerzo completo, visita a la Basílica de Luján, show de folklore y coordinador permanente.",
+                price: "$99.990 en efectivo",
+                image: "full-day-tomas-jofre-lujan.jpeg"
+              }
+            ]
+          },
+          {
+            key: "historicos",
+            title: "Full day históricos",
+            icon: "🏛️",
+            image: "full-day-san-antonio-areco.jpeg",
+            packages: [
+              {
+                name: "San Antonio de Areco",
+                icon: "🏛️",
+                destination: "San Antonio de Areco",
+                duration: "Full Day",
+                departures: "16 de agosto y 27 de septiembre",
+                description: "Desayuno, almuerzo con parrilla libre, city tour con guía local, merienda y coordinador.",
+                price: "$99.990 en efectivo",
+                image: "full-day-san-antonio-areco.jpeg"
+              }
+            ]
+          },
+          {
+            key: "aventura",
+            title: "Full day aventura",
+            icon: "🥾",
+            image: "full-day-tandil.jpeg",
+            packages: [
+              {
+                name: "Tandil Full Day",
+                icon: "🥾",
+                destination: "Tandil",
+                duration: "Full Day",
+                departures: "29 de agosto y 26 de septiembre",
+                description: "Almuerzo, Lago del Fuerte, La Movediza, Centinela, Calvario y visita a regionales.",
+                price: "$114.990 en efectivo",
+                image: "full-day-tandil.jpeg"
+              }
+            ]
+          }
         ]
       }
     };
@@ -2830,14 +3048,16 @@
 
       activeCatalogKey = catalogKey;
       explorerBreadcrumb.textContent = `Destinos / ${catalog.title}`;
-      explorerTitle.textContent = `Elegí una categoría de ${catalog.title}`;
+      explorerTitle.textContent = `🧭 Elegí una categoría de ${catalog.title}`;
       explorerBack.classList.remove("visible");
       explorerContent.innerHTML = `
         <div class="subcategory-grid">
           ${catalog.categories.map((category) => `
-            <button class="subcategory-card" type="button" data-category="${category.key}">
+            <button class="subcategory-card" type="button" data-category="${category.key}" style="background-image: url('${category.image}')">
+              <span class="subcategory-cover-icon" aria-hidden="true">${category.icon || "✦"}</span>
               <small>${catalog.title}</small>
               <strong>${category.title}</strong>
+              <span class="subcategory-count">${category.packages.length ? `${category.packages.length} ${category.packages.length === 1 ? "propuesta" : "propuestas"}` : "Próximamente"}</span>
               <svg class="icon"><use href="#icon-arrow"></use></svg>
             </button>
           `).join("")}
@@ -2859,7 +3079,7 @@
           <span class="package-tag">${categoryTitle}</span>
         </div>
         <div class="package-body">
-          <h3>${item.name}</h3>
+          <h3><span class="heading-icon" aria-hidden="true">${item.icon || "✦"}</span>${item.name}</h3>
           ${item.description ? `<p>${item.description}</p>` : ""}
           <div class="catalog-details">
             ${item.destination ? `<div class="catalog-detail"><span>Destino</span><strong>${item.destination}</strong></div>` : ""}
@@ -2887,7 +3107,7 @@
       if (!catalog || !category) return;
 
       explorerBreadcrumb.textContent = `Destinos / ${catalog.title} / ${category.title}`;
-      explorerTitle.textContent = category.title;
+      explorerTitle.textContent = `${category.icon || "✦"} ${category.title}`;
       explorerBack.classList.add("visible");
 
       explorerContent.innerHTML = category.packages.length
