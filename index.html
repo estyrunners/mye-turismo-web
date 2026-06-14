@@ -1308,12 +1308,12 @@
 
     .catalog-card .package-image {
       height: auto;
-      aspect-ratio: 9 / 16;
-      background: var(--turquoise-soft);
+      aspect-ratio: 3 / 4;
+      background: var(--white);
     }
 
     .catalog-card .package-image img {
-      object-fit: cover;
+      object-fit: contain;
     }
 
     .catalog-card h3 {
@@ -2777,13 +2777,13 @@
       argentina: {
         title: "Argentina",
         categories: [
-          { key: "noa", title: "Norte Argentino / NOA", icon: "⛰️", image: "destacado-salta-julio.jpeg", packages: [] },
+          { key: "noa", title: "Norte Argentino / NOA", icon: "⛰️", image: "https://images.unsplash.com/photo-1531761535209-180857e963b9?auto=format&fit=crop&w=900&q=85", packages: [] },
           { key: "patagonia", title: "Patagonia", icon: "🏔️", image: "https://images.unsplash.com/photo-1601000785686-c45240e25f25?auto=format&fit=crop&w=900&q=85", packages: [] },
           {
             key: "litoral",
             title: "Litoral",
             icon: "🌿",
-            image: "argentina-federacion-septiembre.jpeg",
+            image: "https://images.unsplash.com/photo-1544985361-b420d7a77043?auto=format&fit=crop&w=900&q=85",
             packages: [
               {
                 name: "Federación - Entre Ríos",
@@ -2797,9 +2797,9 @@
               }
             ]
           },
-          { key: "cuyo", title: "Cuyo", icon: "🍇", image: "destacado-mendoza-cacheuta-julio.jpeg", packages: [] },
-          { key: "centro", title: "Centro", icon: "🧭", image: "destacado-san-luis-julio.jpeg", packages: [] },
-          { key: "buenos-aires", title: "Buenos Aires", icon: "🌊", image: "destacado-mar-del-plata-julio.jpeg", packages: [] }
+          { key: "cuyo", title: "Cuyo", icon: "🍇", image: "https://images.unsplash.com/photo-1598301257982-0cf014dabbcd?auto=format&fit=crop&w=900&q=85", packages: [] },
+          { key: "centro", title: "Centro", icon: "🧭", image: "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=900&q=85", packages: [] },
+          { key: "buenos-aires", title: "Buenos Aires", icon: "🌊", image: "https://images.unsplash.com/photo-1589909202802-8f4aadce1849?auto=format&fit=crop&w=900&q=85", packages: [] }
         ]
       },
       escapadas: {
@@ -2808,7 +2808,7 @@
           { key: "fin-de-semana", title: "Escapadas de fin de semana", icon: "🧳", image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=85", packages: [] },
           { key: "romanticas", title: "Escapadas románticas", icon: "♡", image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=85", packages: [] },
           { key: "familiares", title: "Escapadas familiares", icon: "👨‍👩‍👧", image: "https://images.unsplash.com/photo-1504150558240-0b4fd8946624?auto=format&fit=crop&w=900&q=85", packages: [] },
-          { key: "relax-spa", title: "Escapadas relax / spa", icon: "♨️", image: "full-day-villa-elisa-agosto-septiembre.jpeg", packages: [] },
+          { key: "relax-spa", title: "Escapadas relax / spa", icon: "♨️", image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=900&q=85", packages: [] },
           { key: "naturaleza", title: "Escapadas naturaleza", icon: "🌱", image: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=85", packages: [] }
         ]
       },
@@ -2819,7 +2819,7 @@
             key: "dia-del-maestro",
             title: "Día del Maestro",
             icon: "🎓",
-            image: "full-day-maestro-villa-elisa.jpeg",
+            image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=85",
             packages: [
               {
                 name: "Día del Maestro en Termas Villa Elisa",
@@ -2840,6 +2840,56 @@
                 description: "Traslado ida y vuelta, entrada al complejo termal, visita a regionales y coordinador permanente.",
                 price: "$94.990 en efectivo",
                 image: "full-day-maestro-colon.jpeg"
+              },
+              {
+                name: "Día del Maestro en Termas de Dolores",
+                icon: "🎓",
+                destination: "Dolores",
+                duration: "Full Day",
+                departures: "11 y 13 de septiembre",
+                description: "Traslados ida y vuelta, entrada a las termas y coordinador.",
+                price: "$85.999",
+                image: "full-day-maestro-dolores.jpeg"
+              },
+              {
+                name: "Día del Maestro en Termas de San José",
+                icon: "🎓",
+                destination: "San José, Entre Ríos",
+                duration: "Full Day",
+                departures: "11 y 13 de septiembre",
+                description: "Traslados ida y vuelta, entrada a las termas y coordinador.",
+                price: "$94.999",
+                image: "full-day-maestro-san-jose.jpeg"
+              },
+              {
+                name: "Día del Maestro en Tandil",
+                icon: "🎓",
+                destination: "Tandil",
+                duration: "Full Day",
+                departures: "11 y 13 de septiembre",
+                description: "Traslados ida y vuelta, excursiones tradicionales y coordinador.",
+                price: "$99.999",
+                image: "full-day-maestro-tandil.jpeg"
+              },
+              {
+                name: "Día del Maestro en San Pedro",
+                icon: "🎓",
+                destination: "San Pedro",
+                duration: "Full Day",
+                departures: "11 y 13 de septiembre",
+                description: "Traslados, almuerzo en parrilla, Vuelta de Obligado, fábrica de ensaimadas y coordinador guía.",
+                price: "$99.999",
+                image: "full-day-maestro-san-pedro.jpeg"
+              },
+              {
+                name: "Día del Maestro en Isla Martín García",
+                icon: "🎓",
+                destination: "Isla Martín García",
+                duration: "Full Day",
+                departures: "11 y 13 de septiembre",
+                description: "Traslado en bus, navegación, visita guiada, almuerzo en restaurante y coordinador.",
+                price: "$189.999",
+                image: "full-day-maestro-martin-garcia.jpeg"
               }
             ]
           },
@@ -2847,7 +2897,7 @@
             key: "culturales",
             title: "Full day culturales",
             icon: "🎭",
-            image: "full-day-gran-pena-agosto.jpeg",
+            image: "https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=900&q=85",
             packages: [
               {
                 name: "La Gran Peña",
@@ -2875,7 +2925,7 @@
             key: "naturaleza",
             title: "Full day naturaleza",
             icon: "🌿",
-            image: "full-day-laguna-chascomus.jpeg",
+            image: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=85",
             packages: [
               {
                 name: "Termas Villa Elisa",
@@ -2923,7 +2973,7 @@
             key: "gastronomicos",
             title: "Full day gastronómicos",
             icon: "🍽️",
-            image: "full-day-tomas-jofre-lujan.jpeg",
+            image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=85",
             packages: [
               {
                 name: "Tomás Jofré y Luján",
@@ -2941,7 +2991,7 @@
             key: "historicos",
             title: "Full day históricos",
             icon: "🏛️",
-            image: "full-day-san-antonio-areco.jpeg",
+            image: "https://images.unsplash.com/photo-1564399579883-451a5d44ec08?auto=format&fit=crop&w=900&q=85",
             packages: [
               {
                 name: "San Antonio de Areco",
@@ -2959,7 +3009,7 @@
             key: "aventura",
             title: "Full day aventura",
             icon: "🥾",
-            image: "full-day-tandil.jpeg",
+            image: "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=900&q=85",
             packages: [
               {
                 name: "Tandil Full Day",
