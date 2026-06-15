@@ -3270,6 +3270,14 @@
         image: "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=900&q=85"
       },
       {
+        key: "termales",
+        title: "Paquetes Termales",
+        subtitle: "Relax y bienestar",
+        icon: "♨️",
+        internal: true,
+        image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=900&q=85"
+      },
+      {
         key: "a-medida",
         title: "Viajes a Medida",
         subtitle: "Diseñados para vos",
@@ -3299,7 +3307,26 @@
         title: "Argentina",
         categories: [
           { key: "patagonia", title: "Patagonia", icon: "🏔️", image: "https://images.unsplash.com/photo-1601000785686-c45240e25f25?auto=format&fit=crop&w=900&q=85", packages: [] },
-          { key: "noa", title: "Norte Argentino / NOA", icon: "⛰️", image: "https://images.unsplash.com/photo-1531761535209-180857e963b9?auto=format&fit=crop&w=900&q=85", packages: [] },
+          {
+            key: "noa",
+            title: "Norte Argentino / NOA",
+            icon: "⛰️",
+            image: "https://images.unsplash.com/photo-1531761535209-180857e963b9?auto=format&fit=crop&w=900&q=85",
+            description: "Colores, cultura, quebradas y paisajes inolvidables. Inspirate y consultanos por paquetes al Norte Argentino.",
+            videos: [
+              {
+                id: "P0PW2TU39Sc",
+                title: "Descubrí el Norte Argentino",
+                description: "Una invitación a conocer los paisajes y experiencias que hacen único al NOA."
+              },
+              {
+                id: "wJssWuD-M7k",
+                title: "Experiencias en el NOA",
+                description: "Más inspiración para empezar a planificar tu próximo recorrido por el Norte Argentino."
+              }
+            ],
+            packages: []
+          },
           {
             key: "litoral",
             title: "Litoral",
@@ -3319,8 +3346,55 @@
             ]
           },
           { key: "cuyo", title: "Cuyo", icon: "🍇", image: "https://images.unsplash.com/photo-1598301257982-0cf014dabbcd?auto=format&fit=crop&w=900&q=85", packages: [] },
-          { key: "centro", title: "Centro", icon: "🧭", image: "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=900&q=85", packages: [] },
-          { key: "buenos-aires", title: "Buenos Aires", icon: "🌊", image: "https://images.unsplash.com/photo-1589909202802-8f4aadce1849?auto=format&fit=crop&w=900&q=85", packages: [] }
+          {
+            key: "centro",
+            title: "Centro",
+            icon: "🧭",
+            image: "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=900&q=85",
+            description: "Sierras, pueblos y circuitos para disfrutar el corazón de Argentina. Consultanos por propuestas disponibles.",
+            videos: [
+              {
+                id: "P8trQ-Ra_H0",
+                title: "Descubrí el Centro de Argentina",
+                description: "Ideas y paisajes para inspirar tu próxima experiencia por la región Centro."
+              },
+              {
+                id: "GPtrcidbDIg",
+                title: "Otra mirada del Centro",
+                description: "Nuevos rincones y experiencias para seguir descubriendo el centro del país."
+              }
+            ],
+            packages: []
+          },
+          {
+            key: "buenos-aires",
+            title: "Buenos Aires",
+            icon: "🌊",
+            image: "https://images.unsplash.com/photo-1589909202802-8f4aadce1849?auto=format&fit=crop&w=900&q=85",
+            packages: [],
+            subcategories: [
+              {
+                key: "costa-argentina",
+                title: "Costa Argentina",
+                icon: "🏖️",
+                image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=85",
+                description: "Playas, paseos y destinos para disfrutar la costa bonaerense. Mirá los videos y consultanos.",
+                videos: [
+                  {
+                    id: "sWDAzXzFj4A",
+                    title: "Costa Argentina",
+                    description: "Inspiración para elegir tu próxima escapada frente al mar."
+                  },
+                  {
+                    id: "K8LN9f3oeB4",
+                    title: "Más destinos de la Costa Argentina",
+                    description: "Conocé nuevas opciones para disfrutar la costa en cualquier época del año."
+                  }
+                ],
+                packages: []
+              }
+            ]
+          }
         ]
       },
       escapadas: {
@@ -3330,7 +3404,37 @@
           { key: "romanticas", title: "Escapadas románticas", icon: "♡", image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=85", packages: [] },
           { key: "familiares", title: "Escapadas familiares", icon: "👨‍👩‍👧", image: "https://images.unsplash.com/photo-1504150558240-0b4fd8946624?auto=format&fit=crop&w=900&q=85", packages: [] },
           { key: "relax-spa", title: "Escapadas relax / spa", icon: "♨️", image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=900&q=85", packages: [] },
-          { key: "naturaleza", title: "Escapadas naturaleza", icon: "🌱", image: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=85", packages: [] }
+          { key: "naturaleza", title: "Escapadas naturaleza", icon: "🌱", image: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=85", packages: [] },
+          {
+            key: "buenos-aires",
+            title: "Escapadas Buenos Aires",
+            icon: "🏙️",
+            image: "https://images.unsplash.com/photo-1589909202802-8f4aadce1849?auto=format&fit=crop&w=900&q=85",
+            description: "Ideas para cortar la rutina y descubrir Buenos Aires. Consultanos por próximas escapadas.",
+            videos: [
+              {
+                id: "oxZYUyqu878",
+                title: "Escapadas por Buenos Aires",
+                description: "Propuestas cercanas para disfrutar, descansar y volver con nuevos recuerdos."
+              }
+            ],
+            packages: []
+          },
+          {
+            key: "litoral",
+            title: "Escapadas al Litoral",
+            icon: "🌿",
+            image: "https://images.unsplash.com/photo-1544985361-b420d7a77043?auto=format&fit=crop&w=900&q=85",
+            description: "Naturaleza, termas y destinos con identidad propia. Inspirate y consultanos por el Litoral.",
+            videos: [
+              {
+                id: "f9YDr9Gvhds",
+                title: "Escapadas al Litoral",
+                description: "Una mirada a las experiencias que podés vivir en el Litoral argentino."
+              }
+            ],
+            packages: []
+          }
         ]
       },
       "aereos-nacionales": {
@@ -3353,6 +3457,13 @@
             icon: "🇧🇷",
             image: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=900&q=85",
             description: "Playas, ciudades vibrantes y naturaleza tropical. Consultanos y armemos tu próximo viaje a Brasil.",
+            videos: [
+              {
+                id: "GL90ZMmH89M",
+                title: "Brasil te espera",
+                description: "Playas, alegría y experiencias para empezar a imaginar tu próximo viaje a Brasil."
+              }
+            ],
             packages: []
           },
           {
@@ -3376,6 +3487,13 @@
             icon: "🌴",
             image: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=900&q=85",
             description: "Playas soñadas y descanso frente al mar. Consultanos y encontremos tu Caribe ideal.",
+            videos: [
+              {
+                id: "XCL85E30Kgs",
+                title: "Caribe: playas para soñar",
+                description: "Inspirate con el mar, la arena y el descanso que puede ofrecerte el Caribe."
+              }
+            ],
             packages: []
           },
           {
@@ -3468,6 +3586,31 @@
             icon: "🛣️",
             image: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=900&q=85",
             description: "Rutas combinadas y nuevas propuestas por Latinoamérica. Contanos qué recorrido buscás.",
+            packages: []
+          }
+        ]
+      },
+      termales: {
+        title: "Paquetes Termales",
+        categories: [
+          {
+            key: "termales",
+            title: "Termales",
+            icon: "♨️",
+            image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=900&q=85",
+            description: "Descanso, bienestar y experiencias termales para renovar energías. Mirá los videos y consultanos.",
+            videos: [
+              {
+                id: "N-ybYBDWi_U",
+                title: "Paquetes termales",
+                description: "Una propuesta para descubrir destinos termales y elegir tu próxima experiencia de relax."
+              },
+              {
+                id: "B427zcL3H6Y",
+                title: "Bienestar en aguas termales",
+                description: "Más inspiración para disfrutar una escapada de descanso y bienestar."
+              }
+            ],
             packages: []
           }
         ]
@@ -3737,6 +3880,8 @@
     const explorerBack = document.getElementById("explorerBack");
     const explorerContent = document.getElementById("explorerContent");
     let activeCatalogKey = "";
+    let activeParentCategoryKey = "";
+    let viewingNestedCategoryContent = false;
 
     const scrollToExplorer = () => {
       const top = destinationExplorer.getBoundingClientRect().top + window.scrollY - 105;
@@ -3748,6 +3893,8 @@
       if (!catalog) return;
 
       activeCatalogKey = catalogKey;
+      activeParentCategoryKey = "";
+      viewingNestedCategoryContent = false;
       explorerBreadcrumb.textContent = `Destinos / ${catalog.title}`;
       if (catalog.customGuide) {
         explorerTitle.textContent = "✦ Diseñemos tu viaje a medida";
@@ -3795,7 +3942,7 @@
               <small>${catalog.title}</small>
               <strong>${category.title}</strong>
               ${category.description ? `<span class="subcategory-description">${category.description}</span>` : ""}
-              <span class="subcategory-count">${category.packages.length ? `${category.packages.length} ${category.packages.length === 1 ? "propuesta" : "propuestas"}` : category.videos?.length ? "Video disponible" : "Próximamente"}</span>
+              <span class="subcategory-count">${category.subcategories?.length ? `${category.subcategories.length} ${category.subcategories.length === 1 ? "subcategoría" : "subcategorías"}` : category.packages.length ? `${category.packages.length} ${category.packages.length === 1 ? "propuesta" : "propuestas"}` : category.videos?.length ? `${category.videos.length} ${category.videos.length === 1 ? "video disponible" : "videos disponibles"}` : "Próximamente"}</span>
               <svg class="icon"><use href="#icon-arrow"></use></svg>
             </button>
           `).join("")}
@@ -3804,7 +3951,44 @@
       destinationExplorer.classList.add("active");
 
       explorerContent.querySelectorAll("[data-category]").forEach((button) => {
-        button.addEventListener("click", () => renderCatalogPackages(catalogKey, button.dataset.category));
+        button.addEventListener("click", () => {
+          const category = catalog.categories.find((item) => item.key === button.dataset.category);
+          if (category?.subcategories?.length) renderNestedCategories(catalogKey, category.key);
+          else renderCatalogPackages(catalogKey, button.dataset.category);
+        });
+      });
+
+      if (shouldScroll) requestAnimationFrame(scrollToExplorer);
+    };
+
+    const renderNestedCategories = (catalogKey, parentCategoryKey, shouldScroll = true) => {
+      const catalog = destinationCatalog[catalogKey];
+      const parentCategory = catalog?.categories.find((item) => item.key === parentCategoryKey);
+      if (!catalog || !parentCategory?.subcategories?.length) return;
+
+      activeCatalogKey = catalogKey;
+      activeParentCategoryKey = parentCategoryKey;
+      viewingNestedCategoryContent = false;
+      explorerBreadcrumb.textContent = `Destinos / ${catalog.title} / ${parentCategory.title}`;
+      explorerTitle.textContent = `${parentCategory.icon || "✦"} Elegí una subcategoría de ${parentCategory.title}`;
+      explorerBack.classList.add("visible");
+      explorerContent.innerHTML = `
+        <div class="subcategory-grid">
+          ${parentCategory.subcategories.map((category) => `
+            <button class="subcategory-card" type="button" data-nested-category="${category.key}" style="background-image: url('${category.image}')">
+              <span class="subcategory-cover-icon" aria-hidden="true">${category.icon || "✦"}</span>
+              <small>${parentCategory.title}</small>
+              <strong>${category.title}</strong>
+              ${category.description ? `<span class="subcategory-description">${category.description}</span>` : ""}
+              <span class="subcategory-count">${category.packages.length ? `${category.packages.length} ${category.packages.length === 1 ? "propuesta" : "propuestas"}` : category.videos?.length ? `${category.videos.length} ${category.videos.length === 1 ? "video disponible" : "videos disponibles"}` : "Próximamente"}</span>
+              <svg class="icon"><use href="#icon-arrow"></use></svg>
+            </button>
+          `).join("")}
+        </div>
+      `;
+
+      explorerContent.querySelectorAll("[data-nested-category]").forEach((button) => {
+        button.addEventListener("click", () => renderCatalogPackages(catalogKey, button.dataset.nestedCategory, parentCategoryKey));
       });
 
       if (shouldScroll) requestAnimationFrame(scrollToExplorer);
@@ -3839,12 +4023,21 @@
       </article>
     `;
 
-    const renderCatalogPackages = (catalogKey, categoryKey) => {
+    const renderCatalogPackages = (catalogKey, categoryKey, parentCategoryKey = "") => {
       const catalog = destinationCatalog[catalogKey];
-      const category = catalog?.categories.find((item) => item.key === categoryKey);
+      const parentCategory = parentCategoryKey
+        ? catalog?.categories.find((item) => item.key === parentCategoryKey)
+        : null;
+      const category = parentCategory
+        ? parentCategory.subcategories?.find((item) => item.key === categoryKey)
+        : catalog?.categories.find((item) => item.key === categoryKey);
       if (!catalog || !category) return;
 
-      explorerBreadcrumb.textContent = `Destinos / ${catalog.title} / ${category.title}`;
+      activeParentCategoryKey = parentCategoryKey;
+      viewingNestedCategoryContent = Boolean(parentCategoryKey);
+      explorerBreadcrumb.textContent = parentCategory
+        ? `Destinos / ${catalog.title} / ${parentCategory.title} / ${category.title}`
+        : `Destinos / ${catalog.title} / ${category.title}`;
       explorerTitle.textContent = `${category.icon || "✦"} ${category.title}`;
       explorerBack.classList.add("visible");
 
@@ -3911,7 +4104,12 @@
       button.addEventListener("click", () => renderCategories(button.dataset.catalog));
     });
 
-    explorerBack.addEventListener("click", () => renderCategories(activeCatalogKey, false));
+    explorerBack.addEventListener("click", () => {
+      if (activeParentCategoryKey && viewingNestedCategoryContent) {
+        renderNestedCategories(activeCatalogKey, activeParentCategoryKey, false);
+      }
+      else renderCategories(activeCatalogKey, false);
+    });
 
     /* Buscador: recorre destacados y todos los paquetes del catálogo interno. */
     const normalizeSearchText = (value = "") =>
