@@ -82,7 +82,7 @@
     }
 
     .header .container {
-      width: min(calc(100% - 48px), var(--container));
+      width: min(calc(100% - 64px), var(--container));
     }
 
     main,
@@ -216,10 +216,11 @@
 
     .nav {
       display: flex;
-      min-height: 82px;
+      min-height: 94px;
       align-items: center;
       justify-content: space-between;
       gap: clamp(18px, 2.5vw, 30px);
+      padding-block: 14px 8px;
     }
 
     .brand {
@@ -241,15 +242,21 @@
       align-items: center;
       justify-content: flex-end;
       gap: clamp(14px, 2vw, 27px);
+      padding: 7px 9px 7px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.66);
+      box-shadow: 0 8px 24px rgba(18, 52, 71, 0.08);
       list-style: none;
+      backdrop-filter: blur(12px);
     }
 
     .nav-links a:not(.btn) {
-      color: #123447;
+      color: #092f42;
       font-size: 0.9rem;
-      font-weight: 700;
-      text-shadow: 0 1px 8px rgba(255, 255, 255, 0.42);
-      transition: color 0.2s ease;
+      font-weight: 800;
+      text-shadow: none;
+      transition: color 0.2s ease, transform 0.2s ease;
     }
 
     .header.scrolled .nav-links a:not(.btn) {
@@ -257,7 +264,8 @@
     }
 
     .nav-links a:not(.btn):hover {
-      color: var(--turquoise-dark);
+      color: var(--turquoise);
+      transform: translateY(-1px);
     }
 
     .header.scrolled .nav-links a:not(.btn):hover {
@@ -433,11 +441,13 @@
       justify-content: center;
       gap: 14px;
       padding: 13px 20px;
-      border: 1px solid rgba(8, 152, 155, 0.14);
+      border: 1px solid rgba(8, 152, 155, 0.22);
       border-radius: 18px;
       color: var(--navy);
-      background: linear-gradient(135deg, var(--white), var(--turquoise-soft));
-      box-shadow: 0 10px 28px rgba(18, 52, 71, 0.06);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(226, 249, 247, 0.95)),
+        var(--white);
+      box-shadow: 0 12px 30px rgba(18, 52, 71, 0.08);
       text-align: center;
     }
 
@@ -468,20 +478,34 @@
       font-size: 0.84rem;
     }
 
+    .construction-status {
+      display: inline-flex;
+      margin-right: 7px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      color: var(--turquoise-dark);
+      background: rgba(8, 152, 155, 0.12);
+      font-family: "Manrope", sans-serif;
+      font-size: 0.66rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
     /* Buscador de paquetes */
     .package-search-section {
-      padding: 46px 0 24px;
+      padding: 30px 0 18px;
     }
 
     .package-search-box {
       position: relative;
       display: grid;
-      grid-template-columns: minmax(330px, 0.9fr) minmax(0, 1.35fr);
+      grid-template-columns: minmax(300px, 0.82fr) minmax(0, 1.45fr);
       align-items: center;
-      gap: clamp(24px, 4vw, 54px);
+      gap: clamp(20px, 3vw, 42px);
       overflow: hidden;
-      padding: 24px clamp(24px, 4vw, 40px);
-      border-radius: 24px;
+      padding: 18px clamp(22px, 3vw, 34px);
+      border-radius: 21px;
       color: var(--white);
       background: var(--navy);
       box-shadow: var(--shadow);
@@ -519,15 +543,15 @@
     .search-heading h2 {
       margin-bottom: 5px;
       font-family: "Playfair Display", serif;
-      font-size: clamp(1.35rem, 1.65vw, 1.6rem);
+      font-size: clamp(1.16rem, 1.5vw, 1.45rem);
       line-height: 1.05;
-      text-wrap: balance;
+      white-space: nowrap;
     }
 
     .search-heading p {
       color: rgba(255, 255, 255, 0.7);
-      font-size: 0.82rem;
-      line-height: 1.45;
+      font-size: 0.78rem;
+      line-height: 1.35;
     }
 
     .package-search-form {
@@ -556,7 +580,7 @@
 
     .package-search-input {
       width: 100%;
-      height: 52px;
+      height: 48px;
       padding: 0 20px 0 52px;
       border: 0;
       border-radius: 999px;
@@ -804,7 +828,7 @@
 
     .media-carousel {
       display: grid;
-      grid-auto-columns: minmax(680px, 760px);
+      grid-auto-columns: minmax(560px, 630px);
       grid-auto-flow: column;
       gap: 22px;
       overflow-x: auto;
@@ -817,10 +841,10 @@
 
     .media-card {
       display: grid;
-      grid-template-columns: 300px minmax(0, 1fr);
+      grid-template-columns: 220px minmax(0, 1fr);
       width: 100%;
       min-width: 0;
-      min-height: 440px;
+      min-height: 360px;
       overflow: hidden;
       border: 1px solid rgba(18, 52, 71, 0.08);
       border-radius: 24px;
@@ -832,7 +856,7 @@
     .media-cover {
       position: relative;
       min-width: 0;
-      min-height: 440px;
+      min-height: 360px;
       overflow: hidden;
       background: var(--turquoise-soft);
     }
@@ -840,7 +864,7 @@
     .media-cover img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       object-position: center top;
       transition: transform 0.45s ease;
     }
@@ -870,7 +894,7 @@
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
-      padding: clamp(30px, 4vw, 44px);
+      padding: clamp(26px, 3vw, 36px);
     }
 
     .media-card-content small {
@@ -885,14 +909,15 @@
       margin-bottom: 14px;
       color: var(--navy);
       font-family: "Playfair Display", serif;
-      font-size: clamp(1.7rem, 2.6vw, 2.3rem);
+      font-size: clamp(1.5rem, 2.2vw, 2rem);
       line-height: 1.12;
       overflow-wrap: anywhere;
     }
 
     .media-card-content p {
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       color: var(--muted);
+      font-size: 0.91rem;
       overflow-wrap: anywhere;
     }
 
@@ -1786,6 +1811,22 @@
       color: var(--turquoise);
     }
 
+    .social-button-primary {
+      margin-bottom: 8px;
+      border-color: transparent;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--turquoise), var(--turquoise-dark));
+      box-shadow: 0 14px 28px rgba(8, 152, 155, 0.24);
+    }
+
+    .social-button-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .social-button-primary span:last-child {
+      color: var(--white);
+    }
+
     /* Contacto */
     .contact-wrap {
       display: grid;
@@ -1974,9 +2015,13 @@
         align-items: center;
         justify-content: center;
         gap: 26px;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
         visibility: hidden;
         opacity: 0;
         background: rgba(255, 255, 255, 0.98);
+        box-shadow: none;
         transition: opacity 0.25s ease, visibility 0.25s ease;
       }
 
@@ -2007,6 +2052,9 @@
         align-items: center;
         justify-content: center;
         gap: 26px;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
         visibility: hidden;
         opacity: 0;
         background: rgba(255, 255, 255, 0.98);
@@ -2125,12 +2173,13 @@
       }
 
       .nav {
-        min-height: 74px;
+        min-height: 90px;
+        padding-block: 12px 7px;
       }
 
       .brand {
         width: 118px;
-        margin: 0;
+        margin-left: 5px;
       }
 
       .hero {
@@ -2156,18 +2205,18 @@
       }
 
       .package-search-section {
-        padding: 32px 0 18px;
+        padding: 24px 0 14px;
       }
 
       .package-search-box {
-        gap: 18px;
-        padding: 22px 18px;
+        gap: 14px;
+        padding: 17px 16px;
         border-radius: 20px;
       }
 
       .search-heading h2 {
-        font-size: clamp(1.08rem, 5.2vw, 1.42rem);
-        text-wrap: pretty;
+        font-size: clamp(0.98rem, 4.5vw, 1.28rem);
+        white-space: nowrap;
       }
 
       .hero-actions {
@@ -2232,7 +2281,7 @@
       }
 
       .media-carousel {
-        grid-auto-columns: 88vw;
+        grid-auto-columns: min(88vw, 420px);
       }
 
       .weekly-heading {
@@ -2269,11 +2318,11 @@
 
       .media-cover {
         min-height: 0;
-        aspect-ratio: 4 / 5;
+        aspect-ratio: 4 / 3;
       }
 
       .media-card-content {
-        min-height: 280px;
+        min-height: 250px;
         padding: 26px 24px;
       }
 
@@ -2414,6 +2463,7 @@
     <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2.1Z"/></symbol>
     <symbol id="icon-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
     <symbol id="icon-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3Z"/></symbol>
+    <symbol id="icon-music" viewBox="0 0 24 24"><path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></symbol>
   </svg>
 
   <header class="header" id="header">
@@ -2491,8 +2541,8 @@
             <svg class="icon"><use href="#icon-progress"></use></svg>
           </span>
           <div>
-            <strong>Página en construcción</strong>
-            <span>No te pierdas las actualizaciones: estamos sumando nuevas propuestas y destinos.</span>
+            <strong><span class="construction-status">Sitio en expansión</span>Página en construcción</strong>
+            <span>No te pierdas las actualizaciones: cada semana sumamos nuevas propuestas, destinos y herramientas para viajar mejor.</span>
           </div>
         </div>
       </div>
@@ -2680,8 +2730,8 @@
       <div class="container">
         <div class="media-heading-row">
           <div class="section-heading">
-            <span class="eyebrow">Contenido para inspirarte</span>
-            <h2>Guías, historias y videos</h2>
+            <span class="eyebrow">🎬 Contenido para inspirarte</span>
+            <h2>✦ Guías, historias y videos</h2>
             <p>Recursos creados por Estela para acompañarte también antes de elegir y preparar tu viaje.</p>
           </div>
           <div class="carousel-controls" aria-label="Controles del carrusel">
@@ -2760,8 +2810,8 @@
     <section class="section section-soft" id="destinos">
       <div class="container">
         <div class="section-heading">
-          <span class="eyebrow">Un mundo para descubrir</span>
-          <h2>Elegí tu próximo destino</h2>
+          <span class="eyebrow">🧭 Un mundo para descubrir</span>
+          <h2>✦ Elegí tu próximo destino</h2>
           <p>Desde una salida de un día hasta ese gran viaje que soñás hace años.</p>
         </div>
         <div class="destinations-grid" id="destinationsGrid"></div>
@@ -2836,8 +2886,8 @@
     <section class="section section-soft" id="redes">
       <div class="container">
         <div class="section-heading">
-          <span class="eyebrow">Inspiración viajera</span>
-          <h2>Seguinos en redes</h2>
+          <span class="eyebrow">📱 Inspiración viajera</span>
+          <h2>✦ Seguinos en redes</h2>
           <p>Descubrí nuevas salidas, promociones, fotos y consejos para tu próxima experiencia.</p>
         </div>
 
@@ -2847,18 +2897,32 @@
             <p>Encontrá nuestras novedades y compartí tu experiencia con MyE Turismo.</p>
           </article>
           <aside class="social-links-card">
-            <h3>Conectemos</h3>
-            <p>Agregá aquí los enlaces de tus perfiles cuando estén disponibles.</p>
-            <!-- EDITAR: reemplazar # por el enlace real de cada red social -->
-            <a class="social-button" href="#" aria-label="Instagram de MyE Turismo">
+            <h3>✦ Conectemos</h3>
+            <p>Encontrá novedades, videos, promociones e inspiración en todos nuestros canales oficiales.</p>
+            <a class="social-button social-button-primary" href="https://linkfly.to/80428t7kYPH" target="_blank" rel="noopener" aria-label="Todas las redes de MyE Turismo">
+              <svg class="icon"><use href="#icon-globe"></use></svg>
+              Todas nuestras redes
+              <span>Abrir Linkfly</span>
+            </a>
+            <a class="social-button" href="https://www.instagram.com/mye.turismo?igsh=MWJvdXk1a3RzeW40ZA==" target="_blank" rel="noopener" aria-label="Instagram de MyE Turismo">
               <svg class="icon"><use href="#icon-instagram"></use></svg>
               Instagram
               <span>Ver perfil</span>
             </a>
-            <a class="social-button" href="#" aria-label="Facebook de MyE Turismo">
+            <a class="social-button" href="https://www.facebook.com/share/1Caoip5K6x/" target="_blank" rel="noopener" aria-label="Facebook de MyE Turismo">
               <svg class="icon"><use href="#icon-facebook"></use></svg>
               Facebook
               <span>Ver perfil</span>
+            </a>
+            <a class="social-button" href="https://www.tiktok.com/@mye.turismo" target="_blank" rel="noopener" aria-label="TikTok de MyE Turismo">
+              <svg class="icon"><use href="#icon-music"></use></svg>
+              TikTok
+              <span>Ver perfil</span>
+            </a>
+            <a class="social-button" href="https://www.youtube.com/@MyETurismo" target="_blank" rel="noopener" aria-label="YouTube de MyE Turismo">
+              <svg class="icon"><use href="#icon-play"></use></svg>
+              YouTube
+              <span>Ver canal</span>
             </a>
           </aside>
         </div>
@@ -2960,6 +3024,10 @@
     document.querySelectorAll("[data-media-image]").forEach((img) => {
       img.src = MEDIA_IMAGES[img.dataset.mediaImage];
     });
+
+    const searchSection = document.getElementById("buscar-paquetes");
+    const destinationsSection = document.getElementById("destinos");
+    if (searchSection && destinationsSection) searchSection.after(destinationsSection);
 
     const WHATSAPP_NUMBER = "5491131537638";
 
@@ -3823,10 +3891,6 @@
         form.get("message") ? `Mi consulta: ${form.get("message")}` : ""
       ].filter(Boolean).join("\n");
       window.open(whatsappUrl(message), "_blank", "noopener");
-    });
-
-    document.querySelectorAll('.social-button[href="#"]').forEach((link) => {
-      link.addEventListener("click", (event) => event.preventDefault());
     });
 
     document.getElementById("year").textContent = new Date().getFullYear();
