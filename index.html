@@ -754,6 +754,13 @@
         linear-gradient(180deg, #fffaf3 0%, var(--white) 100%);
     }
 
+    .teacher-highlights {
+      background:
+        radial-gradient(circle at 12% 20%, rgba(242, 169, 91, 0.12), transparent 24%),
+        radial-gradient(circle at 88% 16%, rgba(8, 152, 155, 0.12), transparent 26%),
+        linear-gradient(180deg, #f8fbfb 0%, var(--white) 100%);
+    }
+
     .weekly-card-body .icon {
       width: 19px;
       height: 19px;
@@ -2950,6 +2957,32 @@
       </div>
     </section>
 
+    <section class="section weekly-highlights teacher-highlights" id="dia-maestro">
+      <div class="container">
+        <div class="weekly-heading">
+          <span class="eyebrow">🎓 Salidas especiales</span>
+          <h2>Día del Maestro</h2>
+          <p>Propuestas para celebrar y disfrutar una salida diferente. Deslizá el carrusel y consultanos por disponibilidad.</p>
+          <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por propuestas para el Día del Maestro.">
+            <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+            Consultar por Día del Maestro
+          </a>
+        </div>
+
+        <div class="weekly-carousel-shell">
+          <button class="weekly-arrow weekly-arrow-prev" id="teacherPrev" type="button" aria-label="Ver paquete anterior del Día del Maestro">
+            <svg class="icon"><use href="#icon-arrow"></use></svg>
+          </button>
+
+          <div class="weekly-carousel" id="teacherCarousel"></div>
+
+          <button class="weekly-arrow weekly-arrow-next" id="teacherNext" type="button" aria-label="Ver paquete siguiente del Día del Maestro">
+            <svg class="icon"><use href="#icon-arrow"></use></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
     <section class="section section-soft" id="destinos">
       <div class="container">
         <div class="section-heading">
@@ -3171,11 +3204,13 @@
     const searchSection = document.getElementById("buscar-paquetes");
     const weeklySection = document.getElementById("destacados-semana");
     const winterSection = document.getElementById("paquetes");
+    const teacherSection = document.getElementById("dia-maestro");
     const destinationsSection = document.getElementById("destinos");
-    if (searchSection && weeklySection && winterSection && destinationsSection) {
+    if (searchSection && weeklySection && winterSection && teacherSection && destinationsSection) {
       searchSection.after(weeklySection);
       weeklySection.after(winterSection);
-      winterSection.after(destinationsSection);
+      winterSection.after(teacherSection);
+      teacherSection.after(destinationsSection);
     }
 
     const WHATSAPP_NUMBER = "5491131537638";
@@ -3343,6 +3378,79 @@
         description: "Vacaciones de invierno en Puerto Madryn con aéreo y equipaje incluido.",
         note: "Vacaciones de Invierno",
         image: "invierno-aereo-puerto-madryn.jpeg"
+      }
+    ];
+
+    const teacherPackages = [
+      {
+        id: "maestro-villa-elisa",
+        title: "Termas Villa Elisa",
+        destination: "Villa Elisa, Entre Ríos",
+        category: "Día del Maestro",
+        description: "Traslado ida y vuelta, entrada al complejo termal, visita a regionales y coordinador permanente.",
+        departures: "13 de septiembre",
+        price: "$99.990 en efectivo",
+        image: "full-day-maestro-villa-elisa.jpeg"
+      },
+      {
+        id: "maestro-colon",
+        title: "Termas Colón",
+        destination: "Colón, Entre Ríos",
+        category: "Día del Maestro",
+        description: "Traslado ida y vuelta, entrada al complejo termal, visita a regionales y coordinador permanente.",
+        departures: "12 de septiembre",
+        price: "$94.990 en efectivo",
+        image: "full-day-maestro-colon.jpeg"
+      },
+      {
+        id: "maestro-dolores",
+        title: "Termas de Dolores",
+        destination: "Dolores",
+        category: "Día del Maestro",
+        description: "Traslados ida y vuelta, entrada a las termas y coordinador.",
+        departures: "11 y 13 de septiembre",
+        price: "$85.999",
+        image: "full-day-maestro-dolores.jpeg"
+      },
+      {
+        id: "maestro-san-jose",
+        title: "Termas de San José",
+        destination: "San José, Entre Ríos",
+        category: "Día del Maestro",
+        description: "Traslados ida y vuelta, entrada a las termas y coordinador.",
+        departures: "11 y 13 de septiembre",
+        price: "$94.999",
+        image: "full-day-maestro-san-jose.jpeg"
+      },
+      {
+        id: "maestro-tandil",
+        title: "Tandil",
+        destination: "Tandil",
+        category: "Día del Maestro",
+        description: "Traslados ida y vuelta, excursiones tradicionales y coordinador.",
+        departures: "11 y 13 de septiembre",
+        price: "$99.999",
+        image: "full-day-maestro-tandil.jpeg"
+      },
+      {
+        id: "maestro-san-pedro",
+        title: "San Pedro",
+        destination: "San Pedro",
+        category: "Día del Maestro",
+        description: "Traslados, almuerzo en parrilla, Vuelta de Obligado, fábrica de ensaimadas y coordinador guía.",
+        departures: "11 y 13 de septiembre",
+        price: "$99.999",
+        image: "full-day-maestro-san-pedro.jpeg"
+      },
+      {
+        id: "maestro-martin-garcia",
+        title: "Isla Martín García",
+        destination: "Isla Martín García",
+        category: "Día del Maestro",
+        description: "Traslado en bus, navegación, visita guiada, almuerzo en restaurante y coordinador.",
+        departures: "11 y 13 de septiembre",
+        price: "$189.999",
+        image: "full-day-maestro-martin-garcia.jpeg"
       }
     ];
 
@@ -3778,16 +3886,6 @@
                 description: "Traslado, entrada al complejo termal, visita a regionales y coordinador permanente.",
                 price: "$99.990 en efectivo",
                 image: "full-day-villa-elisa-agosto-septiembre.jpeg"
-              },
-              {
-                name: "Día del Maestro en Termas Villa Elisa",
-                icon: "🎓",
-                destination: "Villa Elisa, Entre Ríos",
-                duration: "Full Day",
-                departures: "13 de septiembre",
-                description: "Traslado ida y vuelta, entrada al complejo termal, visita a regionales y coordinador permanente.",
-                price: "$99.990 en efectivo",
-                image: "full-day-maestro-villa-elisa.jpeg"
               }
             ]
           },
@@ -3814,16 +3912,6 @@
                 description: "Traslado, entrada al complejo termal, visita a regionales y coordinador permanente.",
                 price: "$94.990 en efectivo",
                 image: "full-day-colon-agosto-septiembre.jpeg"
-              },
-              {
-                name: "Día del Maestro en Termas Colón",
-                icon: "🎓",
-                destination: "Colón, Entre Ríos",
-                duration: "Full Day",
-                departures: "12 de septiembre",
-                description: "Traslado ida y vuelta, entrada al complejo termal, visita a regionales y coordinador permanente.",
-                price: "$94.990 en efectivo",
-                image: "full-day-maestro-colon.jpeg"
               }
             ]
           },
@@ -3883,18 +3971,7 @@
                 description: "Aguas termales y tranquilidad para una pausa renovadora."
               }
             ],
-            packages: [
-              {
-                name: "Día del Maestro en Termas de Dolores",
-                icon: "🎓",
-                destination: "Dolores",
-                duration: "Full Day",
-                departures: "11 y 13 de septiembre",
-                description: "Traslados ida y vuelta, entrada a las termas y coordinador.",
-                price: "$85.999",
-                image: "full-day-maestro-dolores.jpeg"
-              }
-            ]
+            packages: []
           },
           {
             key: "san-jose",
@@ -3902,18 +3979,7 @@
             icon: "💦",
             image: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=85",
             description: "Relax y bienestar en Entre Ríos. Consultanos por próximas propuestas a San José.",
-            packages: [
-              {
-                name: "Día del Maestro en Termas de San José",
-                icon: "🎓",
-                destination: "San José, Entre Ríos",
-                duration: "Full Day",
-                departures: "11 y 13 de septiembre",
-                description: "Traslados ida y vuelta, entrada a las termas y coordinador.",
-                price: "$94.999",
-                image: "full-day-maestro-san-jose.jpeg"
-              },
-            ]
+            packages: []
           }
         ]
       },
@@ -3924,162 +3990,78 @@
       },
       "full-day": {
         title: "Full Day",
-        categories: [
+        directPackages: true,
+        description: "Salidas de un día, sin subcategorías intermedias. Elegí la propuesta que te gusta y consultanos por disponibilidad.",
+        packages: [
           {
-            key: "dia-del-maestro",
-            title: "Día del Maestro",
-            icon: "🎓",
-            image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=85",
-            packages: [
-              {
-                name: "Día del Maestro en Tandil",
-                icon: "🎓",
-                destination: "Tandil",
-                duration: "Full Day",
-                departures: "11 y 13 de septiembre",
-                description: "Traslados ida y vuelta, excursiones tradicionales y coordinador.",
-                price: "$99.999",
-                image: "full-day-maestro-tandil.jpeg"
-              },
-              {
-                name: "Día del Maestro en San Pedro",
-                icon: "🎓",
-                destination: "San Pedro",
-                duration: "Full Day",
-                departures: "11 y 13 de septiembre",
-                description: "Traslados, almuerzo en parrilla, Vuelta de Obligado, fábrica de ensaimadas y coordinador guía.",
-                price: "$99.999",
-                image: "full-day-maestro-san-pedro.jpeg"
-              },
-              {
-                name: "Día del Maestro en Isla Martín García",
-                icon: "🎓",
-                destination: "Isla Martín García",
-                duration: "Full Day",
-                departures: "11 y 13 de septiembre",
-                description: "Traslado en bus, navegación, visita guiada, almuerzo en restaurante y coordinador.",
-                price: "$189.999",
-                image: "full-day-maestro-martin-garcia.jpeg"
-              }
-            ]
-          },
-          {
-            key: "culturales",
-            title: "Full day culturales",
+            name: "La Gran Peña",
             icon: "🎭",
-            image: "https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=900&q=85",
-            description: "Historia, arte, tradiciones y encuentros para disfrutar en el día. Mirá el video y consultanos por próximas salidas.",
-            videos: [
-              {
-                id: "RDHyWJZKE_E",
-                title: "Full Day Culturales",
-                description: "Una invitación a vivir propuestas culturales, descubrir lugares y compartir nuevas experiencias."
-              }
-            ],
-            packages: [
-              {
-                name: "La Gran Peña",
-                icon: "🎭",
-                destination: "Los Cardales",
-                duration: "Full Day",
-                departures: "8 de agosto",
-                description: "Parrilla libre con bebida, bandas musicales, ballet de folklore, paseos a caballo, desayuno, merienda y traslados.",
-                price: "$99.990 en efectivo",
-                image: "full-day-gran-pena-agosto.jpeg"
-              },
-              {
-                name: "Virgen San Nicolás y Rosario",
-                icon: "⛪",
-                destination: "San Nicolás y Rosario",
-                duration: "Full Day",
-                departures: "15 de agosto y 12 de septiembre",
-                description: "Almuerzo en Rosario, visita al Santuario de la Virgen de San Nicolás y Monumento a la Bandera.",
-                price: "$99.990 en efectivo",
-                image: "full-day-rosario-san-nicolas.jpeg"
-              }
-            ]
+            destination: "Los Cardales",
+            duration: "Full Day",
+            departures: "8 de agosto",
+            description: "Parrilla libre con bebida, bandas musicales, ballet de folklore, paseos a caballo, desayuno, merienda y traslados.",
+            price: "$99.990 en efectivo",
+            image: "full-day-gran-pena-agosto.jpeg"
           },
           {
-            key: "naturaleza",
-            title: "Full day naturaleza",
-            icon: "🌿",
-            image: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=85",
-            packages: [
-              {
-                name: "San Pedro y la Campiña",
-                icon: "🌾",
-                destination: "San Pedro",
-                duration: "Full Day",
-                departures: "15 y 29 de agosto; 6 y 27 de septiembre",
-                description: "Almuerzo con parrilla libre, visita a La Campiña y Vuelta de Obligado.",
-                price: "$99.990 en efectivo",
-                image: "full-day-san-pedro-campina.jpeg"
-              },
-              {
-                name: "Laguna de Chascomús",
-                icon: "🌊",
-                destination: "Chascomús",
-                duration: "Full Day",
-                departures: "22 de agosto y 20 de septiembre",
-                description: "Almuerzo con parrilla libre, paseo guiado y tiempo libre en la costanera.",
-                price: "$99.990 en efectivo",
-                image: "full-day-laguna-chascomus.jpeg"
-              }
-            ]
+            name: "Virgen San Nicolás y Rosario",
+            icon: "⛪",
+            destination: "San Nicolás y Rosario",
+            duration: "Full Day",
+            departures: "15 de agosto y 12 de septiembre",
+            description: "Almuerzo en Rosario, visita al Santuario de la Virgen de San Nicolás y Monumento a la Bandera.",
+            price: "$99.990 en efectivo",
+            image: "full-day-rosario-san-nicolas.jpeg"
           },
           {
-            key: "gastronomicos",
-            title: "Full day gastronómicos",
+            name: "San Pedro y la Campiña",
+            icon: "🌾",
+            destination: "San Pedro",
+            duration: "Full Day",
+            departures: "15 y 29 de agosto; 6 y 27 de septiembre",
+            description: "Almuerzo con parrilla libre, visita a La Campiña y Vuelta de Obligado.",
+            price: "$99.990 en efectivo",
+            image: "full-day-san-pedro-campina.jpeg"
+          },
+          {
+            name: "Laguna de Chascomús",
+            icon: "🌊",
+            destination: "Chascomús",
+            duration: "Full Day",
+            departures: "22 de agosto y 20 de septiembre",
+            description: "Almuerzo con parrilla libre, paseo guiado y tiempo libre en la costanera.",
+            price: "$99.990 en efectivo",
+            image: "full-day-laguna-chascomus.jpeg"
+          },
+          {
+            name: "Tomás Jofré y Luján",
             icon: "🍽️",
-            image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=85",
-            packages: [
-              {
-                name: "Tomás Jofré y Luján",
-                icon: "🍽️",
-                destination: "Tomás Jofré y Luján",
-                duration: "Full Day",
-                departures: "23 de agosto y 12 de septiembre",
-                description: "Almuerzo completo, visita a la Basílica de Luján, show de folklore y coordinador permanente.",
-                price: "$99.990 en efectivo",
-                image: "full-day-tomas-jofre-lujan.jpeg"
-              }
-            ]
+            destination: "Tomás Jofré y Luján",
+            duration: "Full Day",
+            departures: "23 de agosto y 12 de septiembre",
+            description: "Almuerzo completo, visita a la Basílica de Luján, show de folklore y coordinador permanente.",
+            price: "$99.990 en efectivo",
+            image: "full-day-tomas-jofre-lujan.jpeg"
           },
           {
-            key: "historicos",
-            title: "Full day históricos",
+            name: "San Antonio de Areco",
             icon: "🏛️",
-            image: "https://images.unsplash.com/photo-1564399579883-451a5d44ec08?auto=format&fit=crop&w=900&q=85",
-            packages: [
-              {
-                name: "San Antonio de Areco",
-                icon: "🏛️",
-                destination: "San Antonio de Areco",
-                duration: "Full Day",
-                departures: "16 de agosto y 27 de septiembre",
-                description: "Desayuno, almuerzo con parrilla libre, city tour con guía local, merienda y coordinador.",
-                price: "$99.990 en efectivo",
-                image: "full-day-san-antonio-areco.jpeg"
-              }
-            ]
+            destination: "San Antonio de Areco",
+            duration: "Full Day",
+            departures: "16 de agosto y 27 de septiembre",
+            description: "Desayuno, almuerzo con parrilla libre, city tour con guía local, merienda y coordinador.",
+            price: "$99.990 en efectivo",
+            image: "full-day-san-antonio-areco.jpeg"
           },
           {
-            key: "aventura",
-            title: "Full day aventura",
+            name: "Tandil Full Day",
             icon: "🥾",
-            image: "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=900&q=85",
-            packages: [
-              {
-                name: "Tandil Full Day",
-                icon: "🥾",
-                destination: "Tandil",
-                duration: "Full Day",
-                departures: "29 de agosto y 26 de septiembre",
-                description: "Almuerzo, Lago del Fuerte, La Movediza, Centinela, Calvario y visita a regionales.",
-                price: "$114.990 en efectivo",
-                image: "full-day-tandil.jpeg"
-              }
-            ]
+            destination: "Tandil",
+            duration: "Full Day",
+            departures: "29 de agosto y 26 de septiembre",
+            description: "Almuerzo, Lago del Fuerte, La Movediza, Centinela, Calvario y visita a regionales.",
+            price: "$114.990 en efectivo",
+            image: "full-day-tandil.jpeg"
           }
         ]
       }
@@ -4097,6 +4079,23 @@
           <h3>${item.title}</h3>
           <p>${item.description}</p>
           <a class="btn btn-primary" href="${whatsappUrl(`Hola MyE Turismo, quiero consultar por ${item.title} para Vacaciones de Invierno, opción ${item.category}.`)}" target="_blank" rel="noopener">
+            <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+            Consultar por WhatsApp
+          </a>
+        </div>
+      </article>
+    `).join("");
+
+    const teacherCarousel = document.getElementById("teacherCarousel");
+    teacherCarousel.innerHTML = teacherPackages.map((item) => `
+      <article class="weekly-card" id="${item.id}" data-search="${item.title} ${item.destination} dia maestro full day">
+        <img class="weekly-card-image" src="${item.image}" alt="${item.title} - Día del Maestro" loading="lazy">
+        <div class="weekly-card-body">
+          <small>🎓 ${item.category} · Full Day</small>
+          <h3>${item.title}</h3>
+          <p>${item.description}</p>
+          ${item.price ? `<strong class="catalog-price">${item.price}</strong>` : ""}
+          <a class="btn btn-primary" href="${whatsappUrl(`Hola MyE Turismo, quiero consultar por ${item.title} para el Día del Maestro.`)}" target="_blank" rel="noopener">
             <svg class="icon"><use href="#icon-whatsapp"></use></svg>
             Consultar por WhatsApp
           </a>
@@ -4174,6 +4173,26 @@
               </div>
             </div>
           </article>
+        `;
+        destinationExplorer.classList.add("active");
+        if (shouldScroll) requestAnimationFrame(scrollToExplorer);
+        return;
+      }
+
+      if (catalog.directPackages) {
+        explorerTitle.textContent = `🎟 ${catalog.title}`;
+        explorerBack.classList.remove("visible");
+        explorerContent.innerHTML = `
+          <div class="destination-inspiration">
+            <div class="destination-inspiration-intro">
+              <p>${catalog.description || "Elegí una salida y consultanos por disponibilidad."}</p>
+              <a class="btn btn-primary" href="${whatsappUrl(`Hola MyE Turismo, quiero consultar por propuestas de ${catalog.title}.`)}" target="_blank" rel="noopener">
+                <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+                Consultar Full Day
+              </a>
+            </div>
+          </div>
+          <div class="explorer-packages">${catalog.packages.map((item) => renderPackageCard(item, catalog.title)).join("")}</div>
         `;
         destinationExplorer.classList.add("active");
         if (shouldScroll) requestAnimationFrame(scrollToExplorer);
@@ -4387,6 +4406,18 @@
         targetId: card.id
       }));
 
+      const teacherFeatured = Array.from(document.querySelectorAll("#teacherCarousel .weekly-card")).map((card) => ({
+        name: card.querySelector("h3")?.textContent.trim() || "Paquete Día del Maestro",
+        destination: card.dataset.search || "",
+        duration: "Full Day",
+        departures: card.querySelector("small")?.textContent.trim() || "Día del Maestro",
+        description: "Propuesta especial para el Día del Maestro.",
+        price: "",
+        image: card.querySelector("img")?.getAttribute("src") || "",
+        categoryTitle: "Día del Maestro",
+        targetId: card.id
+      }));
+
       const featured = packages.map((item) => ({
         name: item.name || item.title,
         destination: item.destination || item.category || "",
@@ -4399,21 +4430,26 @@
         targetId: item.id
       }));
 
-      const catalogPackages = Object.values(destinationCatalog).flatMap((catalog) =>
-        (catalog.categories || []).flatMap((category) =>
+      const catalogPackages = Object.values(destinationCatalog).flatMap((catalog) => {
+        const directPackages = (catalog.packages || []).map((item) => ({
+          ...item,
+          categoryTitle: catalog.title
+        }));
+        const categoryPackages = (catalog.categories || []).flatMap((category) =>
           category.packages.map((item) => ({
             ...item,
             categoryTitle: `${catalog.title} / ${category.title}`
           }))
-        )
-      );
+        );
+        return [...directPackages, ...categoryPackages];
+      });
 
       const uniquePackages = new Map();
-      [...weeklyPackages, ...featured, ...catalogPackages].forEach((item) => {
+      [...weeklyPackages, ...teacherFeatured, ...featured, ...catalogPackages].forEach((item) => {
         const uniqueKey = item.id
           || item.targetId
           || normalizeSearchText(`${item.name}|${item.destination}|${item.departures}`);
-        uniquePackages.set(uniqueKey, item);
+        if (!uniquePackages.has(uniqueKey)) uniquePackages.set(uniqueKey, item);
       });
 
       return [...uniquePackages.values()];
@@ -4516,6 +4552,16 @@
 
     document.getElementById("winterPrev").addEventListener("click", () => scrollWinterCarousel(-1));
     document.getElementById("winterNext").addEventListener("click", () => scrollWinterCarousel(1));
+
+    /* Controles del carrusel de Día del Maestro. */
+    const scrollTeacherCarousel = (direction) => {
+      const firstCard = teacherCarousel.querySelector(".weekly-card");
+      const distance = firstCard ? firstCard.getBoundingClientRect().width + 22 : 360;
+      teacherCarousel.scrollBy({ left: distance * direction, behavior: "smooth" });
+    };
+
+    document.getElementById("teacherPrev").addEventListener("click", () => scrollTeacherCarousel(-1));
+    document.getElementById("teacherNext").addEventListener("click", () => scrollTeacherCarousel(1));
 
     /* Controles del carrusel de guías y videos. */
     const mediaCarousel = document.getElementById("mediaCarousel");
