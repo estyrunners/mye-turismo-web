@@ -737,9 +737,21 @@
       line-height: 1.15;
     }
 
+    .weekly-card-body p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
     .weekly-card-body .btn {
       width: 100%;
       margin-top: auto;
+    }
+
+    .winter-highlights {
+      background:
+        radial-gradient(circle at 92% 12%, rgba(242, 169, 91, 0.12), transparent 24%),
+        linear-gradient(180deg, #fffaf3 0%, var(--white) 100%);
     }
 
     .weekly-card-body .icon {
@@ -2790,14 +2802,25 @@
       </div>
     </section>
 
-    <section class="section" id="paquetes">
+    <section class="section weekly-highlights winter-highlights" id="paquetes">
       <div class="container">
-        <div class="section-heading">
-          <span class="eyebrow">Experiencias elegidas</span>
-          <h2>Paquetes destacados</h2>
-          <p>Ideas para tu próxima aventura. Consultanos por fechas, disponibilidad y opciones pensadas para vos.</p>
+        <div class="weekly-heading">
+          <span class="eyebrow">❄️ Paquetes destacados</span>
+          <h2>Vacaciones de Invierno</h2>
+          <p>Propuestas en bus y aéreas para disfrutar julio. Deslizá el carrusel y consultanos por disponibilidad, condiciones y formas de pago.</p>
         </div>
-        <div class="packages-grid" id="packagesGrid"></div>
+
+        <div class="weekly-carousel-shell">
+          <button class="weekly-arrow weekly-arrow-prev" id="winterPrev" type="button" aria-label="Ver paquete anterior de vacaciones de invierno">
+            <svg class="icon"><use href="#icon-arrow"></use></svg>
+          </button>
+
+          <div class="weekly-carousel" id="packagesGrid"></div>
+
+          <button class="weekly-arrow weekly-arrow-next" id="winterNext" type="button" aria-label="Ver paquete siguiente de vacaciones de invierno">
+            <svg class="icon"><use href="#icon-arrow"></use></svg>
+          </button>
+        </div>
       </div>
     </section>
 
@@ -3020,13 +3043,182 @@
     });
 
     const searchSection = document.getElementById("buscar-paquetes");
+    const weeklySection = document.getElementById("destacados-semana");
+    const winterSection = document.getElementById("paquetes");
     const destinationsSection = document.getElementById("destinos");
-    if (searchSection && destinationsSection) searchSection.after(destinationsSection);
+    if (searchSection && weeklySection && winterSection && destinationsSection) {
+      searchSection.after(weeklySection);
+      weeklySection.after(winterSection);
+      winterSection.after(destinationsSection);
+    }
 
     const WHATSAPP_NUMBER = "5491131537638";
 
-    /* Agregá aquí únicamente paquetes destacados reales. */
-    const packages = [];
+    /* Vacaciones de Invierno: agregá aquí nuevos flyers reales. */
+    const packages = [
+      {
+        id: "invierno-bus-bariloche",
+        title: "Bariloche",
+        destination: "Bariloche, Río Negro",
+        category: "Bus",
+        description: "Vacaciones de invierno en Bariloche con salida en bus semicama.",
+        note: "Vacaciones de Invierno",
+        image: "invierno-bus-bariloche.jpeg"
+      },
+      {
+        id: "invierno-bus-chilecito",
+        title: "Chilecito, Termas de Fiambalá y Aimogasta",
+        destination: "Chilecito, Fiambalá y Aimogasta",
+        category: "Bus",
+        description: "Circuito de invierno por La Rioja y Catamarca con salida en bus semicama.",
+        note: "Vacaciones de Invierno",
+        image: "invierno-bus-chilecito-fiambala-aimogasta.jpeg"
+      },
+      {
+        id: "invierno-bus-mar-del-plata",
+        title: "Mar del Plata",
+        destination: "Mar del Plata, Buenos Aires",
+        category: "Bus",
+        description: "Escapada de vacaciones de invierno a Mar del Plata en bus semicama.",
+        note: "Vacaciones de Invierno",
+        image: "invierno-bus-mar-del-plata.jpeg"
+      },
+      {
+        id: "invierno-bus-merlo",
+        title: "Merlo",
+        destination: "Merlo, San Luis",
+        category: "Bus",
+        description: "Vacaciones de invierno en las sierras de Merlo con salida en bus semicama.",
+        note: "Vacaciones de Invierno",
+        image: "invierno-bus-merlo.jpeg"
+      },
+      {
+        id: "invierno-bus-san-juan",
+        title: "San Juan",
+        destination: "San Juan",
+        category: "Bus",
+        description: "Circuito de vacaciones de invierno por San Juan con salida en bus semicama.",
+        note: "Vacaciones de Invierno",
+        image: "invierno-bus-san-juan.jpeg"
+      },
+      {
+        id: "invierno-bus-catamarca",
+        title: "Catamarca Mágica",
+        destination: "Catamarca y Tinogasta",
+        category: "Bus",
+        description: "Recorrido de invierno por Catamarca, Tinogasta y Termas de Fiambalá.",
+        note: "Vacaciones de Invierno",
+        image: "invierno-bus-catamarca-magica.jpeg"
+      },
+      {
+        id: "invierno-bus-la-falda",
+        title: "La Falda",
+        destination: "La Falda, Córdoba",
+        category: "Bus",
+        description: "Vacaciones de invierno en las sierras de Córdoba con salida en bus semicama.",
+        note: "Vacaciones de Invierno",
+        image: "invierno-bus-la-falda.jpeg"
+      },
+      {
+        id: "invierno-bus-mendoza-san-rafael",
+        title: "Mendoza y San Rafael",
+        destination: "Mendoza y San Rafael",
+        category: "Bus",
+        description: "Circuito de invierno por Mendoza, San Rafael y Termas de Cacheuta.",
+        note: "Vacaciones de Invierno",
+        image: "invierno-bus-mendoza-san-rafael.jpeg"
+      },
+      {
+        id: "invierno-bus-puerto-madryn",
+        title: "Puerto Madryn",
+        destination: "Puerto Madryn, Chubut",
+        category: "Bus",
+        description: "Vacaciones de invierno en Puerto Madryn con salida en bus semicama.",
+        note: "Vacaciones de Invierno",
+        image: "invierno-bus-puerto-madryn.jpeg"
+      },
+      {
+        id: "invierno-bus-talampaya",
+        title: "Talampaya, Valle de la Luna y Sierras de las Quijadas",
+        destination: "San Luis, La Rioja y San Juan",
+        category: "Bus",
+        description: "Gran circuito terrestre por Talampaya, Valle de la Luna y Sierras de las Quijadas.",
+        note: "Vacaciones de Invierno",
+        image: "invierno-bus-talampaya-valle-luna-quijadas.jpeg"
+      },
+      {
+        id: "invierno-aereo-iguazu",
+        title: "Cataratas del Iguazú",
+        destination: "Puerto Iguazú, Misiones",
+        category: "Aéreo",
+        description: "Vacaciones de invierno en Cataratas del Iguazú con aéreo y equipaje incluido.",
+        note: "Vacaciones de Invierno",
+        image: "invierno-aereo-iguazu.jpeg"
+      },
+      {
+        id: "invierno-aereo-salta",
+        title: "Salta",
+        destination: "Salta",
+        category: "Aéreo",
+        description: "Vacaciones de invierno en Salta con aéreo y equipaje incluido.",
+        note: "Vacaciones de Invierno",
+        image: "invierno-aereo-salta.jpeg"
+      },
+      {
+        id: "invierno-aereo-ushuaia",
+        title: "Ushuaia",
+        destination: "Ushuaia, Tierra del Fuego",
+        category: "Aéreo",
+        description: "Vacaciones de invierno en el Fin del Mundo con aéreo y equipaje incluido.",
+        note: "Vacaciones de Invierno",
+        image: "invierno-aereo-ushuaia.jpeg"
+      },
+      {
+        id: "invierno-aereo-jujuy",
+        title: "Jujuy y Humahuaca",
+        destination: "Jujuy y Quebrada de Humahuaca",
+        category: "Aéreo",
+        description: "Vacaciones de invierno en Jujuy y Humahuaca con aéreo y equipaje incluido.",
+        note: "Vacaciones de Invierno",
+        image: "invierno-aereo-jujuy-humahuaca.jpeg"
+      },
+      {
+        id: "invierno-aereo-mendoza",
+        title: "Mendoza con Termas de Cacheuta",
+        destination: "Mendoza y Termas de Cacheuta",
+        category: "Aéreo",
+        description: "Vacaciones de invierno en Mendoza y Cacheuta con aéreo y equipaje incluido.",
+        note: "Vacaciones de Invierno",
+        image: "invierno-aereo-mendoza-cacheuta.jpeg"
+      },
+      {
+        id: "invierno-aereo-bariloche",
+        title: "Bariloche",
+        destination: "Bariloche, Río Negro",
+        category: "Aéreo",
+        description: "Vacaciones de invierno en Bariloche con aéreo y equipaje incluido.",
+        note: "Vacaciones de Invierno",
+        image: "invierno-aereo-bariloche.jpeg"
+      },
+      {
+        id: "invierno-aereo-termas-rio-hondo",
+        title: "Termas de Río Hondo",
+        destination: "Termas de Río Hondo, Santiago del Estero",
+        category: "Aéreo",
+        description: "Vacaciones de invierno en Termas de Río Hondo con aéreo y equipaje incluido.",
+        note: "Vacaciones de Invierno",
+        image: "invierno-aereo-termas-rio-hondo.jpeg"
+      },
+      {
+        id: "invierno-aereo-puerto-madryn",
+        title: "Puerto Madryn",
+        destination: "Puerto Madryn, Chubut",
+        category: "Aéreo",
+        description: "Vacaciones de invierno en Puerto Madryn con aéreo y equipaje incluido.",
+        note: "Vacaciones de Invierno",
+        image: "invierno-aereo-puerto-madryn.jpeg"
+      }
+    ];
 
     const destinations = [
       {
@@ -3504,34 +3696,20 @@
       `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
     const packagesGrid = document.getElementById("packagesGrid");
-    packagesGrid.innerHTML = packages.length
-      ? packages.map((item) => `
-          <article class="package-card">
-            <div class="package-image">
-              <img src="${item.image}" alt="${item.title}" loading="lazy">
-              <span class="package-tag">${item.category}</span>
-            </div>
-            <div class="package-body">
-              <h3>${item.title}</h3>
-              <p>${item.description}</p>
-              <div class="package-meta">${item.note}</div>
-              <a class="btn btn-outline" href="${whatsappUrl(`Hola MyE Turismo, quiero consultar por ${item.title}.`)}" target="_blank" rel="noopener">
-                Consultar por WhatsApp
-                <svg class="icon"><use href="#icon-arrow"></use></svg>
-              </a>
-            </div>
-          </article>
-        `).join("")
-      : `
-        <div class="empty-state">
-          <div class="empty-state-icon"><svg class="icon"><use href="#icon-map"></use></svg></div>
-          <h4>Próximamente nuevos paquetes destacados</h4>
-          <p>Estamos preparando nuevas propuestas. Mientras tanto, explorá nuestros destinos o consultanos para diseñar tu próximo viaje.</p>
-          <a class="btn btn-primary" href="${whatsappUrl("Hola MyE Turismo, quiero consultar por próximos paquetes y salidas.")}" target="_blank" rel="noopener">
+    packagesGrid.innerHTML = packages.map((item) => `
+      <article class="weekly-card" id="${item.id}" data-search="${item.title} ${item.destination} ${item.category} vacaciones invierno">
+        <img class="weekly-card-image" src="${item.image}" alt="${item.title} - Vacaciones de Invierno en ${item.category}" loading="lazy">
+        <div class="weekly-card-body">
+          <small>${item.category === "Aéreo" ? "✈️" : "🚌"} ${item.category} · Vacaciones de Invierno</small>
+          <h3>${item.title}</h3>
+          <p>${item.description}</p>
+          <a class="btn btn-primary" href="${whatsappUrl(`Hola MyE Turismo, quiero consultar por ${item.title} para Vacaciones de Invierno, opción ${item.category}.`)}" target="_blank" rel="noopener">
+            <svg class="icon"><use href="#icon-whatsapp"></use></svg>
             Consultar por WhatsApp
           </a>
         </div>
-      `;
+      </article>
+    `).join("");
 
     const destinationsGrid = document.getElementById("destinationsGrid");
     destinationsGrid.innerHTML = destinations.map((item) => `
@@ -3753,7 +3931,7 @@
       })[character]);
 
     const getAllSearchablePackages = () => {
-      const weeklyPackages = Array.from(document.querySelectorAll(".weekly-card")).map((card) => ({
+      const weeklyPackages = Array.from(document.querySelectorAll("#weeklyCarousel .weekly-card")).map((card) => ({
         name: card.querySelector("h3")?.textContent.trim() || "Paquete Feriado de Julio",
         destination: card.dataset.search || "",
         duration: "",
@@ -3773,11 +3951,12 @@
         description: item.description || "",
         price: item.price || "",
         image: item.image || "",
-        categoryTitle: item.category || "Paquete destacado"
+        categoryTitle: `${item.category || "Paquete destacado"} / Vacaciones de Invierno`,
+        targetId: item.id
       }));
 
       const catalogPackages = Object.values(destinationCatalog).flatMap((catalog) =>
-        catalog.categories.flatMap((category) =>
+        (catalog.categories || []).flatMap((category) =>
           category.packages.map((item) => ({
             ...item,
             categoryTitle: `${catalog.title} / ${category.title}`
@@ -3874,6 +4053,17 @@
 
     document.getElementById("weeklyPrev").addEventListener("click", () => scrollWeeklyCarousel(-1));
     document.getElementById("weeklyNext").addEventListener("click", () => scrollWeeklyCarousel(1));
+
+    /* Controles del carrusel de Vacaciones de Invierno. */
+    const winterCarousel = document.getElementById("packagesGrid");
+    const scrollWinterCarousel = (direction) => {
+      const firstCard = winterCarousel.querySelector(".weekly-card");
+      const distance = firstCard ? firstCard.getBoundingClientRect().width + 22 : 360;
+      winterCarousel.scrollBy({ left: distance * direction, behavior: "smooth" });
+    };
+
+    document.getElementById("winterPrev").addEventListener("click", () => scrollWinterCarousel(-1));
+    document.getElementById("winterNext").addEventListener("click", () => scrollWinterCarousel(1));
 
     /* Controles del carrusel de guías y videos. */
     const mediaCarousel = document.getElementById("mediaCarousel");
