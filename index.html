@@ -1424,6 +1424,55 @@
       font-weight: 800;
     }
 
+    .custom-trip-guide {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+      align-items: center;
+      gap: clamp(28px, 5vw, 64px);
+      padding: clamp(24px, 4vw, 44px);
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--white), var(--sand-light));
+      box-shadow: 0 16px 38px rgba(18, 52, 71, 0.08);
+    }
+
+    .custom-trip-video {
+      width: min(100%, 350px);
+      aspect-ratio: 9 / 16;
+      justify-self: center;
+      overflow: hidden;
+      border-radius: 22px;
+      background: var(--navy);
+      box-shadow: var(--shadow);
+    }
+
+    .custom-trip-video iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .custom-trip-guide-copy h4 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--navy);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      line-height: 1.12;
+    }
+
+    .custom-trip-guide-copy p {
+      margin-bottom: 22px;
+      color: var(--muted);
+    }
+
+    .custom-trip-guide-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
     .empty-state {
       padding: clamp(42px, 7vw, 72px) 24px;
       border: 1px dashed rgba(8, 152, 155, 0.3);
@@ -1956,6 +2005,10 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
+      .custom-trip-guide {
+        grid-template-columns: 1fr;
+      }
+
       .benefits-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -2169,6 +2222,19 @@
       .subcategory-grid,
       .explorer-packages {
         grid-template-columns: 1fr;
+      }
+
+      .custom-trip-guide {
+        padding: 20px;
+      }
+
+      .custom-trip-guide-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .custom-trip-guide-actions .btn {
+        width: 100%;
       }
 
       .custom-trip {
@@ -2870,6 +2936,7 @@
         title: "Viajes a medida",
         subtitle: "Diseñados para vos",
         icon: "✦",
+        internal: true,
         image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1100&q=85"
       }
     ];
@@ -2949,6 +3016,11 @@
           { key: "medio-oriente", title: "Medio Oriente", icon: "◇", image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=85", packages: [] },
           { key: "exoticos", title: "Destinos exóticos", icon: "✦", image: "https://images.unsplash.com/photo-1533669955142-6a73332af4db?auto=format&fit=crop&w=900&q=85", packages: [] }
         ]
+      },
+      "a-medida": {
+        title: "Viajes a medida",
+        customGuide: true,
+        videoId: "d897E-pF-Ww"
       },
       "full-day": {
         title: "Full Day",
@@ -3236,6 +3308,42 @@
 
       activeCatalogKey = catalogKey;
       explorerBreadcrumb.textContent = `Destinos / ${catalog.title}`;
+      if (catalog.customGuide) {
+        explorerTitle.textContent = "✦ Diseñemos tu viaje a medida";
+        explorerBack.classList.remove("visible");
+        explorerContent.innerHTML = `
+          <article class="custom-trip-guide">
+            <div class="custom-trip-video">
+              <iframe
+                src="https://www.youtube.com/embed/${catalog.videoId}"
+                title="Cómo solicitar un viaje a medida en MyE Turismo"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="custom-trip-guide-copy">
+              <span class="eyebrow">🎬 Mirá esta guía breve</span>
+              <h4><span class="heading-icon" aria-hidden="true">✦</span>Contanos cómo imaginás tu viaje</h4>
+              <p>En este video te explicamos qué información necesitamos para preparar una propuesta personalizada para vos.</p>
+              <div class="custom-trip-guide-actions">
+                <a class="btn btn-light" href="https://youtube.com/shorts/${catalog.videoId}" target="_blank" rel="noopener">
+                  <svg class="icon"><use href="#icon-play"></use></svg>
+                  Ver en YouTube
+                </a>
+                <a class="btn btn-primary" href="${whatsappUrl("Hola MyE Turismo, vi el video y quiero solicitar un viaje a medida.")}" target="_blank" rel="noopener">
+                  <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+                  Escribir por WhatsApp
+                </a>
+              </div>
+            </div>
+          </article>
+        `;
+        destinationExplorer.classList.add("active");
+        if (shouldScroll) requestAnimationFrame(scrollToExplorer);
+        return;
+      }
+
       explorerTitle.textContent = `🧭 Elegí una categoría de ${catalog.title}`;
       explorerBack.classList.remove("visible");
       explorerContent.innerHTML = `
