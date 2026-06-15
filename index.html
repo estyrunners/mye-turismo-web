@@ -1354,6 +1354,19 @@
       font-weight: 700;
     }
 
+    .subcategory-description {
+      position: relative;
+      z-index: 1;
+      display: -webkit-box;
+      margin-top: 8px;
+      overflow: hidden;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.76rem;
+      line-height: 1.4;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+    }
+
     .subcategory-card .icon {
       position: absolute;
       z-index: 1;
@@ -1471,6 +1484,77 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
+    }
+
+    .destination-inspiration {
+      display: grid;
+      gap: 24px;
+    }
+
+    .destination-inspiration-intro {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 24px;
+      border: 1px solid rgba(8, 152, 155, 0.12);
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--white), var(--turquoise-soft));
+    }
+
+    .destination-inspiration-intro p {
+      max-width: 760px;
+      color: var(--muted);
+    }
+
+    .destination-video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .destination-video-card {
+      overflow: hidden;
+      border-radius: 22px;
+      background: var(--white);
+      box-shadow: 0 14px 34px rgba(18, 52, 71, 0.08);
+    }
+
+    .destination-video-frame {
+      aspect-ratio: 16 / 9;
+      background: var(--navy);
+    }
+
+    .destination-video-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .destination-video-copy {
+      padding: 22px;
+    }
+
+    .destination-video-copy h4 {
+      margin-bottom: 8px;
+      color: var(--navy);
+      font-family: "Playfair Display", serif;
+      font-size: 1.45rem;
+    }
+
+    .destination-video-copy p {
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .future-flyers-note {
+      padding: 22px;
+      border: 1px dashed rgba(8, 152, 155, 0.3);
+      border-radius: 18px;
+      color: var(--muted);
+      background: var(--white);
+      text-align: center;
     }
 
     .empty-state {
@@ -2009,6 +2093,10 @@
         grid-template-columns: 1fr;
       }
 
+      .destination-video-grid {
+        grid-template-columns: 1fr;
+      }
+
       .benefits-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -2234,6 +2322,15 @@
       }
 
       .custom-trip-guide-actions .btn {
+        width: 100%;
+      }
+
+      .destination-inspiration-intro {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .destination-inspiration-intro .btn {
         width: 100%;
       }
 
@@ -3009,12 +3106,68 @@
       "aereos-internacionales": {
         title: "Aéreos internacionales",
         categories: [
-          { key: "sudamerica", title: "Sudamérica", icon: "🌎", image: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=900&q=85", packages: [] },
-          { key: "caribe", title: "Caribe", icon: "🌴", image: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=900&q=85", packages: [] },
-          { key: "norteamerica", title: "Norteamérica", icon: "🗽", image: "https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?auto=format&fit=crop&w=900&q=85", packages: [] },
-          { key: "europa", title: "Europa", icon: "🏛️", image: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=900&q=85", packages: [] },
-          { key: "medio-oriente", title: "Medio Oriente", icon: "◇", image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=85", packages: [] },
-          { key: "exoticos", title: "Destinos exóticos", icon: "✦", image: "https://images.unsplash.com/photo-1533669955142-6a73332af4db?auto=format&fit=crop&w=900&q=85", packages: [] }
+          {
+            key: "sudamerica",
+            title: "Sudamérica",
+            icon: "🌎",
+            image: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=900&q=85",
+            description: "Paisajes, cultura y maravillas cercanas. Inspirate y consultanos para descubrir Sudamérica.",
+            videos: [
+              {
+                id: "aTuRjBKmvUw",
+                title: "Machu Picchu, Perú",
+                description: "Viví la mística de una de las maravillas del mundo y empezá a imaginar tu próximo viaje."
+              }
+            ],
+            packages: []
+          },
+          {
+            key: "caribe",
+            title: "Caribe",
+            icon: "🌴",
+            image: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=900&q=85",
+            description: "Playas soñadas y descanso frente al mar. Consultanos y encontremos tu Caribe ideal.",
+            packages: []
+          },
+          {
+            key: "norteamerica",
+            title: "Norteamérica",
+            icon: "🗽",
+            image: "https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?auto=format&fit=crop&w=900&q=85",
+            description: "Grandes ciudades, parques y experiencias inolvidables. Escribinos y diseñemos tu recorrido.",
+            packages: []
+          },
+          {
+            key: "europa",
+            title: "Europa",
+            icon: "🏛️",
+            image: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=900&q=85",
+            description: "Historia, arte y ciudades que enamoran. Contanos qué países soñás conocer.",
+            packages: []
+          },
+          {
+            key: "medio-oriente",
+            title: "Medio Oriente",
+            icon: "◇",
+            image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=85",
+            description: "Civilizaciones antiguas, contrastes y experiencias únicas. Mirá el video y consultanos.",
+            videos: [
+              {
+                id: "sGD1NZbtuVg",
+                title: "Egipto Místico",
+                description: "Descubrí la magia de Egipto y animate a vivir una experiencia que atraviesa miles de años de historia."
+              }
+            ],
+            packages: []
+          },
+          {
+            key: "exoticos",
+            title: "Destinos exóticos",
+            icon: "✦",
+            image: "https://images.unsplash.com/photo-1533669955142-6a73332af4db?auto=format&fit=crop&w=900&q=85",
+            description: "Lugares extraordinarios para viajeros curiosos. Consultanos y creemos una aventura diferente.",
+            packages: []
+          }
         ]
       },
       "a-medida": {
@@ -3353,7 +3506,8 @@
               <span class="subcategory-cover-icon" aria-hidden="true">${category.icon || "✦"}</span>
               <small>${catalog.title}</small>
               <strong>${category.title}</strong>
-              <span class="subcategory-count">${category.packages.length ? `${category.packages.length} ${category.packages.length === 1 ? "propuesta" : "propuestas"}` : "Próximamente"}</span>
+              ${category.description ? `<span class="subcategory-description">${category.description}</span>` : ""}
+              <span class="subcategory-count">${category.packages.length ? `${category.packages.length} ${category.packages.length === 1 ? "propuesta" : "propuestas"}` : category.videos?.length ? "Video disponible" : "Próximamente"}</span>
               <svg class="icon"><use href="#icon-arrow"></use></svg>
             </button>
           `).join("")}
@@ -3406,18 +3560,61 @@
       explorerTitle.textContent = `${category.icon || "✦"} ${category.title}`;
       explorerBack.classList.add("visible");
 
-      explorerContent.innerHTML = category.packages.length
+      const videos = category.videos || [];
+      const inspirationContent = videos.length
+        ? `
+          <div class="destination-inspiration">
+            <div class="destination-inspiration-intro">
+              <p>${category.description || `Descubrí nuevas experiencias en ${category.title} y consultanos para planificar tu viaje.`}</p>
+              <a class="btn btn-primary" href="${whatsappUrl(`Hola MyE Turismo, quiero consultar por viajes a ${category.title}.`)}" target="_blank" rel="noopener">
+                <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+                Consultar este destino
+              </a>
+            </div>
+            ${videos.length ? `
+              <div class="destination-video-grid">
+                ${videos.map((video) => `
+                  <article class="destination-video-card">
+                    <div class="destination-video-frame">
+                      <iframe
+                        src="https://www.youtube.com/embed/${video.id}"
+                        title="${video.title}"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                      ></iframe>
+                    </div>
+                    <div class="destination-video-copy">
+                      <h4><span aria-hidden="true">🎬</span> ${video.title}</h4>
+                      <p>${video.description}</p>
+                      <a class="btn btn-outline" href="https://youtu.be/${video.id}" target="_blank" rel="noopener">
+                        Ver en YouTube
+                        <svg class="icon"><use href="#icon-arrow"></use></svg>
+                      </a>
+                    </div>
+                  </article>
+                `).join("")}
+              </div>
+              <div class="future-flyers-note">✦ Próximamente vamos a sumar aquí los flyers y paquetes disponibles.</div>
+            ` : ""}
+          </div>
+        `
+        : "";
+
+      const packageContent = category.packages.length
         ? `<div class="explorer-packages">${category.packages.map((item) => renderPackageCard(item, category.title)).join("")}</div>`
         : `
           <div class="empty-state">
             <div class="empty-state-icon"><svg class="icon"><use href="#icon-map"></use></svg></div>
             <h4>Próximamente nuevas propuestas para esta sección</h4>
-            <p>Estamos preparando nuevas experiencias de ${category.title}. También podés consultarnos para recibir asesoramiento personalizado.</p>
+            <p>${category.description || `Estamos preparando nuevas experiencias de ${category.title}. También podés consultarnos para recibir asesoramiento personalizado.`}</p>
             <a class="btn btn-primary" href="${whatsappUrl(`Hola MyE Turismo, quiero consultar por próximas propuestas de ${category.title}.`)}" target="_blank" rel="noopener">
               Consultar por WhatsApp
             </a>
           </div>
         `;
+
+      explorerContent.innerHTML = `${inspirationContent}${category.packages.length ? packageContent : videos.length ? "" : packageContent}`;
 
       requestAnimationFrame(scrollToExplorer);
     };
