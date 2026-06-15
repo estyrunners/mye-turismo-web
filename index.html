@@ -989,6 +989,49 @@
       color: var(--navy);
     }
 
+    .about-video-card {
+      display: grid;
+      grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
+      gap: clamp(28px, 5vw, 58px);
+      align-items: center;
+      margin-bottom: 42px;
+      padding: clamp(24px, 4vw, 38px);
+      border: 1px solid rgba(8, 152, 155, 0.16);
+      border-radius: 26px;
+      background: linear-gradient(135deg, var(--turquoise-soft), var(--white));
+      box-shadow: 0 16px 38px rgba(18, 52, 71, 0.08);
+    }
+
+    .about-video-frame {
+      width: min(100%, 280px);
+      aspect-ratio: 9 / 16;
+      justify-self: center;
+      overflow: hidden;
+      border-radius: 22px;
+      background: var(--navy);
+      box-shadow: var(--shadow);
+    }
+
+    .about-video-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .about-video-copy h3 {
+      margin: 12px 0;
+      color: var(--navy);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      line-height: 1.1;
+    }
+
+    .about-video-copy p {
+      margin-bottom: 22px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
     .trust-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2117,6 +2160,10 @@
         grid-template-columns: 1fr;
       }
 
+      .about-video-card {
+        grid-template-columns: 1fr;
+      }
+
       .about-title {
         position: static;
       }
@@ -2587,6 +2634,27 @@
             <p><strong>Nuestro objetivo es simple: que disfrutes la experiencia de viajar con la tranquilidad de estar bien asesorado.</strong></p>
           </div>
         </div>
+
+        <article class="about-video-card">
+          <div class="about-video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/wR4c95F3n_U"
+              title="Conocé más sobre MyE Turismo"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="about-video-copy">
+            <span class="eyebrow">🎬 Nuestra historia</span>
+            <h3>Conocé un poco más sobre MyE Turismo</h3>
+            <p>Te invitamos a descubrir la atención cercana y el compromiso profesional que acompañan cada experiencia de viaje.</p>
+            <a class="btn youtube-button" href="https://youtube.com/shorts/wR4c95F3n_U" target="_blank" rel="noopener">
+              <svg class="icon"><use href="#icon-play"></use></svg>
+              Ver en YouTube
+            </a>
+          </div>
+        </article>
 
         <div class="trust-grid">
           <article class="trust-card">
@@ -3306,7 +3374,26 @@
       argentina: {
         title: "Argentina",
         categories: [
-          { key: "patagonia", title: "Patagonia", icon: "🏔️", image: "https://images.unsplash.com/photo-1601000785686-c45240e25f25?auto=format&fit=crop&w=900&q=85", packages: [] },
+          {
+            key: "patagonia",
+            title: "Patagonia",
+            icon: "🏔️",
+            image: "https://images.unsplash.com/photo-1601000785686-c45240e25f25?auto=format&fit=crop&w=900&q=85",
+            description: "Montañas, lagos, glaciares y paisajes que emocionan. Mirá los videos y consultanos por tu próxima aventura patagónica.",
+            videos: [
+              {
+                id: "PXDE1FsOAN0",
+                title: "Descubrí la Patagonia",
+                description: "Una invitación a recorrer algunos de los paisajes más impactantes del sur argentino."
+              },
+              {
+                id: "aNr-uEPrFKo",
+                title: "Más experiencias en Patagonia",
+                description: "Inspiración para seguir descubriendo destinos y experiencias inolvidables en la Patagonia."
+              }
+            ],
+            packages: []
+          },
           {
             key: "noa",
             title: "Norte Argentino / NOA",
@@ -3609,6 +3696,16 @@
                 id: "B427zcL3H6Y",
                 title: "Bienestar en aguas termales",
                 description: "Más inspiración para disfrutar una escapada de descanso y bienestar."
+              },
+              {
+                id: "yLbEwwoFHuQ",
+                title: "Una pausa termal",
+                description: "Descubrí otra propuesta para relajarte y disfrutar los beneficios de los destinos termales."
+              },
+              {
+                id: "oxdI-E9mids",
+                title: "Experiencias termales",
+                description: "Más ideas para elegir una experiencia de bienestar y renovar energías."
               }
             ],
             packages: []
@@ -3706,6 +3803,14 @@
             title: "Full day culturales",
             icon: "🎭",
             image: "https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=900&q=85",
+            description: "Historia, arte, tradiciones y encuentros para disfrutar en el día. Mirá el video y consultanos por próximas salidas.",
+            videos: [
+              {
+                id: "RDHyWJZKE_E",
+                title: "Full Day Culturales",
+                description: "Una invitación a vivir propuestas culturales, descubrir lugares y compartir nuevas experiencias."
+              }
+            ],
             packages: [
               {
                 name: "La Gran Peña",
