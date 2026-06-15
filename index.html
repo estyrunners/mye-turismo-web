@@ -799,31 +799,21 @@
       margin-bottom: 0;
     }
 
-    .carousel-controls {
-      display: flex;
-      gap: 10px;
+    .media-carousel-shell {
+      position: relative;
+      padding-inline: 62px;
     }
 
-    .carousel-button {
-      display: grid;
-      width: 48px;
-      height: 48px;
-      place-items: center;
-      border: 1px solid rgba(8, 152, 155, 0.25);
-      border-radius: 50%;
-      color: var(--turquoise-dark);
-      background: var(--white);
-      transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    .media-arrow-prev {
+      left: 0;
     }
 
-    .carousel-button:hover {
-      color: var(--white);
-      background: var(--turquoise);
-      transform: translateY(-2px);
-    }
-
-    .carousel-button:first-child .icon {
+    .media-arrow-prev .icon {
       transform: rotate(180deg);
+    }
+
+    .media-arrow-next {
+      right: 0;
     }
 
     .media-carousel {
@@ -2284,6 +2274,18 @@
         grid-auto-columns: min(88vw, 420px);
       }
 
+      .media-carousel-shell {
+        padding-inline: 34px;
+      }
+
+      .media-arrow-prev {
+        left: -6px;
+      }
+
+      .media-arrow-next {
+        right: -6px;
+      }
+
       .weekly-heading {
         margin-bottom: 28px;
       }
@@ -2734,64 +2736,66 @@
             <h2>✦ Guías, historias y videos</h2>
             <p>Recursos creados por Estela para acompañarte también antes de elegir y preparar tu viaje.</p>
           </div>
-          <div class="carousel-controls" aria-label="Controles del carrusel">
-            <button class="carousel-button" id="mediaPrev" type="button" aria-label="Ver contenido anterior">
-              <svg class="icon"><use href="#icon-arrow"></use></svg>
-            </button>
-            <button class="carousel-button" id="mediaNext" type="button" aria-label="Ver contenido siguiente">
-              <svg class="icon"><use href="#icon-arrow"></use></svg>
-            </button>
-          </div>
         </div>
 
-        <div class="media-carousel" id="mediaCarousel">
-          <article class="media-card">
-            <div class="media-cover">
-              <img data-media-image="routes" src="" alt="Portada de Entre Rutas y Recuerdos">
-              <span class="media-badge">Guía de viajes</span>
-            </div>
-            <div class="media-card-content">
-              <small>Planificación en grupo</small>
-              <h3>Entre Rutas y Recuerdos</h3>
-              <p>Un manual completo para planificar, organizar y disfrutar viajes en grupo, creando recuerdos que quedan para siempre.</p>
-              <a class="btn youtube-button" href="https://youtube.com/shorts/jDQn9Os9-AA?si=JccSWCZLnPOin2aX" target="_blank" rel="noopener">
-                <svg class="icon"><use href="#icon-play"></use></svg>
-                Ver en YouTube
-              </a>
-            </div>
-          </article>
+        <div class="media-carousel-shell">
+          <button class="weekly-arrow media-arrow-prev" id="mediaPrev" type="button" aria-label="Ver contenido anterior">
+            <svg class="icon"><use href="#icon-arrow"></use></svg>
+          </button>
 
-          <article class="media-card">
-            <div class="media-cover">
-              <img data-media-image="healthy" src="" alt="Portada de Guía de viaje saludable y keto">
-              <span class="media-badge">Guía saludable</span>
-            </div>
-            <div class="media-card-content">
-              <small>Bienestar durante el viaje</small>
-              <h3>Guía de Viaje Saludable &amp; Keto</h3>
-              <p>Ideas, recomendaciones y consejos para disfrutar cualquier destino sin descuidar tu alimentación y bienestar.</p>
-              <a class="btn youtube-button" href="https://youtube.com/shorts/6AjyuSiXC4k?si=23g40ggUhpzrSaIB" target="_blank" rel="noopener">
-                <svg class="icon"><use href="#icon-play"></use></svg>
-                Ver en YouTube
-              </a>
-            </div>
-          </article>
+          <div class="media-carousel" id="mediaCarousel">
+            <article class="media-card">
+              <div class="media-cover">
+                <img data-media-image="routes" src="" alt="Portada de Entre Rutas y Recuerdos">
+                <span class="media-badge">Guía de viajes</span>
+              </div>
+              <div class="media-card-content">
+                <small>Planificación en grupo</small>
+                <h3>Entre Rutas y Recuerdos</h3>
+                <p>Un manual completo para planificar, organizar y disfrutar viajes en grupo, creando recuerdos que quedan para siempre.</p>
+                <a class="btn youtube-button" href="https://youtube.com/shorts/jDQn9Os9-AA?si=JccSWCZLnPOin2aX" target="_blank" rel="noopener">
+                  <svg class="icon"><use href="#icon-play"></use></svg>
+                  Ver en YouTube
+                </a>
+              </div>
+            </article>
 
-          <article class="media-card">
-            <div class="media-cover">
-              <img data-media-image="agent" src="" alt="Estela, agente de viajes de MyE Turismo">
-              <span class="media-badge">Conocé a Estela</span>
-            </div>
-            <div class="media-card-content">
-              <small>Carta de presentación</small>
-              <h3>El rostro detrás de MyE Turismo</h3>
-              <p>Conocé a Estela y la mirada profesional y cercana con la que acompaña cada experiencia de viaje.</p>
-              <a class="btn youtube-button" href="https://youtube.com/shorts/WWfMNcJtciM?si=jAZSwtbPfZyvd3Cx" target="_blank" rel="noopener">
-                <svg class="icon"><use href="#icon-play"></use></svg>
-                Ver presentación
-              </a>
-            </div>
-          </article>
+            <article class="media-card">
+              <div class="media-cover">
+                <img data-media-image="healthy" src="" alt="Portada de Guía de viaje saludable y keto">
+                <span class="media-badge">Guía saludable</span>
+              </div>
+              <div class="media-card-content">
+                <small>Bienestar durante el viaje</small>
+                <h3>Guía de Viaje Saludable &amp; Keto</h3>
+                <p>Ideas, recomendaciones y consejos para disfrutar cualquier destino sin descuidar tu alimentación y bienestar.</p>
+                <a class="btn youtube-button" href="https://youtube.com/shorts/6AjyuSiXC4k?si=23g40ggUhpzrSaIB" target="_blank" rel="noopener">
+                  <svg class="icon"><use href="#icon-play"></use></svg>
+                  Ver en YouTube
+                </a>
+              </div>
+            </article>
+
+            <article class="media-card">
+              <div class="media-cover">
+                <img data-media-image="agent" src="" alt="Estela, agente de viajes de MyE Turismo">
+                <span class="media-badge">Conocé a Estela</span>
+              </div>
+              <div class="media-card-content">
+                <small>Carta de presentación</small>
+                <h3>El rostro detrás de MyE Turismo</h3>
+                <p>Conocé a Estela y la mirada profesional y cercana con la que acompaña cada experiencia de viaje.</p>
+                <a class="btn youtube-button" href="https://youtube.com/shorts/WWfMNcJtciM?si=jAZSwtbPfZyvd3Cx" target="_blank" rel="noopener">
+                  <svg class="icon"><use href="#icon-play"></use></svg>
+                  Ver presentación
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <button class="weekly-arrow media-arrow-next" id="mediaNext" type="button" aria-label="Ver contenido siguiente">
+            <svg class="icon"><use href="#icon-arrow"></use></svg>
+          </button>
         </div>
       </div>
     </section>
