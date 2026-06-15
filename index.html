@@ -1137,11 +1137,6 @@
       isolation: isolate;
     }
 
-    .destination-card:first-child,
-    .destination-card:nth-child(9) {
-      grid-column: span 2;
-    }
-
     .destination-card img {
       position: absolute;
       z-index: -2;
@@ -2344,11 +2339,6 @@
         padding-left: 20px;
       }
 
-      .destination-card:first-child,
-      .destination-card:nth-child(9) {
-        grid-column: auto;
-      }
-
       .explorer-toolbar {
         align-items: stretch;
         flex-direction: column;
@@ -3051,60 +3041,47 @@
         key: "escapadas",
         title: "Escapadas",
         subtitle: "Una pausa merecida",
-        icon: "🧳",
+        icon: "🚗",
         internal: true,
         image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=85"
       },
       {
         key: "full-day",
-        title: "Full day",
+        title: "Full Day",
         subtitle: "Un día diferente",
-        icon: "☀️",
+        icon: "🎟",
         internal: true,
         image: "https://images.unsplash.com/photo-1519671282429-b44660ead0a7?auto=format&fit=crop&w=800&q=85"
       },
       {
         key: "aereos-nacionales",
-        title: "Aéreos nacionales",
+        title: "Aéreos Nacionales",
         subtitle: "Volá por Argentina",
-        icon: "✈",
+        icon: "✈️",
         internal: true,
         image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=900&q=85"
       },
       {
         key: "aereos-internacionales",
-        title: "Aéreos internacionales",
+        title: "Aéreos Internacionales",
         subtitle: "El mundo te espera",
-        icon: "✈",
+        icon: "🌎",
         internal: true,
         image: "https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=900&q=85"
       },
       {
-        key: "europa",
-        title: "Europa",
-        subtitle: "Historia y encanto",
-        icon: "🏛️",
-        image: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=800&q=85"
-      },
-      {
-        key: "caribe",
-        title: "Caribe",
-        subtitle: "Playas soñadas",
-        icon: "🌴",
-        image: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=800&q=85"
-      },
-      {
-        key: "brasil",
-        title: "Brasil",
-        subtitle: "Alegría y mar",
-        icon: "🌊",
-        image: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=800&q=85"
+        key: "latinoamerica-bus",
+        title: "Latinoamérica en Bus",
+        subtitle: "Circuitos terrestres",
+        icon: "🚌",
+        internal: true,
+        image: "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=900&q=85"
       },
       {
         key: "a-medida",
-        title: "Viajes a medida",
+        title: "Viajes a Medida",
         subtitle: "Diseñados para vos",
-        icon: "✦",
+        icon: "✨",
         internal: true,
         image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1100&q=85"
       }
@@ -3129,8 +3106,8 @@
       argentina: {
         title: "Argentina",
         categories: [
-          { key: "noa", title: "Norte Argentino / NOA", icon: "⛰️", image: "https://images.unsplash.com/photo-1531761535209-180857e963b9?auto=format&fit=crop&w=900&q=85", packages: [] },
           { key: "patagonia", title: "Patagonia", icon: "🏔️", image: "https://images.unsplash.com/photo-1601000785686-c45240e25f25?auto=format&fit=crop&w=900&q=85", packages: [] },
+          { key: "noa", title: "Norte Argentino / NOA", icon: "⛰️", image: "https://images.unsplash.com/photo-1531761535209-180857e963b9?auto=format&fit=crop&w=900&q=85", packages: [] },
           {
             key: "litoral",
             title: "Litoral",
@@ -3165,7 +3142,7 @@
         ]
       },
       "aereos-nacionales": {
-        title: "Aéreos nacionales",
+        title: "Aéreos Nacionales",
         categories: [
           { key: "noa", title: "Norte Argentino / NOA", icon: "⛰️", image: "https://images.unsplash.com/photo-1531761535209-180857e963b9?auto=format&fit=crop&w=900&q=85", packages: [] },
           { key: "patagonia", title: "Patagonia", icon: "🏔️", image: "https://images.unsplash.com/photo-1601000785686-c45240e25f25?auto=format&fit=crop&w=900&q=85", packages: [] },
@@ -3176,8 +3153,16 @@
         ]
       },
       "aereos-internacionales": {
-        title: "Aéreos internacionales",
+        title: "Aéreos Internacionales",
         categories: [
+          {
+            key: "brasil",
+            title: "Brasil",
+            icon: "🇧🇷",
+            image: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=900&q=85",
+            description: "Playas, ciudades vibrantes y naturaleza tropical. Consultanos y armemos tu próximo viaje a Brasil.",
+            packages: []
+          },
           {
             key: "sudamerica",
             title: "Sudamérica",
@@ -3242,8 +3227,61 @@
           }
         ]
       },
+      "latinoamerica-bus": {
+        title: "Latinoamérica en Bus",
+        categories: [
+          {
+            key: "brasil-bus",
+            title: "Brasil en Bus",
+            icon: "🇧🇷",
+            image: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=900&q=85",
+            description: "Circuitos terrestres para descubrir Brasil con comodidad. Consultanos por próximas salidas.",
+            packages: []
+          },
+          {
+            key: "chile",
+            title: "Chile",
+            icon: "🇨🇱",
+            image: "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=900&q=85",
+            description: "Paisajes andinos, ciudades y costa del Pacífico. Consultanos por circuitos en bus.",
+            packages: []
+          },
+          {
+            key: "peru",
+            title: "Perú",
+            icon: "🇵🇪",
+            image: "https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=900&q=85",
+            description: "Historia, cultura y rutas inolvidables por tierra. Escribinos para conocer próximas propuestas.",
+            packages: []
+          },
+          {
+            key: "uruguay",
+            title: "Uruguay",
+            icon: "🇺🇾",
+            image: "https://images.unsplash.com/photo-1582909416717-1b14ebe6e3c9?auto=format&fit=crop&w=900&q=85",
+            description: "Escapadas y recorridos terrestres por Uruguay. Consultanos por fechas y opciones.",
+            packages: []
+          },
+          {
+            key: "paraguay",
+            title: "Paraguay",
+            icon: "🇵🇾",
+            image: "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=900&q=85",
+            description: "Nuevos circuitos para conocer Paraguay en bus. Consultanos por próximas salidas.",
+            packages: []
+          },
+          {
+            key: "otros-circuitos",
+            title: "Otros circuitos terrestres",
+            icon: "🛣️",
+            image: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=900&q=85",
+            description: "Rutas combinadas y nuevas propuestas por Latinoamérica. Contanos qué recorrido buscás.",
+            packages: []
+          }
+        ]
+      },
       "a-medida": {
-        title: "Viajes a medida",
+        title: "Viajes a Medida",
         customGuide: true,
         videoId: "d897E-pF-Ww"
       },
