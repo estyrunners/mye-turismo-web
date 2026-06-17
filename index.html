@@ -711,6 +711,7 @@
       aspect-ratio: 934 / 1280;
       object-fit: cover;
       background: var(--turquoise-soft);
+      cursor: zoom-in;
     }
 
     .weekly-card-body {
@@ -1193,6 +1194,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      cursor: zoom-in;
       transition: transform 0.5s ease;
     }
 
@@ -1247,6 +1249,76 @@
 
     .package-body .btn {
       width: 100%;
+    }
+
+    .flyer-compact-meta {
+      display: block;
+      margin-bottom: 16px;
+      color: var(--turquoise-dark);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .flyer-modal {
+      position: fixed;
+      z-index: 5000;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(18px, 4vw, 48px);
+      background: rgba(5, 30, 40, 0.82);
+      backdrop-filter: blur(10px);
+    }
+
+    .flyer-modal.active {
+      display: flex;
+    }
+
+    .flyer-modal-content {
+      position: relative;
+      display: grid;
+      max-width: min(96vw, 760px);
+      max-height: 94vh;
+      gap: 12px;
+      justify-items: center;
+    }
+
+    .flyer-modal img {
+      max-width: 100%;
+      max-height: min(88vh, 1180px);
+      object-fit: contain;
+      border-radius: 18px;
+      background: var(--white);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+    }
+
+    .flyer-modal-close {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      display: grid;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      border: 0;
+      border-radius: 999px;
+      color: var(--navy);
+      background: var(--white);
+      font-size: 1.7rem;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
+    }
+
+    .flyer-modal-caption {
+      max-width: 640px;
+      color: var(--white);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-align: center;
     }
 
     /* Destinos */
@@ -3220,6 +3292,14 @@
     </section>
   </main>
 
+  <div class="flyer-modal" id="flyerModal" aria-hidden="true">
+    <div class="flyer-modal-content" role="dialog" aria-modal="true" aria-label="Flyer ampliado">
+      <button class="flyer-modal-close" type="button" id="flyerModalClose" aria-label="Cerrar flyer ampliado">&times;</button>
+      <img id="flyerModalImage" src="" alt="">
+      <p class="flyer-modal-caption" id="flyerModalCaption"></p>
+    </div>
+  </div>
+
   <footer class="footer">
     <div class="container">
       <div class="footer-main">
@@ -4198,6 +4278,60 @@
     const whatsappUrl = (message) =>
       `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
+    const flyerModal = document.getElementById("flyerModal");
+    const flyerModalImage = document.getElementById("flyerModalImage");
+    const flyerModalCaption = document.getElementById("flyerModalCaption");
+    const flyerModalClose = document.getElementById("flyerModalClose");
+
+    const isFlyerImage = (element) =>
+      element?.matches?.(".weekly-card-image, .package-image img");
+
+    const markFlyerImages = (root = document) => {
+      root.querySelectorAll(".weekly-card-image, .package-image img").forEach((image) => {
+        image.setAttribute("tabindex", "0");
+        image.setAttribute("role", "button");
+        image.setAttribute("title", "Tocar para ampliar el flyer");
+      });
+    };
+
+    const openFlyerModal = (image) => {
+      if (!image?.src) return;
+      flyerModalImage.src = image.currentSrc || image.src;
+      flyerModalImage.alt = image.alt || "Flyer ampliado";
+      flyerModalCaption.textContent = image.alt || "Flyer ampliado";
+      flyerModal.classList.add("active");
+      flyerModal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      flyerModalClose.focus();
+    };
+
+    const closeFlyerModal = () => {
+      flyerModal.classList.remove("active");
+      flyerModal.setAttribute("aria-hidden", "true");
+      flyerModalImage.src = "";
+      document.body.style.overflow = "";
+    };
+
+    document.addEventListener("click", (event) => {
+      const image = event.target.closest(".weekly-card-image, .package-image img");
+      if (image) openFlyerModal(image);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && flyerModal.classList.contains("active")) closeFlyerModal();
+      if ((event.key === "Enter" || event.key === " ") && isFlyerImage(event.target)) {
+        event.preventDefault();
+        openFlyerModal(event.target);
+      }
+    });
+
+    flyerModalClose.addEventListener("click", closeFlyerModal);
+    flyerModal.addEventListener("click", (event) => {
+      if (event.target === flyerModal) closeFlyerModal();
+    });
+
+    new MutationObserver(() => markFlyerImages()).observe(document.body, { childList: true, subtree: true });
+
     const packagesGrid = document.getElementById("packagesGrid");
     packagesGrid.innerHTML = packages.map((item) => `
       <article class="weekly-card" id="${item.id}" data-search="${item.title} ${item.destination} ${item.category} vacaciones invierno">
@@ -4205,7 +4339,6 @@
         <div class="weekly-card-body">
           <small>${item.category === "Aéreo" ? "✈️" : "🚌"} ${item.category} · Vacaciones de Invierno</small>
           <h3>${item.title}</h3>
-          <p>${item.description}</p>
           <a class="btn btn-primary" href="${whatsappUrl(`Hola MyE Turismo, quiero consultar por ${item.title} para Vacaciones de Invierno, opción ${item.category}.`)}" target="_blank" rel="noopener">
             <svg class="icon"><use href="#icon-whatsapp"></use></svg>
             Consultar por WhatsApp
@@ -4221,8 +4354,6 @@
         <div class="weekly-card-body">
           <small>🎓 ${item.category} · Full Day</small>
           <h3>${item.title}</h3>
-          <p>${item.description}</p>
-          ${item.price ? `<strong class="catalog-price">${item.price}</strong>` : ""}
           <a class="btn btn-primary" href="${whatsappUrl(`Hola MyE Turismo, quiero consultar por ${item.title} para el Día del Maestro.`)}" target="_blank" rel="noopener">
             <svg class="icon"><use href="#icon-whatsapp"></use></svg>
             Consultar por WhatsApp
@@ -4397,13 +4528,7 @@
         </div>
         <div class="package-body">
           <h3><span class="heading-icon" aria-hidden="true">${item.icon || "✦"}</span>${item.name}</h3>
-          ${item.description ? `<p>${item.description}</p>` : ""}
-          <div class="catalog-details">
-            ${item.destination ? `<div class="catalog-detail"><span>Destino</span><strong>${item.destination}</strong></div>` : ""}
-            ${item.duration ? `<div class="catalog-detail"><span>Duración</span><strong>${item.duration}</strong></div>` : ""}
-            ${item.departures ? `<div class="catalog-detail"><span>Salidas</span><strong>${item.departures}</strong></div>` : ""}
-          </div>
-          ${item.price ? `<div class="catalog-price">${item.price}</div>` : ""}
+          <span class="flyer-compact-meta">${categoryTitle}</span>
           ${item.targetId ? `
             <button class="btn btn-primary search-package-link" type="button" data-package-target="${item.targetId}">
               Ver en Feriado de Julio
@@ -4460,7 +4585,7 @@
                     </div>
                     <div class="destination-video-copy">
                       <h4><span aria-hidden="true">🎬</span> ${video.title}</h4>
-                      <p>${video.description}</p>
+                      <p>${video.description} Consultanos por próximas fechas, salidas disponibles y propuestas para viajar.</p>
                       <a class="btn btn-outline" href="https://youtu.be/${video.id}" target="_blank" rel="noopener">
                         Ver en YouTube
                         <svg class="icon"><use href="#icon-arrow"></use></svg>
@@ -4752,6 +4877,7 @@
     });
 
     document.getElementById("year").textContent = new Date().getFullYear();
+    markFlyerImages();
   </script>
 </body>
 </html>
