@@ -1313,12 +1313,79 @@
       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
     }
 
+    .flyer-modal-arrow {
+      position: absolute;
+      top: 50%;
+      display: grid;
+      width: 52px;
+      height: 52px;
+      place-items: center;
+      border: 0;
+      border-radius: 999px;
+      color: var(--white);
+      background: var(--turquoise);
+      cursor: pointer;
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.28);
+      transform: translateY(-50%);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .flyer-modal-arrow:hover {
+      background: var(--turquoise-dark);
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .flyer-modal-prev {
+      left: -72px;
+    }
+
+    .flyer-modal-next {
+      right: -72px;
+    }
+
+    .flyer-modal-prev .icon {
+      transform: rotate(180deg);
+    }
+
+    .flyer-modal-arrow[hidden] {
+      display: none;
+    }
+
     .flyer-modal-caption {
       max-width: 640px;
       color: var(--white);
       font-size: 0.9rem;
       font-weight: 700;
       text-align: center;
+    }
+
+    @media (max-width: 760px) {
+      .flyer-modal {
+        padding: 16px;
+      }
+
+      .flyer-modal-content {
+        max-width: 96vw;
+      }
+
+      .flyer-modal-close {
+        top: 8px;
+        right: 8px;
+      }
+
+      .flyer-modal-arrow {
+        width: 46px;
+        height: 46px;
+        background: rgba(8, 152, 155, 0.92);
+      }
+
+      .flyer-modal-prev {
+        left: 8px;
+      }
+
+      .flyer-modal-next {
+        right: 8px;
+      }
     }
 
     /* Destinos */
@@ -3295,7 +3362,13 @@
   <div class="flyer-modal" id="flyerModal" aria-hidden="true">
     <div class="flyer-modal-content" role="dialog" aria-modal="true" aria-label="Flyer ampliado">
       <button class="flyer-modal-close" type="button" id="flyerModalClose" aria-label="Cerrar flyer ampliado">&times;</button>
+      <button class="flyer-modal-arrow flyer-modal-prev" type="button" id="flyerModalPrev" aria-label="Ver flyer anterior">
+        <svg class="icon"><use href="#icon-arrow"></use></svg>
+      </button>
       <img id="flyerModalImage" src="" alt="">
+      <button class="flyer-modal-arrow flyer-modal-next" type="button" id="flyerModalNext" aria-label="Ver flyer siguiente">
+        <svg class="icon"><use href="#icon-arrow"></use></svg>
+      </button>
       <p class="flyer-modal-caption" id="flyerModalCaption"></p>
     </div>
   </div>
@@ -4282,6 +4355,10 @@
     const flyerModalImage = document.getElementById("flyerModalImage");
     const flyerModalCaption = document.getElementById("flyerModalCaption");
     const flyerModalClose = document.getElementById("flyerModalClose");
+    const flyerModalPrev = document.getElementById("flyerModalPrev");
+    const flyerModalNext = document.getElementById("flyerModalNext");
+    let flyerModalGallery = [];
+    let flyerModalIndex = 0;
 
     const isFlyerImage = (element) =>
       element?.matches?.(".weekly-card-image, .package-image img");
@@ -4294,21 +4371,45 @@
       });
     };
 
-    const openFlyerModal = (image) => {
+    const getFlyerGallery = (image) => {
+      const container = image.closest(".weekly-carousel, .explorer-packages, .search-results-grid, .packages-grid")
+        || document;
+      return Array.from(container.querySelectorAll(".weekly-card-image, .package-image img"));
+    };
+
+    const updateFlyerModal = () => {
+      const image = flyerModalGallery[flyerModalIndex];
       if (!image?.src) return;
       flyerModalImage.src = image.currentSrc || image.src;
       flyerModalImage.alt = image.alt || "Flyer ampliado";
       flyerModalCaption.textContent = image.alt || "Flyer ampliado";
+      const hasMultipleFlyers = flyerModalGallery.length > 1;
+      flyerModalPrev.hidden = !hasMultipleFlyers;
+      flyerModalNext.hidden = !hasMultipleFlyers;
+    };
+
+    const openFlyerModal = (image) => {
+      flyerModalGallery = getFlyerGallery(image);
+      flyerModalIndex = Math.max(0, flyerModalGallery.indexOf(image));
+      updateFlyerModal();
       flyerModal.classList.add("active");
       flyerModal.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
       flyerModalClose.focus();
     };
 
+    const showAdjacentFlyer = (direction) => {
+      if (flyerModalGallery.length < 2) return;
+      flyerModalIndex = (flyerModalIndex + direction + flyerModalGallery.length) % flyerModalGallery.length;
+      updateFlyerModal();
+    };
+
     const closeFlyerModal = () => {
       flyerModal.classList.remove("active");
       flyerModal.setAttribute("aria-hidden", "true");
       flyerModalImage.src = "";
+      flyerModalGallery = [];
+      flyerModalIndex = 0;
       document.body.style.overflow = "";
     };
 
@@ -4319,6 +4420,8 @@
 
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && flyerModal.classList.contains("active")) closeFlyerModal();
+      if (event.key === "ArrowLeft" && flyerModal.classList.contains("active")) showAdjacentFlyer(-1);
+      if (event.key === "ArrowRight" && flyerModal.classList.contains("active")) showAdjacentFlyer(1);
       if ((event.key === "Enter" || event.key === " ") && isFlyerImage(event.target)) {
         event.preventDefault();
         openFlyerModal(event.target);
@@ -4326,6 +4429,8 @@
     });
 
     flyerModalClose.addEventListener("click", closeFlyerModal);
+    flyerModalPrev.addEventListener("click", () => showAdjacentFlyer(-1));
+    flyerModalNext.addEventListener("click", () => showAdjacentFlyer(1));
     flyerModal.addEventListener("click", (event) => {
       if (event.target === flyerModal) closeFlyerModal();
     });
