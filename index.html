@@ -1405,11 +1405,16 @@
 
     @media (max-width: 760px) {
       .flyer-modal {
-        padding: 16px;
+        padding: 16px 16px calc(92px + env(safe-area-inset-bottom));
       }
 
       .flyer-modal-content {
         max-width: 96vw;
+        max-height: calc(100vh - 108px);
+      }
+
+      .flyer-modal img {
+        max-height: min(72vh, calc(100vh - 210px));
       }
 
       .flyer-modal-close {
@@ -1418,17 +1423,25 @@
       }
 
       .flyer-modal-arrow {
+        position: fixed;
+        top: auto;
+        bottom: calc(22px + env(safe-area-inset-bottom));
         width: 46px;
         height: 46px;
         background: rgba(8, 152, 155, 0.92);
+        transform: none;
+      }
+
+      .flyer-modal-arrow:hover {
+        transform: scale(1.05);
       }
 
       .flyer-modal-prev {
-        left: 8px;
+        left: calc(50% - 60px);
       }
 
       .flyer-modal-next {
-        right: 8px;
+        right: calc(50% - 60px);
       }
     }
 
