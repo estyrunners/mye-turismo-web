@@ -223,9 +223,18 @@
       padding-block: 14px 8px;
     }
 
-    .brand {
+    .brand-block {
       position: relative;
       z-index: 3;
+      display: flex;
+      min-width: 0;
+      align-items: center;
+      gap: 14px;
+      flex: 0 0 auto;
+    }
+
+    .brand {
+      position: relative;
       width: clamp(118px, 12vw, 138px);
       flex: 0 0 auto;
       margin: 0;
@@ -234,6 +243,34 @@
     .brand img {
       width: 100%;
       filter: drop-shadow(0 5px 12px rgba(0, 0, 0, 0.16));
+    }
+
+    .header-phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      border-radius: 999px;
+      color: var(--navy);
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 10px 24px rgba(18, 52, 71, 0.1);
+      font-size: 0.86rem;
+      font-weight: 900;
+      white-space: nowrap;
+      backdrop-filter: blur(10px);
+      transition: transform 0.2s ease, color 0.2s ease, background 0.2s ease;
+    }
+
+    .header-phone:hover {
+      color: var(--turquoise-dark);
+      background: rgba(255, 255, 255, 0.92);
+      transform: translateY(-1px);
+    }
+
+    .header.scrolled .header-phone {
+      border-color: rgba(8, 152, 155, 0.18);
+      background: var(--turquoise-soft);
     }
 
     .nav-links {
@@ -760,6 +797,13 @@
         radial-gradient(circle at 12% 20%, rgba(242, 169, 91, 0.12), transparent 24%),
         radial-gradient(circle at 88% 16%, rgba(8, 152, 155, 0.12), transparent 26%),
         linear-gradient(180deg, #f8fbfb 0%, var(--white) 100%);
+    }
+
+    .featured-destinations-highlights {
+      background:
+        radial-gradient(circle at 12% 16%, rgba(8, 152, 155, 0.12), transparent 24%),
+        radial-gradient(circle at 88% 22%, rgba(242, 169, 91, 0.14), transparent 26%),
+        linear-gradient(180deg, var(--white) 0%, #f7fbfb 100%);
     }
 
     .weekly-card-body .icon {
@@ -2213,6 +2257,22 @@
       margin-top: 8px;
     }
 
+    .footer-contact-list li + li {
+      margin-top: 11px;
+    }
+
+    .footer-contact-list a {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      line-height: 1.35;
+    }
+
+    .footer-contact-list span {
+      color: var(--sand);
+      font-weight: 800;
+    }
+
     .footer-links a:hover {
       color: var(--sand);
     }
@@ -2424,12 +2484,22 @@
 
       .nav {
         min-height: 90px;
+        gap: 10px;
         padding-block: 12px 7px;
+      }
+
+      .brand-block {
+        gap: 8px;
       }
 
       .brand {
         width: 118px;
         margin-left: 5px;
+      }
+
+      .header-phone {
+        padding: 7px 9px;
+        font-size: 0.74rem;
       }
 
       .hero {
@@ -2692,6 +2762,16 @@
         transition-duration: 0.01ms !important;
       }
     }
+    @media (max-width: 430px) {
+      .brand {
+        width: 104px;
+      }
+
+      .header-phone {
+        padding: 6px 8px;
+        font-size: 0.68rem;
+      }
+    }
   </style>
 </head>
 
@@ -2725,9 +2805,15 @@
 
   <header class="header" id="header">
     <div class="container nav">
-      <a class="brand" href="#inicio" aria-label="Ir al inicio">
-        <img class="brand-logo" src="" alt="MyE Turismo">
-      </a>
+      <div class="brand-block">
+        <a class="brand" href="#inicio" aria-label="Ir al inicio">
+          <img class="brand-logo" src="" alt="MyE Turismo">
+        </a>
+        <a class="header-phone whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por WhatsApp.">
+          <span aria-hidden="true">📱</span>
+          11-3153-7638
+        </a>
+      </div>
 
       <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
         <svg class="icon"><use href="#icon-menu"></use></svg>
@@ -3168,6 +3254,32 @@
       </div>
     </section>
 
+    <section class="section weekly-highlights featured-destinations-highlights" id="destinos-destacados">
+      <div class="container">
+        <div class="weekly-heading">
+          <span class="eyebrow">✦ Vidriera viajera</span>
+          <h2>Destinos Destacados</h2>
+          <p>Salidas grupales, experiencias especiales y destinos recomendados para tener siempre a mano. Deslizá el carrusel y consultanos por disponibilidad.</p>
+          <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por destinos destacados y salidas grupales.">
+            <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+            Consultar destinos destacados
+          </a>
+        </div>
+
+        <div class="weekly-carousel-shell">
+          <button class="weekly-arrow weekly-arrow-prev" id="featuredDestinationsPrev" type="button" aria-label="Ver destino destacado anterior">
+            <svg class="icon"><use href="#icon-arrow"></use></svg>
+          </button>
+
+          <div class="weekly-carousel" id="featuredDestinationsCarousel"></div>
+
+          <button class="weekly-arrow weekly-arrow-next" id="featuredDestinationsNext" type="button" aria-label="Ver destino destacado siguiente">
+            <svg class="icon"><use href="#icon-arrow"></use></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
     <section class="section weekly-highlights teacher-highlights" id="dia-maestro">
       <div class="container">
         <div class="weekly-heading">
@@ -3390,10 +3502,13 @@
         </div>
         <div>
           <h4>Contacto</h4>
-          <ul class="footer-links">
-            <li><a class="whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero hacer una consulta.">WhatsApp</a></li>
-            <li><a href="#redes">Redes sociales</a></li>
-            <li><a href="#contacto">Formulario</a></li>
+          <ul class="footer-links footer-contact-list">
+            <li><a class="whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero hacer una consulta."><span>📱 WhatsApp:</span> 11-3153-7638</a></li>
+            <li><a href="mailto:mye.turismo@hotmail.com.ar"><span>📧 Email:</span> mye.turismo@hotmail.com.ar</a></li>
+            <li><a href="https://www.instagram.com/mye.turismo?igsh=MWJvdXk1a3RzeW40ZA==" target="_blank" rel="noopener"><span>📸 Instagram:</span> @mye.turismo</a></li>
+            <li><a href="https://www.facebook.com/share/1Caoip5K6x/" target="_blank" rel="noopener"><span>📘 Facebook:</span> MyE Turismo</a></li>
+            <li><a href="https://www.tiktok.com/@mye.turismo" target="_blank" rel="noopener"><span>🎵 TikTok:</span> @mye.turismo</a></li>
+            <li><a href="https://www.youtube.com/@MyETurismo" target="_blank" rel="noopener"><span>▶️ YouTube:</span> MyE Turismo</a></li>
           </ul>
         </div>
       </div>
@@ -3429,12 +3544,14 @@
     const searchSection = document.getElementById("buscar-paquetes");
     const weeklySection = document.getElementById("destacados-semana");
     const winterSection = document.getElementById("paquetes");
+    const featuredDestinationsSection = document.getElementById("destinos-destacados");
     const teacherSection = document.getElementById("dia-maestro");
     const destinationsSection = document.getElementById("destinos");
-    if (searchSection && weeklySection && winterSection && teacherSection && destinationsSection) {
+    if (searchSection && weeklySection && winterSection && featuredDestinationsSection && teacherSection && destinationsSection) {
       searchSection.after(weeklySection);
       weeklySection.after(winterSection);
-      winterSection.after(teacherSection);
+      winterSection.after(featuredDestinationsSection);
+      featuredDestinationsSection.after(teacherSection);
       teacherSection.after(destinationsSection);
     }
 
@@ -3603,6 +3720,45 @@
         description: "Vacaciones de invierno en Puerto Madryn con aéreo y equipaje incluido.",
         note: "Vacaciones de Invierno",
         image: "invierno-aereo-puerto-madryn.jpeg"
+      }
+    ];
+
+    /* Destinos Destacados: vidriera permanente de experiencias recomendadas. */
+    const featuredDestinations = [
+      {
+        id: "destacado-puerto-madryn-ballenas",
+        title: "Puerto Madryn - Temporada de Ballenas",
+        destination: "Puerto Madryn, Chubut",
+        category: "Salida grupal",
+        image: "destacado-puerto-madryn-ballenas.jpeg"
+      },
+      {
+        id: "destacado-ruta-40",
+        title: "Ruta 40",
+        destination: "Argentina",
+        category: "Experiencia destacada",
+        image: "destacado-ruta-40.jpeg"
+      },
+      {
+        id: "destacado-punta-cana",
+        title: "Punta Cana",
+        destination: "Caribe",
+        category: "Caribe",
+        image: "destacado-punta-cana.jpeg"
+      },
+      {
+        id: "destacado-peru-inolvidable",
+        title: "Perú inolvidable",
+        destination: "Perú",
+        category: "Internacional",
+        image: "destacado-peru-inolvidable.jpeg"
+      },
+      {
+        id: "destacado-turquia-dubai",
+        title: "Turquía & Dubai",
+        destination: "Turquía y Dubai",
+        category: "Internacional",
+        image: "destacado-turquia-dubai.jpeg"
       }
     ];
 
@@ -4452,6 +4608,21 @@
       </article>
     `).join("");
 
+    const featuredDestinationsCarousel = document.getElementById("featuredDestinationsCarousel");
+    featuredDestinationsCarousel.innerHTML = featuredDestinations.map((item) => `
+      <article class="weekly-card" id="${item.id}" data-search="${item.title} ${item.destination} ${item.category} destinos destacados salidas grupales">
+        <img class="weekly-card-image" src="${item.image}" alt="${item.title} - Destinos Destacados" loading="lazy">
+        <div class="weekly-card-body">
+          <small>✦ ${item.category} · Destinos destacados</small>
+          <h3>${item.title}</h3>
+          <a class="btn btn-primary" href="${whatsappUrl(`Hola MyE Turismo, quiero consultar por ${item.title} dentro de Destinos Destacados.`)}" target="_blank" rel="noopener">
+            <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+            Consultar por WhatsApp
+          </a>
+        </div>
+      </article>
+    `).join("");
+
     const teacherCarousel = document.getElementById("teacherCarousel");
     teacherCarousel.innerHTML = teacherPackages.map((item) => `
       <article class="weekly-card" id="${item.id}" data-search="${item.title} ${item.destination} dia maestro full day">
@@ -4636,7 +4807,7 @@
           <span class="flyer-compact-meta">${categoryTitle}</span>
           ${item.targetId ? `
             <button class="btn btn-primary search-package-link" type="button" data-package-target="${item.targetId}">
-              Ver en Feriado de Julio
+              ${item.targetLabel || "Ver destacado"}
               <svg class="icon"><use href="#icon-arrow"></use></svg>
             </button>
           ` : ""}
@@ -4761,7 +4932,21 @@
         price: "",
         image: card.querySelector("img")?.getAttribute("src") || "",
         categoryTitle: "Feriado de Julio",
-        targetId: card.id
+        targetId: card.id,
+        targetLabel: "Ver en Feriado de Julio"
+      }));
+
+      const permanentFeatured = Array.from(document.querySelectorAll("#featuredDestinationsCarousel .weekly-card")).map((card) => ({
+        name: card.querySelector("h3")?.textContent.trim() || "Destino destacado",
+        destination: card.dataset.search || "",
+        duration: "",
+        departures: card.querySelector("small")?.textContent.trim() || "Destinos destacados",
+        description: "Destino destacado recomendado.",
+        price: "",
+        image: card.querySelector("img")?.getAttribute("src") || "",
+        categoryTitle: "Destinos Destacados",
+        targetId: card.id,
+        targetLabel: "Ver en Destinos Destacados"
       }));
 
       const teacherFeatured = Array.from(document.querySelectorAll("#teacherCarousel .weekly-card")).map((card) => ({
@@ -4773,7 +4958,8 @@
         price: "",
         image: card.querySelector("img")?.getAttribute("src") || "",
         categoryTitle: "Día del Maestro",
-        targetId: card.id
+        targetId: card.id,
+        targetLabel: "Ver en Día del Maestro"
       }));
 
       const featured = packages.map((item) => ({
@@ -4785,7 +4971,8 @@
         price: item.price || "",
         image: item.image || "",
         categoryTitle: `${item.category || "Paquete destacado"} / Vacaciones de Invierno`,
-        targetId: item.id
+        targetId: item.id,
+        targetLabel: "Ver en Vacaciones de Invierno"
       }));
 
       const catalogPackages = Object.values(destinationCatalog).flatMap((catalog) => {
@@ -4803,7 +4990,7 @@
       });
 
       const uniquePackages = new Map();
-      [...weeklyPackages, ...teacherFeatured, ...featured, ...catalogPackages].forEach((item) => {
+      [...weeklyPackages, ...permanentFeatured, ...teacherFeatured, ...featured, ...catalogPackages].forEach((item) => {
         const uniqueKey = item.id
           || item.targetId
           || normalizeSearchText(`${item.name}|${item.destination}|${item.departures}`);
@@ -4910,6 +5097,16 @@
 
     document.getElementById("winterPrev").addEventListener("click", () => scrollWinterCarousel(-1));
     document.getElementById("winterNext").addEventListener("click", () => scrollWinterCarousel(1));
+
+    /* Controles del carrusel de Destinos Destacados. */
+    const scrollFeaturedDestinationsCarousel = (direction) => {
+      const firstCard = featuredDestinationsCarousel.querySelector(".weekly-card");
+      const distance = firstCard ? firstCard.getBoundingClientRect().width + 22 : 360;
+      featuredDestinationsCarousel.scrollBy({ left: distance * direction, behavior: "smooth" });
+    };
+
+    document.getElementById("featuredDestinationsPrev").addEventListener("click", () => scrollFeaturedDestinationsCarousel(-1));
+    document.getElementById("featuredDestinationsNext").addEventListener("click", () => scrollFeaturedDestinationsCarousel(1));
 
     /* Controles del carrusel de Día del Maestro. */
     const scrollTeacherCarousel = (direction) => {
