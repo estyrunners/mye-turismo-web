@@ -1735,6 +1735,11 @@
       object-fit: contain;
     }
 
+    .catalog-card .package-image .youtube-preview img {
+      object-fit: cover;
+      cursor: pointer;
+    }
+
     .catalog-card h3 {
       display: flex;
       align-items: flex-start;
@@ -4468,6 +4473,16 @@
             image: "full-day-rosario-san-nicolas.jpeg"
           },
           {
+            name: "Video Rosario y Virgen de San Nicolás",
+            icon: "🎬",
+            destination: "Rosario y San Nicolás",
+            duration: "Full Day",
+            departures: "Consultar próximas salidas",
+            description: "Conocé la experiencia de Rosario y Virgen de San Nicolás. Consultanos por próximas fechas, salidas disponibles y detalles para reservar tu lugar.",
+            price: "",
+            videoId: "-aLZk0Lb6Y0"
+          },
+          {
             name: "Rosario - Virgen de San Nicolás",
             icon: "⛪",
             destination: "Rosario y San Nicolás",
@@ -4552,12 +4567,13 @@
     const flyerModalNext = document.getElementById("flyerModalNext");
     let flyerModalGallery = [];
     let flyerModalIndex = 0;
+    const FLYER_IMAGE_SELECTOR = ".weekly-card-image, .package-image > img";
 
     const isFlyerImage = (element) =>
-      element?.matches?.(".weekly-card-image, .package-image img");
+      element?.matches?.(FLYER_IMAGE_SELECTOR);
 
     const markFlyerImages = (root = document) => {
-      root.querySelectorAll(".weekly-card-image, .package-image img").forEach((image) => {
+      root.querySelectorAll(FLYER_IMAGE_SELECTOR).forEach((image) => {
         image.setAttribute("tabindex", "0");
         image.setAttribute("role", "button");
         image.setAttribute("title", "Tocar para ampliar el flyer");
@@ -4567,7 +4583,7 @@
     const getFlyerGallery = (image) => {
       const container = image.closest(".weekly-carousel, .explorer-packages, .search-results-grid, .packages-grid")
         || document;
-      return Array.from(container.querySelectorAll(".weekly-card-image, .package-image img"));
+      return Array.from(container.querySelectorAll(FLYER_IMAGE_SELECTOR));
     };
 
     const updateFlyerModal = () => {
@@ -4607,7 +4623,7 @@
     };
 
     document.addEventListener("click", (event) => {
-      const image = event.target.closest(".weekly-card-image, .package-image img");
+      const image = event.target.closest(FLYER_IMAGE_SELECTOR);
       if (image) openFlyerModal(image);
     });
 
@@ -4833,7 +4849,31 @@
       if (shouldScroll) requestAnimationFrame(scrollToExplorer);
     };
 
-    const renderPackageCard = (item, categoryTitle) => `
+    const renderPackageCard = (item, categoryTitle) => item.videoId ? `
+      <article class="package-card catalog-card">
+        <div class="package-image">
+          <a class="youtube-preview" href="https://youtube.com/shorts/${item.videoId}" target="_blank" rel="noopener" aria-label="Ver ${item.name} en YouTube">
+            <img src="https://i.ytimg.com/vi/${item.videoId}/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${item.videoId}/hqdefault.jpg'" alt="Vista previa del video ${item.name}" loading="lazy">
+            <span class="youtube-preview-play" aria-hidden="true"><svg class="icon"><use href="#icon-play"></use></svg></span>
+            <span class="youtube-preview-label">Mirar en YouTube</span>
+          </a>
+          <span class="package-tag">${categoryTitle}</span>
+        </div>
+        <div class="package-body">
+          <h3><span class="heading-icon" aria-hidden="true">${item.icon || "🎬"}</span>${item.name}</h3>
+          <span class="flyer-compact-meta">${categoryTitle}</span>
+          <p>${item.description || "Conocé esta experiencia y consultanos por próximas fechas, salidas disponibles y propuestas para viajar."}</p>
+          <a class="btn btn-primary" href="https://youtube.com/shorts/${item.videoId}" target="_blank" rel="noopener">
+            Ver en YouTube
+            <svg class="icon"><use href="#icon-arrow"></use></svg>
+          </a>
+          <a class="btn btn-outline" href="${whatsappUrl(`Hola MyE Turismo, quiero consultar por ${item.name}${item.destination ? ` en ${item.destination}` : ""}.`)}" target="_blank" rel="noopener">
+            Consultar por WhatsApp
+            <svg class="icon"><use href="#icon-arrow"></use></svg>
+          </a>
+        </div>
+      </article>
+    ` : `
       <article class="package-card catalog-card">
         <div class="package-image">
           <img src="${item.image}" alt="${item.name}" loading="lazy">
