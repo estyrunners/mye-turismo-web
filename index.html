@@ -751,6 +751,10 @@
       cursor: zoom-in;
     }
 
+    .weekly-card > .youtube-preview {
+      aspect-ratio: 934 / 1280;
+    }
+
     .weekly-card-body {
       display: flex;
       flex: 1;
@@ -3945,6 +3949,14 @@
         image: "destacado-ruta-40.jpeg"
       },
       {
+        id: "destacado-ruta-40-video",
+        title: "Ruta 40 en video",
+        destination: "Argentina",
+        category: "Video destacado",
+        videoId: "iJRpGRH4KR4",
+        description: "Inspirate con esta experiencia y consultanos para conocer próximas salidas disponibles."
+      },
+      {
         id: "destacado-punta-cana",
         title: "Punta Cana",
         destination: "Caribe",
@@ -4148,6 +4160,11 @@
                 id: "aNr-uEPrFKo",
                 title: "Más experiencias en Patagonia",
                 description: "Inspiración para seguir descubriendo destinos y experiencias inolvidables en la Patagonia."
+              },
+              {
+                id: "iJRpGRH4KR4",
+                title: "Ruta 40 y Patagonia",
+                description: "Una experiencia para imaginar caminos, paisajes y aventuras patagónicas sobre la Ruta 40."
               }
             ],
             packages: []
@@ -4922,10 +4939,23 @@
     const featuredDestinationsCarousel = document.getElementById("featuredDestinationsCarousel");
     featuredDestinationsCarousel.innerHTML = featuredDestinations.map((item) => `
       <article class="weekly-card" id="${item.id}" data-search="${item.title} ${item.destination} ${item.category} destinos destacados salidas grupales">
-        <img class="weekly-card-image" src="${item.image}" alt="${item.title} - Destinos Destacados" loading="lazy">
+        ${item.videoId ? `
+          <button class="youtube-preview" type="button" data-video-id="${item.videoId}" data-video-title="${item.title}" data-video-url="https://youtube.com/shorts/${item.videoId}" aria-label="Reproducir video ${item.title} dentro de la página">
+            <img src="https://i.ytimg.com/vi/${item.videoId}/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${item.videoId}/hqdefault.jpg'" alt="Vista previa del video ${item.title}" loading="lazy">
+            <span class="youtube-preview-play" aria-hidden="true"><svg class="icon"><use href="#icon-play"></use></svg></span>
+            <span class="youtube-preview-label">Vista previa</span>
+          </button>
+        ` : `<img class="weekly-card-image" src="${item.image}" alt="${item.title} - Destinos Destacados" loading="lazy">`}
         <div class="weekly-card-body">
           <small>✦ ${item.category} · Destinos destacados</small>
           <h3>${item.title}</h3>
+          ${item.description ? `<p>${item.description}</p>` : ""}
+          ${item.videoId ? `
+            <a class="btn youtube-button" href="https://youtube.com/shorts/${item.videoId}" target="_blank" rel="noopener">
+              <svg class="icon"><use href="#icon-play"></use></svg>
+              Ver en YouTube
+            </a>
+          ` : ""}
           <a class="btn btn-primary" href="${whatsappUrl(`Hola MyE Turismo, quiero consultar por ${item.title} dentro de Destinos Destacados.`)}" target="_blank" rel="noopener">
             <svg class="icon"><use href="#icon-whatsapp"></use></svg>
             Consultar por WhatsApp
