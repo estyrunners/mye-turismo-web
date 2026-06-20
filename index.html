@@ -1219,6 +1219,35 @@
       text-align: center;
     }
 
+    .video-modal-fallback {
+      display: none;
+      width: min(100%, 420px);
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 18px;
+      color: var(--white);
+      background: rgba(8, 31, 43, 0.72);
+      text-align: center;
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);
+    }
+
+    .video-modal-fallback.visible {
+      display: grid;
+      gap: 12px;
+      justify-items: center;
+    }
+
+    .video-modal-fallback p {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .video-modal-youtube {
+      width: min(100%, 280px);
+      justify-content: center;
+    }
+
     .about-video-copy h3 {
       margin: 12px 0;
       color: var(--navy);
@@ -3651,6 +3680,13 @@
         <iframe id="videoModalFrame" src="" title="Reproductor de video de YouTube" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
       <p class="video-modal-title" id="videoModalTitle"></p>
+      <div class="video-modal-fallback" id="videoModalFallback" aria-live="polite">
+        <p>Si el reproductor muestra un error o no carga, podés abrir el video directamente en YouTube.</p>
+        <a class="btn youtube-button video-modal-youtube" id="videoModalYoutube" href="#" target="_blank" rel="noopener">
+          <svg class="icon"><use href="#icon-play"></use></svg>
+          Ver video en YouTube
+        </a>
+      </div>
     </div>
   </div>
 
@@ -4814,6 +4850,12 @@
     const videoModalFrame = document.getElementById("videoModalFrame");
     const videoModalTitle = document.getElementById("videoModalTitle");
     const videoModalClose = document.getElementById("videoModalClose");
+    const videoModalFallback = document.getElementById("videoModalFallback");
+    const videoModalYoutube = document.getElementById("videoModalYoutube");
+    let videoFallbackTimer;
+
+    const youtubeWatchUrl = (videoId) =>
+      `https://youtube.com/watch?v=${encodeURIComponent(videoId)}`;
 
     const openVideoModal = (preview) => {
       const videoId = preview.dataset.videoId;
@@ -4822,10 +4864,16 @@
       videoModalFrame.src = `https://www.youtube.com/embed/${encodeURIComponent(videoId)}?autoplay=1&rel=0&playsinline=1`;
       videoModalFrame.title = videoTitle;
       videoModalTitle.textContent = videoTitle;
+      videoModalYoutube.href = preview.dataset.videoUrl || youtubeWatchUrl(videoId);
+      videoModalFallback.classList.remove("visible");
+      window.clearTimeout(videoFallbackTimer);
       videoModal.classList.add("active");
       videoModal.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
       videoModalClose.focus();
+      videoFallbackTimer = window.setTimeout(() => {
+        if (videoModal.classList.contains("active")) videoModalFallback.classList.add("visible");
+      }, 1800);
     };
 
     const closeVideoModal = () => {
@@ -4834,6 +4882,9 @@
       videoModalFrame.src = "";
       videoModalFrame.title = "Reproductor de video de YouTube";
       videoModalTitle.textContent = "";
+      videoModalYoutube.href = "#";
+      videoModalFallback.classList.remove("visible");
+      window.clearTimeout(videoFallbackTimer);
       document.body.style.overflow = "";
     };
 
