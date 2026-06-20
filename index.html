@@ -1072,6 +1072,7 @@
       overflow: hidden;
       color: var(--white);
       background: var(--navy);
+      cursor: default;
     }
 
     .youtube-preview img {
@@ -1330,6 +1331,12 @@
       justify-items: center;
     }
 
+    .flyer-modal-image-wrap {
+      display: grid;
+      justify-items: center;
+      max-width: 100%;
+    }
+
     .flyer-modal img {
       max-width: 100%;
       max-height: min(88vh, 1180px);
@@ -1395,6 +1402,25 @@
       display: none;
     }
 
+    .flyer-modal-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 52px;
+    }
+
+    .flyer-modal-whatsapp {
+      min-width: min(100%, 280px);
+      justify-content: center;
+      box-shadow: 0 18px 40px rgba(8, 152, 155, 0.32);
+    }
+
+    .flyer-modal-whatsapp .icon {
+      width: 18px;
+      height: 18px;
+    }
+
     .flyer-modal-caption {
       max-width: 640px;
       color: var(--white);
@@ -1405,16 +1431,18 @@
 
     @media (max-width: 760px) {
       .flyer-modal {
-        padding: 16px 16px calc(92px + env(safe-area-inset-bottom));
+        padding: 14px 14px calc(14px + env(safe-area-inset-bottom));
       }
 
       .flyer-modal-content {
-        max-width: 96vw;
-        max-height: calc(100vh - 108px);
+        width: min(96vw, 520px);
+        max-height: calc(100vh - 28px - env(safe-area-inset-bottom));
+        gap: 10px;
       }
 
       .flyer-modal img {
-        max-height: min(72vh, calc(100vh - 210px));
+        max-height: min(72vh, calc(100vh - 178px - env(safe-area-inset-bottom)));
+        border-radius: 14px;
       }
 
       .flyer-modal-close {
@@ -1423,13 +1451,12 @@
       }
 
       .flyer-modal-arrow {
-        position: fixed;
-        top: auto;
-        bottom: calc(22px + env(safe-area-inset-bottom));
+        position: static;
         width: 46px;
         height: 46px;
         background: rgba(8, 152, 155, 0.92);
         transform: none;
+        flex: 0 0 auto;
       }
 
       .flyer-modal-arrow:hover {
@@ -1437,11 +1464,29 @@
       }
 
       .flyer-modal-prev {
-        left: calc(50% - 60px);
+        left: auto;
       }
 
       .flyer-modal-next {
-        right: calc(50% - 60px);
+        right: auto;
+      }
+
+      .flyer-modal-controls {
+        gap: 10px;
+        min-height: 48px;
+      }
+
+      .flyer-modal-whatsapp {
+        min-width: 0;
+        flex: 1 1 auto;
+        padding: 13px 14px;
+        font-size: 0.9rem;
+      }
+
+      .flyer-modal-caption {
+        max-width: 92vw;
+        font-size: 0.82rem;
+        line-height: 1.35;
       }
     }
 
@@ -1737,7 +1782,6 @@
 
     .catalog-card .package-image .youtube-preview img {
       object-fit: cover;
-      cursor: pointer;
     }
 
     .catalog-card h3 {
@@ -2947,11 +2991,11 @@
 
         <article class="about-video-card">
           <div class="about-video-frame">
-            <a class="youtube-preview" href="https://youtube.com/shorts/wR4c95F3n_U" target="_blank" rel="noopener" aria-label="Ver Conocé más sobre MyE Turismo en YouTube">
+            <div class="youtube-preview" role="img" aria-label="Vista previa del video Conocé más sobre MyE Turismo">
               <img src="https://i.ytimg.com/vi/wR4c95F3n_U/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/wR4c95F3n_U/hqdefault.jpg'" alt="Vista previa del video Conocé más sobre MyE Turismo" loading="lazy">
               <span class="youtube-preview-play" aria-hidden="true"><svg class="icon"><use href="#icon-play"></use></svg></span>
-              <span class="youtube-preview-label">Mirar en YouTube</span>
-            </a>
+              <span class="youtube-preview-label">Vista previa</span>
+            </div>
           </div>
           <div class="about-video-copy">
             <span class="eyebrow">🎬 Nuestra historia</span>
@@ -3492,13 +3536,21 @@
   <div class="flyer-modal" id="flyerModal" aria-hidden="true">
     <div class="flyer-modal-content" role="dialog" aria-modal="true" aria-label="Flyer ampliado">
       <button class="flyer-modal-close" type="button" id="flyerModalClose" aria-label="Cerrar flyer ampliado">&times;</button>
-      <button class="flyer-modal-arrow flyer-modal-prev" type="button" id="flyerModalPrev" aria-label="Ver flyer anterior">
-        <svg class="icon"><use href="#icon-arrow"></use></svg>
-      </button>
-      <img id="flyerModalImage" src="" alt="">
-      <button class="flyer-modal-arrow flyer-modal-next" type="button" id="flyerModalNext" aria-label="Ver flyer siguiente">
-        <svg class="icon"><use href="#icon-arrow"></use></svg>
-      </button>
+      <div class="flyer-modal-image-wrap">
+        <img id="flyerModalImage" src="" alt="">
+      </div>
+      <div class="flyer-modal-controls">
+        <button class="flyer-modal-arrow flyer-modal-prev" type="button" id="flyerModalPrev" aria-label="Ver flyer anterior">
+          <svg class="icon"><use href="#icon-arrow"></use></svg>
+        </button>
+        <a class="btn btn-primary flyer-modal-whatsapp" id="flyerModalWhatsapp" href="#" target="_blank" rel="noopener">
+          <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+          Consultar por WhatsApp
+        </a>
+        <button class="flyer-modal-arrow flyer-modal-next" type="button" id="flyerModalNext" aria-label="Ver flyer siguiente">
+          <svg class="icon"><use href="#icon-arrow"></use></svg>
+        </button>
+      </div>
       <p class="flyer-modal-caption" id="flyerModalCaption"></p>
     </div>
   </div>
@@ -4565,6 +4617,7 @@
     const flyerModalClose = document.getElementById("flyerModalClose");
     const flyerModalPrev = document.getElementById("flyerModalPrev");
     const flyerModalNext = document.getElementById("flyerModalNext");
+    const flyerModalWhatsapp = document.getElementById("flyerModalWhatsapp");
     let flyerModalGallery = [];
     let flyerModalIndex = 0;
     const FLYER_IMAGE_SELECTOR = ".weekly-card-image, .package-image > img";
@@ -4586,12 +4639,25 @@
       return Array.from(container.querySelectorAll(FLYER_IMAGE_SELECTOR));
     };
 
+    const getFlyerWhatsappHref = (image) => {
+      const card = image.closest(".weekly-card, .package-card");
+      const existingLink = card?.querySelector('a[href*="wa.me"], .whatsapp-link, a.btn[href="#"]');
+      const existingHref = existingLink?.getAttribute("href");
+
+      if (existingHref && existingHref !== "#") return existingLink.href;
+      if (existingLink?.dataset?.message) return whatsappUrl(existingLink.dataset.message);
+
+      const title = card?.querySelector("h3")?.textContent?.trim() || image.alt || "este paquete";
+      return whatsappUrl(`Hola MyE Turismo, quiero consultar por ${title}.`);
+    };
+
     const updateFlyerModal = () => {
       const image = flyerModalGallery[flyerModalIndex];
       if (!image?.src) return;
       flyerModalImage.src = image.currentSrc || image.src;
       flyerModalImage.alt = image.alt || "Flyer ampliado";
       flyerModalCaption.textContent = image.alt || "Flyer ampliado";
+      flyerModalWhatsapp.href = getFlyerWhatsappHref(image);
       const hasMultipleFlyers = flyerModalGallery.length > 1;
       flyerModalPrev.hidden = !hasMultipleFlyers;
       flyerModalNext.hidden = !hasMultipleFlyers;
@@ -4617,6 +4683,7 @@
       flyerModal.classList.remove("active");
       flyerModal.setAttribute("aria-hidden", "true");
       flyerModalImage.src = "";
+      flyerModalWhatsapp.href = "#";
       flyerModalGallery = [];
       flyerModalIndex = 0;
       document.body.style.overflow = "";
@@ -4739,11 +4806,11 @@
         explorerContent.innerHTML = `
           <article class="custom-trip-guide">
             <div class="custom-trip-video">
-              <a class="youtube-preview" href="https://youtube.com/shorts/${catalog.videoId}" target="_blank" rel="noopener" aria-label="Ver cómo solicitar un viaje a medida en YouTube">
+              <div class="youtube-preview" role="img" aria-label="Vista previa del video Cómo solicitar un viaje a medida">
                 <img src="https://i.ytimg.com/vi/${catalog.videoId}/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${catalog.videoId}/hqdefault.jpg'" alt="Vista previa del video Cómo solicitar un viaje a medida" loading="lazy">
                 <span class="youtube-preview-play" aria-hidden="true"><svg class="icon"><use href="#icon-play"></use></svg></span>
-                <span class="youtube-preview-label">Mirar en YouTube</span>
-              </a>
+                <span class="youtube-preview-label">Vista previa</span>
+              </div>
             </div>
             <div class="custom-trip-guide-copy">
               <span class="eyebrow">🎬 Mirá esta guía breve</span>
@@ -4852,11 +4919,11 @@
     const renderPackageCard = (item, categoryTitle) => item.videoId ? `
       <article class="package-card catalog-card">
         <div class="package-image">
-          <a class="youtube-preview" href="https://youtube.com/shorts/${item.videoId}" target="_blank" rel="noopener" aria-label="Ver ${item.name} en YouTube">
+          <div class="youtube-preview" role="img" aria-label="Vista previa del video ${item.name}">
             <img src="https://i.ytimg.com/vi/${item.videoId}/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${item.videoId}/hqdefault.jpg'" alt="Vista previa del video ${item.name}" loading="lazy">
             <span class="youtube-preview-play" aria-hidden="true"><svg class="icon"><use href="#icon-play"></use></svg></span>
-            <span class="youtube-preview-label">Mirar en YouTube</span>
-          </a>
+            <span class="youtube-preview-label">Vista previa</span>
+          </div>
           <span class="package-tag">${categoryTitle}</span>
         </div>
         <div class="package-body">
@@ -4930,11 +4997,11 @@
                 ${videos.map((video) => `
                   <article class="destination-video-card">
                     <div class="destination-video-frame">
-                      <a class="youtube-preview" href="https://youtube.com/shorts/${video.id}" target="_blank" rel="noopener" aria-label="Ver ${video.title} en YouTube">
+                      <div class="youtube-preview" role="img" aria-label="Vista previa del video ${video.title}">
                         <img src="https://i.ytimg.com/vi/${video.id}/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${video.id}/hqdefault.jpg'" alt="Vista previa del video ${video.title}" loading="lazy">
                         <span class="youtube-preview-play" aria-hidden="true"><svg class="icon"><use href="#icon-play"></use></svg></span>
-                        <span class="youtube-preview-label">Mirar en YouTube</span>
-                      </a>
+                        <span class="youtube-preview-label">Vista previa</span>
+                      </div>
                     </div>
                     <div class="destination-video-copy">
                       <h4><span aria-hidden="true">🎬</span> ${video.title}</h4>
