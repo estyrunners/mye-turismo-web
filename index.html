@@ -1070,9 +1070,13 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
+      padding: 0;
+      border: 0;
       color: var(--white);
       background: var(--navy);
-      cursor: default;
+      cursor: pointer;
+      font: inherit;
+      text-align: inherit;
     }
 
     .youtube-preview img {
@@ -1121,6 +1125,11 @@
       transform: translate(-50%, -50%) scale(1.08);
     }
 
+    .youtube-preview:focus-visible {
+      outline: 3px solid var(--turquoise);
+      outline-offset: 4px;
+    }
+
     .youtube-preview-play .icon {
       width: 28px;
       height: 28px;
@@ -1141,6 +1150,73 @@
       letter-spacing: 0.08em;
       text-align: center;
       text-transform: uppercase;
+    }
+
+    .video-modal {
+      position: fixed;
+      z-index: 5200;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(16px, 4vw, 46px);
+      background: rgba(5, 30, 40, 0.86);
+      backdrop-filter: blur(10px);
+    }
+
+    .video-modal.active {
+      display: flex;
+    }
+
+    .video-modal-content {
+      position: relative;
+      display: grid;
+      gap: 14px;
+      width: min(92vw, 460px);
+      justify-items: center;
+    }
+
+    .video-modal-frame {
+      width: 100%;
+      max-height: min(78vh, 760px);
+      aspect-ratio: 9 / 16;
+      overflow: hidden;
+      border-radius: 22px;
+      background: #000;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+    }
+
+    .video-modal-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-modal-close {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      z-index: 2;
+      display: grid;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      color: var(--navy);
+      background: var(--white);
+      font-size: 1.8rem;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
+    }
+
+    .video-modal-title {
+      margin: 0;
+      color: var(--white);
+      font-size: 0.95rem;
+      font-weight: 800;
+      text-align: center;
     }
 
     .about-video-copy h3 {
@@ -1487,6 +1563,19 @@
         max-width: 92vw;
         font-size: 0.82rem;
         line-height: 1.35;
+      }
+
+      .video-modal {
+        padding: 14px;
+      }
+
+      .video-modal-content {
+        width: min(92vw, 420px);
+      }
+
+      .video-modal-close {
+        top: 8px;
+        right: 8px;
       }
     }
 
@@ -2991,11 +3080,11 @@
 
         <article class="about-video-card">
           <div class="about-video-frame">
-            <div class="youtube-preview" role="img" aria-label="Vista previa del video Conocé más sobre MyE Turismo">
+            <button class="youtube-preview" type="button" data-video-id="wR4c95F3n_U" data-video-title="Conocé más sobre MyE Turismo" aria-label="Reproducir video Conocé más sobre MyE Turismo dentro de la página">
               <img src="https://i.ytimg.com/vi/wR4c95F3n_U/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/wR4c95F3n_U/hqdefault.jpg'" alt="Vista previa del video Conocé más sobre MyE Turismo" loading="lazy">
               <span class="youtube-preview-play" aria-hidden="true"><svg class="icon"><use href="#icon-play"></use></svg></span>
               <span class="youtube-preview-label">Vista previa</span>
-            </div>
+            </button>
           </div>
           <div class="about-video-copy">
             <span class="eyebrow">🎬 Nuestra historia</span>
@@ -3552,6 +3641,16 @@
         </button>
       </div>
       <p class="flyer-modal-caption" id="flyerModalCaption"></p>
+    </div>
+  </div>
+
+  <div class="video-modal" id="videoModal" aria-hidden="true">
+    <div class="video-modal-content" role="dialog" aria-modal="true" aria-label="Video ampliado">
+      <button class="video-modal-close" type="button" id="videoModalClose" aria-label="Cerrar video">&times;</button>
+      <div class="video-modal-frame">
+        <iframe id="videoModalFrame" src="" title="Reproductor de video de YouTube" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <p class="video-modal-title" id="videoModalTitle"></p>
     </div>
   </div>
 
@@ -4711,6 +4810,47 @@
       if (event.target === flyerModal) closeFlyerModal();
     });
 
+    const videoModal = document.getElementById("videoModal");
+    const videoModalFrame = document.getElementById("videoModalFrame");
+    const videoModalTitle = document.getElementById("videoModalTitle");
+    const videoModalClose = document.getElementById("videoModalClose");
+
+    const openVideoModal = (preview) => {
+      const videoId = preview.dataset.videoId;
+      if (!videoId) return;
+      const videoTitle = preview.dataset.videoTitle || "Video de MyE Turismo";
+      videoModalFrame.src = `https://www.youtube.com/embed/${encodeURIComponent(videoId)}?autoplay=1&rel=0&playsinline=1`;
+      videoModalFrame.title = videoTitle;
+      videoModalTitle.textContent = videoTitle;
+      videoModal.classList.add("active");
+      videoModal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      videoModalClose.focus();
+    };
+
+    const closeVideoModal = () => {
+      videoModal.classList.remove("active");
+      videoModal.setAttribute("aria-hidden", "true");
+      videoModalFrame.src = "";
+      videoModalFrame.title = "Reproductor de video de YouTube";
+      videoModalTitle.textContent = "";
+      document.body.style.overflow = "";
+    };
+
+    document.addEventListener("click", (event) => {
+      const preview = event.target.closest(".youtube-preview[data-video-id]");
+      if (preview) openVideoModal(preview);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && videoModal.classList.contains("active")) closeVideoModal();
+    });
+
+    videoModalClose.addEventListener("click", closeVideoModal);
+    videoModal.addEventListener("click", (event) => {
+      if (event.target === videoModal) closeVideoModal();
+    });
+
     new MutationObserver(() => markFlyerImages()).observe(document.body, { childList: true, subtree: true });
 
     const packagesGrid = document.getElementById("packagesGrid");
@@ -4806,11 +4946,11 @@
         explorerContent.innerHTML = `
           <article class="custom-trip-guide">
             <div class="custom-trip-video">
-              <div class="youtube-preview" role="img" aria-label="Vista previa del video Cómo solicitar un viaje a medida">
+              <button class="youtube-preview" type="button" data-video-id="${catalog.videoId}" data-video-title="Cómo solicitar un viaje a medida" aria-label="Reproducir video Cómo solicitar un viaje a medida dentro de la página">
                 <img src="https://i.ytimg.com/vi/${catalog.videoId}/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${catalog.videoId}/hqdefault.jpg'" alt="Vista previa del video Cómo solicitar un viaje a medida" loading="lazy">
                 <span class="youtube-preview-play" aria-hidden="true"><svg class="icon"><use href="#icon-play"></use></svg></span>
                 <span class="youtube-preview-label">Vista previa</span>
-              </div>
+              </button>
             </div>
             <div class="custom-trip-guide-copy">
               <span class="eyebrow">🎬 Mirá esta guía breve</span>
@@ -4919,11 +5059,11 @@
     const renderPackageCard = (item, categoryTitle) => item.videoId ? `
       <article class="package-card catalog-card">
         <div class="package-image">
-          <div class="youtube-preview" role="img" aria-label="Vista previa del video ${item.name}">
+          <button class="youtube-preview" type="button" data-video-id="${item.videoId}" data-video-title="${escapeHTML(item.name)}" aria-label="Reproducir video ${escapeHTML(item.name)} dentro de la página">
             <img src="https://i.ytimg.com/vi/${item.videoId}/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${item.videoId}/hqdefault.jpg'" alt="Vista previa del video ${item.name}" loading="lazy">
             <span class="youtube-preview-play" aria-hidden="true"><svg class="icon"><use href="#icon-play"></use></svg></span>
             <span class="youtube-preview-label">Vista previa</span>
-          </div>
+          </button>
           <span class="package-tag">${categoryTitle}</span>
         </div>
         <div class="package-body">
@@ -4997,11 +5137,11 @@
                 ${videos.map((video) => `
                   <article class="destination-video-card">
                     <div class="destination-video-frame">
-                      <div class="youtube-preview" role="img" aria-label="Vista previa del video ${video.title}">
+                      <button class="youtube-preview" type="button" data-video-id="${video.id}" data-video-title="${escapeHTML(video.title)}" aria-label="Reproducir video ${escapeHTML(video.title)} dentro de la página">
                         <img src="https://i.ytimg.com/vi/${video.id}/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${video.id}/hqdefault.jpg'" alt="Vista previa del video ${video.title}" loading="lazy">
                         <span class="youtube-preview-play" aria-hidden="true"><svg class="icon"><use href="#icon-play"></use></svg></span>
                         <span class="youtube-preview-label">Vista previa</span>
-                      </div>
+                      </button>
                     </div>
                     <div class="destination-video-copy">
                       <h4><span aria-hidden="true">🎬</span> ${video.title}</h4>
