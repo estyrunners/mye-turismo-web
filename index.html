@@ -4931,7 +4931,8 @@
       const phone = getCustomTripValue(form, "phone") || "Sin completar";
       const travellers = getCustomTripValue(form, "travellers") || "Sin definir";
       const groupType = getCustomTripValue(form, "groupType") || "Sin definir";
-      const travelTime = getCustomTripValue(form, "travelTime") || "Sin definir";
+      const availableFrom = getCustomTripValue(form, "availableFrom") || "Sin definir";
+      const availableTo = getCustomTripValue(form, "availableTo") || "Sin definir";
       const destinations = getCustomTripValues(form, "destinations");
       const tripType = getCustomTripValue(form, "tripType") || "Sin definir";
       const budget = getCustomTripValue(form, "budget") || "Sin definir";
@@ -4944,7 +4945,7 @@
         `WhatsApp de contacto: ${phone}`,
         `Cantidad de viajeros: ${travellers}`,
         `Tipo de grupo: ${groupType}`,
-        `Cuándo me gustaría viajar: ${travelTime}`,
+        `Fecha disponible: desde ${availableFrom} hasta ${availableTo}`,
         `Destino/s de interés: ${destinations.length ? destinations.join(", ") : "Sin definir"}`,
         `Tipo de viaje que busco: ${tripType}`,
         `Presupuesto aproximado por persona: ${budget}`,
@@ -5281,15 +5282,16 @@
               </fieldset>
 
               <fieldset class="custom-trip-fieldset">
-                <legend>📅 ¿Cuándo te gustaría viajar?</legend>
-                <div class="custom-trip-options">
-                  <label class="custom-trip-option"><input type="radio" name="travelTime" value="En los próximos 15 días" required><span>En los próximos 15 días</span></label>
-                  <label class="custom-trip-option"><input type="radio" name="travelTime" value="Dentro de 1 mes"><span>Dentro de 1 mes</span></label>
-                  <label class="custom-trip-option"><input type="radio" name="travelTime" value="Dentro de 3 meses"><span>Dentro de 3 meses</span></label>
-                  <label class="custom-trip-option"><input type="radio" name="travelTime" value="Feriado largo"><span>Feriado largo</span></label>
-                  <label class="custom-trip-option"><input type="radio" name="travelTime" value="Vacaciones de verano"><span>Vacaciones de verano</span></label>
-                  <label class="custom-trip-option"><input type="radio" name="travelTime" value="Vacaciones de invierno"><span>Vacaciones de invierno</span></label>
-                  <label class="custom-trip-option"><input type="radio" name="travelTime" value="Aún no lo decidí"><span>Aún no lo decidí</span></label>
+                <legend>📅 Fecha disponible</legend>
+                <div class="custom-trip-form-grid">
+                  <label class="custom-trip-field">
+                    <span>Desde</span>
+                    <input type="date" name="availableFrom" required>
+                  </label>
+                  <label class="custom-trip-field">
+                    <span>Hasta</span>
+                    <input type="date" name="availableTo" required>
+                  </label>
                 </div>
               </fieldset>
 
