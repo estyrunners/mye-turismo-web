@@ -2127,6 +2127,10 @@
       justify-self: start;
     }
 
+    .custom-trip-conditional[hidden] {
+      display: none;
+    }
+
     .destination-inspiration {
       display: grid;
       gap: 24px;
@@ -4930,6 +4934,7 @@
       const name = getCustomTripValue(form, "name") || "Sin completar";
       const phone = getCustomTripValue(form, "phone") || "Sin completar";
       const travellers = getCustomTripValue(form, "travellers") || "Sin definir";
+      const singleRoom = getCustomTripValue(form, "singleRoom") || "No aplica";
       const groupType = getCustomTripValue(form, "groupType") || "Sin definir";
       const availableFrom = getCustomTripValue(form, "availableFrom") || "Sin definir";
       const availableTo = getCustomTripValue(form, "availableTo") || "Sin definir";
@@ -4944,6 +4949,7 @@
         `Nombre y apellido: ${name}`,
         `WhatsApp de contacto: ${phone}`,
         `Cantidad de viajeros: ${travellers}`,
+        `Si viaja 1 pasajero: ${singleRoom}`,
         `Tipo de grupo: ${groupType}`,
         `Fecha disponible: desde ${availableFrom} hasta ${availableTo}`,
         `Destino/s de interés: ${destinations.length ? destinations.join(", ") : "Sin definir"}`,
@@ -4953,6 +4959,28 @@
       ].join("\n");
 
       window.open(whatsappUrl(message), "_blank", "noopener");
+    };
+
+    const setupCustomTripForm = (form) => {
+      const singleRoomField = form.querySelector("[data-single-room-field]");
+      const singleRoomInputs = Array.from(form.querySelectorAll('[name="singleRoom"]'));
+      const travellerInputs = Array.from(form.querySelectorAll('[name="travellers"]'));
+
+      const updateSingleRoomField = () => {
+        const isSingleTraveller = getCustomTripValue(form, "travellers") === "1 persona";
+        if (singleRoomField) singleRoomField.hidden = !isSingleTraveller;
+        singleRoomInputs.forEach((input) => {
+          input.disabled = !isSingleTraveller;
+          input.required = isSingleTraveller;
+          if (!isSingleTraveller) input.checked = false;
+        });
+      };
+
+      travellerInputs.forEach((input) => {
+        input.addEventListener("change", updateSingleRoomField);
+      });
+      updateSingleRoomField();
+      form.addEventListener("submit", handleCustomTripSubmit);
     };
 
     const flyerModal = document.getElementById("flyerModal");
@@ -5269,6 +5297,14 @@
                 </div>
               </fieldset>
 
+              <fieldset class="custom-trip-fieldset custom-trip-conditional" data-single-room-field hidden>
+                <legend>🛏️ Si viajás solo/a, ¿qué habitación preferís?</legend>
+                <div class="custom-trip-options">
+                  <label class="custom-trip-option"><input type="radio" name="singleRoom" value="Habitación a compartir, mismo valor que base doble"><span>Habitación a compartir<br>mismo valor que base doble</span></label>
+                  <label class="custom-trip-option"><input type="radio" name="singleRoom" value="Habitación single"><span>Habitación single</span></label>
+                </div>
+              </fieldset>
+
               <fieldset class="custom-trip-fieldset">
                 <legend>🤝 Tipo de grupo</legend>
                 <div class="custom-trip-options">
@@ -5348,7 +5384,8 @@
             </form>
           </article>
         `;
-        explorerContent.querySelector("#customTripForm")?.addEventListener("submit", handleCustomTripSubmit);
+        const customTripForm = explorerContent.querySelector("#customTripForm");
+        if (customTripForm) setupCustomTripForm(customTripForm);
         destinationExplorer.classList.add("active");
         if (shouldScroll) requestAnimationFrame(scrollToExplorer);
         return;
