@@ -5669,7 +5669,14 @@
       explorerTitle.textContent = `${category.icon || "✦"} ${category.title}`;
       explorerBack.classList.add("visible");
 
-      const videos = category.videos || [];
+      const visiblePackages = category.packages.filter((item) => !item.hidden);
+      const packageVideoIds = new Set(visiblePackages.filter((item) => item.videoId).map((item) => item.videoId));
+      const featuredFlyerVideoIds = new Set(featuredDestinations.filter((item) => item.image && item.videoId).map((item) => item.videoId));
+      const videos = (category.videos || []).filter((video) =>
+        !packageVideoIds.has(video.id) &&
+        !featuredFlyerVideoIds.has(video.id) &&
+        (!visiblePackages.length || video.showWithPackages)
+      );
       const inspirationContent = videos.length
         ? `
           <div class="destination-inspiration">
@@ -5701,7 +5708,6 @@
         `
         : "";
 
-      const visiblePackages = category.packages.filter((item) => !item.hidden);
       const packageContent = visiblePackages.length
         ? `<div class="explorer-packages">${visiblePackages.map((item) => renderPackageCard(item, category.title)).join("")}</div>`
         : `
@@ -5715,7 +5721,7 @@
           </div>
         `;
 
-      explorerContent.innerHTML = `${inspirationContent}${category.packages.length ? packageContent : videos.length ? "" : packageContent}`;
+      explorerContent.innerHTML = `${inspirationContent}${visiblePackages.length ? packageContent : videos.length ? "" : packageContent}`;
 
       requestAnimationFrame(scrollToExplorer);
     };
