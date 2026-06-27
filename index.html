@@ -1906,6 +1906,22 @@
       object-fit: cover;
     }
 
+    .package-video-placeholder {
+      display: grid;
+      min-height: 180px;
+      place-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--navy), var(--turquoise));
+      color: var(--white);
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .package-video-placeholder .icon {
+      width: 34px;
+      height: 34px;
+    }
+
     .catalog-card h3 {
       display: flex;
       align-items: flex-start;
@@ -2155,30 +2171,29 @@
     .destination-video-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
+      gap: 14px;
     }
 
     .destination-video-card {
-      overflow: hidden;
-      border-radius: 22px;
+      border: 1px solid rgba(8, 152, 155, 0.14);
+      border-radius: 18px;
       background: var(--white);
-      box-shadow: 0 14px 34px rgba(18, 52, 71, 0.08);
+      box-shadow: 0 12px 26px rgba(18, 52, 71, 0.06);
     }
 
     .destination-video-frame {
-      aspect-ratio: 16 / 9;
-      background: var(--navy);
+      display: none;
     }
 
     .destination-video-copy {
-      padding: 22px;
+      padding: 18px;
     }
 
     .destination-video-copy h4 {
       margin-bottom: 8px;
       color: var(--navy);
       font-family: "Playfair Display", serif;
-      font-size: 1.45rem;
+      font-size: 1.2rem;
     }
 
     .destination-video-copy p {
@@ -3505,9 +3520,13 @@
         <div class="media-heading-row">
           <div class="section-heading">
             <span class="eyebrow">🎬 Contenido para inspirarte</span>
-            <h2>✦ Guías, historias y videos</h2>
-            <p>Recursos creados por Estela para acompañarte también antes de elegir y preparar tu viaje.</p>
+            <h2>🎥 Inspirate para tu próximo viaje</h2>
+            <p>Una selección breve de guías e historias para empezar a imaginar tu próxima experiencia. Los videos de cada destino también los vas a encontrar dentro de su sección correspondiente.</p>
           </div>
+          <a class="btn btn-light" href="#destinos">
+            Ver todos los videos
+            <svg class="icon"><use href="#icon-arrow"></use></svg>
+          </a>
         </div>
 
         <div class="media-carousel-shell">
@@ -4095,13 +4114,16 @@
         title: "Puerto Madryn - Temporada de Ballenas",
         destination: "Puerto Madryn, Chubut",
         category: "Salida grupal",
-        image: "destacado-puerto-madryn-ballenas.jpeg"
+        image: "destacado-puerto-madryn-ballenas.jpeg",
+        videoId: "fEEDwGsiGpY",
+        videoTitle: "Puerto Madryn y temporada de ballenas"
       },
       {
         id: "destacado-puerto-madryn-video",
         title: "Puerto Madryn en video",
         destination: "Puerto Madryn, Chubut",
         category: "Video destacado",
+        videoOnly: true,
         videoId: "fEEDwGsiGpY",
         description: "Descubrí la emoción de Puerto Madryn y su temporada de ballenas. Consultanos por fechas disponibles, salidas grupales y opciones para reservar tu lugar."
       },
@@ -4110,13 +4132,16 @@
         title: "Ruta 40",
         destination: "Argentina",
         category: "Experiencia destacada",
-        image: "destacado-ruta-40.jpeg"
+        image: "destacado-ruta-40.jpeg",
+        videoId: "iJRpGRH4KR4",
+        videoTitle: "Ruta 40 en video"
       },
       {
         id: "destacado-ruta-40-video",
         title: "Ruta 40 en video",
         destination: "Argentina",
         category: "Video destacado",
+        videoOnly: true,
         videoId: "iJRpGRH4KR4",
         description: "Inspirate con esta experiencia y consultanos para conocer próximas salidas disponibles."
       },
@@ -4125,6 +4150,7 @@
         title: "Campo de Tulipanes",
         destination: "Patagonia",
         category: "Experiencia destacada",
+        videoOnly: true,
         videoId: "uUGhT-u44mY",
         description: "Viví una postal única de color y naturaleza. Consultanos por próximas fechas, salidas disponibles y propuestas para conocer este destino."
       },
@@ -4235,6 +4261,16 @@
         departures: "11 y 13 de septiembre",
         price: "$189.999",
         image: "full-day-maestro-martin-garcia.jpeg"
+      },
+      {
+        id: "maestro-mercedes-tomas-jofre",
+        title: "Mercedes con Tomás Jofré",
+        destination: "Mercedes y Tomás Jofré",
+        category: "Día del Maestro",
+        description: "Salida especial Día del Maestro con almuerzo, recorrido y merienda incluida.",
+        departures: "11 y 12 de septiembre",
+        price: "$95.000",
+        image: "maestro-mercedes-tomas-jofre.png"
       }
     ];
 
@@ -4334,6 +4370,11 @@
                 description: "Viví una de las experiencias más emocionantes de la Patagonia. Consultanos por fechas disponibles, salidas grupales y propuestas para viajar."
               },
               {
+                id: "uUGhT-u44mY",
+                title: "Campo de Tulipanes",
+                description: "Una postal única de color y naturaleza para inspirarte a viajar por Patagonia y Esquel."
+              },
+              {
                 id: "aNr-uEPrFKo",
                 title: "Más experiencias en Patagonia",
                 description: "Inspiración para seguir descubriendo destinos y experiencias inolvidables en la Patagonia."
@@ -4344,7 +4385,32 @@
                 description: "Una experiencia para imaginar caminos, paisajes y aventuras patagónicas sobre la Ruta 40."
               }
             ],
-            packages: []
+            packages: [
+              {
+                name: "Campo de Tulipanes - Bariloche con Esquel",
+                icon: "🌷",
+                destination: "Bariloche y Esquel, Patagonia",
+                duration: "8 días / 5 noches",
+                departures: "21 de octubre y 1 de noviembre",
+                description: "Salida a Patagonia con Campo de Tulipanes y paisajes de Bariloche y Esquel.",
+                price: "",
+                image: "patagonia-campo-tulipanes-bariloche-esquel.png",
+                videoId: "uUGhT-u44mY",
+                videoTitle: "Campo de Tulipanes"
+              },
+              {
+                name: "Esquel & Campo de Tulipanes",
+                icon: "🌷",
+                destination: "Esquel, Patagonia",
+                duration: "4 a 6 días",
+                departures: "17/10, 28/10 y 5/11",
+                description: "Propuestas en bus y aéreo para disfrutar Esquel y el Campo de Tulipanes.",
+                price: "",
+                image: "patagonia-esquel-campo-tulipanes.png",
+                videoId: "uUGhT-u44mY",
+                videoTitle: "Campo de Tulipanes"
+              }
+            ]
           },
           {
             key: "noa",
@@ -4700,6 +4766,16 @@
                 description: "Hotel con clima termal suite, media pensión, coordinador permanente y traslado en bus mix.",
                 price: "$246.490 + gastos administrativos",
                 image: "argentina-federacion-septiembre.jpeg"
+              },
+              {
+                name: "Escapate a Federación",
+                icon: "♨️",
+                destination: "Federación, Entre Ríos",
+                duration: "3 noches",
+                departures: "Salidas diarias durante septiembre, octubre y noviembre",
+                description: "Paquete termal a Federación con bus, traslados y alojamiento.",
+                price: "",
+                image: "termales-federacion-septiembre-noviembre.png"
               }
             ]
           },
@@ -4752,6 +4828,35 @@
                 description: "Traslado, entrada al complejo termal, visita a regionales y coordinador permanente.",
                 price: "$94.990 en efectivo",
                 image: "full-day-colon-agosto-septiembre.jpeg"
+              },
+              {
+                name: "Escapate a Colón",
+                icon: "💦",
+                destination: "Colón, Entre Ríos",
+                duration: "3 noches",
+                departures: "Salidas diarias durante septiembre, octubre y noviembre",
+                description: "Paquete termal a Colón con bus, traslados y alojamiento.",
+                price: "",
+                image: "termales-colon-septiembre-noviembre.png"
+              }
+            ]
+          },
+          {
+            key: "gualeguaychu",
+            title: "Gualeguaychú",
+            icon: "🌿",
+            image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=85",
+            description: "Entre Ríos, descanso y escapadas para disfrutar la ciudad y sus alrededores.",
+            packages: [
+              {
+                name: "Gualeguaychú - Entre Ríos",
+                icon: "🌿",
+                destination: "Gualeguaychú, Entre Ríos",
+                duration: "3 noches",
+                departures: "Salidas diarias durante septiembre, octubre y noviembre",
+                description: "Paquete a Gualeguaychú con bus, alojamiento y desayunos.",
+                price: "",
+                image: "termales-gualeguaychu-septiembre-noviembre.png"
               }
             ]
           },
@@ -4851,7 +4956,9 @@
             departures: "15 de agosto y 12 de septiembre",
             description: "Almuerzo en Rosario, visita al Santuario de la Virgen de San Nicolás y Monumento a la Bandera.",
             price: "$99.990 en efectivo",
-            image: "full-day-rosario-san-nicolas.jpeg"
+            image: "full-day-rosario-san-nicolas.jpeg",
+            videoId: "-aLZk0Lb6Y0",
+            videoTitle: "Rosario y Virgen de San Nicolás"
           },
           {
             name: "Video Rosario y Virgen de San Nicolás",
@@ -4861,7 +4968,8 @@
             departures: "Consultar próximas salidas",
             description: "Conocé la experiencia de Rosario y Virgen de San Nicolás. Consultanos por próximas fechas, salidas disponibles y detalles para reservar tu lugar.",
             price: "",
-            videoId: "-aLZk0Lb6Y0"
+            videoId: "-aLZk0Lb6Y0",
+            hidden: true
           },
           {
             name: "Rosario - Virgen de San Nicolás",
@@ -5147,7 +5255,7 @@
     };
 
     document.addEventListener("click", (event) => {
-      const preview = event.target.closest(".youtube-preview[data-video-id]");
+      const preview = event.target.closest(".youtube-preview[data-video-id], .video-modal-trigger[data-video-id]");
       if (preview) openVideoModal(preview);
     });
 
@@ -5178,24 +5286,18 @@
     `).join("");
 
     const featuredDestinationsCarousel = document.getElementById("featuredDestinationsCarousel");
-    featuredDestinationsCarousel.innerHTML = featuredDestinations.map((item) => `
+    featuredDestinationsCarousel.innerHTML = featuredDestinations.filter((item) => !item.videoOnly).map((item) => `
       <article class="weekly-card" id="${item.id}" data-search="${item.title} ${item.destination} ${item.category} destinos destacados salidas grupales">
-        ${item.videoId ? `
-          <button class="youtube-preview" type="button" data-video-id="${item.videoId}" data-video-title="${item.title}" data-video-url="https://youtube.com/shorts/${item.videoId}" aria-label="Reproducir video ${item.title} dentro de la página">
-            <img src="https://i.ytimg.com/vi/${item.videoId}/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${item.videoId}/hqdefault.jpg'" alt="Vista previa del video ${item.title}" loading="lazy">
-            <span class="youtube-preview-play" aria-hidden="true"><svg class="icon"><use href="#icon-play"></use></svg></span>
-            <span class="youtube-preview-label">Vista previa</span>
-          </button>
-        ` : `<img class="weekly-card-image" src="${item.image}" alt="${item.title} - Destinos Destacados" loading="lazy">`}
+        <img class="weekly-card-image" src="${item.image}" alt="${item.title} - Destinos Destacados" loading="lazy">
         <div class="weekly-card-body">
           <small>✦ ${item.category} · Destinos destacados</small>
           <h3>${item.title}</h3>
           ${item.description ? `<p>${item.description}</p>` : ""}
           ${item.videoId ? `
-            <a class="btn youtube-button" href="https://youtube.com/shorts/${item.videoId}" target="_blank" rel="noopener">
+            <button class="btn btn-outline video-modal-trigger" type="button" data-video-id="${item.videoId}" data-video-title="${item.videoTitle || item.title}" data-video-url="https://youtube.com/shorts/${item.videoId}">
               <svg class="icon"><use href="#icon-play"></use></svg>
-              Ver en YouTube
-            </a>
+              Ver destino en video
+            </button>
           ` : ""}
           <a class="btn btn-primary" href="${whatsappUrl(`Hola MyE Turismo, quiero consultar por ${item.title} dentro de Destinos Destacados.`)}" target="_blank" rel="noopener">
             <svg class="icon"><use href="#icon-whatsapp"></use></svg>
@@ -5425,7 +5527,7 @@
               </a>
             </div>
           </div>
-          <div class="explorer-packages">${catalog.packages.map((item) => renderPackageCard(item, catalog.title)).join("")}</div>
+          <div class="explorer-packages">${catalog.packages.filter((item) => !item.hidden).map((item) => renderPackageCard(item, catalog.title)).join("")}</div>
         `;
         destinationExplorer.classList.add("active");
         if (shouldScroll) requestAnimationFrame(scrollToExplorer);
@@ -5494,7 +5596,14 @@
       if (shouldScroll) requestAnimationFrame(scrollToExplorer);
     };
 
-    const renderPackageCard = (item, categoryTitle) => item.videoId ? `
+    const renderVideoTriggerButton = (videoId, title, label = "Ver destino en video") => videoId ? `
+      <button class="btn btn-outline video-modal-trigger" type="button" data-video-id="${videoId}" data-video-title="${escapeHTML(title)}" data-video-url="https://youtube.com/shorts/${videoId}">
+        <svg class="icon"><use href="#icon-play"></use></svg>
+        ${label}
+      </button>
+    ` : "";
+
+    const renderPackageCard = (item, categoryTitle) => item.videoId && !item.image ? `
       <article class="package-card catalog-card">
         <div class="package-image">
           <button class="youtube-preview" type="button" data-video-id="${item.videoId}" data-video-title="${escapeHTML(item.name)}" aria-label="Reproducir video ${escapeHTML(item.name)} dentro de la página">
@@ -5533,6 +5642,7 @@
               <svg class="icon"><use href="#icon-arrow"></use></svg>
             </button>
           ` : ""}
+          ${renderVideoTriggerButton(item.videoId, item.videoTitle || item.name)}
           <a class="btn btn-outline" href="${whatsappUrl(`Hola MyE Turismo, quiero consultar por ${item.name}${item.destination ? ` en ${item.destination}` : ""}.`)}" target="_blank" rel="noopener">
             Consultar por WhatsApp
             <svg class="icon"><use href="#icon-arrow"></use></svg>
@@ -5574,20 +5684,13 @@
               <div class="destination-video-grid">
                 ${videos.map((video) => `
                   <article class="destination-video-card">
-                    <div class="destination-video-frame">
-                      <button class="youtube-preview" type="button" data-video-id="${video.id}" data-video-title="${escapeHTML(video.title)}" aria-label="Reproducir video ${escapeHTML(video.title)} dentro de la página">
-                        <img src="https://i.ytimg.com/vi/${video.id}/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${video.id}/hqdefault.jpg'" alt="Vista previa del video ${video.title}" loading="lazy">
-                        <span class="youtube-preview-play" aria-hidden="true"><svg class="icon"><use href="#icon-play"></use></svg></span>
-                        <span class="youtube-preview-label">Vista previa</span>
-                      </button>
-                    </div>
                     <div class="destination-video-copy">
                       <h4><span aria-hidden="true">🎬</span> ${video.title}</h4>
                       <p>${video.description} Consultanos por próximas fechas, salidas disponibles y propuestas para viajar.</p>
-                      <a class="btn btn-outline" href="https://youtu.be/${video.id}" target="_blank" rel="noopener">
-                        Ver en YouTube
+                      <button class="btn btn-outline video-modal-trigger" type="button" data-video-id="${video.id}" data-video-title="${escapeHTML(video.title)}" data-video-url="https://youtube.com/shorts/${video.id}">
+                        Ver video del destino
                         <svg class="icon"><use href="#icon-arrow"></use></svg>
-                      </a>
+                      </button>
                     </div>
                   </article>
                 `).join("")}
@@ -5598,8 +5701,9 @@
         `
         : "";
 
-      const packageContent = category.packages.length
-        ? `<div class="explorer-packages">${category.packages.map((item) => renderPackageCard(item, category.title)).join("")}</div>`
+      const visiblePackages = category.packages.filter((item) => !item.hidden);
+      const packageContent = visiblePackages.length
+        ? `<div class="explorer-packages">${visiblePackages.map((item) => renderPackageCard(item, category.title)).join("")}</div>`
         : `
           <div class="empty-state">
             <div class="empty-state-icon"><svg class="icon"><use href="#icon-map"></use></svg></div>
@@ -5698,12 +5802,12 @@
       }));
 
       const catalogPackages = Object.values(destinationCatalog).flatMap((catalog) => {
-        const directPackages = (catalog.packages || []).map((item) => ({
+        const directPackages = (catalog.packages || []).filter((item) => !item.hidden).map((item) => ({
           ...item,
           categoryTitle: catalog.title
         }));
         const categoryPackages = (catalog.categories || []).flatMap((category) =>
-          category.packages.map((item) => ({
+          category.packages.filter((item) => !item.hidden).map((item) => ({
             ...item,
             categoryTitle: `${catalog.title} / ${category.title}`
           }))
