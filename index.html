@@ -3128,6 +3128,33 @@
       }
     }
   </style>
+
+  <!-- ============================================================
+       Meta Pixel
+       ------------------------------------------------------------
+       Pegá abajo el ID del pixel (Meta Events Manager → Orígenes de
+       datos → tu pixel → el número largo). Mientras esté vacío, este
+       bloque no hace absolutamente nada: la web funciona igual.
+       ============================================================ -->
+  <script>
+    window.META_PIXEL_ID = "";
+
+    if (window.META_PIXEL_ID) {
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+      document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', window.META_PIXEL_ID);
+      fbq('track', 'PageView');
+    }
+
+    /* Se llama sola cuando alguien manda una consulta. Si no hay pixel
+       configurado, no rompe nada. */
+    window.trackLead = function (detalle) {
+      if (window.fbq) window.fbq('track', 'Lead', detalle || {});
+    };
+  </script>
 </head>
 
 <body>
@@ -3733,6 +3760,10 @@
             <input id="name" name="name" type="text" placeholder="Tu nombre" required>
           </div>
           <div class="field">
+            <label for="phone">WhatsApp</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="11 5555 5555" required>
+          </div>
+          <div class="field">
             <label for="destination">Destino</label>
             <select id="destination" name="destination">
               <option value="Todavía no lo decidí">Todavía no lo decidí</option>
@@ -3868,6 +3899,49 @@
     }
 
     const WHATSAPP_NUMBER = "5491131537638";
+
+    /* ============================================================
+       Captura de leads
+       ------------------------------------------------------------
+       Cada consulta queda guardada en la base ANTES de abrir WhatsApp.
+       Si la persona no llega a mandar el mensaje, el contacto igual
+       existe y se puede recuperar desde el tablero.
+
+       La clave de abajo es pública a propósito: solo habilita llamar
+       a `registrar_lead`, que escribe un lead y no devuelve nada.
+       No da acceso a leer ni un solo dato de la base.
+       ============================================================ */
+    const SUPABASE_URL = "https://cfbewolbbiubflcjittt.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_Y5Jx65MAnTlcrPGkXarLgA_nJZ5j1op";
+
+    const registrarLead = ({ nombre, telefono, email, destino, mensaje }) => {
+      if (!nombre) return;
+
+      /* keepalive: la petición sobrevive aunque el navegador cambie de
+         pestaña hacia WhatsApp en el mismo instante. */
+      fetch(`${SUPABASE_URL}/rest/v1/rpc/registrar_lead`, {
+        method: "POST",
+        keepalive: true,
+        headers: {
+          "Content-Type": "application/json",
+          apikey: SUPABASE_ANON_KEY,
+          Authorization: `Bearer ${SUPABASE_ANON_KEY}`
+        },
+        body: JSON.stringify({
+          p_nombre: nombre,
+          p_telefono: telefono || null,
+          p_email: email || null,
+          p_destino: destino || null,
+          p_mensaje: mensaje || null,
+          p_origen: "web"
+        })
+      }).catch(() => {
+        /* Nunca frenamos al usuario por un error de red: el canal
+           principal sigue siendo WhatsApp. */
+      });
+
+      if (window.trackLead) window.trackLead({ content_name: destino || "Consulta web" });
+    };
 
     /* Vacaciones de Invierno: agregá aquí nuevos flyers reales. */
     const packages = [
@@ -5035,6 +5109,13 @@
         `Comentarios adicionales: ${comments}`
       ].join("\n");
 
+      registrarLead({
+        nombre: name !== "Sin completar" ? name : "",
+        telefono: phone !== "Sin completar" ? phone : "",
+        destino: destinations.length ? destinations.join(", ") : "Viaje a medida",
+        mensaje: message
+      });
+
       window.open(whatsappUrl(message), "_blank", "noopener");
     };
 
@@ -5950,6 +6031,14 @@
     document.getElementById("contactForm").addEventListener("submit", (event) => {
       event.preventDefault();
       const form = new FormData(event.currentTarget);
+
+      registrarLead({
+        nombre: String(form.get("name") || "").trim(),
+        telefono: String(form.get("phone") || "").trim(),
+        destino: String(form.get("destination") || "").trim(),
+        mensaje: String(form.get("message") || "").trim()
+      });
+
       const message = [
         `Hola MyE Turismo, soy ${form.get("name")}.`,
         `Me interesa: ${form.get("destination")}.`,
