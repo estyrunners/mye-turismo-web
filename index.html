@@ -3132,12 +3132,13 @@
   <!-- ============================================================
        Meta Pixel
        ------------------------------------------------------------
-       Pegá abajo el ID del pixel (Meta Events Manager → Orígenes de
-       datos → tu pixel → el número largo). Mientras esté vacío, este
-       bloque no hace absolutamente nada: la web funciona igual.
+       Meta ahora le dice "conjunto de datos" al pixel, pero el ID es el
+       mismo de siempre: Administrador de eventos → Conjuntos de datos.
+       Si se vacía este valor, el bloque no hace nada y la web sigue
+       funcionando igual.
        ============================================================ -->
   <script>
-    window.META_PIXEL_ID = "";
+    window.META_PIXEL_ID = "1812483333531317";
 
     if (window.META_PIXEL_ID) {
       !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
