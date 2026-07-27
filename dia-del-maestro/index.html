@@ -684,6 +684,10 @@
     .retrato-marco img {
       position: absolute;
       width: 133%;
+      /* `height: auto` NO es opcional: el atributo height="1100" del HTML
+         actúa como estilo por defecto y, si la CSS solo fija el ancho,
+         la altura queda clavada en 1100px y la imagen sale estirada. */
+      height: auto;
       left: -3.2%;
       top: 13.2%;
       max-width: none;
