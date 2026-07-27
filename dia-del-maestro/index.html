@@ -649,38 +649,48 @@
 
     @media (min-width:820px) {
       .estela-caja {
-        grid-template-columns: 1fr minmax(0, 240px);
-        gap: 3rem;
+        grid-template-columns: 1fr minmax(0, 230px);
+        gap: 3.5rem;
       }
 
       .estela-texto {
-        padding-bottom: 1.5rem;
+        padding-bottom: 0;
       }
     }
 
-    /* PNG con transparencia real. Va sobre fondo oscuro a propósito:
-       el recorte vino de una foto con fondo negro, así que los bordes
-       del pelo tienen restos oscuros que acá resultan invisibles. Sobre
-       fondo claro se verían sucios. */
-    /* Se limita por ALTO, no por ancho: es una figura de cuerpo entero
-       (relación 1:2,5) y el alto es la dimensión que estira la sección
-       y deja hueco muerto al lado del texto. */
-    .retrato {
-      width: auto;
-      max-width: 100%;
-      max-height: 400px;
+    /* Retrato circular. El PNG es de cuerpo entero, pero a este tamaño
+       la cara quedaba de 25px y era lo único que importaba mostrar; el
+       vestido, además, tenía más contraste que su cara y se llevaba la
+       mirada. Se recorta por CSS a primer plano.
+
+       Los números salen de medir el canal alfa del PNG, no a ojo:
+       imagen 440x1100, cabeza de y=0 a y=204, centro en x=175. Con la
+       imagen al 133% del marco, la cabeza ocupa ~62% del círculo y
+       queda centrada un poco por encima del medio, que es el encuadre
+       natural de un retrato. */
+    .retrato-marco {
+      width: clamp(190px, 48vw, 230px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
       margin-inline: auto;
-      display: block;
-      filter: drop-shadow(0 22px 26px rgba(0, 0, 0, .5));
+      background: radial-gradient(circle at 50% 30%, rgba(18, 179, 176, .32), rgba(7, 22, 31, .9));
+      box-shadow:
+        0 24px 50px -20px rgba(0, 0, 0, .75),
+        inset 0 0 0 1px rgba(255, 255, 255, .16);
     }
 
-    /* Va DESPUÉS de la regla base a propósito: misma especificidad, así
-       que el orden es lo único que decide cuál gana. */
-    @media (min-width:820px) {
-      .retrato {
-        max-height: 480px;
-      }
+    .retrato-marco img {
+      position: absolute;
+      width: 133%;
+      left: -3.2%;
+      top: 13.2%;
+      max-width: none;
+      display: block;
+    }
 
+    @media (min-width:820px) {
       .estela-caja {
         align-items: center;
       }
@@ -1094,8 +1104,10 @@
         </ul>
       </div>
 
-      <img class="retrato rev" src="../estela.png" alt="Estela, de MyE Turismo"
-        width="440" height="1100" loading="lazy" decoding="async">
+      <figure class="retrato-marco rev">
+        <img src="../estela.png" alt="Estela, de MyE Turismo"
+          width="440" height="1100" loading="lazy" decoding="async">
+      </figure>
     </div>
   </section>
 
