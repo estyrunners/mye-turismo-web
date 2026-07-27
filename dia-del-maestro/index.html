@@ -546,6 +546,17 @@
       margin-bottom: .35rem;
     }
 
+    /* El $ de Playfair tiene doble barra vertical. Se dibuja en Manrope,
+       que lo hace con una sola, y algo mas chico para que no compita con
+       la cifra. */
+    .sena .pe {
+      font-family: "Manrope", sans-serif;
+      font-weight: 700;
+      font-size: .62em;
+      vertical-align: .16em;
+      margin-right: .06em;
+    }
+
     .resto {
       font-size: .9rem;
       color: #5b7280;
@@ -620,7 +631,7 @@
        matrícula. Mostrarle la cara es el argumento, no un adorno. */
     .estela {
       background: var(--ink);
-      padding: clamp(3.5rem, 11vh, 6rem) 0 0;
+      padding: clamp(3.5rem, 11vh, 6rem) 0;
       position: relative;
       overflow: hidden;
     }
@@ -648,9 +659,14 @@
     }
 
     @media (min-width:820px) {
+      /* Las dos columnas se dimensionan por su contenido y el par se
+         centra junto. Con `1fr` la columna de texto se comía todo el
+         ancho sobrante y empujaba el retrato contra el borde derecho,
+         dejando un vacío enorme en el medio. */
       .estela-caja {
-        grid-template-columns: 1fr minmax(0, 260px);
-        gap: 3.5rem;
+        grid-template-columns: minmax(0, 34rem) auto;
+        justify-content: center;
+        gap: clamp(2.5rem, 5vw, 4rem);
       }
 
       .estela-texto {
@@ -775,6 +791,31 @@
       line-height: 1.25;
       max-width: 22ch;
       margin: 0 auto 1.5rem;
+    }
+
+    /* Pie de foto: dice dónde fue tomada. Ancla la imagen a un lugar
+       real en vez de dejarla como decorado genérico. */
+    .pie-foto {
+      position: absolute;
+      right: clamp(1rem, 4vw, 2.5rem);
+      bottom: clamp(1rem, 4vw, 2rem);
+      z-index: 3;
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .62);
+    }
+
+    .pie-foto::before {
+      content: "";
+      width: 1.4rem;
+      height: 1px;
+      background: currentColor;
+      opacity: .6;
     }
 
     /* ===================== FORM ===================== */
@@ -1004,7 +1045,7 @@
           <p class="cuando">Vie 11 sep · 3 días 2 noches</p>
 
           <p class="sena-label">Señás</p>
-          <p class="sena" data-hasta="89997">$89.997</p>
+          <p class="sena" data-hasta="89997"><span class="pe">$</span>89.997</p>
           <p class="resto">y el resto hasta el 1º de septiembre</p>
 
           <ul class="incluye">
@@ -1034,7 +1075,7 @@
           <p class="cuando">Vie 11 sep · 3 días 2 noches</p>
 
           <p class="sena-label">Señás</p>
-          <p class="sena" data-hasta="54000">$54.000</p>
+          <p class="sena" data-hasta="54000"><span class="pe">$</span>54.000</p>
           <p class="resto">y el resto hasta el 1º de septiembre</p>
 
           <ul class="incluye">
@@ -1062,7 +1103,7 @@
           <p class="cuando">Vie 11 o dom 13 sep · full day</p>
 
           <p class="sena-label">Señás</p>
-          <p class="sena" data-hasta="25800">$25.800</p>
+          <p class="sena" data-hasta="25800"><span class="pe">$</span>25.800</p>
           <p class="resto">y el resto hasta el 1º de septiembre</p>
 
           <ul class="incluye">
@@ -1130,6 +1171,7 @@
         desde hace más de diez años.
       </p>
     </div>
+    <p class="pie-foto">Costanera de Colón, Entre Ríos</p>
   </section>
 
   <!-- ===================== FORM ===================== -->
@@ -1304,7 +1346,7 @@
         const t = Math.min(1, (ahora - desde) / dur);
         // easeOutExpo: arranca rápido y frena, se lee mejor que lineal.
         const e = t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
-        el.textContent = prefijo + money.format(Math.round(hasta * e)) + sufijo;
+        el.innerHTML = (prefijo ? `<span class="pe">${prefijo}</span>` : "") + money.format(Math.round(hasta * e)) + sufijo;
         if (t < 1) requestAnimationFrame(paso);
       }
       requestAnimationFrame(paso);
