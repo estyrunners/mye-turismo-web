@@ -14,7 +14,7 @@
   <meta property="og:title" content="Profe, el 11 de septiembre es tuyo">
   <meta property="og:description"
     content="Señás con el 30% y el resto lo pagás hasta 10 días antes de viajar.">
-  <meta property="og:image" content="https://mye-turismo-web.pages.dev/portada-centro.jpg">
+  <meta property="og:image" content="https://mye-turismo-web.pages.dev/dolores-aerea.jpg">
   <meta property="og:locale" content="es_AR">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +22,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap"
     rel="stylesheet">
-  <link rel="preload" as="image" href="../portada-centro.jpg">
+  <link rel="preload" as="image" href="../dolores-aerea.jpg">
 
   <script>
     window.META_PIXEL_ID = "1812483333531317";
@@ -119,7 +119,7 @@
     .hero-bg {
       position: absolute;
       inset: -6%;
-      background: url("../portada-centro.jpg") center/cover no-repeat;
+      background: url("../dolores-aerea.jpg") center/cover no-repeat;
       transform: scale(1.06);
       animation: kenburns 26s var(--ease) infinite alternate;
       filter: saturate(.75) contrast(1.05);
@@ -423,10 +423,41 @@
       background: var(--paper);
       border: 1px solid #e6ded2;
       border-radius: 22px;
-      padding: 1.5rem 1.4rem 1.4rem;
+      padding: 0 0 1.4rem;
       position: relative;
       overflow: hidden;
       transition: transform .45s var(--ease), box-shadow .45s var(--ease);
+    }
+
+    .card>*:not(.foto):not(.cta) {
+      padding-inline: 1.4rem;
+    }
+
+    .card .cta {
+      width: calc(100% - 2.8rem);
+      margin-inline: 1.4rem;
+    }
+
+    /* La foto ocupa el ancho completo de la tarjeta y hace un zoom lento
+       al pasar el mouse: da vida sin distraer del número de la seña. */
+    .foto {
+      display: block;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      margin-bottom: 1.4rem;
+      background: #dfe7ea;
+    }
+
+    .foto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 1.1s var(--ease);
+    }
+
+    .card:hover .foto img {
+      transform: scale(1.06);
     }
 
     .card::before {
@@ -597,7 +628,7 @@
     .banda-bg {
       position: absolute;
       inset: 0;
-      background: url("../portada-patagonia.jpg") center/cover no-repeat;
+      background: url("../colon.jpg") center/cover no-repeat;
       opacity: .34;
       filter: saturate(.6);
     }
@@ -859,6 +890,10 @@
       <div class="grid">
 
         <article class="card top rev">
+          <span class="foto">
+            <img src="../federacion-termas.jpg" alt="Piletas del complejo termal de Federación"
+              width="816" height="510" loading="lazy" decoding="async">
+          </span>
           <span class="destacado">El del baile</span>
           <h3>Federación</h3>
           <p class="cuando">Vie 11 sep · 3 días 2 noches</p>
@@ -886,6 +921,10 @@
         </article>
 
         <article class="card rev">
+          <span class="foto">
+            <img src="../colon.jpg" alt="Costanera de Colón sobre el río Uruguay"
+              width="1600" height="1042" loading="lazy" decoding="async">
+          </span>
           <h3>Colón</h3>
           <p class="cuando">Vie 11 sep · 3 días 2 noches</p>
 
@@ -910,6 +949,10 @@
         </article>
 
         <article class="card rev">
+          <span class="foto">
+            <img src="../dolores.jpg" alt="Piletas bajo la cúpula de las Termas de Dolores"
+              width="1024" height="682" loading="lazy" decoding="async">
+          </span>
           <h3>Termas de Dolores</h3>
           <p class="cuando">Vie 11 o dom 13 sep · full day</p>
 
