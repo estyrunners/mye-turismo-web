@@ -7,36 +7,33 @@
   <title>Día del Maestro 2026 · Viajes para docentes | MyE Turismo</title>
   <meta name="description"
     content="El 11 de septiembre es tuyo, profe. Señás con el 30% y el resto lo pagás como puedas hasta 10 días antes de viajar. Salidas grupales desde Buenos Aires.">
+  <meta name="theme-color" content="#07161f">
   <link rel="canonical" href="https://mye-turismo-web.pages.dev/dia-del-maestro/">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Profe, el 11 de septiembre es tuyo">
   <meta property="og:description"
-    content="Señás con el 30% y el resto lo pagás hasta 10 días antes de viajar. Salidas grupales para docentes.">
+    content="Señás con el 30% y el resto lo pagás hasta 10 días antes de viajar.">
+  <meta property="og:image" content="https://mye-turismo-web.pages.dev/portada-centro.jpg">
   <meta property="og:locale" content="es_AR">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap"
     rel="stylesheet">
+  <link rel="preload" as="image" href="../portada-centro.jpg">
 
-  <!-- ============================================================
-       Meta Pixel — mismo conjunto de datos que el sitio principal.
-       ============================================================ -->
   <script>
     window.META_PIXEL_ID = "1812483333531317";
-
     if (window.META_PIXEL_ID) {
       !function (f, b, e, v, n, t, s) {
         if (f.fbq) return; n = f.fbq = function () {
-          n.callMethod ?
-            n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
         }; if (!f._fbq) f._fbq = n;
         n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0;
         t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s)
-      }(window,
-        document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+      }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
       fbq('init', window.META_PIXEL_ID);
       fbq('track', 'PageView');
     }
@@ -44,544 +41,966 @@
 
   <style>
     :root {
-      --turquoise: #08989b;
-      --turquoise-dark: #06777b;
-      --turquoise-soft: #e8f7f6;
-      --sand: #f3e1c7;
-      --sand-light: #fffaf3;
-      --navy: #123447;
-      --ink: #17313f;
-      --muted: #61747e;
-      --white: #ffffff;
-      --coral: #e2603f;
-      --shadow: 0 18px 50px rgba(16, 55, 69, 0.13);
-      --radius: 24px;
+      --ink: #07161f;
+      --ink-2: #0d2632;
+      --teal: #12b3b0;
+      --teal-deep: #08989b;
+      --sand: #f0d9b5;
+      --cream: #fbf8f3;
+      --paper: #ffffff;
+      --grey: #6d8290;
+      --line: rgba(255, 255, 255, .12);
+      --ease: cubic-bezier(.22, .61, .36, 1);
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
     }
 
     body {
-      color: var(--ink);
-      background: var(--white);
-      font-family: "Manrope", sans-serif;
-      line-height: 1.6;
+      background: var(--ink);
+      color: #eaf2f5;
+      font-family: "Manrope", system-ui, sans-serif;
+      line-height: 1.55;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     .wrap {
-      width: min(100% - 2.5rem, 760px);
+      width: min(100% - 2.25rem, 1080px);
       margin-inline: auto;
     }
 
-    /* ---------- Hero ---------- */
+    .narrow {
+      width: min(100% - 2.25rem, 640px);
+      margin-inline: auto;
+    }
+
+    /* Grano: le da textura y evita el aspecto plano de los degradados */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 9;
+      pointer-events: none;
+      opacity: .16;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* Barra de progreso de lectura */
+    #progreso {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 0;
+      background: linear-gradient(90deg, var(--teal), var(--sand));
+      z-index: 60;
+      transition: width .1s linear;
+    }
+
+    /* ===================== HERO ===================== */
     .hero {
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      align-items: end;
+      overflow: hidden;
+      padding-bottom: clamp(2.5rem, 9vh, 5rem);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: -6%;
+      background: url("../portada-centro.jpg") center/cover no-repeat;
+      transform: scale(1.06);
+      animation: kenburns 26s var(--ease) infinite alternate;
+      filter: saturate(.75) contrast(1.05);
+    }
+
+    @keyframes kenburns {
+      from {
+        transform: scale(1.06) translate3d(0, 0, 0);
+      }
+
+      to {
+        transform: scale(1.18) translate3d(-2%, -2.5%, 0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .hero-bg {
+        animation: none;
+      }
+
+      * {
+        scroll-behavior: auto !important;
+      }
+    }
+
+    .hero-velo {
+      position: absolute;
+      inset: 0;
       background:
-        radial-gradient(120% 80% at 80% 0%, rgba(243, 225, 199, .35), transparent 60%),
-        linear-gradient(160deg, var(--navy) 0%, #0d2938 55%, var(--turquoise-dark) 130%);
-      color: var(--white);
-      padding: 3rem 0 3.5rem;
-      text-align: center;
+        radial-gradient(90% 60% at 15% 90%, rgba(18, 179, 176, .28), transparent 65%),
+        linear-gradient(to top, var(--ink) 4%, rgba(7, 22, 31, .82) 42%, rgba(7, 22, 31, .35) 100%);
     }
 
-    .kicker {
-      display: inline-block;
-      background: rgba(255, 255, 255, .12);
-      border: 1px solid rgba(255, 255, 255, .22);
-      color: var(--sand);
-      font-size: .8rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      padding: .45rem 1rem;
-      border-radius: 999px;
+    .hero .wrap {
+      position: relative;
+      z-index: 2;
     }
 
-    .hero h1 {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(2.1rem, 8vw, 3.3rem);
-      line-height: 1.1;
-      margin: 1.1rem 0 .9rem;
-    }
-
-    .hero h1 em {
-      color: var(--sand);
-      font-style: italic;
-    }
-
-    .promesa {
-      font-size: clamp(1.05rem, 4vw, 1.3rem);
-      font-weight: 600;
-      max-width: 34ch;
-      margin: 0 auto 1.6rem;
-    }
-
-    .promesa b {
-      color: var(--sand);
-    }
-
-    .countdown {
+    .pill {
       display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      background: rgba(255, 255, 255, .08);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: .45rem 1rem .45rem .6rem;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--sand);
+    }
+
+    .punto {
+      width: .45rem;
+      height: .45rem;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 0 0 rgba(18, 179, 176, .7);
+      animation: latido 2.4s infinite;
+    }
+
+    @keyframes latido {
+      70% {
+        box-shadow: 0 0 0 .55rem rgba(18, 179, 176, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(18, 179, 176, 0);
+      }
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      font-size: clamp(2.9rem, 12vw, 6.5rem);
+      line-height: .95;
+      letter-spacing: -.02em;
+      margin: 1.2rem 0 1.1rem;
+      max-width: 14ch;
+    }
+
+    h1 i {
+      font-weight: 500;
+      color: var(--sand);
+    }
+
+    .bajada {
+      font-size: clamp(1.05rem, 3.4vw, 1.35rem);
+      color: #c4d6de;
+      max-width: 36ch;
+      margin-bottom: 2rem;
+    }
+
+    .bajada b {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.75rem;
+      align-items: center;
+    }
+
+    .cuenta {
+      display: flex;
       align-items: baseline;
       gap: .5rem;
-      background: rgba(226, 96, 63, .18);
-      border: 1px solid rgba(226, 96, 63, .45);
-      padding: .55rem 1.1rem;
-      border-radius: 999px;
-      font-size: .95rem;
-      font-weight: 700;
     }
 
-    .countdown span {
-      font-size: 1.35rem;
-      color: #ffb59e;
+    .cuenta strong {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.4rem, 9vw, 3.4rem);
+      line-height: 1;
+      color: #fff;
+      font-variant-numeric: tabular-nums;
     }
 
-    /* ---------- Cómo se paga ---------- */
-    .pasos {
-      background: var(--sand-light);
-      padding: 2.5rem 0;
+    .cuenta span {
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--grey);
+      max-width: 6ch;
+      line-height: 1.2;
     }
 
-    .pasos ol {
-      list-style: none;
-      display: grid;
-      gap: 1rem;
-    }
-
-    .pasos li {
-      display: flex;
-      gap: .9rem;
-      align-items: flex-start;
-      background: var(--white);
-      border: 1px solid #f0e4d2;
-      border-radius: 16px;
-      padding: 1rem 1.1rem;
-    }
-
-    .num {
-      flex: 0 0 auto;
-      width: 1.9rem;
-      height: 1.9rem;
-      border-radius: 50%;
-      background: var(--turquoise);
-      color: var(--white);
-      display: grid;
-      place-items: center;
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .6rem;
+      background: var(--teal);
+      color: #04222b;
       font-weight: 800;
-      font-size: .95rem;
+      font-size: 1rem;
+      padding: 1rem 1.6rem;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: inherit;
+      text-decoration: none;
+      transition: transform .35s var(--ease), box-shadow .35s var(--ease), background .2s;
+      box-shadow: 0 10px 30px -8px rgba(18, 179, 176, .6);
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      background: #16c9c5;
+      box-shadow: 0 16px 40px -10px rgba(18, 179, 176, .75);
+    }
+
+    .cta.ghost {
+      background: transparent;
+      color: #fff;
+      border: 1px solid var(--line);
+      box-shadow: none;
+    }
+
+    .cta.ghost:hover {
+      background: rgba(255, 255, 255, .07);
+    }
+
+    /* ===================== REVELADOS ===================== */
+    .rev {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .8s var(--ease), transform .8s var(--ease);
+    }
+
+    .rev.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ===================== PROMESA ===================== */
+    .promesa {
+      padding: clamp(4.5rem, 14vh, 8rem) 0;
+      background: var(--ink);
+      position: relative;
+    }
+
+    .etiqueta {
+      font-size: .74rem;
+      font-weight: 800;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1.1rem;
     }
 
     h2 {
       font-family: "Playfair Display", serif;
-      font-size: clamp(1.5rem, 5.5vw, 2rem);
-      line-height: 1.2;
-      margin-bottom: .5rem;
-      color: var(--navy);
+      font-weight: 700;
+      font-size: clamp(2rem, 6.5vw, 3.4rem);
+      line-height: 1.05;
+      letter-spacing: -.015em;
+      margin-bottom: 1rem;
+    }
+
+    h2 i {
+      font-weight: 500;
+      color: var(--sand);
     }
 
     .sub {
-      color: var(--muted);
-      margin-bottom: 1.6rem;
+      color: #9fb4bf;
+      font-size: 1.02rem;
+      max-width: 46ch;
     }
 
-    /* ---------- Opciones ---------- */
-    .opciones {
-      padding: 2.8rem 0 1rem;
+    .pasos {
+      list-style: none;
+      margin-top: 3rem;
+      display: grid;
+      gap: 0;
+      counter-reset: p;
+    }
+
+    .pasos li {
+      counter-increment: p;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.25rem;
+      padding: 1.6rem 0;
+      border-top: 1px solid var(--line);
+      align-items: start;
+    }
+
+    .pasos li:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .pasos li::before {
+      content: "0" counter(p);
+      font-family: "Playfair Display", serif;
+      font-size: 1.5rem;
+      color: var(--teal);
+      line-height: 1;
+      padding-top: .15rem;
+    }
+
+    .pasos h3 {
+      font-size: 1.12rem;
+      margin-bottom: .2rem;
+    }
+
+    .pasos p {
+      color: #9fb4bf;
+      font-size: .96rem;
+    }
+
+    /* ===================== SALIDAS ===================== */
+    .salidas {
+      background: var(--cream);
+      color: var(--ink);
+      padding: clamp(4rem, 12vh, 7rem) 0 clamp(4.5rem, 13vh, 7.5rem);
+      border-radius: 40px 40px 0 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .salidas .etiqueta {
+      color: var(--teal-deep);
+    }
+
+    .salidas h2 {
+      color: var(--ink);
+    }
+
+    .salidas h2 i {
+      color: var(--teal-deep);
+    }
+
+    .salidas .sub {
+      color: #5b7280;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.25rem;
+      margin-top: 2.75rem;
+    }
+
+    @media (min-width:900px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+        align-items: start;
+      }
     }
 
     .card {
-      border: 1px solid #e3ecef;
-      border-radius: var(--radius);
-      padding: 1.4rem;
-      margin-bottom: 1.1rem;
-      background: var(--white);
-      box-shadow: 0 6px 20px rgba(16, 55, 69, .06);
-    }
-
-    .card.destacada {
-      border: 2px solid var(--turquoise);
-      box-shadow: var(--shadow);
+      background: var(--paper);
+      border: 1px solid #e6ded2;
+      border-radius: 22px;
+      padding: 1.5rem 1.4rem 1.4rem;
       position: relative;
+      overflow: hidden;
+      transition: transform .45s var(--ease), box-shadow .45s var(--ease);
     }
 
-    .tag {
+    .card::before {
+      content: "";
       position: absolute;
-      top: -.75rem;
-      left: 1.3rem;
-      background: var(--turquoise);
-      color: var(--white);
-      font-size: .72rem;
+      inset: 0 0 auto 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--sand));
+      opacity: 0;
+      transition: opacity .4s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 26px 50px -22px rgba(7, 22, 31, .4);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card.top {
+      background: linear-gradient(170deg, #0d2632, #07161f 70%);
+      color: #eaf2f5;
+      border-color: transparent;
+      box-shadow: 0 30px 60px -28px rgba(7, 22, 31, .65);
+    }
+
+    .card.top::before {
+      opacity: 1;
+    }
+
+    .destacado {
+      display: inline-block;
+      font-size: .68rem;
       font-weight: 800;
-      letter-spacing: .1em;
+      letter-spacing: .16em;
       text-transform: uppercase;
-      padding: .3rem .8rem;
+      color: #04222b;
+      background: var(--sand);
+      padding: .28rem .7rem;
       border-radius: 999px;
+      margin-bottom: .9rem;
     }
 
     .card h3 {
-      font-size: 1.3rem;
-      color: var(--navy);
-      margin-bottom: .15rem;
+      font-family: "Playfair Display", serif;
+      font-size: 1.65rem;
+      line-height: 1.1;
+      letter-spacing: -.01em;
+      margin-bottom: .2rem;
     }
 
     .cuando {
-      font-size: .88rem;
-      color: var(--muted);
+      font-size: .82rem;
       font-weight: 600;
-      margin-bottom: .9rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #8b9ba6;
+      margin-bottom: 1.35rem;
+    }
+
+    .card.top .cuando {
+      color: #7d97a4;
+    }
+
+    .sena-label {
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--teal-deep);
+      margin-bottom: .1rem;
+    }
+
+    .card.top .sena-label {
+      color: var(--teal);
     }
 
     .sena {
-      background: var(--turquoise-soft);
-      border-radius: 14px;
-      padding: .85rem 1rem;
-      margin-bottom: .9rem;
-    }
-
-    .sena .label {
-      font-size: .78rem;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--turquoise-dark);
-    }
-
-    .sena .monto {
-      font-size: clamp(1.8rem, 7vw, 2.3rem);
-      font-weight: 800;
-      color: var(--navy);
-      line-height: 1.1;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.6rem, 11vw, 3.4rem);
+      line-height: 1;
+      letter-spacing: -.02em;
       font-variant-numeric: tabular-nums;
+      margin-bottom: .35rem;
     }
 
-    .sena .resto {
-      font-size: .88rem;
-      color: var(--ink);
-      margin-top: .1rem;
+    .resto {
+      font-size: .9rem;
+      color: #5b7280;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid #ece3d6;
+      margin-bottom: 1.2rem;
+    }
+
+    .card.top .resto {
+      color: #9fb4bf;
+      border-color: rgba(255, 255, 255, .12);
     }
 
     .incluye {
       list-style: none;
       display: grid;
-      gap: .35rem;
-      font-size: .92rem;
-      margin-bottom: .9rem;
+      gap: .5rem;
+      font-size: .93rem;
+      margin-bottom: 1.3rem;
     }
 
-    .incluye li::before {
-      content: "✓";
-      color: var(--turquoise);
-      font-weight: 800;
-      margin-right: .5rem;
+    .incluye li {
+      display: grid;
+      grid-template-columns: 1rem 1fr;
+      gap: .6rem;
+      align-items: start;
+    }
+
+    .incluye svg {
+      width: 1rem;
+      height: 1rem;
+      margin-top: .25rem;
+      flex: none;
+      color: var(--teal-deep);
+    }
+
+    .card.top .incluye svg {
+      color: var(--teal);
     }
 
     .total {
       font-size: .85rem;
-      color: var(--muted);
-      border-top: 1px dashed #dfe9ec;
-      padding-top: .75rem;
-      margin-bottom: .9rem;
+      color: #7a8d99;
+      margin-bottom: 1rem;
     }
 
     .total b {
-      color: var(--ink);
+      color: inherit;
       font-size: 1rem;
-    }
-
-    .btn {
-      display: block;
-      width: 100%;
-      text-align: center;
-      background: #25d366;
-      color: #06301a;
       font-weight: 800;
-      font-size: 1rem;
-      padding: .95rem 1rem;
-      border: none;
-      border-radius: 14px;
-      text-decoration: none;
-      cursor: pointer;
-      font-family: inherit;
     }
 
-    .btn:hover {
-      background: #1fbb59;
+    .card .cta {
+      width: 100%;
+      padding: .9rem 1rem;
+      font-size: .96rem;
     }
 
-    .btn.oscuro {
-      background: var(--turquoise);
-      color: var(--white);
+    .card:not(.top) .cta {
+      background: var(--ink);
+      color: #fff;
+      box-shadow: none;
     }
 
-    .btn.oscuro:hover {
-      background: var(--turquoise-dark);
+    .card:not(.top) .cta:hover {
+      background: var(--ink-2);
     }
 
-    /* ---------- Formulario ---------- */
+    /* ===================== BANDA FOTO ===================== */
+    .banda {
+      position: relative;
+      min-height: 62svh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      overflow: hidden;
+      background: var(--ink);
+    }
+
+    .banda-bg {
+      position: absolute;
+      inset: 0;
+      background: url("../portada-patagonia.jpg") center/cover no-repeat;
+      opacity: .34;
+      filter: saturate(.6);
+    }
+
+    .banda .wrap {
+      position: relative;
+      z-index: 2;
+      padding: 4.5rem 0;
+    }
+
+    .banda blockquote {
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-size: clamp(1.5rem, 5.5vw, 2.6rem);
+      line-height: 1.25;
+      max-width: 22ch;
+      margin: 0 auto 1.5rem;
+    }
+
+    .datos {
+      display: flex;
+      justify-content: center;
+      gap: clamp(1.5rem, 6vw, 4rem);
+      flex-wrap: wrap;
+      margin-top: 2.5rem;
+    }
+
+    .dato strong {
+      display: block;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.9rem, 7vw, 2.6rem);
+      line-height: 1;
+      color: var(--sand);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .dato span {
+      font-size: .76rem;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--grey);
+    }
+
+    /* ===================== FORM ===================== */
     .form-sec {
-      background: var(--navy);
-      color: var(--white);
-      padding: 2.8rem 0;
-      margin-top: 2rem;
-    }
-
-    .form-sec h2 {
-      color: var(--white);
-    }
-
-    .form-sec .sub {
-      color: #a9c2cd;
+      padding: clamp(4rem, 12vh, 7rem) 0;
+      background: var(--ink);
     }
 
     .campo {
-      margin-bottom: .85rem;
+      margin-bottom: .9rem;
     }
 
     .campo label {
       display: block;
-      font-size: .85rem;
-      font-weight: 700;
-      margin-bottom: .3rem;
-      color: #cfe0e7;
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: .4rem;
     }
 
     .campo input,
     .campo select {
       width: 100%;
-      padding: .8rem .9rem;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, .2);
-      background: rgba(255, 255, 255, .07);
-      color: var(--white);
+      padding: .95rem 1rem;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .05);
+      color: #fff;
       font-family: inherit;
       font-size: 1rem;
+      transition: border-color .25s, background .25s;
+    }
+
+    .campo input:focus,
+    .campo select:focus {
+      outline: none;
+      border-color: var(--teal);
+      background: rgba(18, 179, 176, .08);
     }
 
     .campo input::placeholder {
-      color: #8fa9b5;
+      color: #5c7280;
     }
 
     .campo select option {
-      color: #17313f;
+      color: #07161f;
     }
 
-    .aviso {
-      font-size: .8rem;
-      color: #a9c2cd;
-      margin-top: .8rem;
-      text-align: center;
-    }
-
-    /* ---------- Confianza ---------- */
-    .confianza {
-      padding: 2.2rem 0 2.8rem;
-      text-align: center;
-      font-size: .9rem;
-      color: var(--muted);
-    }
-
-    .confianza strong {
-      color: var(--navy);
-    }
-
-    .logo {
-      font-family: "Playfair Display", serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--turquoise-dark);
-      margin-bottom: .5rem;
+    form .cta {
+      width: 100%;
+      margin-top: .4rem;
     }
 
     .ok {
       display: none;
-      background: var(--turquoise-soft);
-      border: 1px solid var(--turquoise);
-      color: var(--turquoise-dark);
-      border-radius: 14px;
-      padding: .9rem 1rem;
-      font-weight: 700;
       margin-top: .9rem;
+      padding: .9rem 1rem;
+      border-radius: 14px;
+      background: rgba(18, 179, 176, .14);
+      border: 1px solid rgba(18, 179, 176, .4);
+      color: #9ff0ee;
+      font-weight: 700;
       text-align: center;
+    }
+
+    .aviso {
+      font-size: .8rem;
+      color: var(--grey);
+      text-align: center;
+      margin-top: .9rem;
+    }
+
+    /* ===================== FOOTER ===================== */
+    footer {
+      padding: 3rem 0 7rem;
+      background: var(--ink);
+      border-top: 1px solid var(--line);
+      text-align: center;
+      color: var(--grey);
+      font-size: .88rem;
+    }
+
+    .marca {
+      font-family: "Playfair Display", serif;
+      font-size: 1.6rem;
+      color: #fff;
+      margin-bottom: .6rem;
+    }
+
+    /* ===================== CTA FIJO ===================== */
+    #barra {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 50;
+      padding: .7rem max(1.1rem, env(safe-area-inset-left)) calc(.7rem + env(safe-area-inset-bottom));
+      background: rgba(7, 22, 31, .82);
+      backdrop-filter: blur(14px);
+      border-top: 1px solid var(--line);
+      transform: translateY(110%);
+      transition: transform .5s var(--ease);
+    }
+
+    #barra.visible {
+      transform: none;
+    }
+
+    #barra .wrap {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      justify-content: space-between;
+    }
+
+    #barra p {
+      font-size: .8rem;
+      color: var(--grey);
+      line-height: 1.25;
+    }
+
+    #barra p b {
+      display: block;
+      color: #fff;
+      font-size: .98rem;
+    }
+
+    #barra .cta {
+      padding: .8rem 1.2rem;
+      font-size: .92rem;
+      flex: none;
+    }
+
+    @media (max-width:420px) {
+      #barra p {
+        display: none;
+      }
+
+      #barra .cta {
+        width: 100%;
+      }
     }
   </style>
 </head>
 
 <body>
+  <div id="progreso"></div>
 
+  <!-- ===================== HERO ===================== -->
   <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-velo"></div>
     <div class="wrap">
-      <p class="kicker">11 y 13 de septiembre · 2026</p>
-      <h1>Profe, el 11 de septiembre <em>es tuyo</em></h1>
-      <p class="promesa">
-        Señá con el <b>30%</b> y el resto lo pagás como puedas
-        <b>hasta 10 días antes</b> de viajar.
+      <p class="pill rev"><span class="punto"></span>11 y 13 de septiembre · 2026</p>
+      <h1 class="rev">El 11 de septiembre <i>es tuyo</i>, profe.</h1>
+      <p class="bajada rev">
+        Señás con el <b>30%</b> y el resto lo pagás como puedas,
+        <b>hasta 10 días antes</b> de subirte al micro.
       </p>
-      <p class="countdown">Faltan <span id="dias">—</span> días</p>
+      <div class="hero-meta rev">
+        <a class="cta" href="#salidas">Ver las salidas</a>
+        <div class="cuenta">
+          <strong id="dias">—</strong>
+          <span>días<br>faltan</span>
+        </div>
+      </div>
     </div>
   </header>
 
-  <section class="pasos">
-    <div class="wrap">
-      <h2>Sin tarjeta, sin intereses, sin apuro</h2>
-      <p class="sub">
-        No hace falta que tengas la plata hoy. Solo la seña.
+  <!-- ===================== PROMESA ===================== -->
+  <section class="promesa">
+    <div class="narrow">
+      <p class="etiqueta rev">Cómo se paga</p>
+      <h2 class="rev">No necesitás la plata hoy. <i>Solo la seña.</i></h2>
+      <p class="sub rev">
+        Sin tarjeta, sin intereses y sin cuotas fijas. Vos ponés el ritmo.
       </p>
-      <ol>
-        <li><span class="num">1</span>
-          <div><b>Reservás con el 30%.</b> Ese día tu lugar queda guardado a tu nombre.</div>
+
+      <ol class="pasos">
+        <li class="rev">
+          <div>
+            <h3>Reservás con el 30%</h3>
+            <p>Ese mismo día tu lugar queda guardado a tu nombre.</p>
+          </div>
         </li>
-        <li><span class="num">2</span>
-          <div><b>Pagás el resto como puedas.</b> En efectivo o transferencia, en las veces que
-            necesites, hasta 10 días antes de la salida.</div>
+        <li class="rev">
+          <div>
+            <h3>Pagás el resto a tu ritmo</h3>
+            <p>Efectivo o transferencia, en las veces que necesites, hasta 10 días
+              antes de la salida.</p>
+          </div>
         </li>
-        <li><span class="num">3</span>
-          <div><b>Viajás.</b> Con coordinación permanente de MyE de principio a fin.</div>
+        <li class="rev">
+          <div>
+            <h3>Viajás</h3>
+            <p>Con coordinación de MyE de principio a fin. No viajás sola.</p>
+          </div>
         </li>
       </ol>
     </div>
   </section>
 
-  <section class="opciones">
+  <!-- ===================== SALIDAS ===================== -->
+  <section class="salidas" id="salidas">
     <div class="wrap">
-      <h2>Elegí tu salida</h2>
-      <p class="sub">Todas salen desde Buenos Aires, en grupo y con coordinador.</p>
+      <p class="etiqueta rev">Tres salidas</p>
+      <h2 class="rev">Elegí <i>la tuya</i></h2>
+      <p class="sub rev">Todas desde Buenos Aires, en grupo y con coordinador.</p>
 
-      <!-- ============ 1. Federación Maestrazo ============ -->
-      <article class="card destacada">
-        <span class="tag">El del baile</span>
-        <h3>Federación · Maestrazo</h3>
-        <p class="cuando">Viernes 11 de septiembre · 3 días y 2 noches</p>
+      <div class="grid">
 
-        <div class="sena">
-          <p class="label">Señás</p>
-          <p class="monto">$89.997</p>
+        <article class="card top rev">
+          <span class="destacado">El del baile</span>
+          <h3>Federación</h3>
+          <p class="cuando">Vie 11 sep · 3 días 2 noches</p>
+
+          <p class="sena-label">Señás</p>
+          <p class="sena" data-hasta="89997">$0</p>
           <p class="resto">y el resto hasta el 1º de septiembre</p>
-        </div>
 
-        <ul class="incluye">
-          <li>Hotel Clima Termal Suites, media pensión</li>
-          <li>Entrada al complejo termal</li>
-          <li><b>Baile del Maestrazo</b></li>
-          <li>Bus mix con coordinación permanente</li>
-        </ul>
+          <ul class="incluye">
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Hotel Clima Termal Suites, media pensión</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Entrada al complejo termal</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg><b>Baile del Maestrazo</b></li>
+          </ul>
 
-        <p class="total">Total <b>$299.990</b> por persona + $14.990 de gastos administrativos</p>
-        <button class="btn" data-opcion="Federación Maestrazo" data-precio="299990">
-          Quiero este · escribinos
-        </button>
-      </article>
+          <p class="total">Total <b>$299.990</b> + $14.990 gastos adm.</p>
+          <button class="cta" data-opcion="Federación Maestrazo" data-precio="299990">
+            Quiero este
+          </button>
+        </article>
 
-      <!-- ============ 2. Colón ============ -->
-      <article class="card">
-        <h3>Colón · Entre Ríos</h3>
-        <p class="cuando">Viernes 11 de septiembre · 3 días y 2 noches</p>
+        <article class="card rev">
+          <h3>Colón</h3>
+          <p class="cuando">Vie 11 sep · 3 días 2 noches</p>
 
-        <div class="sena">
-          <p class="label">Señás</p>
-          <p class="monto">$54.000</p>
+          <p class="sena-label">Señás</p>
+          <p class="sena" data-hasta="54000">$0</p>
           <p class="resto">y el resto hasta el 1º de septiembre</p>
-        </div>
 
-        <ul class="incluye">
-          <li>Hotel Holimasu con desayuno</li>
-          <li>Bus semi cama</li>
-          <li>Coordinación de MyE</li>
-        </ul>
+          <ul class="incluye">
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Hotel Holimasu con desayuno</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Bus semi cama</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Coordinación de MyE</li>
+          </ul>
 
-        <p class="total">Total <b>$179.999</b> por persona + $10.000 de gastos administrativos</p>
-        <button class="btn oscuro" data-opcion="Colón" data-precio="179999">
-          Quiero este · escribinos
-        </button>
-      </article>
+          <p class="total">Total <b>$179.999</b> + $10.000 gastos adm.</p>
+          <button class="cta" data-opcion="Colón" data-precio="179999">Quiero este</button>
+        </article>
 
-      <!-- ============ 3. Termas de Dolores ============ -->
-      <article class="card">
-        <h3>Termas de Dolores</h3>
-        <p class="cuando">Viernes 11 o domingo 13 de septiembre · full day</p>
+        <article class="card rev">
+          <h3>Termas de Dolores</h3>
+          <p class="cuando">Vie 11 o dom 13 sep · full day</p>
 
-        <div class="sena">
-          <p class="label">Señás</p>
-          <p class="monto">$25.800</p>
+          <p class="sena-label">Señás</p>
+          <p class="sena" data-hasta="25800">$0</p>
           <p class="resto">y el resto hasta el 1º de septiembre</p>
-        </div>
 
-        <ul class="incluye">
-          <li>Traslados ida y vuelta</li>
-          <li>Entrada a las termas</li>
-          <li>Coordinador todo el día</li>
-        </ul>
+          <ul class="incluye">
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Traslados ida y vuelta</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Entrada a las termas</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Coordinador todo el día</li>
+          </ul>
 
-        <p class="total">Total <b>$85.999</b> por persona + $10.000 de gastos administrativos</p>
-        <button class="btn oscuro" data-opcion="Termas de Dolores" data-precio="85999">
-          Quiero este · escribinos
-        </button>
-      </article>
+          <p class="total">Total <b>$85.999</b> + $10.000 gastos adm.</p>
+          <button class="cta" data-opcion="Termas de Dolores" data-precio="85999">Quiero este</button>
+        </article>
+
+      </div>
     </div>
   </section>
 
-  <section class="form-sec">
+  <!-- ===================== BANDA ===================== -->
+  <section class="banda">
+    <div class="banda-bg"></div>
     <div class="wrap">
-      <h2>¿Vas con colegas?</h2>
-      <p class="sub">
+      <blockquote class="rev">“Gracias por enseñarnos con el corazón.”</blockquote>
+      <p class="sub rev" style="margin-inline:auto;text-align:center">
+        Somos una agencia matriculada, familiar, que arma salidas grupales
+        desde hace más de diez años.
+      </p>
+      <div class="datos rev">
+        <div class="dato"><strong data-hasta="10" data-sufijo="+">0</strong><span>años</span></div>
+        <div class="dato"><strong data-hasta="30" data-prefijo="" data-sufijo="%">0</strong><span>de seña</span></div>
+        <div class="dato"><strong data-hasta="10" data-sufijo="">0</strong><span>días antes</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FORM ===================== -->
+  <section class="form-sec" id="contacto">
+    <div class="narrow">
+      <p class="etiqueta rev">Sin compromiso</p>
+      <h2 class="rev">¿Vas <i>con colegas</i>?</h2>
+      <p class="sub rev">
         Dejanos tu nombre y te escribimos por WhatsApp con la disponibilidad real
         y el precio para el grupo.
       </p>
 
-      <form id="lead">
+      <form id="lead" class="rev" style="margin-top:2rem">
         <div class="campo">
           <label for="nombre">Tu nombre</label>
-          <input id="nombre" name="nombre" type="text" required autocomplete="name" placeholder="Nombre y apellido">
+          <input id="nombre" name="nombre" type="text" required autocomplete="name"
+            placeholder="Nombre y apellido">
         </div>
         <div class="campo">
           <label for="telefono">Tu WhatsApp</label>
-          <input id="telefono" name="telefono" type="tel" required autocomplete="tel" inputmode="tel"
-            placeholder="11 1234 5678">
+          <input id="telefono" name="telefono" type="tel" required autocomplete="tel"
+            inputmode="tel" placeholder="11 1234 5678">
         </div>
         <div class="campo">
           <label for="destino">¿Cuál te interesa?</label>
           <select id="destino" name="destino">
-            <option value="Federación Maestrazo">Federación · Maestrazo — $299.990</option>
-            <option value="Colón">Colón · Entre Ríos — $179.999</option>
-            <option value="Termas de Dolores">Termas de Dolores — $85.999</option>
+            <option value="Federación Maestrazo">Federación · Maestrazo</option>
+            <option value="Colón">Colón · Entre Ríos</option>
+            <option value="Termas de Dolores">Termas de Dolores</option>
             <option value="Todavía no sé">Todavía no sé, quiero que me asesoren</option>
           </select>
         </div>
-        <button class="btn" type="submit">Que me escriban por WhatsApp</button>
+        <button class="cta" type="submit">Que me escriban por WhatsApp</button>
         <p class="ok" id="ok">¡Listo! Te estamos abriendo el WhatsApp.</p>
-        <p class="aviso">Te contesta una persona, no un robot. Sin compromiso.</p>
+        <p class="aviso">Te contesta una persona, no un robot.</p>
       </form>
     </div>
   </section>
 
-  <footer class="confianza">
+  <footer>
     <div class="wrap">
-      <p class="logo">MyE Turismo</p>
-      <p>
-        <strong>Agencia matriculada.</strong> Más de 10 años armando salidas grupales.
-        Coordinación permanente en todos los viajes.
-      </p>
-      <p style="margin-top:.6rem">
-        WhatsApp <strong>11 3153-7638</strong> · Precios por persona, sujetos a
-        modificación y disponibilidad.
-      </p>
+      <p class="marca">MyE Turismo</p>
+      <p>WhatsApp 11 3153-7638 · Agencia matriculada</p>
+      <p style="margin-top:.4rem">Precios por persona, sujetos a modificación y disponibilidad.</p>
     </div>
   </footer>
 
+  <div id="barra">
+    <div class="wrap">
+      <p><b>Desde $25.800 de seña</b>Y el resto hasta 10 días antes</p>
+      <button class="cta" data-opcion="Barra fija" data-precio="0">Consultar por WhatsApp</button>
+    </div>
+  </div>
+
   <script>
     /* ============================================================
-       Captura de leads
-       ------------------------------------------------------------
-       Escribe en Supabase a través del RPC `registrar_lead`, que es
-       el único punto de entrada público: la clave que va acá no
-       puede leer la base de clientes.
-
-       `campana` es lo que permite saber después cuánto rindió esta
-       landing frente a cualquier otra. Sin eso, la pauta se gasta
-       a ciegas.
+       Captura de leads — escribe en Supabase por el RPC
+       `registrar_lead`, único punto de entrada público. La clave
+       que va acá no puede leer la base de clientes.
        ============================================================ */
     const SUPABASE_URL = "https://cfbewolbbiubflcjittt.supabase.co";
     const SUPABASE_ANON_KEY = "sb_publishable_Y5Jx65MAnTlcrPGkXarLgA_nJZ5j1op";
@@ -589,7 +1008,6 @@
     const CAMPANA = "dia-del-maestro";
 
     function llamarRpc(cuerpo) {
-      // `keepalive` para que la escritura sobreviva al salto a WhatsApp.
       return fetch(`${SUPABASE_URL}/rest/v1/rpc/registrar_lead`, {
         method: "POST",
         keepalive: true,
@@ -611,57 +1029,33 @@
         p_mensaje: datos.mensaje || null,
         p_origen: "meta_ads"
       };
-
       try {
         const r = await llamarRpc({ ...base, p_campana: CAMPANA });
         if (r.ok) return;
-
-        // Si la migración 006 todavía no se corrió, la versión con
-        // campaña no existe y esto da 404. Antes que perder el lead,
-        // se reintenta sin atribución: se pierde saber de dónde vino,
-        // no el contacto.
-        await llamarRpc({
-          ...base,
-          p_mensaje: `[${CAMPANA}] ${datos.mensaje || ""}`.trim()
-        });
-      } catch (_) {
-        // Los errores se tragan a propósito: WhatsApp es el canal
-        // principal y no puede quedar bloqueado por un fallo de red.
-      }
+        // Si la migración 006 no corrió todavía, la versión con campaña
+        // no existe. Antes que perder el lead, se reintenta sin
+        // atribución: se pierde saber de dónde vino, no el contacto.
+        await llamarRpc({ ...base, p_mensaje: `[${CAMPANA}] ${datos.mensaje || ""}`.trim() });
+      } catch (_) { /* WhatsApp es el canal principal: nunca bloquearlo */ }
     }
 
-    function trackLead(detalle) {
-      if (window.fbq) window.fbq("track", "Lead", detalle || {});
-    }
+    const trackLead = (d) => { if (window.fbq) window.fbq("track", "Lead", d || {}); };
+    const abrirWhatsapp = (t) =>
+      window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(t)}`, "_blank", "noopener");
 
-    function abrirWhatsapp(texto) {
-      window.open(
-        `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(texto)}`,
-        "_blank",
-        "noopener"
-      );
-    }
-
-    /* Botones de cada tarjeta: van directo a WhatsApp. No pedimos
-       datos antes porque cada campo extra cuesta conversiones; el
-       lead queda igual registrado del lado de Meta con el evento. */
-    document.querySelectorAll("[data-opcion]").forEach((boton) => {
-      boton.addEventListener("click", () => {
-        const opcion = boton.dataset.opcion;
-        trackLead({
-          content_name: opcion,
-          value: Number(boton.dataset.precio),
-          currency: "ARS"
-        });
+    document.querySelectorAll("[data-opcion]").forEach((b) => {
+      b.addEventListener("click", () => {
+        const opcion = b.dataset.opcion;
+        const precio = Number(b.dataset.precio);
+        trackLead({ content_name: opcion, ...(precio ? { value: precio, currency: "ARS" } : {}) });
         abrirWhatsapp(
-          `Hola! Vi la promo de Día del Maestro y me interesa ${opcion}. ` +
-          `¿Me contás cómo es la seña?`
+          opcion === "Barra fija"
+            ? "Hola! Vi la promo de Día del Maestro y quiero que me asesoren."
+            : `Hola! Vi la promo de Día del Maestro y me interesa ${opcion}. ¿Me contás cómo es la seña?`
         );
       });
     });
 
-    /* El formulario sí deja el dato en la base aunque nunca llegue
-       a mandar el WhatsApp. Ese es todo el punto de tenerlo. */
     document.getElementById("lead").addEventListener("submit", (e) => {
       e.preventDefault();
       const nombre = document.getElementById("nombre").value.trim();
@@ -669,27 +1063,79 @@
       const destino = document.getElementById("destino").value;
       if (!nombre || !telefono) return;
 
-      registrarLead({
-        nombre,
-        telefono,
-        destino,
-        mensaje: "Vino de la landing de Día del Maestro."
-      });
+      registrarLead({ nombre, telefono, destino, mensaje: "Vino de la landing de Día del Maestro." });
       trackLead({ content_name: destino, currency: "ARS" });
-
       document.getElementById("ok").style.display = "block";
-      abrirWhatsapp(
-        `Hola! Soy ${nombre}. Me interesa ${destino} para el Día del Maestro.`
-      );
+      abrirWhatsapp(`Hola! Soy ${nombre}. Me interesa ${destino} para el Día del Maestro.`);
     });
 
-    /* Cuenta regresiva al 11 de septiembre. */
+    /* ---------- Cuenta regresiva ---------- */
     (function () {
       const salida = new Date(2026, 8, 11);
-      const hoy = new Date();
-      const dias = Math.max(0, Math.ceil((salida - hoy) / 86400000));
+      const dias = Math.max(0, Math.ceil((salida - new Date()) / 86400000));
       document.getElementById("dias").textContent = dias;
     })();
+
+    /* ---------- Revelado al hacer scroll ---------- */
+    const io = new IntersectionObserver((entradas) => {
+      entradas.forEach((e, i) => {
+        if (!e.isIntersecting) return;
+        // Escalonado leve: da sensación de secuencia, no de golpe.
+        setTimeout(() => e.target.classList.add("visible"), i * 70);
+        io.unobserve(e.target);
+      });
+    }, { threshold: .16, rootMargin: "0px 0px -8% 0px" });
+
+    document.querySelectorAll(".rev").forEach((el) => io.observe(el));
+
+    /* ---------- Números que suben ---------- */
+    const money = new Intl.NumberFormat("es-AR");
+
+    function animarNumero(el) {
+      const hasta = Number(el.dataset.hasta);
+      const prefijo = el.dataset.prefijo ?? (el.classList.contains("sena") ? "$" : "");
+      const sufijo = el.dataset.sufijo ?? "";
+      const desde = performance.now();
+      const dur = 1100;
+
+      function paso(ahora) {
+        const t = Math.min(1, (ahora - desde) / dur);
+        // easeOutExpo: arranca rápido y frena, se lee mejor que lineal.
+        const e = t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+        el.textContent = prefijo + money.format(Math.round(hasta * e)) + sufijo;
+        if (t < 1) requestAnimationFrame(paso);
+      }
+      requestAnimationFrame(paso);
+    }
+
+    const ioNum = new IntersectionObserver((entradas) => {
+      entradas.forEach((e) => {
+        if (!e.isIntersecting) return;
+        animarNumero(e.target);
+        ioNum.unobserve(e.target);
+      });
+    }, { threshold: .6 });
+
+    document.querySelectorAll("[data-hasta]").forEach((el) => ioNum.observe(el));
+
+    /* ---------- Barra de progreso y CTA fijo ---------- */
+    const barra = document.getElementById("barra");
+    const progreso = document.getElementById("progreso");
+    const hero = document.querySelector(".hero");
+    const form = document.getElementById("contacto");
+
+    function alScroll() {
+      const alto = document.body.scrollHeight - innerHeight;
+      progreso.style.width = (alto > 0 ? (scrollY / alto) * 100 : 0) + "%";
+
+      // La barra aparece pasado el hero y se esconde sobre el formulario,
+      // que ya tiene su propio botón: dos CTA juntos se estorban.
+      const pasoHero = scrollY > hero.offsetHeight * .85;
+      const enForm = form.getBoundingClientRect().top < innerHeight * .8;
+      barra.classList.toggle("visible", pasoHero && !enForm);
+    }
+    addEventListener("scroll", alScroll, { passive: true });
+    alScroll();
   </script>
 </body>
 
