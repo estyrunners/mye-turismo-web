@@ -649,7 +649,7 @@
 
     @media (min-width:820px) {
       .estela-caja {
-        grid-template-columns: 1fr minmax(0, 230px);
+        grid-template-columns: 1fr minmax(0, 260px);
         gap: 3.5rem;
       }
 
@@ -668,28 +668,33 @@
        imagen al 133% del marco, la cabeza ocupa ~62% del círculo y
        queda centrada un poco por encima del medio, que es el encuadre
        natural de un retrato. */
+    /* Se usa la FOTO ORIGINAL, no el recorte: el PNG sin fondo quedó en
+       440x1100 y encima ampliaba la cabeza un 45%, así que la cara se
+       pixelaba. La original es 960x1280 y tiene detalle real de sobra.
+       Va con su fondo de jardín, que además da profundidad. */
     .retrato-marco {
-      width: clamp(190px, 48vw, 230px);
-      aspect-ratio: 1;
+      --circulo: clamp(210px, 52vw, 260px);
+      width: var(--circulo);
+      height: var(--circulo);
       border-radius: 50%;
       overflow: hidden;
       position: relative;
       margin-inline: auto;
-      background: radial-gradient(circle at 50% 30%, rgba(18, 179, 176, .32), rgba(7, 22, 31, .9));
       box-shadow:
-        0 24px 50px -20px rgba(0, 0, 0, .75),
-        inset 0 0 0 1px rgba(255, 255, 255, .16);
+        0 26px 55px -20px rgba(0, 0, 0, .8),
+        inset 0 0 0 1px rgba(255, 255, 255, .18);
     }
 
     .retrato-marco img {
       position: absolute;
-      width: 133%;
-      /* `height: auto` NO es opcional: el atributo height="1100" del HTML
-         actúa como estilo por defecto y, si la CSS solo fija el ancho,
-         la altura queda clavada en 1100px y la imagen sale estirada. */
+      /* Encuadre sobre la cara, que está en ~51% / 28% de la foto.
+         `height: auto` NO es opcional: el atributo height del HTML actúa
+         como estilo por defecto y, si la CSS solo fija el ancho, la
+         altura queda clavada y la imagen sale estirada. */
+      width: 266%;
       height: auto;
-      left: -3.2%;
-      top: 13.2%;
+      left: -87%;
+      top: -57%;
       max-width: none;
       display: block;
     }
@@ -1109,8 +1114,8 @@
       </div>
 
       <figure class="retrato-marco rev">
-        <img src="../estela.png" alt="Estela, de MyE Turismo"
-          width="440" height="1100" loading="lazy" decoding="async">
+        <img src="../estela-foto.jpg" alt="Estela, de MyE Turismo"
+          width="960" height="1280" loading="lazy" decoding="async">
       </figure>
     </div>
   </section>
