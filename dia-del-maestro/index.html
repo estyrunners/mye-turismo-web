@@ -287,14 +287,18 @@
       background: rgba(255, 255, 255, .07);
     }
 
-    /* ===================== REVELADOS ===================== */
-    .rev {
+    /* ===================== REVELADOS =====================
+       Ocultar SOLO si el script de animación llegó a correr. Si algo
+       falla, la página se ve entera: nunca en blanco. Una landing con
+       pauta paga no se puede permitir depender del JavaScript para
+       mostrar el contenido. */
+    .js-anim .rev {
       opacity: 0;
       transform: translateY(28px);
       transition: opacity .8s var(--ease), transform .8s var(--ease);
     }
 
-    .rev.visible {
+    .js-anim .rev.visible {
       opacity: 1;
       transform: none;
     }
@@ -783,6 +787,12 @@
 </head>
 
 <body>
+  <script>
+    /* Se marca acá, antes de pintar, para que no haya parpadeo. Si este
+       script no corriera, la CSS de revelado directamente no aplica. */
+    document.documentElement.classList.add("js-anim");
+  </script>
+
   <div id="progreso"></div>
 
   <!-- ===================== HERO ===================== -->
@@ -854,7 +864,7 @@
           <p class="cuando">Vie 11 sep · 3 días 2 noches</p>
 
           <p class="sena-label">Señás</p>
-          <p class="sena" data-hasta="89997">$0</p>
+          <p class="sena" data-hasta="89997">$89.997</p>
           <p class="resto">y el resto hasta el 1º de septiembre</p>
 
           <ul class="incluye">
@@ -880,7 +890,7 @@
           <p class="cuando">Vie 11 sep · 3 días 2 noches</p>
 
           <p class="sena-label">Señás</p>
-          <p class="sena" data-hasta="54000">$0</p>
+          <p class="sena" data-hasta="54000">$54.000</p>
           <p class="resto">y el resto hasta el 1º de septiembre</p>
 
           <ul class="incluye">
@@ -904,7 +914,7 @@
           <p class="cuando">Vie 11 o dom 13 sep · full day</p>
 
           <p class="sena-label">Señás</p>
-          <p class="sena" data-hasta="25800">$0</p>
+          <p class="sena" data-hasta="25800">$25.800</p>
           <p class="resto">y el resto hasta el 1º de septiembre</p>
 
           <ul class="incluye">
@@ -937,9 +947,9 @@
         desde hace más de diez años.
       </p>
       <div class="datos rev">
-        <div class="dato"><strong data-hasta="10" data-sufijo="+">0</strong><span>años</span></div>
-        <div class="dato"><strong data-hasta="30" data-prefijo="" data-sufijo="%">0</strong><span>de seña</span></div>
-        <div class="dato"><strong data-hasta="10" data-sufijo="">0</strong><span>días antes</span></div>
+        <div class="dato"><strong data-hasta="10" data-sufijo="+">10+</strong><span>años</span></div>
+        <div class="dato"><strong data-hasta="30" data-prefijo="" data-sufijo="%">30%</strong><span>de seña</span></div>
+        <div class="dato"><strong data-hasta="10" data-sufijo="">10</strong><span>días antes</span></div>
       </div>
     </div>
   </section>
@@ -1076,17 +1086,31 @@
       document.getElementById("dias").textContent = dias;
     })();
 
-    /* ---------- Revelado al hacer scroll ---------- */
-    const io = new IntersectionObserver((entradas) => {
-      entradas.forEach((e, i) => {
-        if (!e.isIntersecting) return;
-        // Escalonado leve: da sensación de secuencia, no de golpe.
-        setTimeout(() => e.target.classList.add("visible"), i * 70);
-        io.unobserve(e.target);
-      });
-    }, { threshold: .16, rootMargin: "0px 0px -8% 0px" });
+    /* ---------- Revelado al hacer scroll ----------
+       Con red de seguridad: si el observer no existe, falla, o por lo
+       que sea nunca dispara, a los 2,5 segundos se muestra todo igual.
+       Vale mucho más una animación perdida que una página en blanco
+       con pauta paga apuntándole. */
+    const mostrarTodo = () =>
+      document.querySelectorAll(".rev").forEach((el) => el.classList.add("visible"));
 
-    document.querySelectorAll(".rev").forEach((el) => io.observe(el));
+    try {
+      if (!("IntersectionObserver" in window)) throw new Error("sin soporte");
+
+      const io = new IntersectionObserver((entradas) => {
+        entradas.forEach((e, i) => {
+          if (!e.isIntersecting) return;
+          // Escalonado leve: da sensación de secuencia, no de golpe.
+          setTimeout(() => e.target.classList.add("visible"), i * 70);
+          io.unobserve(e.target);
+        });
+      }, { threshold: .16, rootMargin: "0px 0px -8% 0px" });
+
+      document.querySelectorAll(".rev").forEach((el) => io.observe(el));
+      setTimeout(mostrarTodo, 2500);
+    } catch (_) {
+      mostrarTodo();
+    }
 
     /* ---------- Números que suben ---------- */
     const money = new Intl.NumberFormat("es-AR");
@@ -1108,15 +1132,20 @@
       requestAnimationFrame(paso);
     }
 
-    const ioNum = new IntersectionObserver((entradas) => {
-      entradas.forEach((e) => {
-        if (!e.isIntersecting) return;
-        animarNumero(e.target);
-        ioNum.unobserve(e.target);
-      });
-    }, { threshold: .6 });
+    // Los números ya vienen escritos con su valor real en el HTML: la
+    // animación los sobreescribe pero termina en el mismo lugar. Si el
+    // script no corre, se leen bien igual — nunca "$0".
+    try {
+      const ioNum = new IntersectionObserver((entradas) => {
+        entradas.forEach((e) => {
+          if (!e.isIntersecting) return;
+          animarNumero(e.target);
+          ioNum.unobserve(e.target);
+        });
+      }, { threshold: .6 });
 
-    document.querySelectorAll("[data-hasta]").forEach((el) => ioNum.observe(el));
+      document.querySelectorAll("[data-hasta]").forEach((el) => ioNum.observe(el));
+    } catch (_) { /* se quedan con el valor del HTML, que es el correcto */ }
 
     /* ---------- Barra de progreso y CTA fijo ---------- */
     const barra = document.getElementById("barra");
