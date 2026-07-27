@@ -632,10 +632,10 @@
       position: absolute;
       left: 50%;
       bottom: 0;
-      width: min(760px, 130%);
+      width: min(560px, 115%);
       aspect-ratio: 1;
       transform: translateX(-50%);
-      background: radial-gradient(circle, rgba(18, 179, 176, .22), transparent 62%);
+      background: radial-gradient(circle, rgba(18, 179, 176, .2), transparent 62%);
       pointer-events: none;
     }
 
@@ -649,12 +649,16 @@
 
     @media (min-width:820px) {
       .estela-caja {
-        grid-template-columns: 1fr minmax(0, 380px);
+        grid-template-columns: 1fr minmax(0, 240px);
         gap: 3rem;
       }
 
+      .retrato {
+        max-height: 520px;
+      }
+
       .estela-texto {
-        padding-bottom: 4rem;
+        padding-bottom: 1.5rem;
       }
     }
 
@@ -662,12 +666,16 @@
        el recorte vino de una foto con fondo negro, así que los bordes
        del pelo tienen restos oscuros que acá resultan invisibles. Sobre
        fondo claro se verían sucios. */
+    /* Se limita por ALTO, no por ancho: es una figura de cuerpo entero
+       (relación 1:2,5) y el alto es la dimensión que estira la sección
+       y deja hueco muerto al lado del texto. */
     .retrato {
-      max-width: 330px;
-      width: 100%;
+      width: auto;
+      max-width: 100%;
+      max-height: 400px;
       margin-inline: auto;
       display: block;
-      filter: drop-shadow(0 26px 30px rgba(0, 0, 0, .5));
+      filter: drop-shadow(0 22px 26px rgba(0, 0, 0, .5));
     }
 
     .firma {
@@ -740,30 +748,6 @@
       line-height: 1.25;
       max-width: 22ch;
       margin: 0 auto 1.5rem;
-    }
-
-    .datos {
-      display: flex;
-      justify-content: center;
-      gap: clamp(1.5rem, 6vw, 4rem);
-      flex-wrap: wrap;
-      margin-top: 2.5rem;
-    }
-
-    .dato strong {
-      display: block;
-      font-family: "Playfair Display", serif;
-      font-size: clamp(1.9rem, 7vw, 2.6rem);
-      line-height: 1;
-      color: var(--sand);
-      font-variant-numeric: tabular-nums;
-    }
-
-    .dato span {
-      font-size: .76rem;
-      text-transform: uppercase;
-      letter-spacing: .14em;
-      color: var(--grey);
     }
 
     /* ===================== FORM ===================== */
@@ -1116,11 +1100,6 @@
         Somos una agencia matriculada, familiar, que arma salidas grupales
         desde hace más de diez años.
       </p>
-      <div class="datos rev">
-        <div class="dato"><strong data-hasta="10" data-sufijo="+">10+</strong><span>años</span></div>
-        <div class="dato"><strong data-hasta="30" data-prefijo="" data-sufijo="%">30%</strong><span>de seña</span></div>
-        <div class="dato"><strong data-hasta="10" data-sufijo="">10</strong><span>días antes</span></div>
-      </div>
     </div>
   </section>
 
