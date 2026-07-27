@@ -653,10 +653,6 @@
         gap: 3rem;
       }
 
-      .retrato {
-        max-height: 520px;
-      }
-
       .estela-texto {
         padding-bottom: 1.5rem;
       }
@@ -676,6 +672,18 @@
       margin-inline: auto;
       display: block;
       filter: drop-shadow(0 22px 26px rgba(0, 0, 0, .5));
+    }
+
+    /* Va DESPUÉS de la regla base a propósito: misma especificidad, así
+       que el orden es lo único que decide cuál gana. */
+    @media (min-width:820px) {
+      .retrato {
+        max-height: 480px;
+      }
+
+      .estela-caja {
+        align-items: center;
+      }
     }
 
     .firma {
