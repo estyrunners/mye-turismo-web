@@ -406,16 +406,25 @@
       color: #5b7280;
     }
 
+    /* Flex en vez de grid a propósito: con 7 tarjetas (7 = 3+3+1), un
+       grid de 3 columnas estira la última card sola a lo ancho de toda
+       la fila. Con flex-basis fijo, esa card queda del mismo tamaño que
+       las demás, alineada a la izquierda, sin ocupar la fila entera. */
     .grid {
-      display: grid;
+      display: flex;
+      flex-wrap: wrap;
       gap: 1.25rem;
       margin-top: 2.75rem;
     }
 
+    .card {
+      flex: 1 1 100%;
+    }
+
     @media (min-width:900px) {
-      .grid {
-        grid-template-columns: repeat(3, 1fr);
-        align-items: start;
+      .card {
+        flex: 0 1 calc((100% - 2.5rem) / 3);
+        align-self: start;
       }
     }
 
@@ -1029,7 +1038,7 @@
   <!-- ===================== SALIDAS ===================== -->
   <section class="salidas" id="salidas">
     <div class="wrap">
-      <p class="etiqueta rev">Tres salidas</p>
+      <p class="etiqueta rev">Siete salidas</p>
       <h2 class="rev">Elegí <i>la tuya</i></h2>
       <p class="sub rev">Todas desde Buenos Aires, en grupo y con coordinador.</p>
 
@@ -1120,6 +1129,118 @@
 
           <p class="total">Total <b>$85.999</b> + $10.000 gastos adm.</p>
           <button class="cta" data-opcion="Termas de Dolores" data-precio="85999">Quiero este</button>
+        </article>
+
+        <article class="card rev">
+          <span class="foto">
+            <img src="../landing-herradura.jpg" alt="Cabalgata grupal en Campo La Herradura"
+              width="1600" height="1200" loading="lazy" decoding="async">
+          </span>
+          <h3>Campo La Herradura</h3>
+          <p class="cuando">Vie 11 o dom 13 sep · full day</p>
+
+          <p class="sena-label">Señás</p>
+          <p class="sena" data-hasta="29997"><span class="pe">$</span>29.997</p>
+          <p class="resto">y el resto hasta el 1º de septiembre</p>
+
+          <ul class="incluye">
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Cabalgata incluida</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Asado y bebidas sin alcohol</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Coordinación permanente</li>
+          </ul>
+
+          <p class="total">Total <b>$99.990</b></p>
+          <button class="cta" data-opcion="Campo La Herradura" data-precio="99990">Quiero este</button>
+        </article>
+
+        <article class="card rev">
+          <span class="foto">
+            <img src="../landing-mar-del-plata.webp" alt="Vista aérea de la costa de Mar del Plata"
+              width="992" height="661" loading="lazy" decoding="async">
+          </span>
+          <h3>Mar del Plata</h3>
+          <p class="cuando">Vie 11 sep · 3 días 2 noches</p>
+
+          <p class="sena-label">Señás</p>
+          <p class="sena" data-hasta="53997"><span class="pe">$</span>53.997</p>
+          <p class="resto">y el resto hasta el 1º de septiembre</p>
+
+          <ul class="incluye">
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Hotel Hanna, media pensión</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Bus semi cama</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Cena show + baile</li>
+          </ul>
+
+          <p class="total">Total <b>$179.990</b> + $20.000 gastos adm.</p>
+          <button class="cta" data-opcion="Mar del Plata" data-precio="179990">Quiero este</button>
+        </article>
+
+        <article class="card rev">
+          <span class="foto">
+            <img src="../landing-tandil.jpeg" alt="Cartel de flores de Tandil junto a la laguna"
+              width="800" height="533" loading="lazy" decoding="async">
+          </span>
+          <h3>Tandil</h3>
+          <p class="cuando">Vie 11 sep · full day</p>
+
+          <p class="sena-label">Señás</p>
+          <p class="sena" data-hasta="29997"><span class="pe">$</span>29.997</p>
+          <p class="resto">y el resto hasta el 1º de septiembre</p>
+
+          <ul class="incluye">
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Excursión Cerro Centinela y Piedra Movediza</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Bus semi cama</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Coordinación + regionales</li>
+          </ul>
+
+          <p class="total">Total <b>$99.990</b> + $10.000 gastos adm.</p>
+          <button class="cta" data-opcion="Tandil" data-precio="99990">Quiero este</button>
+        </article>
+
+        <article class="card rev">
+          <span class="foto">
+            <img src="../landing-san-pedro.jpg" alt="Costanera de San Pedro sobre el río Paraná"
+              width="800" height="476" loading="lazy" decoding="async">
+          </span>
+          <h3>San Pedro</h3>
+          <p class="cuando">Vie 11 o dom 13 sep · full day</p>
+
+          <p class="sena-label">Señás</p>
+          <p class="sena" data-hasta="32997"><span class="pe">$</span>32.997</p>
+          <p class="resto">y el resto hasta el 1º de septiembre</p>
+
+          <ul class="incluye">
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Visita a la Vuelta de Obligado</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Parrillada incluida</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Visita a la Campiña y ensaimadas</li>
+          </ul>
+
+          <p class="total">Total <b>$109.990</b></p>
+          <button class="cta" data-opcion="San Pedro" data-precio="109990">Quiero este</button>
         </article>
 
       </div>
