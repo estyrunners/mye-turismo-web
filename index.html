@@ -706,6 +706,44 @@
       margin-top: 20px;
     }
 
+    .salidas-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .salidas-tab {
+      padding: 11px 20px;
+      border: 1px solid rgba(18, 52, 71, 0.14);
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .salidas-tab:hover {
+      border-color: var(--turquoise-dark);
+    }
+
+    .salidas-tab.active {
+      background: var(--turquoise-dark);
+      border-color: var(--turquoise-dark);
+      color: var(--white);
+    }
+
+    .salidas-panel {
+      text-align: center;
+    }
+
+    .salidas-panel-cta {
+      margin-top: 22px;
+    }
+
     .weekly-carousel-shell {
       position: relative;
       padding-inline: 58px;
@@ -3294,179 +3332,183 @@
       </div>
     </section>
 
-    <section class="section about" id="quienes-somos">
-      <div class="container">
-        <div class="about-intro">
-          <div class="about-title">
-            <span class="eyebrow">Experiencia y confianza</span>
-            <h2>¿Quiénes somos?</h2>
-          </div>
-
-          <div class="about-copy">
-            <p>MyE Turismo nació con la convicción de que cada viaje merece ser planificado con dedicación, experiencia y atención personalizada.</p>
-            <p>Trabajamos junto a los principales operadores mayoristas del mercado para ofrecer propuestas confiables, seguras y adaptadas a las necesidades de cada viajero.</p>
-            <p>Detrás de MyE Turismo se encuentra <strong>Estela, Técnica Superior en Turismo, Idónea con Mat. Nro. 14009 y miembro del Colegio de Profesionales del Turismo con Mat. Nro. 1007</strong>, quien acompaña personalmente a cada pasajero desde la planificación hasta el regreso, brindando asesoramiento profesional y seguimiento en cada etapa del viaje.</p>
-            <p><strong>Nuestro objetivo es simple: que disfrutes la experiencia de viajar con la tranquilidad de estar bien asesorado.</strong></p>
-          </div>
-        </div>
-
-        <article class="about-video-card">
-          <div class="about-video-frame">
-            <button class="youtube-preview" type="button" data-video-id="wR4c95F3n_U" data-video-title="Conocé más sobre MyE Turismo" aria-label="Reproducir video Conocé más sobre MyE Turismo dentro de la página">
-              <img src="https://i.ytimg.com/vi/wR4c95F3n_U/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/wR4c95F3n_U/hqdefault.jpg'" alt="Vista previa del video Conocé más sobre MyE Turismo" loading="lazy">
-              <span class="youtube-preview-play" aria-hidden="true"><svg class="icon"><use href="#icon-play"></use></svg></span>
-              <span class="youtube-preview-label">Vista previa</span>
-            </button>
-          </div>
-          <div class="about-video-copy">
-            <span class="eyebrow">🎬 Nuestra historia</span>
-            <h3>Conocé un poco más sobre MyE Turismo</h3>
-            <p>Te invitamos a descubrir la atención cercana y el compromiso profesional que acompañan cada experiencia de viaje.</p>
-            <a class="btn youtube-button" href="https://youtube.com/shorts/wR4c95F3n_U" target="_blank" rel="noopener">
-              <svg class="icon"><use href="#icon-play"></use></svg>
-              Ver en YouTube
-            </a>
-          </div>
-        </article>
-
-        <div class="trust-grid">
-          <article class="trust-card">
-            <div class="trust-icon"><svg class="icon"><use href="#icon-graduation"></use></svg></div>
-            <h3>Asesoramiento profesional</h3>
-            <p>Técnica Superior e Idónea en Turismo.</p>
-          </article>
-          <article class="trust-card">
-            <div class="trust-icon"><svg class="icon"><use href="#icon-globe"></use></svg></div>
-            <h3>Operadores líderes</h3>
-            <p>Trabajamos con los principales operadores mayoristas del mercado.</p>
-          </article>
-          <article class="trust-card">
-            <div class="trust-icon"><svg class="icon"><use href="#icon-handshake"></use></svg></div>
-            <h3>Atención personalizada</h3>
-            <p>Acompañamiento antes, durante y después del viaje.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section weekly-highlights" id="destacados-semana">
+    <section class="section weekly-highlights" id="paquetes">
       <div class="container">
         <div class="weekly-heading">
-          <span class="eyebrow">Salidas especiales</span>
-          <h2>Feriado de Agosto</h2>
-          <p>Elegí una de estas propuestas para el feriado de agosto. Si el destino que buscás no aparece, escribinos y consultá otras opciones disponibles.</p>
-          <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, busco otra opción para el feriado de agosto. ¿Qué destinos tienen disponibles?">
+          <span class="eyebrow">Salidas y paquetes</span>
+          <h2>Próximas salidas</h2>
+          <p>Elegí una categoría y consultanos por disponibilidad. Si el destino que buscás no aparece, escribinos y consultá otras opciones.</p>
+        </div>
+
+        <div class="salidas-tabs" id="salidasTabs" role="tablist">
+          <button class="salidas-tab active" type="button" data-panel="panel-feriado-agosto">Feriado de Agosto</button>
+          <button class="salidas-tab" type="button" data-panel="panel-vacaciones-invierno">Vacaciones de Invierno</button>
+          <button class="salidas-tab" type="button" data-panel="panel-destinos-destacados">Destinos Destacados</button>
+          <button class="salidas-tab" type="button" data-panel="panel-dia-maestro">Día del Maestro</button>
+        </div>
+
+        <div class="salidas-panel" id="panel-feriado-agosto">
+          <div class="weekly-carousel-shell">
+            <button class="weekly-arrow weekly-arrow-prev" id="weeklyPrev" type="button" aria-label="Ver destacado anterior">
+              <svg class="icon"><use href="#icon-arrow"></use></svg>
+            </button>
+
+            <div class="weekly-carousel" id="weeklyCarousel">
+              <article class="weekly-card" id="paquete-mendoza-cacheuta-agosto" data-search="Mendoza Termas de Cacheuta Cuyo aereo feriado agosto">
+                <img class="weekly-card-image" src="feriado-agosto-mendoza-cacheuta.jpeg" alt="Flyer de Mendoza con Termas de Cacheuta para el feriado de agosto">
+                <div class="weekly-card-body">
+                  <small>Aereo - Feriado de agosto</small>
+                  <h3>Mendoza con Termas de Cacheuta</h3>
+                  <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por Mendoza con Termas de Cacheuta para el feriado de agosto.">
+                    <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+                    Consultar por WhatsApp
+                  </a>
+                </div>
+              </article>
+
+              <article class="weekly-card" id="paquete-jujuy-humahuaca-agosto" data-search="Jujuy Humahuaca Norte Argentino NOA aereo feriado agosto">
+                <img class="weekly-card-image" src="feriado-agosto-jujuy-humahuaca.jpeg" alt="Flyer de Jujuy y Humahuaca para el feriado de agosto">
+                <div class="weekly-card-body">
+                  <small>Aereo - Feriado de agosto</small>
+                  <h3>Jujuy y Humahuaca</h3>
+                  <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por Jujuy y Humahuaca para el feriado de agosto.">
+                    <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+                    Consultar por WhatsApp
+                  </a>
+                </div>
+              </article>
+
+              <article class="weekly-card" id="paquete-puerto-madryn-agosto" data-search="Puerto Madryn Patagonia ballenas aereo feriado agosto">
+                <img class="weekly-card-image" src="feriado-agosto-puerto-madryn.jpeg" alt="Flyer de Puerto Madryn para el feriado de agosto">
+                <div class="weekly-card-body">
+                  <small>Aereo - Feriado de agosto</small>
+                  <h3>Puerto Madryn</h3>
+                  <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por Puerto Madryn para el feriado de agosto.">
+                    <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+                    Consultar por WhatsApp
+                  </a>
+                </div>
+              </article>
+
+              <article class="weekly-card" id="paquete-la-falda-agosto" data-search="La Falda Cordoba Centro bus feriado agosto">
+                <img class="weekly-card-image" src="feriado-agosto-la-falda.jpeg" alt="Flyer de La Falda para el feriado de agosto">
+                <div class="weekly-card-body">
+                  <small>Bus - Feriado de agosto</small>
+                  <h3>La Falda</h3>
+                  <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por La Falda para el feriado de agosto.">
+                    <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+                    Consultar por WhatsApp
+                  </a>
+                </div>
+              </article>
+
+              <article class="weekly-card" id="paquete-villa-carlos-paz-agosto" data-search="Villa Carlos Paz Cordoba Centro bus feriado agosto">
+                <img class="weekly-card-image" src="feriado-agosto-villa-carlos-paz.jpeg" alt="Flyer de Villa Carlos Paz para el feriado de agosto">
+                <div class="weekly-card-body">
+                  <small>Bus - Feriado de agosto</small>
+                  <h3>Villa Carlos Paz</h3>
+                  <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por Villa Carlos Paz para el feriado de agosto.">
+                    <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+                    Consultar por WhatsApp
+                  </a>
+                </div>
+              </article>
+
+              <article class="weekly-card" id="paquete-termas-federacion-agosto" data-search="Termas de Federacion Entre Rios termales bus feriado agosto">
+                <img class="weekly-card-image" src="feriado-agosto-termas-federacion.jpeg" alt="Flyer de Termas de Federacion para el feriado de agosto">
+                <div class="weekly-card-body">
+                  <small>Bus - Feriado de agosto</small>
+                  <h3>Termas de Federacion</h3>
+                  <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por Termas de Federacion para el feriado de agosto.">
+                    <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+                    Consultar por WhatsApp
+                  </a>
+                </div>
+              </article>
+
+              <article class="weekly-card" id="paquete-mar-del-plata-agosto" data-search="Mar del Plata Costa Argentina Buenos Aires bus feriado agosto">
+                <img class="weekly-card-image" src="feriado-agosto-mar-del-plata.jpeg" alt="Flyer de Mar del Plata para el feriado de agosto">
+                <div class="weekly-card-body">
+                  <small>Bus - Feriado de agosto</small>
+                  <h3>Mar del Plata</h3>
+                  <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por Mar del Plata para el feriado de agosto.">
+                    <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+                    Consultar por WhatsApp
+                  </a>
+                </div>
+              </article>
+
+              <article class="weekly-card" id="paquete-cataratas-iguazu-agosto" data-search="Cataratas del Iguazu Misiones Litoral aereo feriado agosto">
+                <img class="weekly-card-image" src="feriado-agosto-cataratas-iguazu.jpeg" alt="Flyer de Cataratas del Iguazu para el feriado de agosto">
+                <div class="weekly-card-body">
+                  <small>Aereo - Feriado de agosto</small>
+                  <h3>Cataratas del Iguazu</h3>
+                  <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por Cataratas del Iguazu para el feriado de agosto.">
+                    <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+                    Consultar por WhatsApp
+                  </a>
+                </div>
+              </article>
+            </div>
+
+            <button class="weekly-arrow weekly-arrow-next" id="weeklyNext" type="button" aria-label="Ver destacado siguiente">
+              <svg class="icon"><use href="#icon-arrow"></use></svg>
+            </button>
+          </div>
+          <a class="btn btn-light salidas-panel-cta whatsapp-link" href="#" data-message="Hola MyE Turismo, busco otra opción para el feriado de agosto. ¿Qué destinos tienen disponibles?">
             <svg class="icon"><use href="#icon-whatsapp"></use></svg>
             Consultar otro destino
           </a>
         </div>
 
-        <div class="weekly-carousel-shell">
-          <button class="weekly-arrow weekly-arrow-prev" id="weeklyPrev" type="button" aria-label="Ver destacado anterior">
-            <svg class="icon"><use href="#icon-arrow"></use></svg>
-          </button>
+        <div class="salidas-panel" id="panel-vacaciones-invierno" hidden>
+          <div class="weekly-carousel-shell">
+            <button class="weekly-arrow weekly-arrow-prev" id="winterPrev" type="button" aria-label="Ver paquete anterior de vacaciones de invierno">
+              <svg class="icon"><use href="#icon-arrow"></use></svg>
+            </button>
 
-          <div class="weekly-carousel" id="weeklyCarousel">
-            <article class="weekly-card" id="paquete-mendoza-cacheuta-agosto" data-search="Mendoza Termas de Cacheuta Cuyo aereo feriado agosto">
-              <img class="weekly-card-image" src="feriado-agosto-mendoza-cacheuta.jpeg" alt="Flyer de Mendoza con Termas de Cacheuta para el feriado de agosto">
-              <div class="weekly-card-body">
-                <small>Aereo - Feriado de agosto</small>
-                <h3>Mendoza con Termas de Cacheuta</h3>
-                <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por Mendoza con Termas de Cacheuta para el feriado de agosto.">
-                  <svg class="icon"><use href="#icon-whatsapp"></use></svg>
-                  Consultar por WhatsApp
-                </a>
-              </div>
-            </article>
+            <div class="weekly-carousel" id="packagesGrid"></div>
 
-            <article class="weekly-card" id="paquete-jujuy-humahuaca-agosto" data-search="Jujuy Humahuaca Norte Argentino NOA aereo feriado agosto">
-              <img class="weekly-card-image" src="feriado-agosto-jujuy-humahuaca.jpeg" alt="Flyer de Jujuy y Humahuaca para el feriado de agosto">
-              <div class="weekly-card-body">
-                <small>Aereo - Feriado de agosto</small>
-                <h3>Jujuy y Humahuaca</h3>
-                <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por Jujuy y Humahuaca para el feriado de agosto.">
-                  <svg class="icon"><use href="#icon-whatsapp"></use></svg>
-                  Consultar por WhatsApp
-                </a>
-              </div>
-            </article>
-
-            <article class="weekly-card" id="paquete-puerto-madryn-agosto" data-search="Puerto Madryn Patagonia ballenas aereo feriado agosto">
-              <img class="weekly-card-image" src="feriado-agosto-puerto-madryn.jpeg" alt="Flyer de Puerto Madryn para el feriado de agosto">
-              <div class="weekly-card-body">
-                <small>Aereo - Feriado de agosto</small>
-                <h3>Puerto Madryn</h3>
-                <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por Puerto Madryn para el feriado de agosto.">
-                  <svg class="icon"><use href="#icon-whatsapp"></use></svg>
-                  Consultar por WhatsApp
-                </a>
-              </div>
-            </article>
-
-            <article class="weekly-card" id="paquete-la-falda-agosto" data-search="La Falda Cordoba Centro bus feriado agosto">
-              <img class="weekly-card-image" src="feriado-agosto-la-falda.jpeg" alt="Flyer de La Falda para el feriado de agosto">
-              <div class="weekly-card-body">
-                <small>Bus - Feriado de agosto</small>
-                <h3>La Falda</h3>
-                <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por La Falda para el feriado de agosto.">
-                  <svg class="icon"><use href="#icon-whatsapp"></use></svg>
-                  Consultar por WhatsApp
-                </a>
-              </div>
-            </article>
-
-            <article class="weekly-card" id="paquete-villa-carlos-paz-agosto" data-search="Villa Carlos Paz Cordoba Centro bus feriado agosto">
-              <img class="weekly-card-image" src="feriado-agosto-villa-carlos-paz.jpeg" alt="Flyer de Villa Carlos Paz para el feriado de agosto">
-              <div class="weekly-card-body">
-                <small>Bus - Feriado de agosto</small>
-                <h3>Villa Carlos Paz</h3>
-                <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por Villa Carlos Paz para el feriado de agosto.">
-                  <svg class="icon"><use href="#icon-whatsapp"></use></svg>
-                  Consultar por WhatsApp
-                </a>
-              </div>
-            </article>
-
-            <article class="weekly-card" id="paquete-termas-federacion-agosto" data-search="Termas de Federacion Entre Rios termales bus feriado agosto">
-              <img class="weekly-card-image" src="feriado-agosto-termas-federacion.jpeg" alt="Flyer de Termas de Federacion para el feriado de agosto">
-              <div class="weekly-card-body">
-                <small>Bus - Feriado de agosto</small>
-                <h3>Termas de Federacion</h3>
-                <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por Termas de Federacion para el feriado de agosto.">
-                  <svg class="icon"><use href="#icon-whatsapp"></use></svg>
-                  Consultar por WhatsApp
-                </a>
-              </div>
-            </article>
-
-            <article class="weekly-card" id="paquete-mar-del-plata-agosto" data-search="Mar del Plata Costa Argentina Buenos Aires bus feriado agosto">
-              <img class="weekly-card-image" src="feriado-agosto-mar-del-plata.jpeg" alt="Flyer de Mar del Plata para el feriado de agosto">
-              <div class="weekly-card-body">
-                <small>Bus - Feriado de agosto</small>
-                <h3>Mar del Plata</h3>
-                <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por Mar del Plata para el feriado de agosto.">
-                  <svg class="icon"><use href="#icon-whatsapp"></use></svg>
-                  Consultar por WhatsApp
-                </a>
-              </div>
-            </article>
-
-            <article class="weekly-card" id="paquete-cataratas-iguazu-agosto" data-search="Cataratas del Iguazu Misiones Litoral aereo feriado agosto">
-              <img class="weekly-card-image" src="feriado-agosto-cataratas-iguazu.jpeg" alt="Flyer de Cataratas del Iguazu para el feriado de agosto">
-              <div class="weekly-card-body">
-                <small>Aereo - Feriado de agosto</small>
-                <h3>Cataratas del Iguazu</h3>
-                <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por Cataratas del Iguazu para el feriado de agosto.">
-                  <svg class="icon"><use href="#icon-whatsapp"></use></svg>
-                  Consultar por WhatsApp
-                </a>
-              </div>
-            </article>
+            <button class="weekly-arrow weekly-arrow-next" id="winterNext" type="button" aria-label="Ver paquete siguiente de vacaciones de invierno">
+              <svg class="icon"><use href="#icon-arrow"></use></svg>
+            </button>
           </div>
+        </div>
 
-          <button class="weekly-arrow weekly-arrow-next" id="weeklyNext" type="button" aria-label="Ver destacado siguiente">
-            <svg class="icon"><use href="#icon-arrow"></use></svg>
-          </button>
+        <div class="salidas-panel" id="panel-destinos-destacados" hidden>
+          <div class="weekly-carousel-shell">
+            <button class="weekly-arrow weekly-arrow-prev" id="featuredDestinationsPrev" type="button" aria-label="Ver destino destacado anterior">
+              <svg class="icon"><use href="#icon-arrow"></use></svg>
+            </button>
+
+            <div class="weekly-carousel" id="featuredDestinationsCarousel"></div>
+
+            <button class="weekly-arrow weekly-arrow-next" id="featuredDestinationsNext" type="button" aria-label="Ver destino destacado siguiente">
+              <svg class="icon"><use href="#icon-arrow"></use></svg>
+            </button>
+          </div>
+          <a class="btn btn-light salidas-panel-cta whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por destinos destacados y salidas grupales.">
+            <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+            Consultar destinos destacados
+          </a>
+        </div>
+
+        <div class="salidas-panel" id="panel-dia-maestro" hidden>
+          <div class="weekly-carousel-shell">
+            <button class="weekly-arrow weekly-arrow-prev" id="teacherPrev" type="button" aria-label="Ver paquete anterior del Día del Maestro">
+              <svg class="icon"><use href="#icon-arrow"></use></svg>
+            </button>
+
+            <div class="weekly-carousel" id="teacherCarousel"></div>
+
+            <button class="weekly-arrow weekly-arrow-next" id="teacherNext" type="button" aria-label="Ver paquete siguiente del Día del Maestro">
+              <svg class="icon"><use href="#icon-arrow"></use></svg>
+            </button>
+          </div>
+          <a class="btn btn-light salidas-panel-cta whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por propuestas para el Día del Maestro.">
+            <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+            Consultar por Día del Maestro
+          </a>
         </div>
       </div>
     </section>
@@ -3475,8 +3517,8 @@
       <div class="container">
         <div class="media-heading-row">
           <div class="section-heading">
-            <span class="eyebrow">🎬 Contenido para inspirarte</span>
-            <h2>🎥 Inspirate para tu próximo viaje</h2>
+            <span class="eyebrow">Contenido para inspirarte</span>
+            <h2>Inspirate para tu próximo viaje</h2>
             <p>Una selección breve de guías e historias para empezar a imaginar tu próxima experiencia. Los videos de cada destino también los vas a encontrar dentro de su sección correspondiente.</p>
           </div>
           <a class="btn btn-light" href="#destinos">
@@ -3547,85 +3589,11 @@
       </div>
     </section>
 
-    <section class="section weekly-highlights winter-highlights" id="paquetes">
-      <div class="container">
-        <div class="weekly-heading">
-          <span class="eyebrow">❄️ Paquetes destacados</span>
-          <h2>Vacaciones de Invierno</h2>
-          <p>Propuestas en bus y aéreas para disfrutar julio. Deslizá el carrusel y consultanos por disponibilidad, condiciones y formas de pago.</p>
-        </div>
-
-        <div class="weekly-carousel-shell">
-          <button class="weekly-arrow weekly-arrow-prev" id="winterPrev" type="button" aria-label="Ver paquete anterior de vacaciones de invierno">
-            <svg class="icon"><use href="#icon-arrow"></use></svg>
-          </button>
-
-          <div class="weekly-carousel" id="packagesGrid"></div>
-
-          <button class="weekly-arrow weekly-arrow-next" id="winterNext" type="button" aria-label="Ver paquete siguiente de vacaciones de invierno">
-            <svg class="icon"><use href="#icon-arrow"></use></svg>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <section class="section weekly-highlights featured-destinations-highlights" id="destinos-destacados">
-      <div class="container">
-        <div class="weekly-heading">
-          <span class="eyebrow">✦ Vidriera viajera</span>
-          <h2>Destinos Destacados</h2>
-          <p>Salidas grupales, experiencias especiales y destinos recomendados para tener siempre a mano. Deslizá el carrusel y consultanos por disponibilidad.</p>
-          <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por destinos destacados y salidas grupales.">
-            <svg class="icon"><use href="#icon-whatsapp"></use></svg>
-            Consultar destinos destacados
-          </a>
-        </div>
-
-        <div class="weekly-carousel-shell">
-          <button class="weekly-arrow weekly-arrow-prev" id="featuredDestinationsPrev" type="button" aria-label="Ver destino destacado anterior">
-            <svg class="icon"><use href="#icon-arrow"></use></svg>
-          </button>
-
-          <div class="weekly-carousel" id="featuredDestinationsCarousel"></div>
-
-          <button class="weekly-arrow weekly-arrow-next" id="featuredDestinationsNext" type="button" aria-label="Ver destino destacado siguiente">
-            <svg class="icon"><use href="#icon-arrow"></use></svg>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <section class="section weekly-highlights teacher-highlights" id="dia-maestro">
-      <div class="container">
-        <div class="weekly-heading">
-          <span class="eyebrow">🎓 Salidas especiales</span>
-          <h2>Día del Maestro</h2>
-          <p>Propuestas para celebrar y disfrutar una salida diferente. Deslizá el carrusel y consultanos por disponibilidad.</p>
-          <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por propuestas para el Día del Maestro.">
-            <svg class="icon"><use href="#icon-whatsapp"></use></svg>
-            Consultar por Día del Maestro
-          </a>
-        </div>
-
-        <div class="weekly-carousel-shell">
-          <button class="weekly-arrow weekly-arrow-prev" id="teacherPrev" type="button" aria-label="Ver paquete anterior del Día del Maestro">
-            <svg class="icon"><use href="#icon-arrow"></use></svg>
-          </button>
-
-          <div class="weekly-carousel" id="teacherCarousel"></div>
-
-          <button class="weekly-arrow weekly-arrow-next" id="teacherNext" type="button" aria-label="Ver paquete siguiente del Día del Maestro">
-            <svg class="icon"><use href="#icon-arrow"></use></svg>
-          </button>
-        </div>
-      </div>
-    </section>
-
     <section class="section section-soft" id="destinos">
       <div class="container">
         <div class="section-heading">
-          <span class="eyebrow">🧭 Un mundo para descubrir</span>
-          <h2>✦ Elegí tu próximo destino</h2>
+          <span class="eyebrow">Un mundo para descubrir</span>
+          <h2>Explorá por destino</h2>
           <p>Desde una salida de un día hasta ese gran viaje que soñás hace años.</p>
         </div>
         <div class="destinations-grid" id="destinationsGrid"></div>
@@ -3641,6 +3609,59 @@
             </button>
           </div>
           <div id="explorerContent"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="quienes-somos">
+      <div class="container">
+        <div class="about-intro">
+          <div class="about-title">
+            <span class="eyebrow">Experiencia y confianza</span>
+            <h2>¿Quiénes somos?</h2>
+          </div>
+
+          <div class="about-copy">
+            <p>MyE Turismo nació con la convicción de que cada viaje merece dedicación, experiencia y atención personalizada. Trabajamos junto a los principales operadores mayoristas del mercado para ofrecer propuestas confiables y adaptadas a cada viajero.</p>
+            <p>Detrás de MyE Turismo está <strong>Estela, Técnica Superior en Turismo, Idónea Mat. Nro. 14009 (Colegio de Profesionales del Turismo, Mat. Nro. 1007)</strong>, que acompaña personalmente a cada pasajero de principio a fin, con la tranquilidad de estar bien asesorado.</p>
+          </div>
+        </div>
+
+        <article class="about-video-card">
+          <div class="about-video-frame">
+            <button class="youtube-preview" type="button" data-video-id="wR4c95F3n_U" data-video-title="Conocé más sobre MyE Turismo" aria-label="Reproducir video Conocé más sobre MyE Turismo dentro de la página">
+              <img src="https://i.ytimg.com/vi/wR4c95F3n_U/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/wR4c95F3n_U/hqdefault.jpg'" alt="Vista previa del video Conocé más sobre MyE Turismo" loading="lazy">
+              <span class="youtube-preview-play" aria-hidden="true"><svg class="icon"><use href="#icon-play"></use></svg></span>
+              <span class="youtube-preview-label">Vista previa</span>
+            </button>
+          </div>
+          <div class="about-video-copy">
+            <span class="eyebrow">Nuestra historia</span>
+            <h3>Conocé un poco más sobre MyE Turismo</h3>
+            <p>Te invitamos a descubrir la atención cercana y el compromiso profesional que acompañan cada experiencia de viaje.</p>
+            <a class="btn youtube-button" href="https://youtube.com/shorts/wR4c95F3n_U" target="_blank" rel="noopener">
+              <svg class="icon"><use href="#icon-play"></use></svg>
+              Ver en YouTube
+            </a>
+          </div>
+        </article>
+
+        <div class="trust-grid">
+          <article class="trust-card">
+            <div class="trust-icon"><svg class="icon"><use href="#icon-graduation"></use></svg></div>
+            <h3>Asesoramiento profesional</h3>
+            <p>Técnica Superior e Idónea en Turismo.</p>
+          </article>
+          <article class="trust-card">
+            <div class="trust-icon"><svg class="icon"><use href="#icon-globe"></use></svg></div>
+            <h3>Operadores líderes</h3>
+            <p>Trabajamos con los principales operadores mayoristas del mercado.</p>
+          </article>
+          <article class="trust-card">
+            <div class="trust-icon"><svg class="icon"><use href="#icon-handshake"></use></svg></div>
+            <h3>Atención personalizada</h3>
+            <p>Acompañamiento antes, durante y después del viaje.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -3697,51 +3718,6 @@
       </div>
     </section>
 
-    <section class="section section-soft" id="redes">
-      <div class="container">
-        <div class="section-heading">
-          <span class="eyebrow">📱 Inspiración viajera</span>
-          <h2>✦ Seguinos en redes</h2>
-          <p>Descubrí nuevas salidas, promociones, fotos y consejos para tu próxima experiencia.</p>
-        </div>
-
-        <div class="social-grid">
-          <article class="social-feature">
-            <h3>Más lugares. Más historias. Más ganas de viajar.</h3>
-            <p>Encontrá nuestras novedades y compartí tu experiencia con MyE Turismo.</p>
-          </article>
-          <aside class="social-links-card">
-            <h3>✦ Conectemos</h3>
-            <p>Encontrá novedades, videos, promociones e inspiración en todos nuestros canales oficiales.</p>
-            <a class="social-button social-button-primary" href="https://linkfly.to/80428t7kYPH" target="_blank" rel="noopener" aria-label="Todas las redes de MyE Turismo">
-              <svg class="icon"><use href="#icon-globe"></use></svg>
-              Todas nuestras redes
-              <span>Abrir Linkfly</span>
-            </a>
-            <a class="social-button" href="https://www.instagram.com/mye.turismo?igsh=MWJvdXk1a3RzeW40ZA==" target="_blank" rel="noopener" aria-label="Instagram de MyE Turismo">
-              <svg class="icon"><use href="#icon-instagram"></use></svg>
-              Instagram
-              <span>Ver perfil</span>
-            </a>
-            <a class="social-button" href="https://www.facebook.com/share/1Caoip5K6x/" target="_blank" rel="noopener" aria-label="Facebook de MyE Turismo">
-              <svg class="icon"><use href="#icon-facebook"></use></svg>
-              Facebook
-              <span>Ver perfil</span>
-            </a>
-            <a class="social-button" href="https://www.tiktok.com/@mye.turismo" target="_blank" rel="noopener" aria-label="TikTok de MyE Turismo">
-              <svg class="icon"><use href="#icon-music"></use></svg>
-              TikTok
-              <span>Ver perfil</span>
-            </a>
-            <a class="social-button" href="https://www.youtube.com/@MyETurismo" target="_blank" rel="noopener" aria-label="YouTube de MyE Turismo">
-              <svg class="icon"><use href="#icon-play"></use></svg>
-              YouTube
-              <span>Ver canal</span>
-            </a>
-          </aside>
-        </div>
-      </div>
-    </section>
 
     <section class="section" id="contacto">
       <div class="container contact-wrap">
@@ -3853,6 +3829,7 @@
             <li><a href="https://www.facebook.com/share/1Caoip5K6x/" target="_blank" rel="noopener"><span>📘 Facebook:</span> MyE Turismo</a></li>
             <li><a href="https://www.tiktok.com/@mye.turismo" target="_blank" rel="noopener"><span>🎵 TikTok:</span> @mye.turismo</a></li>
             <li><a href="https://www.youtube.com/@MyETurismo" target="_blank" rel="noopener"><span>▶️ YouTube:</span> MyE Turismo</a></li>
+            <li><a href="https://linkfly.to/80428t7kYPH" target="_blank" rel="noopener"><span>🔗 Todas las redes:</span> Linkfly</a></li>
           </ul>
         </div>
       </div>
@@ -5933,10 +5910,29 @@
       const target = document.getElementById(link.dataset.packageTarget);
       if (!target) return;
 
+      const panel = target.closest(".salidas-panel");
+      if (panel && panel.hidden) {
+        const tabBtn = document.querySelector(`.salidas-tab[data-panel="${panel.id}"]`);
+        if (tabBtn) tabBtn.click();
+      }
+
       target.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
       target.classList.add("search-highlight");
       window.setTimeout(() => target.classList.remove("search-highlight"), 1800);
     });
+
+    /* Tabs de Próximas salidas: alternan qué panel/carrusel se ve. */
+    const salidasTabs = document.getElementById("salidasTabs");
+    if (salidasTabs) {
+      salidasTabs.addEventListener("click", (event) => {
+        const tab = event.target.closest(".salidas-tab");
+        if (!tab) return;
+        salidasTabs.querySelectorAll(".salidas-tab").forEach((t) => t.classList.toggle("active", t === tab));
+        document.querySelectorAll(".salidas-panel").forEach((panel) => {
+          panel.hidden = panel.id !== tab.dataset.panel;
+        });
+      });
+    }
 
     /* Controles del carrusel de destacados semanales. */
     const weeklyCarousel = document.getElementById("weeklyCarousel");
