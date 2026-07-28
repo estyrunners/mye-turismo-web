@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Día del Maestro 2026 · Viajes para docentes | MyE Turismo</title>
   <meta name="description"
-    content="El 11 de septiembre es tuyo, profe. Señás con el 30% y el resto lo pagás como puedas hasta 10 días antes de viajar. Salidas grupales desde Buenos Aires.">
+    content="El 11 de septiembre es tuyo, seño. Señás con el 30% y el resto lo pagás como puedas hasta 10 días antes de viajar. Salidas grupales desde Buenos Aires.">
   <meta name="theme-color" content="#07161f">
   <link rel="canonical" href="https://mye-turismo-web.pages.dev/dia-del-maestro/">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Profe, el 11 de septiembre es tuyo">
+  <meta property="og:title" content="Seño, el 11 de septiembre es tuyo">
   <meta property="og:description"
     content="Señás con el 30% y el resto lo pagás hasta 10 días antes de viajar.">
   <meta property="og:image" content="https://mye-turismo-web.pages.dev/dolores-aerea.jpg">
@@ -688,15 +688,11 @@
        vestido, además, tenía más contraste que su cara y se llevaba la
        mirada. Se recorta por CSS a primer plano.
 
-       Los números salen de medir el canal alfa del PNG, no a ojo:
-       imagen 440x1100, cabeza de y=0 a y=204, centro en x=175. Con la
-       imagen al 133% del marco, la cabeza ocupa ~62% del círculo y
-       queda centrada un poco por encima del medio, que es el encuadre
-       natural de un retrato. */
-    /* Se usa la FOTO ORIGINAL, no el recorte: el PNG sin fondo quedó en
-       440x1100 y encima ampliaba la cabeza un 45%, así que la cara se
-       pixelaba. La original es 960x1280 y tiene detalle real de sobra.
-       Va con su fondo de jardín, que además da profundidad. */
+       Foto de Matías y Estela juntos, 960x1280. Recorte cuadrado medido
+       (no a ojo) en x:[15,855] y:[100,940] de la original — ambas caras
+       centradas con margen, corte antes de que empiece la remera para
+       no meter la mano/anillos dentro del círculo. Factor de escala =
+       960/840 = 1.1429, de ahí salen el width/left/top de abajo. */
     .retrato-marco {
       --circulo: clamp(210px, 52vw, 260px);
       width: var(--circulo);
@@ -712,16 +708,23 @@
 
     .retrato-marco img {
       position: absolute;
-      /* Encuadre sobre la cara, que está en ~51% / 28% de la foto.
-         `height: auto` NO es opcional: el atributo height del HTML actúa
+      /* `height: auto` NO es opcional: el atributo height del HTML actúa
          como estilo por defecto y, si la CSS solo fija el ancho, la
          altura queda clavada y la imagen sale estirada. */
-      width: 266%;
+      width: 114.29%;
       height: auto;
-      left: -87%;
-      top: -57%;
+      left: -1.79%;
+      top: -11.9%;
       max-width: none;
       display: block;
+    }
+
+    .retrato-matricula {
+      margin-top: .9rem;
+      text-align: center;
+      font-size: .82rem;
+      letter-spacing: .02em;
+      color: #9fb3bd;
     }
 
     @media (min-width:820px) {
@@ -987,7 +990,7 @@
     <div class="hero-velo"></div>
     <div class="wrap">
       <p class="pill rev"><span class="punto"></span>11 y 13 de septiembre · 2026</p>
-      <h1 class="rev">El 11 de septiembre <i>es tuyo</i>, profe.</h1>
+      <h1 class="rev">El 11 de septiembre <i>es tuyo</i>, seño.</h1>
       <p class="bajada rev">
         Señás con el <b>30%</b> y el resto lo pagás como puedas,
         <b>hasta 10 días antes</b> de subirte al micro.
@@ -1028,7 +1031,7 @@
         <li class="rev">
           <div>
             <h3>Viajás</h3>
-            <p>Con coordinación de MyE de principio a fin. No viajás sola.</p>
+            <p>Con coordinación permanente de principio a fin. No viajás sola.</p>
           </div>
         </li>
       </ol>
@@ -1252,7 +1255,7 @@
     <div class="wrap estela-caja">
       <div class="estela-texto">
         <p class="etiqueta rev">Quién te atiende</p>
-        <p class="firma rev">Hola, soy Estela.</p>
+        <p class="firma rev">Hola, somos Matías y Estela.</p>
         <p class="rev">
           Del otro lado del WhatsApp no hay un formulario ni un robot: estoy yo.
           Hace más de diez años que armo estas salidas, y voy a acompañarte
@@ -1265,7 +1268,10 @@
         <ul class="credenciales rev">
           <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
               <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>Agencia matriculada</li>
+            </svg>Idóneos del turismo</li>
+          <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>Miembros del Colegio de Profesionales del Turismo</li>
           <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
               <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
             </svg>Coordinación en todos los viajes</li>
@@ -1276,23 +1282,11 @@
       </div>
 
       <figure class="retrato-marco rev">
-        <img src="../estela-foto.jpg" alt="Estela, de MyE Turismo"
+        <img src="../matias-estela.jpg" alt="Matías y Estela, de MyE Turismo"
           width="960" height="1280" loading="lazy" decoding="async">
+        <figcaption class="retrato-matricula">Matrícula n.° 1077</figcaption>
       </figure>
     </div>
-  </section>
-
-  <!-- ===================== BANDA ===================== -->
-  <section class="banda">
-    <div class="banda-bg"></div>
-    <div class="wrap">
-      <blockquote class="rev">“Gracias por enseñarnos con el corazón.”</blockquote>
-      <p class="sub rev" style="margin-inline:auto;text-align:center">
-        Somos una agencia matriculada, familiar, que arma salidas grupales
-        desde hace más de diez años.
-      </p>
-    </div>
-    <p class="pie-foto">Costanera de Colón, Entre Ríos</p>
   </section>
 
   <!-- ===================== FORM ===================== -->
@@ -1322,6 +1316,10 @@
             <option value="Federación Maestrazo">Federación · Maestrazo</option>
             <option value="Colón">Colón · Entre Ríos</option>
             <option value="Termas de Dolores">Termas de Dolores</option>
+            <option value="Campo La Herradura">Campo La Herradura</option>
+            <option value="Mar del Plata">Mar del Plata</option>
+            <option value="Tandil">Tandil</option>
+            <option value="San Pedro">San Pedro</option>
             <option value="Todavía no sé">Todavía no sé, quiero que me asesoren</option>
           </select>
         </div>
