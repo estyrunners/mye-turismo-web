@@ -701,29 +701,29 @@
       }
     }
 
-    /* Retrato circular. La imagen ya viene recortada cuadrada (720x720,
-       de la original 1122x1402 en x:[110,990] y:[0,880]): ambas caras
-       quedan dentro del círculo con margen, sin que el borde les pase
-       por el pelo. Al venir el recorte hecho en el archivo, acá alcanza
-       con un `cover` y no hacen falta desplazamientos calculados. */
+    /* Retrato de medio cuerpo en marco de arco. El fondo de la sección
+       es un degradé con halo, así que una foto difuminada contra él se
+       delata: iguala el tono en un punto y se despega en el de al lado.
+       Con marco el problema desaparece, porque el recorte se lee como
+       decisión de diseño y no como una foto mal pegada.
+
+       El redondeo y la sombra van sobre la imagen y NO sobre el
+       `figure`: con `overflow:hidden` acá, el figcaption de la
+       matrícula quedaba fuera de la caja y no se veía. */
     .retrato-marco {
-      --circulo: clamp(240px, 62vw, 320px);
-      width: var(--circulo);
-      height: var(--circulo);
-      border-radius: 50%;
-      overflow: hidden;
-      position: relative;
+      width: clamp(240px, 64vw, 340px);
       margin-inline: auto;
-      box-shadow:
-        0 26px 55px -20px rgba(0, 0, 0, .8),
-        inset 0 0 0 1px rgba(255, 255, 255, .18);
+      position: relative;
     }
 
     .retrato-marco img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
       display: block;
+      border-radius: 999px 999px 26px 26px;
+      box-shadow:
+        0 26px 55px -20px rgba(0, 0, 0, .8),
+        inset 0 0 0 1px rgba(255, 255, 255, .18);
     }
 
     .retrato-matricula {
@@ -732,12 +732,6 @@
       font-size: .82rem;
       letter-spacing: .02em;
       color: #9fb3bd;
-    }
-
-    @media (min-width:820px) {
-      .estela-caja {
-        align-items: center;
-      }
     }
 
     .firma {
@@ -1361,8 +1355,8 @@
       </div>
 
       <figure class="retrato-marco rev">
-        <img src="../matias-estela-2.jpg" alt="Matías y Estela, de MyE Turismo"
-          width="720" height="720" loading="lazy" decoding="async">
+        <img src="../matias-estela-4.webp" alt="Matías y Estela, de MyE Turismo"
+          width="800" height="1000" loading="lazy" decoding="async">
         <figcaption class="retrato-matricula">Estela — Idónea en Turismo, matrícula n.º 1077</figcaption>
       </figure>
     </div>
