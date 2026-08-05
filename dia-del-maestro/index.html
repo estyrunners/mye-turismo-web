@@ -1473,6 +1473,14 @@
         const opcion = b.dataset.opcion;
         const precio = Number(b.dataset.precio);
         trackLead({ content_name: opcion, ...(precio ? { value: precio, currency: "ARS" } : {}) });
+        // Todavía no hay nombre/teléfono en este punto (va directo a
+        // WhatsApp sin pasar por el formulario) — se registra igual,
+        // sin eso, para que la consulta no se pierda del tablero.
+        registrarLead({
+          nombre: `Sin datos — WhatsApp directo (${opcion})`,
+          destino: opcion === "Barra fija" ? null : opcion,
+          mensaje: "Tocó 'Consultar por WhatsApp' en la landing de Día del Maestro, sin pasar por el formulario."
+        });
         abrirWhatsapp(
           opcion === "Barra fija"
             ? "Hola! Vi la promo de Día del Maestro y quiero que me asesoren."
