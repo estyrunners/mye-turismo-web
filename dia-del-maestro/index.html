@@ -1642,18 +1642,23 @@
        termina pidiendo lo mínimo para poder cotizar: no vale la pena
        resolver eso en dos o tres idas y vueltas cuando se puede pedir
        de una. */
+    /* El bloque de precio va enmarcado como "esto es lo que vi", para que
+       quede claro que es el cliente repitiendo lo que leyó en la página
+       y no un mensaje ajeno metido en su boca — si no, ni Estela ni el
+       cliente saben quién está "hablando" en esas líneas. */
     function mensajeDestino(opcion, total, sena, gastos, incluye) {
-      const lineas = [`Hola! Vi la promo de Día del Maestro y me interesa ${opcion}.`, ""];
+      const lineas = [`Hola! Vi la promo de Día del Maestro y me interesa ${opcion}.`, "", "Esto es lo que vi en la página:"];
       if (total) {
-        lineas.push(`Total: ${plataMsg(total)}${gastos ? ` + ${plataMsg(gastos)} gastos adm.` : ""}`);
+        lineas.push(`• Total: ${plataMsg(total)}${gastos ? ` + ${plataMsg(gastos)} gastos adm.` : ""}`);
       }
-      if (sena) lineas.push(`Seña para reservar: ${plataMsg(sena)} (el resto hasta el 1º de septiembre)`);
-      if (incluye) lineas.push(`Incluye: ${incluye}`);
+      if (sena) lineas.push(`• Seña para reservar: ${plataMsg(sena)} (el resto hasta el 1º de septiembre)`);
+      if (incluye) lineas.push(`• Incluye: ${incluye}`);
       lineas.push(
         "",
-        `Puntos de ascenso: ${linkAscensos()}`,
-        "",
-        "Para cotizar te paso: cantidad de pasajeros, edades y desde qué punto salimos."
+        "¿Está todo bien así? Te paso mis datos para reservar:",
+        "- Cantidad de pasajeros:",
+        "- Edades:",
+        `- Punto de ascenso (opciones acá: ${linkAscensos()}):`
       );
       return lineas.join("\n");
     }
@@ -1662,9 +1667,10 @@
       return [
         "Hola! Vi la promo de Día del Maestro y quiero que me asesoren.",
         "",
-        `Puntos de ascenso: ${linkAscensos()}`,
-        "",
-        "Contame: cuántos pasajeros son, las edades y desde qué punto saldrían, así te tiro opciones."
+        "Te paso mis datos:",
+        "- Cantidad de pasajeros:",
+        "- Edades:",
+        `- Punto de ascenso (opciones acá: ${linkAscensos()}):`
       ].join("\n");
     }
 
@@ -1706,9 +1712,10 @@
         [
           `Hola! Soy ${nombre}. Me interesa ${destino} para el Día del Maestro.`,
           "",
-          `Puntos de ascenso: ${linkAscensos()}`,
-          "",
-          "Para cotizarte: cuántos pasajeros son, las edades y desde qué punto salimos."
+          "Te paso mis datos para reservar:",
+          "- Cantidad de pasajeros:",
+          "- Edades:",
+          `- Punto de ascenso (opciones acá: ${linkAscensos()}):`
         ].join("\n")
       );
     });
