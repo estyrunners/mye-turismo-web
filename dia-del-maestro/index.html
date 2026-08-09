@@ -424,10 +424,10 @@
       color: #5b7280;
     }
 
-    /* Flex en vez de grid a propósito: con 7 tarjetas (7 = 3+3+1), un
-       grid de 3 columnas estira la última card sola a lo ancho de toda
-       la fila. Con flex-basis fijo, esa card queda del mismo tamaño que
-       las demás, alineada a la izquierda, sin ocupar la fila entera. */
+    /* Flex en vez de grid a propósito: si el número de tarjetas no es
+       múltiplo exacto de 3, un grid de 3 columnas estira la última card
+       sola a lo ancho de toda la fila. Con flex-basis fijo, esa card
+       queda del mismo tamaño que las demás, alineada a la izquierda. */
     .grid {
       display: flex;
       flex-wrap: wrap;
@@ -485,6 +485,25 @@
 
     .card:hover .foto img {
       transform: scale(1.06);
+    }
+
+    /* Placeholder para destinos sin foto propia todavía: mismo tamaño
+       que .foto, pero deja clarísimo que falta reemplazarlo, en vez de
+       fingir con una foto genérica que no es del lugar real. */
+    .foto-placeholder {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 1rem;
+      background: linear-gradient(135deg, var(--ink-2), var(--teal-deep));
+      color: rgba(255, 255, 255, .75);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      line-height: 1.5;
     }
 
     .card::before {
@@ -1006,9 +1025,9 @@
         Señás con el <b>30%</b> y el resto lo pagás como puedas,
         <b>hasta 10 días antes</b> de subirte al micro.
       </p>
-      <p class="bajada-destinos rev">Termas, playa, sierra o río: hay 9 destinos, uno para cada gusto.</p>
+      <p class="bajada-destinos rev">Termas, playa, sierra o río: hay 13 destinos, uno para cada gusto.</p>
       <div class="hero-meta rev">
-        <a class="cta" href="#salidas">Descubrí los 9 destinos →</a>
+        <a class="cta" href="#salidas">Descubrí los 13 destinos →</a>
         <div class="cuenta">
           <strong id="dias">—</strong>
           <span>días<br>faltan</span>
@@ -1053,7 +1072,7 @@
   <!-- ===================== SALIDAS ===================== -->
   <section class="salidas" id="salidas">
     <div class="wrap">
-      <p class="etiqueta rev">Nueve salidas</p>
+      <p class="etiqueta rev">Trece salidas</p>
       <h2 class="rev">Elegí <i>la tuya</i></h2>
       <p class="sub rev">Todas desde Buenos Aires, en grupo y con coordinador.</p>
 
@@ -1068,9 +1087,9 @@
           <h3>Federación</h3>
           <p class="cuando">Vie 11 sep · 3 días 2 noches</p>
 
-          <p class="sena-label">Señás</p>
-          <p class="sena" data-hasta="89997"><span class="pe">$</span>89.997</p>
-          <p class="resto">y el resto hasta el 1º de septiembre</p>
+          <p class="sena-label">Total</p>
+          <p class="sena" data-hasta="299990"><span class="pe">$</span>299.990</p>
+          <p class="resto">+ $14.990 gastos adm.</p>
 
           <ul class="incluye">
             <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
@@ -1084,8 +1103,10 @@
               </svg><b>Baile del Maestrazo</b></li>
           </ul>
 
-          <p class="total">Total <b>$299.990</b> + $14.990 gastos adm.</p>
-          <button class="cta" data-opcion="Federación Maestrazo" data-precio="299990">
+          <p class="total">Señás <b>$89.997</b> y pagás el resto hasta el 1º de septiembre</p>
+          <button class="cta" data-opcion="Federación Maestrazo" data-precio="299990" data-sena="89997"
+            data-gastos="14990"
+            data-incluye="Hotel Clima Termal Suites (media pensión), entrada al complejo termal, baile del Maestrazo">
             Quiero este
           </button>
         </article>
@@ -1098,9 +1119,9 @@
           <h3>Colón</h3>
           <p class="cuando">Vie 11 sep · 3 días 2 noches</p>
 
-          <p class="sena-label">Señás</p>
-          <p class="sena" data-hasta="54000"><span class="pe">$</span>54.000</p>
-          <p class="resto">y el resto hasta el 1º de septiembre</p>
+          <p class="sena-label">Total</p>
+          <p class="sena" data-hasta="179999"><span class="pe">$</span>179.999</p>
+          <p class="resto">+ $10.000 gastos adm.</p>
 
           <ul class="incluye">
             <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
@@ -1114,8 +1135,9 @@
               </svg>Coordinación permanente</li>
           </ul>
 
-          <p class="total">Total <b>$179.999</b> + $10.000 gastos adm.</p>
-          <button class="cta" data-opcion="Colón" data-precio="179999">Quiero este</button>
+          <p class="total">Señás <b>$54.000</b> y pagás el resto hasta el 1º de septiembre</p>
+          <button class="cta" data-opcion="Colón" data-precio="179999" data-sena="54000" data-gastos="10000"
+            data-incluye="Hotel Holimasu con desayuno, bus semi cama, coordinación permanente">Quiero este</button>
         </article>
 
         <article class="card rev">
@@ -1123,13 +1145,12 @@
             <img src="../dolores.jpg" alt="Piletas bajo la cúpula de las Termas de Dolores"
               width="1024" height="682" loading="lazy" decoding="async">
           </span>
-          <span class="destacado">Mejor precio</span>
           <h3>Termas de Dolores</h3>
-          <p class="cuando">Vie 11 o dom 13 sep · full day</p>
+          <p class="cuando">Vie 11 al dom 13 sep · 2 días 1 noche</p>
 
-          <p class="sena-label">Señás</p>
-          <p class="sena" data-hasta="25800"><span class="pe">$</span>25.800</p>
-          <p class="resto">y el resto hasta el 1º de septiembre</p>
+          <p class="sena-label">Total</p>
+          <p class="sena" data-hasta="197500"><span class="pe">$</span>197.500</p>
+          <p class="resto">+ $10.000 gastos adm.</p>
 
           <ul class="incluye">
             <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
@@ -1140,11 +1161,14 @@
               </svg>Entrada a las termas</li>
             <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
                 <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>Coordinador todo el día</li>
+              </svg>Coordinador · 2 días 1 noche de alojamiento</li>
           </ul>
 
-          <p class="total">Total <b>$85.999</b> + $10.000 gastos adm.</p>
-          <button class="cta" data-opcion="Termas de Dolores" data-precio="85999">Quiero este</button>
+          <p class="total">Señás <b>$59.250</b> y pagás el resto hasta el 1º de septiembre</p>
+          <button class="cta" data-opcion="Termas de Dolores" data-precio="197500" data-sena="59250"
+            data-gastos="10000"
+            data-incluye="Traslados ida y vuelta, entrada a las termas, coordinador, 2 días 1 noche de alojamiento">Quiero
+            este</button>
         </article>
 
         <article class="card rev">
@@ -1156,9 +1180,9 @@
           <h3>Campo La Herradura</h3>
           <p class="cuando">Vie 11 o dom 13 sep · full day</p>
 
-          <p class="sena-label">Señás</p>
-          <p class="sena" data-hasta="29997"><span class="pe">$</span>29.997</p>
-          <p class="resto">y el resto hasta el 1º de septiembre</p>
+          <p class="sena-label">Total</p>
+          <p class="sena" data-hasta="99990"><span class="pe">$</span>99.990</p>
+          <p class="resto">por persona</p>
 
           <ul class="incluye">
             <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
@@ -1172,8 +1196,10 @@
               </svg>Coordinación permanente</li>
           </ul>
 
-          <p class="total">Total <b>$99.990</b></p>
-          <button class="cta" data-opcion="Campo La Herradura" data-precio="99990">Quiero este</button>
+          <p class="total">Señás <b>$29.997</b> y pagás el resto hasta el 1º de septiembre</p>
+          <button class="cta" data-opcion="Campo La Herradura" data-precio="99990" data-sena="29997"
+            data-incluye="Cabalgata incluida, asado y bebidas sin alcohol, coordinación permanente">Quiero
+            este</button>
         </article>
 
         <article class="card rev">
@@ -1184,9 +1210,9 @@
           <h3>Mar del Plata</h3>
           <p class="cuando">Vie 11 sep · 3 días 2 noches</p>
 
-          <p class="sena-label">Señás</p>
-          <p class="sena" data-hasta="53997"><span class="pe">$</span>53.997</p>
-          <p class="resto">y el resto hasta el 1º de septiembre</p>
+          <p class="sena-label">Total</p>
+          <p class="sena" data-hasta="179990"><span class="pe">$</span>179.990</p>
+          <p class="resto">+ $20.000 gastos adm.</p>
 
           <ul class="incluye">
             <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
@@ -1200,8 +1226,9 @@
               </svg>Cena show + baile</li>
           </ul>
 
-          <p class="total">Total <b>$179.990</b> + $20.000 gastos adm.</p>
-          <button class="cta" data-opcion="Mar del Plata" data-precio="179990">Quiero este</button>
+          <p class="total">Señás <b>$53.997</b> y pagás el resto hasta el 1º de septiembre</p>
+          <button class="cta" data-opcion="Mar del Plata" data-precio="179990" data-sena="53997" data-gastos="20000"
+            data-incluye="Hotel Hanna (media pensión), bus semi cama, cena show + baile">Quiero este</button>
         </article>
 
         <article class="card rev">
@@ -1212,9 +1239,9 @@
           <h3>Tandil</h3>
           <p class="cuando">Vie 11 sep · full day</p>
 
-          <p class="sena-label">Señás</p>
-          <p class="sena" data-hasta="29997"><span class="pe">$</span>29.997</p>
-          <p class="resto">y el resto hasta el 1º de septiembre</p>
+          <p class="sena-label">Total</p>
+          <p class="sena" data-hasta="99990"><span class="pe">$</span>99.990</p>
+          <p class="resto">+ $10.000 gastos adm.</p>
 
           <ul class="incluye">
             <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
@@ -1228,8 +1255,10 @@
               </svg>Coordinación + regionales</li>
           </ul>
 
-          <p class="total">Total <b>$99.990</b> + $10.000 gastos adm.</p>
-          <button class="cta" data-opcion="Tandil" data-precio="99990">Quiero este</button>
+          <p class="total">Señás <b>$29.997</b> y pagás el resto hasta el 1º de septiembre</p>
+          <button class="cta" data-opcion="Tandil" data-precio="99990" data-sena="29997" data-gastos="10000"
+            data-incluye="Excursión Cerro Centinela y Piedra Movediza, bus semi cama, coordinación + regionales">Quiero
+            este</button>
         </article>
 
         <article class="card rev">
@@ -1240,9 +1269,9 @@
           <h3>San Pedro</h3>
           <p class="cuando">Vie 11 o dom 13 sep · full day</p>
 
-          <p class="sena-label">Señás</p>
-          <p class="sena" data-hasta="32997"><span class="pe">$</span>32.997</p>
-          <p class="resto">y el resto hasta el 1º de septiembre</p>
+          <p class="sena-label">Total</p>
+          <p class="sena" data-hasta="109990"><span class="pe">$</span>109.990</p>
+          <p class="resto">por persona</p>
 
           <ul class="incluye">
             <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
@@ -1256,8 +1285,10 @@
               </svg>Visita a la Campiña y ensaimadas</li>
           </ul>
 
-          <p class="total">Total <b>$109.990</b></p>
-          <button class="cta" data-opcion="San Pedro" data-precio="109990">Quiero este</button>
+          <p class="total">Señás <b>$32.997</b> y pagás el resto hasta el 1º de septiembre</p>
+          <button class="cta" data-opcion="San Pedro" data-precio="109990" data-sena="32997"
+            data-incluye="Visita a la Vuelta de Obligado, parrillada incluida, visita a la Campiña">Quiero
+            este</button>
         </article>
 
         <article class="card rev">
@@ -1269,9 +1300,9 @@
           <h3>Isla Martín García</h3>
           <p class="cuando">Vie 11 o dom 13 sep · full day</p>
 
-          <p class="sena-label">Señás</p>
-          <p class="sena" data-hasta="57000"><span class="pe">$</span>57.000</p>
-          <p class="resto">y el resto hasta el 1º de septiembre</p>
+          <p class="sena-label">Total</p>
+          <p class="sena" data-hasta="189999"><span class="pe">$</span>189.999</p>
+          <p class="resto">+ $10.000 gastos adm.</p>
 
           <ul class="incluye">
             <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
@@ -1285,8 +1316,11 @@
               </svg>Bus hasta la salida + coordinación</li>
           </ul>
 
-          <p class="total">Total <b>$189.999</b> + $10.000 gastos adm.</p>
-          <button class="cta" data-opcion="Isla Martín García" data-precio="189999">Quiero este</button>
+          <p class="total">Señás <b>$57.000</b> y pagás el resto hasta el 1º de septiembre</p>
+          <button class="cta" data-opcion="Isla Martín García" data-precio="189999" data-sena="57000"
+            data-gastos="10000"
+            data-incluye="Navegación + visita guiada, almuerzo en Restaurante Solís, bus y coordinación">Quiero
+            este</button>
         </article>
 
         <article class="card rev">
@@ -1297,9 +1331,9 @@
           <h3>San Bernardo</h3>
           <p class="cuando">Vie 11 sep · 3 días 2 noches</p>
 
-          <p class="sena-label">Señás</p>
-          <p class="sena" data-hasta="43800"><span class="pe">$</span>43.800</p>
-          <p class="resto">y el resto hasta el 1º de septiembre</p>
+          <p class="sena-label">Total</p>
+          <p class="sena" data-hasta="145999"><span class="pe">$</span>145.999</p>
+          <p class="resto">+ $10.000 gastos adm.</p>
 
           <ul class="incluye">
             <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
@@ -1313,8 +1347,128 @@
               </svg>Bus semi cama</li>
           </ul>
 
-          <p class="total">Total <b>$145.999</b> + $10.000 gastos adm.</p>
-          <button class="cta" data-opcion="San Bernardo" data-precio="145999">Quiero este</button>
+          <p class="total">Señás <b>$43.800</b> y pagás el resto hasta el 1º de septiembre</p>
+          <button class="cta" data-opcion="San Bernardo" data-precio="145999" data-sena="43800" data-gastos="10000"
+            data-incluye="Hotel Colores con pileta, desayuno incluido, bus semi cama">Quiero este</button>
+        </article>
+
+        <!-- Sin foto propia todavía — Matías tiene que pasar una foto limpia
+             del destino (sin texto encima) para reemplazar el placeholder. -->
+        <article class="card rev">
+          <span class="foto">
+            <span class="foto-placeholder">Foto pendiente<br>San Antonio de Areco</span>
+          </span>
+          <h3>San Antonio de Areco</h3>
+          <p class="cuando">Vie 11 sep · full day</p>
+
+          <p class="sena-label">Total</p>
+          <p class="sena" data-hasta="110000"><span class="pe">$</span>110.000</p>
+          <p class="resto">+ $10.000 gastos adm.</p>
+
+          <ul class="incluye">
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Desayuno, entrada, parrilla libre, postre y merienda</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Bus semi cama</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Coordinación + show</li>
+          </ul>
+
+          <p class="total">Señás <b>$33.000</b> y pagás el resto hasta el 1º de septiembre</p>
+          <button class="cta" data-opcion="San Antonio de Areco" data-precio="110000" data-sena="33000"
+            data-gastos="10000"
+            data-incluye="Desayuno, entrada, parrilla libre, postre y merienda, bus semi cama, show">Quiero
+            este</button>
+        </article>
+
+        <article class="card rev">
+          <span class="foto">
+            <span class="foto-placeholder">Foto pendiente<br>Huerta Grande</span>
+          </span>
+          <h3>Huerta Grande</h3>
+          <p class="cuando">Jue 10 sep · 4 días 2 noches</p>
+
+          <p class="sena-label">Total</p>
+          <p class="sena" data-hasta="245999"><span class="pe">$</span>245.999</p>
+          <p class="resto">+ $10.000 gastos adm.</p>
+
+          <ul class="incluye">
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Hotel 11 de Junio (Sindicato del Vidrio), pensión completa</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Bus semi cama</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>4 días / 2 noches</li>
+          </ul>
+
+          <p class="total">Señás <b>$73.800</b> y pagás el resto hasta el 1º de septiembre</p>
+          <button class="cta" data-opcion="Huerta Grande" data-precio="245999" data-sena="73800" data-gastos="10000"
+            data-incluye="Hotel 11 de Junio, pensión completa, bus semi cama, 4 días 2 noches">Quiero
+            este</button>
+        </article>
+
+        <article class="card rev">
+          <span class="foto">
+            <span class="foto-placeholder">Foto pendiente<br>Villa Carlos Paz</span>
+          </span>
+          <span class="destacado">Últimos lugares</span>
+          <h3>Villa Carlos Paz</h3>
+          <p class="cuando">Jue 10 sep · 4 días 2 noches</p>
+
+          <p class="sena-label">Total</p>
+          <p class="sena" data-hasta="179990"><span class="pe">$</span>179.990</p>
+          <p class="resto">+ $20.000 gastos adm.</p>
+
+          <ul class="incluye">
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Hotel Nuevo Enzo (o similar), pensión completa</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Bus semi cama (opción cama +$30.000)</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Últimos lugares disponibles</li>
+          </ul>
+
+          <p class="total">Señás <b>$53.997</b> y pagás el resto hasta el 1º de septiembre</p>
+          <button class="cta" data-opcion="Villa Carlos Paz" data-precio="179990" data-sena="53997"
+            data-gastos="20000"
+            data-incluye="Hotel Nuevo Enzo (o similar), pensión completa, bus semi cama">Quiero este</button>
+        </article>
+
+        <article class="card rev">
+          <span class="foto">
+            <span class="foto-placeholder">Foto pendiente<br>San Rafael</span>
+          </span>
+          <h3>San Rafael</h3>
+          <p class="cuando">Jue 10 sep · 4 días 2 noches</p>
+
+          <p class="sena-label">Total</p>
+          <p class="sena" data-hasta="179990"><span class="pe">$</span>179.990</p>
+          <p class="resto">+ $20.000 gastos adm.</p>
+
+          <ul class="incluye">
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Hotel Puelches (o similar), media pensión</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Bus semi cama (opción cama +$30.000)</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>Bodegas y cordillera</li>
+          </ul>
+
+          <p class="total">Señás <b>$53.997</b> y pagás el resto hasta el 1º de septiembre</p>
+          <button class="cta" data-opcion="San Rafael" data-precio="179990" data-sena="53997" data-gastos="20000"
+            data-incluye="Hotel Puelches (o similar), media pensión, bus semi cama">Quiero este</button>
         </article>
 
       </div>
@@ -1395,6 +1549,10 @@
             <option value="San Pedro">San Pedro</option>
             <option value="Isla Martín García">Isla Martín García</option>
             <option value="San Bernardo">San Bernardo</option>
+            <option value="San Antonio de Areco">San Antonio de Areco</option>
+            <option value="Huerta Grande">Huerta Grande</option>
+            <option value="Villa Carlos Paz">Villa Carlos Paz</option>
+            <option value="San Rafael">San Rafael</option>
             <option value="Todavía no sé">Todavía no sé, quiero que me asesoren</option>
           </select>
         </div>
@@ -1416,7 +1574,7 @@
 
   <div id="barra">
     <div class="wrap">
-      <p><b>Desde $25.800 de seña</b>Y el resto hasta 10 días antes</p>
+      <p><b>Desde $99.990</b>Señás el 30% y el resto hasta 10 días antes</p>
       <button class="cta" data-opcion="Barra fija" data-precio="0">Consultar por WhatsApp</button>
     </div>
   </div>
@@ -1468,10 +1626,49 @@
     const abrirWhatsapp = (t) =>
       window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(t)}`, "_blank", "noopener");
 
+    const plataMsg = (n) => "$" + new Intl.NumberFormat("es-AR").format(n);
+    // Se arma con location.origin para que apunte solo si el día de
+    // mañana la web se muda a un dominio propio, sin tocar este archivo.
+    const linkAscensos = () => `${location.origin}/puntos-de-ascenso/`;
+
+    /* El mensaje va con la info del destino adentro (precio, seña, qué
+       incluye) para que Estela no tenga que retipearla en el chat, y
+       termina pidiendo lo mínimo para poder cotizar: no vale la pena
+       resolver eso en dos o tres idas y vueltas cuando se puede pedir
+       de una. */
+    function mensajeDestino(opcion, total, sena, gastos, incluye) {
+      const lineas = [`Hola! Vi la promo de Día del Maestro y me interesa ${opcion}.`, ""];
+      if (total) {
+        lineas.push(`Total: ${plataMsg(total)}${gastos ? ` + ${plataMsg(gastos)} gastos adm.` : ""}`);
+      }
+      if (sena) lineas.push(`Seña para reservar: ${plataMsg(sena)} (el resto hasta el 1º de septiembre)`);
+      if (incluye) lineas.push(`Incluye: ${incluye}`);
+      lineas.push(
+        "",
+        `Puntos de ascenso: ${linkAscensos()}`,
+        "",
+        "Para cotizar te paso: cantidad de pasajeros, edades y desde qué punto salimos."
+      );
+      return lineas.join("\n");
+    }
+
+    function mensajeGenerico() {
+      return [
+        "Hola! Vi la promo de Día del Maestro y quiero que me asesoren.",
+        "",
+        `Puntos de ascenso: ${linkAscensos()}`,
+        "",
+        "Contame: cuántos pasajeros son, las edades y desde qué punto saldrían, así te tiro opciones."
+      ].join("\n");
+    }
+
     document.querySelectorAll("[data-opcion]").forEach((b) => {
       b.addEventListener("click", () => {
         const opcion = b.dataset.opcion;
         const precio = Number(b.dataset.precio);
+        const sena = Number(b.dataset.sena || 0);
+        const gastos = Number(b.dataset.gastos || 0);
+        const incluye = b.dataset.incluye || "";
         trackLead({ content_name: opcion, ...(precio ? { value: precio, currency: "ARS" } : {}) });
         // Todavía no hay nombre/teléfono en este punto (va directo a
         // WhatsApp sin pasar por el formulario) — se registra igual,
@@ -1483,8 +1680,8 @@
         });
         abrirWhatsapp(
           opcion === "Barra fija"
-            ? "Hola! Vi la promo de Día del Maestro y quiero que me asesoren."
-            : `Hola! Vi la promo de Día del Maestro y me interesa ${opcion}. ¿Me contás cómo es la seña?`
+            ? mensajeGenerico()
+            : mensajeDestino(opcion, precio, sena, gastos, incluye)
         );
       });
     });
@@ -1499,7 +1696,15 @@
       registrarLead({ nombre, telefono, destino, mensaje: "Vino de la landing de Día del Maestro." });
       trackLead({ content_name: destino, currency: "ARS" });
       document.getElementById("ok").style.display = "block";
-      abrirWhatsapp(`Hola! Soy ${nombre}. Me interesa ${destino} para el Día del Maestro.`);
+      abrirWhatsapp(
+        [
+          `Hola! Soy ${nombre}. Me interesa ${destino} para el Día del Maestro.`,
+          "",
+          `Puntos de ascenso: ${linkAscensos()}`,
+          "",
+          "Para cotizarte: cuántos pasajeros son, las edades y desde qué punto salimos."
+        ].join("\n")
+      );
     });
 
     /* ---------- Cuenta regresiva ---------- */

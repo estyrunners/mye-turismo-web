@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puntos de ascenso · MyE Turismo</title>
+  <meta name="description"
+    content="Zonas donde el micro para a levantar pasajeros en los viajes de MyE Turismo. Se confirma el tuyo por WhatsApp antes de reservar.">
+  <meta name="theme-color" content="#07161f">
+  <link rel="canonical" href="https://mye-turismo-web.pages.dev/puntos-de-ascenso/">
+  <meta name="robots" content="noindex">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap"
+    rel="stylesheet">
+
+  <script>
+    window.META_PIXEL_ID = "1812483333531317";
+    if (window.META_PIXEL_ID) {
+      !function (f, b, e, v, n, t, s) {
+        if (f.fbq) return; n = f.fbq = function () {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        }; if (!f._fbq) f._fbq = n;
+        n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0;
+        t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s)
+      }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', window.META_PIXEL_ID);
+      fbq('track', 'PageView');
+    }
+  </script>
+
+  <style>
+    :root {
+      --ink: #07161f;
+      --ink-2: #0d2632;
+      --teal: #12b3b0;
+      --teal-deep: #08989b;
+      --sand: #f0d9b5;
+      --grey: #6d8290;
+      --line: rgba(255, 255, 255, .12);
+      --ease: cubic-bezier(.22, .61, .36, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--ink);
+      color: #eaf2f5;
+      font-family: "Manrope", system-ui, sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      width: min(100% - 2.25rem, 780px);
+      margin-inline: auto;
+      padding: clamp(3rem, 9vh, 5.5rem) 0 clamp(2.5rem, 7vh, 4rem);
+    }
+
+    .etiqueta {
+      font-size: .74rem;
+      font-weight: 800;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1.1rem;
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      font-size: clamp(2.3rem, 8vw, 3.6rem);
+      line-height: 1.05;
+      letter-spacing: -.02em;
+      margin-bottom: 1.1rem;
+      max-width: 16ch;
+    }
+
+    .bajada {
+      font-size: clamp(1rem, 3vw, 1.18rem);
+      color: #c4d6de;
+      max-width: 46ch;
+      margin-bottom: 2.5rem;
+    }
+
+    .zonas {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: .8rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .zonas li {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: .9rem 1rem;
+      font-weight: 700;
+      font-size: .98rem;
+    }
+
+    .zonas svg {
+      width: 1.1rem;
+      height: 1.1rem;
+      flex: none;
+      color: var(--teal);
+    }
+
+    .aviso {
+      background: rgba(240, 217, 181, .08);
+      border: 1px solid rgba(240, 217, 181, .25);
+      border-radius: 16px;
+      padding: 1.1rem 1.25rem;
+      font-size: .92rem;
+      color: #dfe9ec;
+      margin-bottom: 2.5rem;
+    }
+
+    .aviso b {
+      color: var(--sand);
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .6rem;
+      background: var(--teal);
+      color: #04222b;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 1rem 1.6rem;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: inherit;
+      text-decoration: none;
+      transition: transform .35s var(--ease), box-shadow .35s var(--ease), background .2s;
+      box-shadow: 0 10px 30px -8px rgba(18, 179, 176, .6);
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      background: #16c9c5;
+    }
+
+    .volver {
+      display: block;
+      margin-top: 1.5rem;
+      color: var(--grey);
+      font-size: .9rem;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    footer {
+      padding: 2.5rem 0 3.5rem;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      color: var(--grey);
+      font-size: .85rem;
+    }
+
+    .marca {
+      font-family: "Playfair Display", serif;
+      font-size: 1.4rem;
+      color: #fff;
+      margin-bottom: .4rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <p class="etiqueta">MyE Turismo</p>
+    <h1>Salimos <i>cerca tuyo</i></h1>
+    <p class="bajada">
+      Estas son las zonas donde el micro suele parar a levantar pasajeros
+      antes de salir a la ruta. Elegí la más cómoda para vos.
+    </p>
+
+    <ul class="zonas">
+      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path
+            d="M10 18s6-5.5 6-10a6 6 0 1 0-12 0c0 4.5 6 10 6 10Z" stroke-linejoin="round" />
+          <circle cx="10" cy="8" r="2" /></svg>Dellepiane</li>
+      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path
+            d="M10 18s6-5.5 6-10a6 6 0 1 0-12 0c0 4.5 6 10 6 10Z" stroke-linejoin="round" />
+          <circle cx="10" cy="8" r="2" /></svg>Avellaneda</li>
+      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path
+            d="M10 18s6-5.5 6-10a6 6 0 1 0-12 0c0 4.5 6 10 6 10Z" stroke-linejoin="round" />
+          <circle cx="10" cy="8" r="2" /></svg>Varela</li>
+      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path
+            d="M10 18s6-5.5 6-10a6 6 0 1 0-12 0c0 4.5 6 10 6 10Z" stroke-linejoin="round" />
+          <circle cx="10" cy="8" r="2" /></svg>Burzaco</li>
+      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path
+            d="M10 18s6-5.5 6-10a6 6 0 1 0-12 0c0 4.5 6 10 6 10Z" stroke-linejoin="round" />
+          <circle cx="10" cy="8" r="2" /></svg>Lavallol</li>
+      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path
+            d="M10 18s6-5.5 6-10a6 6 0 1 0-12 0c0 4.5 6 10 6 10Z" stroke-linejoin="round" />
+          <circle cx="10" cy="8" r="2" /></svg>San Justo</li>
+      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path
+            d="M10 18s6-5.5 6-10a6 6 0 1 0-12 0c0 4.5 6 10 6 10Z" stroke-linejoin="round" />
+          <circle cx="10" cy="8" r="2" /></svg>Ciudadela</li>
+      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path
+            d="M10 18s6-5.5 6-10a6 6 0 1 0-12 0c0 4.5 6 10 6 10Z" stroke-linejoin="round" />
+          <circle cx="10" cy="8" r="2" /></svg>Morón</li>
+      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path
+            d="M10 18s6-5.5 6-10a6 6 0 1 0-12 0c0 4.5 6 10 6 10Z" stroke-linejoin="round" />
+          <circle cx="10" cy="8" r="2" /></svg>Moreno</li>
+      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path
+            d="M10 18s6-5.5 6-10a6 6 0 1 0-12 0c0 4.5 6 10 6 10Z" stroke-linejoin="round" />
+          <circle cx="10" cy="8" r="2" /></svg>Pacheco</li>
+      <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path
+            d="M10 18s6-5.5 6-10a6 6 0 1 0-12 0c0 4.5 6 10 6 10Z" stroke-linejoin="round" />
+          <circle cx="10" cy="8" r="2" /></svg>La Plata</li>
+    </ul>
+
+    <p class="aviso">
+      <b>Estos puntos pueden variar</b> según el operador, el viaje puntual
+      y la disponibilidad de ese momento. El punto exacto se confirma por
+      WhatsApp antes de reservar.
+    </p>
+
+    <a class="cta" id="wa" href="#">Consultar por WhatsApp</a>
+    <a class="volver" href="../dia-del-maestro/">← Volver a los destinos</a>
+  </div>
+
+  <footer>
+    <p class="marca">MyE Turismo</p>
+    <p>WhatsApp 11 3153-7638 · Idóneos en turismo Matriculados</p>
+  </footer>
+
+  <script>
+    const WHATSAPP = "5491131537638";
+    const mensaje = [
+      "Hola! Vi los puntos de ascenso y quiero consultar por un viaje.",
+      "",
+      "Cuántos pasajeros son, las edades y desde qué punto saldrían:"
+    ].join("\n");
+    document.getElementById("wa").href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
+  </script>
+</body>
+
+</html>
