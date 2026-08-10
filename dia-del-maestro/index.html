@@ -1643,7 +1643,7 @@
        bloque de precio arranca con "esto es lo que vi" para que quede
        claro que es el cliente repitiendo lo que leyó en la página, no
        un mensaje ajeno metido en su boca. Y el link de ascensos arranca
-       con "somos MyE Turismo" para que se lea como una cita del sitio
+       con "Somos MyE Turismo" para que se lea como una cita del sitio
        (que sí puede "hablar" en el mensaje) y no como el cliente
        diciendo que él es la agencia. */
     function mensajeDestino(opcion, total, sena, gastos, incluye) {
@@ -1653,7 +1653,7 @@
       }
       if (sena) lineas.push(`• Seña para reservar: ${plataMsg(sena)} (el resto hasta el 1º de septiembre)`);
       if (incluye) lineas.push(`• Incluye: ${incluye}`);
-      lineas.push("", `somos MyE Turismo. Estos son los puntos de ascenso 👉 ${linkAscensos()}`);
+      lineas.push("", `Somos MyE Turismo. Estos son los puntos de ascenso 👉 ${linkAscensos()}`);
       return lineas.join("\n");
     }
 
@@ -1661,7 +1661,7 @@
       return [
         "Hola! Vi la promo de Día del Maestro y quiero que me asesoren.",
         "",
-        `somos MyE Turismo. Estos son los puntos de ascenso 👉 ${linkAscensos()}`
+        `Somos MyE Turismo. Estos son los puntos de ascenso 👉 ${linkAscensos()}`
       ].join("\n");
     }
 
@@ -1703,7 +1703,7 @@
         [
           `Hola! Soy ${nombre}. Me interesa ${destino} para el Día del Maestro.`,
           "",
-          `somos MyE Turismo. Estos son los puntos de ascenso 👉 ${linkAscensos()}`
+          `Somos MyE Turismo. Estos son los puntos de ascenso 👉 ${linkAscensos()}`
         ].join("\n")
       );
     });
