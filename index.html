@@ -3434,7 +3434,7 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#paquetes">Paquetes</a></li>
-        <li><a href="#destinos">Destinos</a></li>
+        
         <li><a href="#guias-videos">Guías</a></li>
         <li><a href="#quienes-somos">Nosotros</a></li>
         <li><a href="#contacto">Contacto</a></li>
@@ -3547,8 +3547,6 @@
 
         <div class="salidas-tabs" id="salidasTabs" role="tablist">
           <button class="salidas-tab active" type="button" data-panel="panel-feriado-agosto">Salen primero</button>
-          <button class="salidas-tab" type="button" data-panel="panel-destinos-destacados">Destinos Destacados</button>
-          <button class="salidas-tab" type="button" data-panel="panel-dia-maestro">Día del Maestro</button>
         </div>
 
         <div class="salidas-panel" id="panel-feriado-agosto">
@@ -3583,7 +3581,7 @@
           </div>
         </div>
 
-        <div class="salidas-panel" id="panel-destinos-destacados" hidden>
+        <div class="salidas-panel" id="panel-destinos-destacados" hidden style="display:none">
           <div class="weekly-carousel-shell">
             <button class="weekly-arrow weekly-arrow-prev" id="featuredDestinationsPrev" type="button" aria-label="Ver destino destacado anterior">
               <svg class="icon"><use href="#icon-arrow"></use></svg>
@@ -3601,7 +3599,7 @@
           </a>
         </div>
 
-        <div class="salidas-panel" id="panel-dia-maestro" hidden>
+        <div class="salidas-panel" id="panel-dia-maestro" hidden style="display:none">
           <div class="weekly-carousel-shell">
             <button class="weekly-arrow weekly-arrow-prev" id="teacherPrev" type="button" aria-label="Ver paquete anterior del Día del Maestro">
               <svg class="icon"><use href="#icon-arrow"></use></svg>
@@ -3697,7 +3695,7 @@
       </div>
     </section>
 
-    <section class="section section-soft" id="destinos">
+    <section class="section section-soft" id="destinos" hidden style="display:none">
       <div class="container">
         <div class="section-heading">
           <span class="eyebrow">Un mundo para descubrir</span>
@@ -5886,7 +5884,7 @@
         targetLabel: "Ver en Feriado de Agosto"
       }));
 
-      const permanentFeatured = Array.from(document.querySelectorAll("#featuredDestinationsCarousel .weekly-card")).map((card) => ({
+      const permanentFeatured = Array.from(document.querySelectorAll("#featuredDestinationsCarousel--oculto .weekly-card")).map((card) => ({
         name: card.querySelector("h3")?.textContent.trim() || "Destino destacado",
         destination: card.dataset.search || "",
         duration: "",
@@ -5899,7 +5897,7 @@
         targetLabel: "Ver en Destinos Destacados"
       }));
 
-      const teacherFeatured = Array.from(document.querySelectorAll("#teacherCarousel .weekly-card")).map((card) => ({
+      const teacherFeatured = Array.from(document.querySelectorAll("#teacherCarousel--oculto .weekly-card")).map((card) => ({
         name: card.querySelector("h3")?.textContent.trim() || "Paquete Día del Maestro",
         destination: card.dataset.search || "",
         duration: "Full Day",
@@ -5965,17 +5963,19 @@
         return;
       }
 
-      const matches = getAllSearchablePackages().filter((item) => {
-        const searchableText = normalizeSearchText([
-          item.name,
-          item.destination,
-          item.duration,
-          item.departures,
-          item.description,
-          item.categoryTitle
+      /* El buscador lee solo paquetes.js. Antes indexaba los arrays viejos y
+         devolvía salidas ya vencidas (Vacaciones de Invierno) apuntando a
+         tarjetas ocultas. */
+      const matches = (window.PAQUETES || []).filter((p) => {
+        const texto = normalizeSearchText([
+          p.nombre, p.subtitulo, p.hotel, p.transporte, p.fechas, p.duracion,
+          (p.tags || []).join(" ")
         ].join(" "));
-        return searchableText.includes(query);
+        return texto.includes(query);
       });
+
+      const plata = (v, m) =>
+        m === "USD" ? `USD ${v.toLocaleString("es-AR")}` : `$${v.toLocaleString("es-AR")}`;
 
       searchResults.classList.add("active");
       searchResults.innerHTML = matches.length
@@ -5985,7 +5985,21 @@
             <span>${matches.length} ${matches.length === 1 ? "paquete encontrado" : "paquetes encontrados"}</span>
           </div>
           <div class="search-results-grid">
-            ${matches.map((item) => renderPackageCard(item, item.categoryTitle)).join("")}
+            ${matches
+              .map(
+                (p) => `
+              <article class="package-card">
+                <div class="package-body">
+                  <h3>${escapeHTML(p.nombre)}</h3>
+                  <p>${escapeHTML(p.subtitulo ? p.subtitulo + " · " : "")}${escapeHTML(p.duracion)} · ${escapeHTML(p.transporte)}<br>Salidas: ${escapeHTML(p.fechas)}</p>
+                  <p><strong>Desde ${plata(p.precio, p.moneda)}</strong> por persona</p>
+                  <a class="btn btn-outline" href="${p.puerta}/">Ver en ${escapeHTML(
+                    (window.PUERTAS.find((x) => x.id === p.puerta) || {}).titulo || "el catálogo"
+                  )}</a>
+                </div>
+              </article>`
+              )
+              .join("")}
           </div>
         `
         : `
