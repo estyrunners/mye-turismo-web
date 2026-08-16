@@ -1,0 +1,1118 @@
+/* ============================================================
+   MyE Turismo — fuente única de paquetes
+   ------------------------------------------------------------
+   Cada salida se define UNA sola vez acá. Las puertas de la home
+   y las mini landings filtran este mismo array, así un precio
+   nunca puede quedar distinto en dos lugares.
+
+   Reglas de negocio embebidas:
+   - `puerta`  → dónde vive canónicamente (una sola).
+   - `tags`    → colecciones transversales (ej: termas), NO duplican el dato.
+   - `reserva` → gastos de reserva por pasajero, ya calculados en la
+                 moneda del paquete. Los full day no tienen.
+   - Solo se publican salidas de septiembre 2026 en adelante.
+   - Las salidas marcadas "Completo" por el operador no se cargan.
+   ============================================================ */
+
+window.PAQUETES = [
+  /* ---------- FULL DAY — Punto de Partida (leg. 17789) ---------- */
+  {
+    id: "fd-tandil",
+    foto: "../foto-tandil.jpg",
+    fotoAlt: "La Piedra Movediza de Tandil al atardecer",
+    fotoCredito: "Leopogonza · CC BY-SA 3.0",
+    nombre: "Tandil",
+    puerta: "full-day",
+    tags: ["full-day"],
+    transporte: "Bus Mix",
+    operador: "Punto de Partida",
+    fechas: "31 oct · 14 nov",
+    duracion: "1 día",
+    precio: 119990,
+    precioLista: 129990,
+    moneda: "ARS",
+    reserva: 0,
+    incluye: [
+      "Traslado ida y vuelta en el día",
+      "Visitas guiadas por el casco histórico",
+      "Almuerzo completo con bebida",
+      "Visita a regionales",
+      "Coordinador permanente"
+    ]
+  },
+  {
+    id: "fd-guaychu",
+    foto: "../foto-termas-generica.jpg",
+    fotoAlt: "Pileta climatizada de un complejo termal",
+    ilustrativa: true,
+    nombre: "Termas del Guaychú",
+    puerta: "full-day",
+    tags: ["full-day", "termas"],
+    transporte: "Bus Mix",
+    operador: "Punto de Partida",
+    fechas: "3 oct · 15 nov",
+    duracion: "1 día",
+    precio: 105990,
+    precioLista: 124990,
+    moneda: "ARS",
+    reserva: 0,
+    incluye: [
+      "Traslado ida y vuelta en el día",
+      "Entrada al complejo termal",
+      "Visita a regionales",
+      "Coordinador permanente"
+    ]
+  },
+  {
+    id: "fd-rosario-san-nicolas",
+    foto: "../foto-rosario.jpg",
+    fotoAlt: "El Monumento a la Bandera, en Rosario",
+    fotoCredito: "Ermell · CC BY-SA 4.0",
+    nombre: "Rosario y Virgen de San Nicolás",
+    puerta: "full-day",
+    tags: ["full-day"],
+    transporte: "Bus Mix",
+    operador: "Punto de Partida",
+    fechas: "24 oct · 8 y 21 nov",
+    duracion: "1 día",
+    precio: 105990,
+    precioLista: 124990,
+    moneda: "ARS",
+    reserva: 0,
+    incluye: [
+      "Traslado ida y vuelta en el día",
+      "Almuerzo completo con bebida",
+      "Visita al Santuario de la Virgen de San Nicolás",
+      "Visita al Monumento a la Bandera",
+      "Tiempo libre en la costanera",
+      "Coordinador permanente"
+    ]
+  },
+  {
+    id: "fd-chascomus",
+    foto: "../foto-chascomus.jpg",
+    fotoAlt: "Atardecer sobre la laguna de Chascomús",
+    fotoCredito: "Pinpa82 · CC BY-SA 4.0",
+    nombre: "Chascomús",
+    puerta: "full-day",
+    tags: ["full-day"],
+    transporte: "Bus Mix",
+    operador: "Punto de Partida",
+    fechas: "17 oct · 8 nov",
+    duracion: "1 día",
+    precio: 105990,
+    precioLista: 124990,
+    moneda: "ARS",
+    reserva: 0,
+    incluye: [
+      "Traslado ida y vuelta en el día",
+      "Visita guiada por la localidad",
+      "Almuerzo con parrilla libre",
+      "Tiempo libre en la costanera",
+      "Coordinador permanente"
+    ]
+  },
+  {
+    id: "fd-villa-elisa",
+    foto: "../foto-termas-generica.jpg",
+    fotoAlt: "Pileta climatizada de un complejo termal",
+    ilustrativa: true,
+    nombre: "Termas de Villa Elisa",
+    puerta: "full-day",
+    tags: ["full-day", "termas"],
+    transporte: "Bus Mix",
+    operador: "Punto de Partida",
+    fechas: "4 oct · 1 y 29 nov",
+    duracion: "1 día",
+    precio: 105990,
+    precioLista: 124990,
+    moneda: "ARS",
+    reserva: 0,
+    incluye: [
+      "Traslado ida y vuelta en el día",
+      "Entrada al complejo termal",
+      "Visita a regionales",
+      "Coordinador permanente"
+    ]
+  },
+  {
+    id: "fd-villa-elisa-madre",
+    foto: "../foto-termas-generica.jpg",
+    fotoAlt: "Pileta climatizada de un complejo termal",
+    ilustrativa: true,
+    nombre: "Termas de Villa Elisa — Día de la Madre",
+    puerta: "full-day",
+    tags: ["full-day", "termas"],
+    transporte: "Bus Mix",
+    operador: "Punto de Partida",
+    fechas: "18 oct",
+    duracion: "1 día",
+    precio: 105990,
+    precioLista: 124990,
+    moneda: "ARS",
+    reserva: 0,
+    destacado: "Pagan 3 y mamá viaja gratis",
+    incluye: [
+      "Traslado ida y vuelta en el día",
+      "Entrada al complejo termal",
+      "Visita a regionales",
+      "Coordinador permanente"
+    ]
+  },
+  {
+    id: "fd-san-pedro",
+    foto: "../landing-san-pedro.jpg",
+    fotoAlt: "La Campiña de San Pedro sobre el río",
+    nombre: "San Pedro y La Campiña",
+    puerta: "full-day",
+    tags: ["full-day"],
+    transporte: "Bus Mix",
+    operador: "Punto de Partida",
+    fechas: "4 y 25 oct · 1 y 22 nov",
+    duracion: "1 día",
+    precio: 105990,
+    precioLista: 124990,
+    moneda: "ARS",
+    reserva: 0,
+    incluye: [
+      "Traslado ida y vuelta en el día",
+      "Visita guiada por la campiña",
+      "Almuerzo con parrilla libre",
+      "Tiempo libre en Vuelta de Obligado",
+      "Coordinador permanente"
+    ]
+  },
+  {
+    id: "fd-colon",
+    foto: "../foto-colon.jpg",
+    fotoAlt: "Atardecer sobre el río Uruguay en Colón",
+    fotoCredito: "Paula Kindsvater · CC BY-SA 4.0",
+    nombre: "Termas de Colón",
+    puerta: "full-day",
+    tags: ["full-day", "termas"],
+    transporte: "Bus Mix",
+    operador: "Punto de Partida",
+    fechas: "31 oct · 28 nov",
+    duracion: "1 día",
+    precio: 99990,
+    precioLista: 114990,
+    moneda: "ARS",
+    reserva: 0,
+    incluye: [
+      "Traslado ida y vuelta en el día",
+      "Entrada al complejo termal",
+      "Visita a regionales",
+      "Coordinador permanente"
+    ]
+  },
+
+  /* ---------- ESCAPADAS EN BUS — Oct a Dic ---------- */
+  {
+    id: "bus-federacion-clima-termal",
+    foto: "../foto-termas-generica.jpg",
+    fotoAlt: "Pileta climatizada del complejo termal de Federación",
+    ilustrativa: true,
+    nombre: "Termas de Federación",
+    subtitulo: "Hotel Clima Termal Suite",
+    puerta: "escapadas",
+    tags: ["escapadas", "termas"],
+    transporte: "Bus semicama",
+    fechas: "Octubre a diciembre",
+    duracion: "5 días / 4 noches",
+    hotel: "Clima Termal Suite / Ex Apart La Fuente",
+    precio: 268340,
+    moneda: "ARS",
+    reserva: 15000,
+    circuitos: [
+      { nombre: "Desayuno", precio: 268340, tercerPax: 188340 },
+      { nombre: "Media pensión", precio: 356580, tercerPax: 276580 }
+    ],
+    incluye: ["Bus semicama ida y vuelta", "4 noches de alojamiento", "Salida grupal con coordinador"]
+  },
+  {
+    id: "bus-federacion-paraiso",
+    foto: "../foto-paraiso-termal.jpg",
+    fotoAlt: "Pileta del Hotel Paraíso Termal, en Federación",
+    fotoCredito: "Hotel Paraíso Termal",
+    nombre: "Termas de Federación",
+    subtitulo: "Hotel Paraíso Termal",
+    puerta: "escapadas",
+    tags: ["escapadas", "termas"],
+    transporte: "Bus semicama",
+    fechas: "Octubre a diciembre",
+    duracion: "5 días / 4 noches",
+    hotel: "Paraíso Termal / Guarumba",
+    precio: 327180,
+    moneda: "ARS",
+    reserva: 15000,
+    circuitos: [
+      { nombre: "Desayuno", precio: 327180, tercerPax: 237180 },
+      { nombre: "Media pensión", precio: 409580, tercerPax: 319580 }
+    ],
+    incluye: ["Bus semicama ida y vuelta", "4 noches de alojamiento", "Salida grupal con coordinador"]
+  },
+  {
+    id: "bus-san-bernardo",
+    foto: "../foto-playa-carpas.jpg",
+    fotoAlt: "Carpas y sombrillas en la costa atlántica",
+    ilustrativa: true,
+    nombre: "San Bernardo",
+    puerta: "escapadas",
+    tags: ["escapadas", "playa"],
+    transporte: "Bus semicama",
+    fechas: "Diciembre",
+    duracion: "5 días / 4 noches",
+    hotel: "The New Place — piscina y comedor",
+    precio: 292180,
+    moneda: "ARS",
+    reserva: 15000,
+    circuitos: [
+      { nombre: "Desayuno", precio: 292180 },
+      { nombre: "Pensión completa", precio: 439250 }
+    ],
+    incluye: [
+      "Bus semicama ida y vuelta",
+      "4 noches de alojamiento",
+      "Salida grupal con coordinador",
+      "Circuito 2: merienda express, noche de baile, cine o karaoke, casa de alfajores, aquagym, juegos de mesa y city tour"
+    ]
+  },
+  {
+    id: "bus-copahue",
+    foto: "../foto-termas-generica.jpg",
+    fotoAlt: "Pileta termal climatizada",
+    ilustrativa: true,
+    nombre: "Termas de Copahue",
+    puerta: "escapadas",
+    tags: ["escapadas", "termas"],
+    transporte: "Bus cama",
+    fechas: "Diciembre",
+    duracion: "7 días / 4 noches",
+    hotel: "Termas de Copahue",
+    precio: 940180,
+    moneda: "ARS",
+    reserva: 15000,
+    circuitos: [
+      { nombre: "Media pensión", precio: 940180 },
+      { nombre: "Pensión completa", precio: 1074980 }
+    ],
+    incluye: ["Bus cama ida y vuelta", "4 noches de alojamiento", "Visita a Villa Caviahue", "Salida grupal con coordinador"]
+  },
+  {
+    id: "bus-la-falda",
+    foto: "../foto-sierras.jpg",
+    fotoAlt: "Sierras al atardecer",
+    ilustrativa: true,
+    nombre: "La Falda",
+    puerta: "escapadas",
+    tags: ["escapadas", "sierras"],
+    transporte: "Bus semicama",
+    fechas: "Octubre a diciembre",
+    duracion: "6 días / 4 noches",
+    hotel: "San Jorge — habitación standard",
+    precio: 348640,
+    moneda: "ARS",
+    reserva: 15000,
+    circuitos: [
+      { nombre: "Pensión completa", precio: 348640 },
+      { nombre: "Pensión completa + La Cumbre y Los Cocos", precio: 376580 }
+    ],
+    incluye: ["Bus semicama ida y vuelta", "4 noches de alojamiento", "Piscina climatizada", "Coordinador"]
+  },
+  {
+    id: "bus-catamarca-magica",
+    foto: "../foto-quebrada-norte.jpg",
+    fotoAlt: "Quebrada de cerros rojizos del noroeste argentino",
+    ilustrativa: true,
+    nombre: "Catamarca Mágica",
+    puerta: "escapadas",
+    tags: ["escapadas", "norte"],
+    transporte: "Bus cama",
+    fechas: "Octubre y noviembre",
+    duracion: "7 días / 4 noches",
+    hotel: "De Turismo, Tinogasta",
+    precio: 815440,
+    moneda: "ARS",
+    reserva: 15000,
+    circuitos: [
+      { nombre: "Media pensión", precio: 815440 },
+      { nombre: "Media pensión + Ruta de los SeisMil", precio: 885440 }
+    ],
+    incluye: ["Bus cama ida y vuelta", "4 noches de alojamiento", "Ruta del Adobe", "Termas de Fiambalá (sin entradas)", "Salida grupal con coordinador"]
+  },
+  {
+    id: "bus-iguazu",
+    foto: "../foto-iguazu.jpg",
+    fotoAlt: "Salto de las Cataratas del Iguazú",
+    fotoCredito: "Bernard Gagnon · CC BY-SA 4.0",
+    nombre: "Cataratas del Iguazú",
+    puerta: "escapadas",
+    tags: ["escapadas", "litoral"],
+    transporte: "Bus semicama",
+    fechas: "Octubre y noviembre",
+    duracion: "7 días / 4 noches",
+    hotel: "Tropical, Puerto Iguazú",
+    precio: 571180,
+    moneda: "ARS",
+    reserva: 15000,
+    circuitos: [{ nombre: "Media pensión", precio: 571180 }],
+    incluye: [
+      "Bus semicama ida y vuelta",
+      "4 noches de alojamiento",
+      "Ruinas de San Ignacio y Minas de Wanda",
+      "Cataratas lado argentino y lado brasilero (sin entradas)",
+      "Salida grupal con coordinador"
+    ]
+  },
+  {
+    id: "bus-laguna-brava-sep",
+    foto: "../foto-canon-valles.jpg",
+    fotoAlt: "Cañón y formaciones rocosas de los Valles Milenarios",
+    ilustrativa: true,
+    nombre: "Laguna Brava y Valles Milenarios",
+    subtitulo: "Salida de septiembre",
+    puerta: "escapadas",
+    tags: ["escapadas", "norte"],
+    transporte: "Bus cama",
+    fechas: "Salida 20 de septiembre",
+    duracion: "7 días / 4 noches",
+    hotel: "Cuesta de Miranda 2, Villa Unión",
+    precio: 726440,
+    moneda: "ARS",
+    reserva: 15000,
+    destacado: "Nuevo destino",
+    circuitos: [
+      { nombre: "Desayuno", precio: 726440 },
+      { nombre: "Media pensión", precio: 872480 },
+      { nombre: "Media pensión + Talampaya y Valle de la Luna", precio: 948980 }
+    ],
+    incluye: ["Bus cama ida y vuelta", "4 noches de alojamiento", "Laguna Brava en excursión 4x4", "Salida grupal con coordinador"]
+  },
+  {
+    id: "bus-laguna-brava-oct",
+    foto: "../foto-canon-valles.jpg",
+    fotoAlt: "Cañón y formaciones rocosas de los Valles Milenarios",
+    ilustrativa: true,
+    nombre: "Laguna Brava y Valles Milenarios",
+    subtitulo: "Salidas de octubre y noviembre",
+    puerta: "escapadas",
+    tags: ["escapadas", "norte"],
+    transporte: "Bus cama",
+    fechas: "Octubre y noviembre",
+    duracion: "7 días / 4 noches",
+    hotel: "Cuesta de Miranda 2, Villa Unión",
+    precio: 737980,
+    moneda: "ARS",
+    reserva: 15000,
+    destacado: "Nuevo destino",
+    circuitos: [
+      { nombre: "Desayuno", precio: 737980 },
+      { nombre: "Media pensión", precio: 894640 },
+      { nombre: "Media pensión + Talampaya y Valle de la Luna", precio: 971180 }
+    ],
+    incluye: ["Bus cama ida y vuelta", "4 noches de alojamiento", "Laguna Brava en excursión 4x4", "Salida grupal con coordinador"]
+  },
+  {
+    id: "bus-mendoza-cacheuta",
+    foto: "../foto-vinedos.jpg",
+    fotoAlt: "Viñedos al atardecer con la cordillera de fondo",
+    ilustrativa: true,
+    nombre: "Mendoza y Termas de Cacheuta",
+    subtitulo: "En bus semicama",
+    puerta: "escapadas",
+    tags: ["escapadas", "termas", "cuyo"],
+    transporte: "Bus semicama",
+    fechas: "Noviembre",
+    duracion: "6 días / 4 noches",
+    hotel: "Cordón del Plata",
+    precio: 481740,
+    moneda: "ARS",
+    reserva: 15000,
+    circuitos: [
+      { nombre: "Desayuno", precio: 481740 },
+      { nombre: "Media pensión + tour Mendoza y bodega", precio: 605480 },
+      { nombre: "Media pensión + Alta Montaña", precio: 711440 }
+    ],
+    incluye: ["Bus semicama ida y vuelta", "4 noches de alojamiento", "Termas de Cacheuta (sin entrada)", "Salida grupal con coordinador"]
+  },
+  {
+    id: "bus-puerto-madryn",
+    foto: "../foto-fauna-marina.jpg",
+    fotoAlt: "Lobos marinos en la costa patagónica",
+    ilustrativa: true,
+    nombre: "Puerto Madryn",
+    puerta: "escapadas",
+    tags: ["escapadas", "patagonia"],
+    transporte: "Bus semicama",
+    fechas: "Octubre y noviembre",
+    duracion: "7 días / 4 noches",
+    hotel: "Rayentray — habitación con vista al mar",
+    precio: 632880,
+    moneda: "ARS",
+    reserva: 15000,
+    circuitos: [
+      { nombre: "Desayuno", precio: 632880 },
+      { nombre: "Media pensión", precio: 679980 },
+      { nombre: "Media pensión + avistaje de ballenas", precio: 998180 }
+    ],
+    incluye: [
+      "Bus semicama ida y vuelta",
+      "4 noches de alojamiento",
+      "Spa y piscina",
+      "Valle Inferior: Trelew, Rawson, Playa Unión y Gaimán",
+      "Salida grupal con coordinador"
+    ]
+  },
+  {
+    id: "bus-carlos-paz",
+    foto: "../landing-carlos-paz.jpg",
+    fotoAlt: "El Reloj Cucú, ícono de Villa Carlos Paz",
+    fotoCredito: "Ezarate · CC BY-SA",
+    nombre: "Villa Carlos Paz",
+    puerta: "escapadas",
+    tags: ["escapadas", "sierras"],
+    transporte: "Bus semicama",
+    fechas: "Octubre a diciembre",
+    duracion: "6 días / 4 noches",
+    hotel: "El Mirador",
+    precio: 314740,
+    moneda: "ARS",
+    reserva: 15000,
+    circuitos: [
+      { nombre: "Desayuno", precio: 314740 },
+      { nombre: "Media pensión", precio: 357940, nota: "$371.480 en noviembre y diciembre" },
+      { nombre: "Pensión completa", precio: 415640, nota: "$442.680 en noviembre y diciembre" }
+    ],
+    incluye: ["Bus semicama ida y vuelta", "4 noches de alojamiento", "Hidromasaje climatizado, gimnasio y sala de juegos", "Coordinador"]
+  },
+
+  /* ---------- VOLÁ LEJOS, PAGÁ EN CUOTAS — aéreos ---------- */
+  {
+    id: "aereo-bariloche",
+    foto: "../foto-patagonia-lagos.jpg",
+    fotoAlt: "Lago y cerros de la Patagonia andina",
+    ilustrativa: true,
+    nombre: "Bariloche",
+    puerta: "aereos",
+    tags: ["aereos", "patagonia"],
+    transporte: "Aéreo JetSmart",
+    fechas: "26, 27 y 31 oct · 1, 7, 8, 14 y 15 nov",
+    duracion: "6 días / 5 noches",
+    hotel: "Patagonia Sur",
+    precio: 616780,
+    moneda: "ARS",
+    reserva: 15000,
+    destacado: "Descuento en triple: $181.000",
+    circuitos: [
+      { nombre: "Desayuno buffet", precio: 616780 },
+      { nombre: "Media pensión", precio: 765380 },
+      { nombre: "Media pensión + 7 lagos con San Martín de los Andes", precio: 848740 }
+    ],
+    incluye: [
+      "Aéreo ida y vuelta con equipaje incluido",
+      "Transfer in/out",
+      "5 noches de alojamiento",
+      "Llao Llao con punto panorámico, Cerro Campanario y fábrica de chocolates",
+      "Cobertura de salud"
+    ]
+  },
+  {
+    id: "aereo-salta",
+    foto: "../foto-cafayate.jpg",
+    fotoAlt: "Quebrada de las Conchas, Cafayate",
+    fotoCredito: "Bernard Gagnon · CC BY-SA 4.0",
+    nombre: "Salta",
+    puerta: "aereos",
+    tags: ["aereos", "norte"],
+    transporte: "Aéreo JetSmart",
+    fechas: "24 oct · 14 y 25 nov · 1 dic",
+    duracion: "5 días / 4 noches",
+    hotel: "Mirador del Cerro",
+    precio: 562640,
+    moneda: "ARS",
+    reserva: 15000,
+    circuitos: [
+      { nombre: "Desayuno buffet", precio: 562640 },
+      { nombre: "Media pensión", precio: 684880 },
+      { nombre: "Media pensión + Cafayate y bodega", precio: 802940 }
+    ],
+    incluye: [
+      "Aéreo ida y vuelta con equipaje incluido",
+      "Transfer in/out",
+      "4 noches de alojamiento",
+      "City tour, Quebrada San Lorenzo, Cerro San Bernardo y mercado artesanal",
+      "Cobertura de salud"
+    ]
+  },
+  {
+    id: "aereo-mendoza-cacheuta",
+    foto: "../foto-vinedos.jpg",
+    fotoAlt: "Viñedos al atardecer con la cordillera de fondo",
+    ilustrativa: true,
+    nombre: "Mendoza y Termas de Cacheuta",
+    subtitulo: "En avión, salida de diciembre",
+    puerta: "aereos",
+    tags: ["aereos", "termas", "cuyo"],
+    transporte: "Aéreo JetSmart",
+    fechas: "Salida 1 de diciembre",
+    duracion: "5 días / 4 noches",
+    hotel: "M. Céntrico",
+    precio: 642440,
+    moneda: "ARS",
+    reserva: 15000,
+    circuitos: [
+      { nombre: "Desayuno buffet", precio: 642440 },
+      { nombre: "Media pensión + tour Mendoza y bodega", precio: 824780 },
+      { nombre: "Media pensión + Alta Montaña", precio: 924780 }
+    ],
+    incluye: [
+      "Aéreo ida y vuelta con equipaje incluido",
+      "Transfer in/out",
+      "4 noches de alojamiento",
+      "Termas de Cacheuta (sin entrada)",
+      "Cobertura de salud"
+    ]
+  },
+  {
+    id: "aereo-catamarca",
+    foto: "../foto-quebrada-norte.jpg",
+    fotoAlt: "Quebrada de cerros rojizos del noroeste argentino",
+    ilustrativa: true,
+    nombre: "Catamarca",
+    puerta: "aereos",
+    tags: ["aereos", "norte", "termas"],
+    transporte: "Aéreo Aerolíneas Argentinas",
+    fechas: "Salidas 14 de octubre",
+    duracion: "5 días / 4 noches",
+    hotel: "De Turismo, Tinogasta",
+    precio: 1388340,
+    moneda: "ARS",
+    reserva: 15000,
+    circuitos: [{ nombre: "Media pensión", precio: 1388340 }],
+    incluye: [
+      "Aéreo ida y vuelta con equipaje incluido",
+      "Transfer in/out",
+      "4 noches de alojamiento",
+      "Ruta del Adobe y Termas de Fiambalá (sin entradas)",
+      "Cobertura de salud"
+    ]
+  },
+  {
+    id: "aereo-esquel-tulipanes",
+    foto: "../foto-patagonia-bosque.jpg",
+    fotoAlt: "Lago y bosque andino patagónico",
+    ilustrativa: true,
+    nombre: "Esquel y Campo de Tulipanes",
+    puerta: "aereos",
+    tags: ["aereos", "patagonia"],
+    transporte: "Aéreo",
+    fechas: "Salida 28 de octubre",
+    duracion: "4 días / 3 noches",
+    hotel: "Tehuelche",
+    precio: 1402780,
+    moneda: "ARS",
+    reserva: 15000,
+    circuitos: [
+      { nombre: "Desayuno", precio: 1402780 },
+      { nombre: "Desayuno + PN Los Alerces", precio: 1499980 },
+      { nombre: "Media pensión + PN Los Alerces", precio: 1572980 }
+    ],
+    incluye: [
+      "Aéreo ida y vuelta con equipaje incluido",
+      "Transfer in/out",
+      "3 noches de alojamiento",
+      "Campo de Tulipanes, Cascadas Nant y Fall y Trevelin (sin entradas)",
+      "Cobertura de salud"
+    ]
+  },
+  {
+    id: "aereo-calafate-ushuaia",
+    foto: "../foto-ushuaia.jpg",
+    fotoAlt: "Valle Carbajal, Tierra del Fuego",
+    fotoCredito: "Godot13 · CC BY-SA 4.0",
+    nombre: "El Calafate y Ushuaia",
+    puerta: "aereos",
+    tags: ["aereos", "patagonia"],
+    transporte: "Aéreo Aerolíneas Argentinas",
+    fechas: "Septiembre a diciembre",
+    duracion: "7 días / 6 noches",
+    hotel: "Ushuaia (Ushuaia) + Tehuel (El Calafate)",
+    precio: 1543840,
+    moneda: "ARS",
+    reserva: 15000,
+    destacado: "Descuento en triple: $155.680",
+    circuitos: [
+      { nombre: "Desayuno", precio: 1543840 },
+      { nombre: "Desayuno buffet en Ushuaia + media pensión en El Calafate", precio: 1633040 }
+    ],
+    incluye: [
+      "Aéreo ida y vuelta con equipaje incluido",
+      "Transfer in/out",
+      "6 noches de alojamiento",
+      "Parque Nacional Tierra del Fuego y Parque Nacional Los Glaciares (sin entradas)",
+      "Cobertura de salud"
+    ]
+  },
+  {
+    id: "brasil-buzios-arraial-coronado",
+    foto: "../foto-playa-generica.jpg",
+    fotoAlt: "Playa de aguas turquesas en Búzios",
+    ilustrativa: true,
+    nombre: "Búzios y Arraial do Cabo",
+    subtitulo: "Hotel Coronado Beach",
+    puerta: "aereos",
+    tags: ["aereos", "brasil", "playa"],
+    transporte: "Aéreo",
+    operador: "Opciones Argentinas",
+    fechas: "25 oct · 8 nov · 6 dic",
+    duracion: "7 días / 6 noches",
+    hotel: "Coronado Beach — frente a la playa de João Fernandes",
+    precio: 1140,
+    moneda: "USD",
+    reserva: 50,
+    circuitos: [
+      { nombre: "Desayuno y merienda", precio: 1140 },
+      { nombre: "Media pensión y merienda", precio: 1250 },
+      { nombre: "Media pensión + excursión Arraial do Cabo", precio: 1310 }
+    ],
+    incluye: ["Aéreo ida y vuelta con equipaje incluido", "Traslados in/out", "6 noches de alojamiento", "Cobertura de salud"]
+  },
+  {
+    id: "brasil-buzios-arraial-brisas",
+    foto: "../foto-playa-generica.jpg",
+    fotoAlt: "Playa de aguas turquesas en Búzios",
+    ilustrativa: true,
+    nombre: "Búzios y Arraial do Cabo",
+    subtitulo: "Pousada Brisas de Buzios",
+    puerta: "aereos",
+    tags: ["aereos", "brasil", "playa"],
+    transporte: "Aéreo",
+    operador: "Opciones Argentinas",
+    fechas: "25 oct · 8 nov · 6 dic",
+    duracion: "7 días / 6 noches",
+    hotel: "Pousada Brisas de Buzios",
+    precio: 930,
+    moneda: "USD",
+    reserva: 50,
+    circuitos: [
+      { nombre: "Desayuno", precio: 930 },
+      { nombre: "Desayuno + excursión Arraial do Cabo", precio: 1040 }
+    ],
+    incluye: ["Aéreo ida y vuelta con equipaje incluido", "Traslados in/out", "6 noches de alojamiento", "Cobertura de salud"]
+  },
+  {
+    id: "brasil-cabo-frio-rio",
+    foto: "../foto-rio.jpg",
+    fotoAlt: "Atardecer sobre Río de Janeiro y Copacabana",
+    nombre: "Cabo Frío y Río de Janeiro",
+    puerta: "aereos",
+    tags: ["aereos", "brasil", "playa"],
+    transporte: "Aéreo",
+    operador: "Opciones Argentinas",
+    fechas: "Salida 28 de noviembre",
+    duracion: "8 días / 7 noches",
+    hotel: "Copa Sul (Río, 3 noches) + Marlen (Cabo Frío, 4 noches)",
+    precio: 1100,
+    moneda: "USD",
+    reserva: 50,
+    circuitos: [
+      { nombre: "Desayuno", precio: 1100 },
+      { nombre: "Media pensión", precio: 1300 },
+      { nombre: "Media pensión + full day Río: Cristo y Pan de Azúcar", precio: 1420 }
+    ],
+    incluye: ["Aéreo ida y vuelta con equipaje incluido", "Traslados in/out", "7 noches de alojamiento", "Cobertura de salud"]
+  },
+  {
+    id: "brasil-maceio",
+    foto: "../foto-playa-generica.jpg",
+    fotoAlt: "Playa de aguas turquesas en Maceió",
+    ilustrativa: true,
+    nombre: "Maceió",
+    puerta: "aereos",
+    tags: ["aereos", "brasil", "playa"],
+    transporte: "Aéreo",
+    operador: "Opciones Argentinas",
+    fechas: "24 oct · 28 nov · 5 dic",
+    duracion: "9 días / 7 noches",
+    hotel: "Ponta Verde",
+    precio: 1250,
+    moneda: "USD",
+    reserva: 50,
+    circuitos: [
+      { nombre: "Desayuno", precio: 1250, tercerPax: 1160, nota: "$1.360 en la salida del 5 de diciembre" },
+      { nombre: "Media pensión", precio: 1410, tercerPax: 1320, nota: "$1.520 en la salida del 5 de diciembre" },
+      { nombre: "Media pensión + excursión a Maragogi", precio: 1460, tercerPax: 1370, nota: "$1.570 en la salida del 5 de diciembre" }
+    ],
+    incluye: ["Aéreo ida y vuelta con equipaje incluido", "Traslados in/out", "7 noches de alojamiento", "Cobertura de salud"]
+  },
+  {
+    id: "brasil-natal-2026",
+    foto: "../foto-natal.jpg",
+    fotoAlt: "Dunas de Jenipabu, Natal",
+    fotoCredito: "Maria Eduarda Trajano Mangueira de Melo · CC BY-SA 4.0",
+    nombre: "Natal",
+    subtitulo: "Hotel Visual Praia — salidas de noviembre y diciembre",
+    puerta: "aereos",
+    tags: ["aereos", "brasil", "playa"],
+    transporte: "Aéreo",
+    operador: "Opciones Argentinas",
+    fechas: "8 nov · 6 dic",
+    duracion: "7 días / 6 noches",
+    hotel: "Visual Praia, Ponta Negra",
+    precio: 1190,
+    moneda: "USD",
+    reserva: 50,
+    circuitos: [
+      { nombre: "Desayuno", precio: 1190, nota: "$1.280 en la salida del 6 de diciembre" },
+      { nombre: "Media pensión", precio: 1290, nota: "$1.380 en la salida del 6 de diciembre" },
+      { nombre: "Media pensión + excursión a Pipa", precio: 1320, nota: "$1.410 en la salida del 6 de diciembre" }
+    ],
+    incluye: ["Aéreo ida y vuelta con equipaje incluido", "Traslados in/out", "6 noches de alojamiento", "Cobertura de salud"]
+  },
+  {
+    id: "brasil-praia-do-frances",
+    foto: "../foto-playa-generica.jpg",
+    fotoAlt: "Playa de aguas turquesas en Praia do Francês",
+    ilustrativa: true,
+    nombre: "Praia do Francês",
+    puerta: "aereos",
+    tags: ["aereos", "brasil", "playa"],
+    transporte: "Aéreo",
+    operador: "Opciones Argentinas",
+    fechas: "24 oct · 28 nov · 5 dic",
+    duracion: "9 días / 7 noches",
+    hotel: "Ponta Verde Frances — servicio de playa, frente al mar",
+    precio: 1400,
+    moneda: "USD",
+    reserva: 50,
+    circuitos: [
+      { nombre: "Desayuno", precio: 1400, tercerPax: 1210, nota: "$1.510 en la salida del 5 de diciembre" },
+      { nombre: "Media pensión", precio: 1680, tercerPax: 1490, nota: "$1.790 en la salida del 5 de diciembre" }
+    ],
+    incluye: ["Aéreo ida y vuelta con equipaje incluido", "Traslados in/out", "7 noches de alojamiento", "Cobertura de salud"]
+  },
+
+  /* ---------- VERANO 2027 — Brasil ---------- */
+  {
+    id: "v27-buzios",
+    foto: "../foto-playa-generica.jpg",
+    fotoAlt: "Playa de aguas turquesas en el nordeste brasilero",
+    ilustrativa: true,
+    nombre: "Búzios",
+    puerta: "verano-2027",
+    tags: ["verano-2027", "brasil", "playa"],
+    transporte: "Aéreo",
+    fechas: "6, 10, 17, 20 y 24 enero · 17 y 19 febrero",
+    duracion: "8 días / 7 noches",
+    hotel: "Pousada dos Coqueiros",
+    precio: 1349,
+    moneda: "USD",
+    reserva: 50,
+    destacado: "Promo lanzamiento · cupos limitados",
+    incluye: ["Aéreo ida y vuelta", "Transfer in/out", "7 noches con desayuno", "Carry on 12 kg + artículo personal", "Asistencia médica"]
+  },
+  {
+    id: "v27-natal",
+    foto: "../foto-natal.jpg",
+    fotoAlt: "Dunas de Jenipabu, Natal",
+    fotoCredito: "Maria Eduarda Trajano Mangueira de Melo · CC BY-SA 4.0",
+    nombre: "Natal",
+    subtitulo: "Hotel Aram Ponta Negra — salidas de enero",
+    puerta: "verano-2027",
+    tags: ["verano-2027", "brasil", "playa"],
+    transporte: "Aéreo",
+    fechas: "7 y 21 enero",
+    duracion: "8 días / 7 noches",
+    hotel: "Aram Ponta Negra",
+    precio: 1599,
+    moneda: "USD",
+    reserva: 50,
+    destacado: "Promo lanzamiento · cupos limitados",
+    incluye: ["Aéreo ida y vuelta", "Transfer in/out", "7 noches con desayuno", "Equipaje 20 kg"]
+  },
+  {
+    id: "v27-praia-do-forte",
+    foto: "../foto-playa-generica.jpg",
+    fotoAlt: "Playa de aguas turquesas en el nordeste brasilero",
+    ilustrativa: true,
+    nombre: "Praia do Forte",
+    puerta: "verano-2027",
+    tags: ["verano-2027", "brasil", "playa"],
+    transporte: "Aéreo",
+    fechas: "6, 13, 20 y 27 enero",
+    duracion: "8 días / 7 noches",
+    hotel: "Iberostar Waves Bahia",
+    precio: 2450,
+    moneda: "USD",
+    reserva: 50,
+    destacado: "All inclusive",
+    incluye: ["Aéreo ida y vuelta", "Transfer in/out", "7 noches all inclusive", "Equipaje 20 kg"]
+  },
+  {
+    id: "v27-salvador-enero",
+    foto: "../foto-salvador.jpg",
+    fotoAlt: "El Pelourinho, centro histórico de Salvador de Bahía",
+    fotoCredito: "Paul R. Burley · CC BY-SA 4.0",
+    nombre: "Salvador de Bahía",
+    subtitulo: "Salidas de enero",
+    puerta: "verano-2027",
+    tags: ["verano-2027", "brasil", "playa"],
+    transporte: "Aéreo",
+    fechas: "6, 13, 20 y 27 enero",
+    duracion: "8 días / 7 noches",
+    hotel: "Catussaba Resort Hotel",
+    precio: 1799,
+    moneda: "USD",
+    reserva: 50,
+    destacado: "Promo lanzamiento · cupos limitados",
+    incluye: ["Aéreo ida y vuelta", "Transfer in/out", "7 noches con desayuno", "Equipaje 20 kg"]
+  },
+  {
+    id: "v27-salvador-febrero",
+    foto: "../foto-salvador.jpg",
+    fotoAlt: "El Pelourinho, centro histórico de Salvador de Bahía",
+    fotoCredito: "Paul R. Burley · CC BY-SA 4.0",
+    nombre: "Salvador de Bahía",
+    subtitulo: "Salidas de febrero",
+    puerta: "verano-2027",
+    tags: ["verano-2027", "brasil", "playa"],
+    transporte: "Aéreo",
+    fechas: "2 y 10 febrero",
+    duracion: "8 días / 7 noches",
+    hotel: "Catussaba Resort Hotel",
+    precio: 1999,
+    moneda: "USD",
+    reserva: 50,
+    destacado: "Promo lanzamiento · cupos limitados",
+    incluye: ["Aéreo ida y vuelta", "Transfer in/out", "7 noches con desayuno", "Equipaje 20 kg"]
+  },
+  {
+    id: "v27-praia-dos-ingleses",
+    foto: "../foto-florianopolis.jpg",
+    fotoAlt: "La costanera de Florianópolis",
+    nombre: "Praia dos Ingleses",
+    subtitulo: "Salida grupal acompañada",
+    puerta: "verano-2027",
+    tags: ["verano-2027", "brasil", "playa"],
+    transporte: "Aéreo",
+    fechas: "Salida 15 de enero de 2027",
+    duracion: "8 días / 7 noches",
+    hotel: "Porto Sol Ingleses o similar",
+    precio: 1599,
+    moneda: "USD",
+    reserva: 50,
+    destacado: "Seña USD 250 + 7 cuotas de USD 200",
+    incluye: ["Aéreo ida y vuelta con equipaje 20 kg", "Transfer in/out", "7 noches con desayuno", "Coordinador permanente"]
+  },
+
+  /* ---------- VERANO 2027 — Argentina, La Familia Turismo (leg. 18064) ---------- */
+  {
+    id: "v27-gesell-smyrna",
+    foto: "../foto-playa-carpas.jpg",
+    fotoAlt: "Carpas y sombrillas en la playa de Villa Gesell",
+    ilustrativa: true,
+    nombre: "Villa Gesell",
+    subtitulo: "Hotel Smyrna ⭐⭐⭐",
+    puerta: "verano-2027",
+    tags: ["verano-2027", "playa"],
+    transporte: "Bus semicama",
+    operador: "La Familia Turismo",
+    fechas: "Enero y febrero",
+    duracion: "4 noches con 4 desayunos",
+    hotel: "Smyrna — 3 estrellas, a 50 metros del mar",
+    precio: 376000,
+    moneda: "ARS",
+    reserva: 5640,
+    reservaNota: "1,5% del valor del paquete",
+    ocupaciones: [
+      { nombre: "Single", enero: 747000, febrero: 703000 },
+      { nombre: "Doble", enero: 477000, febrero: 455000 },
+      { nombre: "Triple", enero: 417000, febrero: 402000 },
+      { nombre: "Cuádruple", enero: 387000, febrero: 376000 }
+    ],
+    incluye: ["Bus semicama ida y vuelta", "4 noches con 4 desayunos", "Ascenso por zona sur, norte u oeste"],
+    noIncluye: ["Traslados de llegada y salida"]
+  },
+  {
+    id: "v27-gesell-coliseo",
+    foto: "../foto-playa-carpas.jpg",
+    fotoAlt: "Carpas y sombrillas en la playa de Villa Gesell",
+    ilustrativa: true,
+    nombre: "Villa Gesell",
+    subtitulo: "Hotel Coliseo ⭐⭐⭐⭐",
+    puerta: "verano-2027",
+    tags: ["verano-2027", "playa"],
+    transporte: "Bus semicama",
+    operador: "La Familia Turismo",
+    fechas: "Enero y febrero",
+    duracion: "4 noches con 4 desayunos",
+    hotel: "Coliseo — 4 estrellas, frente al mar, piscina climatizada descubierta",
+    precio: 515000,
+    moneda: "ARS",
+    reserva: 7725,
+    reservaNota: "1,5% del valor del paquete",
+    ocupaciones: [
+      { nombre: "Doble", enero: 724400, febrero: 705000 },
+      { nombre: "Triple", enero: 612100, febrero: 599900 },
+      { nombre: "Cuádruple", enero: 567000, febrero: 557000 },
+      { nombre: "Quíntuple", enero: 523000, febrero: 515000 }
+    ],
+    incluye: ["Bus semicama ida y vuelta", "4 noches con 4 desayunos", "Ascenso por zona sur, norte u oeste"],
+    noIncluye: ["Traslados de llegada y salida"]
+  },
+  {
+    id: "v27-mdp-america",
+    foto: "../foto-costa-aerea.jpg",
+    fotoAlt: "Vista aérea de la costa de Mar del Plata al atardecer",
+    ilustrativa: true,
+    nombre: "Mar del Plata",
+    subtitulo: "Hotel América ⭐⭐⭐",
+    puerta: "verano-2027",
+    tags: ["verano-2027", "playa"],
+    transporte: "Bus semicama",
+    operador: "La Familia Turismo",
+    fechas: "Salidas diarias todo el verano",
+    duracion: "4 noches con 4 desayunos",
+    hotel: "América — 3 estrellas, en el centro de Mar del Plata",
+    precio: 430000,
+    moneda: "ARS",
+    reserva: 6450,
+    reservaNota: "1,5% del valor del paquete",
+    destacado: "Cupos confirmados todo el verano",
+    ocupaciones: [
+      { nombre: "Single", enero: 660000 },
+      { nombre: "Doble", enero: 430000 },
+      { nombre: "Triple", enero: 430000 },
+      { nombre: "Cuádruple", enero: 430000 }
+    ],
+    incluye: ["Bus semicama ida y vuelta", "4 noches con 4 desayunos", "Ascenso por zona sur, norte u oeste"],
+    noIncluye: ["Traslados de llegada y salida"]
+  },
+  {
+    id: "v27-mdp-valles",
+    foto: "../foto-costa-aerea.jpg",
+    fotoAlt: "Vista aérea de la costa de Mar del Plata al atardecer",
+    ilustrativa: true,
+    nombre: "Mar del Plata",
+    subtitulo: "Hotel Valles ⭐⭐⭐ superior",
+    puerta: "verano-2027",
+    tags: ["verano-2027", "playa"],
+    transporte: "Bus semicama",
+    operador: "La Familia Turismo",
+    fechas: "Salidas diarias todo el verano",
+    duracion: "4 noches con 4 desayunos",
+    hotel: "Valles — 3 estrellas superior, en el centro de Mar del Plata",
+    precio: 552000,
+    moneda: "ARS",
+    reserva: 8280,
+    reservaNota: "1,5% del valor del paquete",
+    destacado: "Cupos confirmados todo el verano",
+    ocupaciones: [
+      { nombre: "Single", enero: 905000 },
+      { nombre: "Doble", enero: 552000 },
+      { nombre: "Triple", enero: 552000 },
+      { nombre: "Cuádruple", enero: 552000 }
+    ],
+    incluye: ["Bus semicama ida y vuelta", "4 noches con 4 desayunos", "Ascenso por zona sur, norte u oeste"],
+    noIncluye: ["Traslados de llegada y salida"]
+  },
+  {
+    id: "v27-colon",
+    foto: "../foto-colon.jpg",
+    fotoAlt: "Atardecer sobre el río Uruguay en Colón",
+    fotoCredito: "Paula Kindsvater · CC BY-SA 4.0",
+    nombre: "Colón, Entre Ríos",
+    puerta: "verano-2027",
+    tags: ["verano-2027", "termas"],
+    transporte: "Bus semicama",
+    operador: "La Familia Turismo",
+    fechas: "Enero y febrero",
+    duracion: "4 noches con 4 desayunos",
+    hotel: "Cepeda Hotel",
+    precio: 285000,
+    moneda: "ARS",
+    reserva: 4275,
+    reservaNota: "1,5% del valor del paquete",
+    ocupaciones: [
+      { nombre: "Single", enero: 565000 },
+      { nombre: "Doble", enero: 349900 },
+      { nombre: "Triple", enero: 303000 },
+      { nombre: "Cuádruple", enero: 285000 }
+    ],
+    incluye: [
+      "Bus semicama ida y vuelta",
+      "4 noches con 4 desayunos",
+      "Traslados de llegada y salida",
+      "Ascenso por Retiro, Liniers, El Talar de Pacheco o Campana"
+    ]
+  },
+  {
+    id: "v27-federacion",
+    foto: "../foto-termas-generica.jpg",
+    fotoAlt: "Pileta climatizada del complejo termal de Federación",
+    ilustrativa: true,
+    nombre: "Federación, Entre Ríos",
+    puerta: "verano-2027",
+    tags: ["verano-2027", "termas"],
+    transporte: "Bus semicama",
+    operador: "La Familia Turismo",
+    fechas: "Enero y febrero",
+    duracion: "4 noches con 4 desayunos",
+    hotel: "Hostal La Glorieta — a 100 metros del complejo termal",
+    precio: 355000,
+    moneda: "ARS",
+    reserva: 5325,
+    reservaNota: "1,5% del valor del paquete",
+    ocupaciones: [
+      { nombre: "Single", enero: 560000 },
+      { nombre: "Doble", enero: 379000 },
+      { nombre: "Triple", enero: 357500 },
+      { nombre: "Cuádruple", enero: 355000 }
+    ],
+    incluye: [
+      "Bus semicama ida y vuelta",
+      "4 noches con 4 desayunos",
+      "Traslados de llegada y salida",
+      "Ascenso por Retiro, Liniers, El Talar de Pacheco o Campana"
+    ]
+  }
+];
+
+/* Las puertas de la home. `tag` es lo que se filtra sobre PAQUETES. */
+window.PUERTAS = [
+  {
+    id: "full-day",
+    eyebrow: "Salidas de un día",
+    titulo: "Full day",
+    bajada: "Salís y volvés el mismo día. Sin gastos de reserva.",
+    tag: "full-day"
+  },
+  {
+    id: "escapadas",
+    eyebrow: "De 4 a 6 noches",
+    titulo: "Escapadas en bus",
+    bajada: "Salidas grupales con coordinador, de octubre a diciembre.",
+    tag: "escapadas"
+  },
+  {
+    id: "termas",
+    eyebrow: "Relax y bienestar",
+    titulo: "Termas para desconectar",
+    bajada: "Desde un día en las termas hasta una semana entera.",
+    tag: "termas"
+  },
+  {
+    id: "aereos",
+    eyebrow: "Hasta 12 cuotas",
+    titulo: "Volá lejos, pagá en cuotas",
+    bajada: "Patagonia, el Norte y Brasil con aéreo y equipaje incluido.",
+    tag: "aereos"
+  },
+  {
+    id: "verano-2027",
+    eyebrow: "Pre venta",
+    titulo: "Verano 2027",
+    bajada: "Reservá ahora la playa de enero y febrero, al precio de hoy.",
+    tag: "verano-2027"
+  }
+];

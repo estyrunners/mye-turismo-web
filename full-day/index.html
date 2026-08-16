@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Full day — MyE Turismo</title>
+<meta name="description" content="Salís y volvés el mismo día. Sin gastos de reserva.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --navy:#123447;--ink:#17313f;--muted:#5c7180;--white:#fff;
+    --teal:#08989b;--teal-dark:#077b7e;--sand:#f3e1c7;--sand-2:#f2a95b;
+    --shadow:0 16px 38px rgba(18,52,71,.09);
+  }
+  body{font-family:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:#f7fbfb;line-height:1.6}
+  h1,h2,h3{font-family:"Playfair Display",Georgia,serif;color:var(--navy);line-height:1.15}
+  .container{width:min(1120px,92vw);margin:0 auto}
+  .top{background:var(--white);border-bottom:1px solid rgba(18,52,71,.08);position:sticky;top:0;z-index:20}
+  .top .container{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+  .top a.volver{color:var(--teal-dark);font-weight:700;text-decoration:none;font-size:.92rem}
+  .top a.volver:hover{text-decoration:underline}
+  .top .tel{color:var(--navy);font-weight:700;text-decoration:none;font-size:.92rem}
+  .hero{padding:52px 0 34px;background:linear-gradient(180deg,#fff 0%,#f7fbfb 100%)}
+  .eyebrow{display:inline-block;color:var(--teal-dark);font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+  .hero h1{font-size:clamp(2rem,5vw,3rem);margin-bottom:12px}
+  .hero p.bajada{color:var(--muted);max-width:62ch;font-size:1.02rem}
+  .cuotas{display:inline-flex;align-items:center;gap:9px;margin-top:20px;padding:11px 18px;border-radius:999px;background:rgba(242,169,91,.18);color:var(--navy);font-weight:700;font-size:.93rem}
+  .grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));padding:8px 0 60px}
+  .paq{position:relative;display:flex;flex-direction:column;background:var(--white);border:1px solid rgba(18,52,71,.09);border-radius:22px;padding:24px;box-shadow:var(--shadow)}
+  .paq-con-foto{padding-top:0;overflow:hidden}
+  .paq-foto{position:relative;margin:0 -24px 20px;line-height:0}
+  .paq-foto img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;display:block}
+  .paq-foto figcaption{position:absolute;right:10px;bottom:10px;padding:4px 9px;border-radius:6px;background:rgba(18,52,71,.62);color:#fff;font-size:.66rem;font-weight:700;line-height:1.4;letter-spacing:.02em}
+  .paq-badge{position:absolute;top:-11px;left:22px;background:var(--sand-2);color:#3d2508;font-size:.72rem;font-weight:800;padding:5px 12px;border-radius:999px;z-index:2}
+  .paq-con-foto .paq-badge{top:14px;left:14px}
+  .paq-meta{color:var(--teal-dark);font-size:.71rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;margin-bottom:6px}
+  .paq h3{font-size:1.5rem;margin-bottom:4px}
+  .paq-sub{color:var(--muted);font-size:.9rem;margin-bottom:6px}
+  .paq-fechas,.paq-hotel{color:var(--muted);font-size:.88rem;margin-top:4px}
+  .paq-precio{margin:18px 0 0;padding:15px 0;border-top:1px solid rgba(18,52,71,.08);border-bottom:1px solid rgba(18,52,71,.08)}
+  .paq-precio-label{display:block;color:var(--muted);font-size:.7rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+  .paq-precio-valor{display:block;font-family:"Playfair Display",Georgia,serif;font-size:2.1rem;font-weight:700;color:var(--navy);line-height:1.1}
+  .paq-precio-nota{display:block;color:var(--muted);font-size:.8rem;margin-top:3px}
+  .paq-opciones{list-style:none;margin:14px 0 0}
+  .paq-opciones li{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px dashed rgba(18,52,71,.12);font-size:.9rem}
+  .paq-opciones li:last-child{border-bottom:0}
+  .paq-opciones span{color:var(--muted);flex:1 1 55%}
+  .paq-opciones b{color:var(--navy);font-size:1rem;white-space:nowrap}
+  .paq-opciones em{flex-basis:100%;color:var(--muted);font-size:.78rem;font-style:normal}
+  .paq-detalle{margin-top:14px}
+  .paq-detalle summary{cursor:pointer;color:var(--teal-dark);font-weight:700;font-size:.9rem}
+  .paq-detalle ul{margin:10px 0 0 18px;color:var(--muted);font-size:.88rem}
+  .paq-detalle li{margin-bottom:4px}
+  .paq-detalle li.no{color:#9b5a5a}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 20px;border-radius:999px;font-weight:800;font-size:.95rem;text-decoration:none;cursor:pointer;border:0}
+  .btn-primary{background:var(--teal);color:#fff;width:100%;margin-top:auto}
+  .btn-primary:hover{background:var(--teal-dark)}
+  .paq .btn-primary{margin-top:18px}
+  .otras{background:var(--white);border-top:1px solid rgba(18,52,71,.08);padding:40px 0 56px}
+  .otras h2{font-size:1.5rem;margin-bottom:16px}
+  .otras-links{display:flex;flex-wrap:wrap;gap:10px}
+  .otras-links a{padding:10px 16px;border-radius:999px;background:#f2f8f8;color:var(--navy);text-decoration:none;font-weight:700;font-size:.9rem;border:1px solid rgba(8,152,155,.18)}
+  .otras-links a:hover{background:rgba(8,152,155,.12)}
+  .pie{padding:26px 0 40px;color:var(--muted);font-size:.84rem;text-align:center}
+  .pie a{color:var(--teal-dark)}
+  @media(max-width:640px){.grid{grid-template-columns:1fr}.paq-precio-valor{font-size:1.85rem}}
+</style>
+<script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','1812483333531317');fbq('track','PageView');
+</script>
+</head>
+<body>
+
+<header class="top">
+  <div class="container">
+    <a class="volver" href="../">← Volver al inicio</a>
+    <a class="tel" href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener">📱 11-3153-7638</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">Salidas de un día</span>
+    <h1>Full day</h1>
+    <p class="bajada">Salís y volvés el mismo día. Sin gastos de reserva.</p>
+    <p class="cuotas"><span aria-hidden="true">💳</span> Pagá en cuotas, con o sin tarjeta de crédito</p>
+  </div>
+</section>
+
+<main class="container">
+  <div class="grid">
+    
+      <article class="paq paq-con-foto">
+        <figure class="paq-foto"><img src="../foto-tandil.jpg" alt="La Piedra Movediza de Tandil al atardecer" width="1600" height="1000" loading="lazy" decoding="async"></figure>
+        
+        <div class="paq-head">
+          <p class="paq-meta">1 día · Bus Mix</p>
+          <h3>Tandil</h3>
+          
+          <p class="paq-fechas"><span aria-hidden="true">📅</span> 31 oct · 14 nov</p>
+          
+        </div>
+
+        <div class="paq-precio">
+          <span class="paq-precio-label">Desde</span>
+          <span class="paq-precio-valor">$119.990</span>
+          <span class="paq-precio-nota">por persona · sin gastos de reserva</span>
+          <span class="paq-precio-nota">Precio de lista $129.990 por transferencia</span>
+        </div>
+
+        
+
+        <details class="paq-detalle"><summary>Qué incluye</summary><ul><li>Traslado ida y vuelta en el día</li><li>Visitas guiadas por el casco histórico</li><li>Almuerzo completo con bebida</li><li>Visita a regionales</li><li>Coordinador permanente</li></ul></details>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20Tandil.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20%24119.990%20por%20persona%20(sin%20gastos%20de%20reserva)%0A%E2%80%A2%201%20d%C3%ADa%20%C2%B7%20Bus%20Mix%0A%E2%80%A2%20Salidas%3A%2031%20oct%20%C2%B7%2014%20nov%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
+          Consultar por WhatsApp
+        </a>
+      </article>
+
+      <article class="paq paq-con-foto">
+        <figure class="paq-foto"><img src="../foto-termas-generica.jpg" alt="Pileta climatizada de un complejo termal" width="1600" height="1000" loading="lazy" decoding="async"><figcaption>Imagen ilustrativa</figcaption></figure>
+        
+        <div class="paq-head">
+          <p class="paq-meta">1 día · Bus Mix</p>
+          <h3>Termas del Guaychú</h3>
+          
+          <p class="paq-fechas"><span aria-hidden="true">📅</span> 3 oct · 15 nov</p>
+          
+        </div>
+
+        <div class="paq-precio">
+          <span class="paq-precio-label">Desde</span>
+          <span class="paq-precio-valor">$105.990</span>
+          <span class="paq-precio-nota">por persona · sin gastos de reserva</span>
+          <span class="paq-precio-nota">Precio de lista $124.990 por transferencia</span>
+        </div>
+
+        
+
+        <details class="paq-detalle"><summary>Qué incluye</summary><ul><li>Traslado ida y vuelta en el día</li><li>Entrada al complejo termal</li><li>Visita a regionales</li><li>Coordinador permanente</li></ul></details>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20Termas%20del%20Guaych%C3%BA.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20%24105.990%20por%20persona%20(sin%20gastos%20de%20reserva)%0A%E2%80%A2%201%20d%C3%ADa%20%C2%B7%20Bus%20Mix%0A%E2%80%A2%20Salidas%3A%203%20oct%20%C2%B7%2015%20nov%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
+          Consultar por WhatsApp
+        </a>
+      </article>
+
+      <article class="paq paq-con-foto">
+        <figure class="paq-foto"><img src="../foto-rosario.jpg" alt="El Monumento a la Bandera, en Rosario" width="1600" height="1000" loading="lazy" decoding="async"></figure>
+        
+        <div class="paq-head">
+          <p class="paq-meta">1 día · Bus Mix</p>
+          <h3>Rosario y Virgen de San Nicolás</h3>
+          
+          <p class="paq-fechas"><span aria-hidden="true">📅</span> 24 oct · 8 y 21 nov</p>
+          
+        </div>
+
+        <div class="paq-precio">
+          <span class="paq-precio-label">Desde</span>
+          <span class="paq-precio-valor">$105.990</span>
+          <span class="paq-precio-nota">por persona · sin gastos de reserva</span>
+          <span class="paq-precio-nota">Precio de lista $124.990 por transferencia</span>
+        </div>
+
+        
+
+        <details class="paq-detalle"><summary>Qué incluye</summary><ul><li>Traslado ida y vuelta en el día</li><li>Almuerzo completo con bebida</li><li>Visita al Santuario de la Virgen de San Nicolás</li><li>Visita al Monumento a la Bandera</li><li>Tiempo libre en la costanera</li><li>Coordinador permanente</li></ul></details>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20Rosario%20y%20Virgen%20de%20San%20Nicol%C3%A1s.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20%24105.990%20por%20persona%20(sin%20gastos%20de%20reserva)%0A%E2%80%A2%201%20d%C3%ADa%20%C2%B7%20Bus%20Mix%0A%E2%80%A2%20Salidas%3A%2024%20oct%20%C2%B7%208%20y%2021%20nov%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
+          Consultar por WhatsApp
+        </a>
+      </article>
+
+      <article class="paq paq-con-foto">
+        <figure class="paq-foto"><img src="../foto-chascomus.jpg" alt="Atardecer sobre la laguna de Chascomús" width="1600" height="1000" loading="lazy" decoding="async"></figure>
+        
+        <div class="paq-head">
+          <p class="paq-meta">1 día · Bus Mix</p>
+          <h3>Chascomús</h3>
+          
+          <p class="paq-fechas"><span aria-hidden="true">📅</span> 17 oct · 8 nov</p>
+          
+        </div>
+
+        <div class="paq-precio">
+          <span class="paq-precio-label">Desde</span>
+          <span class="paq-precio-valor">$105.990</span>
+          <span class="paq-precio-nota">por persona · sin gastos de reserva</span>
+          <span class="paq-precio-nota">Precio de lista $124.990 por transferencia</span>
+        </div>
+
+        
+
+        <details class="paq-detalle"><summary>Qué incluye</summary><ul><li>Traslado ida y vuelta en el día</li><li>Visita guiada por la localidad</li><li>Almuerzo con parrilla libre</li><li>Tiempo libre en la costanera</li><li>Coordinador permanente</li></ul></details>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20Chascom%C3%BAs.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20%24105.990%20por%20persona%20(sin%20gastos%20de%20reserva)%0A%E2%80%A2%201%20d%C3%ADa%20%C2%B7%20Bus%20Mix%0A%E2%80%A2%20Salidas%3A%2017%20oct%20%C2%B7%208%20nov%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
+          Consultar por WhatsApp
+        </a>
+      </article>
+
+      <article class="paq paq-con-foto">
+        <figure class="paq-foto"><img src="../foto-termas-generica.jpg" alt="Pileta climatizada de un complejo termal" width="1600" height="1000" loading="lazy" decoding="async"><figcaption>Imagen ilustrativa</figcaption></figure>
+        
+        <div class="paq-head">
+          <p class="paq-meta">1 día · Bus Mix</p>
+          <h3>Termas de Villa Elisa</h3>
+          
+          <p class="paq-fechas"><span aria-hidden="true">📅</span> 4 oct · 1 y 29 nov</p>
+          
+        </div>
+
+        <div class="paq-precio">
+          <span class="paq-precio-label">Desde</span>
+          <span class="paq-precio-valor">$105.990</span>
+          <span class="paq-precio-nota">por persona · sin gastos de reserva</span>
+          <span class="paq-precio-nota">Precio de lista $124.990 por transferencia</span>
+        </div>
+
+        
+
+        <details class="paq-detalle"><summary>Qué incluye</summary><ul><li>Traslado ida y vuelta en el día</li><li>Entrada al complejo termal</li><li>Visita a regionales</li><li>Coordinador permanente</li></ul></details>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20Termas%20de%20Villa%20Elisa.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20%24105.990%20por%20persona%20(sin%20gastos%20de%20reserva)%0A%E2%80%A2%201%20d%C3%ADa%20%C2%B7%20Bus%20Mix%0A%E2%80%A2%20Salidas%3A%204%20oct%20%C2%B7%201%20y%2029%20nov%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
+          Consultar por WhatsApp
+        </a>
+      </article>
+
+      <article class="paq paq-con-foto">
+        <figure class="paq-foto"><img src="../foto-termas-generica.jpg" alt="Pileta climatizada de un complejo termal" width="1600" height="1000" loading="lazy" decoding="async"><figcaption>Imagen ilustrativa</figcaption></figure>
+        <span class="paq-badge">Pagan 3 y mamá viaja gratis</span>
+        <div class="paq-head">
+          <p class="paq-meta">1 día · Bus Mix</p>
+          <h3>Termas de Villa Elisa — Día de la Madre</h3>
+          
+          <p class="paq-fechas"><span aria-hidden="true">📅</span> 18 oct</p>
+          
+        </div>
+
+        <div class="paq-precio">
+          <span class="paq-precio-label">Desde</span>
+          <span class="paq-precio-valor">$105.990</span>
+          <span class="paq-precio-nota">por persona · sin gastos de reserva</span>
+          <span class="paq-precio-nota">Precio de lista $124.990 por transferencia</span>
+        </div>
+
+        
+
+        <details class="paq-detalle"><summary>Qué incluye</summary><ul><li>Traslado ida y vuelta en el día</li><li>Entrada al complejo termal</li><li>Visita a regionales</li><li>Coordinador permanente</li></ul></details>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20Termas%20de%20Villa%20Elisa%20%E2%80%94%20D%C3%ADa%20de%20la%20Madre.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20%24105.990%20por%20persona%20(sin%20gastos%20de%20reserva)%0A%E2%80%A2%201%20d%C3%ADa%20%C2%B7%20Bus%20Mix%0A%E2%80%A2%20Salidas%3A%2018%20oct%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
+          Consultar por WhatsApp
+        </a>
+      </article>
+
+      <article class="paq paq-con-foto">
+        <figure class="paq-foto"><img src="../landing-san-pedro.jpg" alt="La Campiña de San Pedro sobre el río" width="1600" height="1000" loading="lazy" decoding="async"></figure>
+        
+        <div class="paq-head">
+          <p class="paq-meta">1 día · Bus Mix</p>
+          <h3>San Pedro y La Campiña</h3>
+          
+          <p class="paq-fechas"><span aria-hidden="true">📅</span> 4 y 25 oct · 1 y 22 nov</p>
+          
+        </div>
+
+        <div class="paq-precio">
+          <span class="paq-precio-label">Desde</span>
+          <span class="paq-precio-valor">$105.990</span>
+          <span class="paq-precio-nota">por persona · sin gastos de reserva</span>
+          <span class="paq-precio-nota">Precio de lista $124.990 por transferencia</span>
+        </div>
+
+        
+
+        <details class="paq-detalle"><summary>Qué incluye</summary><ul><li>Traslado ida y vuelta en el día</li><li>Visita guiada por la campiña</li><li>Almuerzo con parrilla libre</li><li>Tiempo libre en Vuelta de Obligado</li><li>Coordinador permanente</li></ul></details>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20San%20Pedro%20y%20La%20Campi%C3%B1a.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20%24105.990%20por%20persona%20(sin%20gastos%20de%20reserva)%0A%E2%80%A2%201%20d%C3%ADa%20%C2%B7%20Bus%20Mix%0A%E2%80%A2%20Salidas%3A%204%20y%2025%20oct%20%C2%B7%201%20y%2022%20nov%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
+          Consultar por WhatsApp
+        </a>
+      </article>
+
+      <article class="paq paq-con-foto">
+        <figure class="paq-foto"><img src="../foto-colon.jpg" alt="Atardecer sobre el río Uruguay en Colón" width="1600" height="1000" loading="lazy" decoding="async"></figure>
+        
+        <div class="paq-head">
+          <p class="paq-meta">1 día · Bus Mix</p>
+          <h3>Termas de Colón</h3>
+          
+          <p class="paq-fechas"><span aria-hidden="true">📅</span> 31 oct · 28 nov</p>
+          
+        </div>
+
+        <div class="paq-precio">
+          <span class="paq-precio-label">Desde</span>
+          <span class="paq-precio-valor">$99.990</span>
+          <span class="paq-precio-nota">por persona · sin gastos de reserva</span>
+          <span class="paq-precio-nota">Precio de lista $114.990 por transferencia</span>
+        </div>
+
+        
+
+        <details class="paq-detalle"><summary>Qué incluye</summary><ul><li>Traslado ida y vuelta en el día</li><li>Entrada al complejo termal</li><li>Visita a regionales</li><li>Coordinador permanente</li></ul></details>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20Termas%20de%20Col%C3%B3n.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20%2499.990%20por%20persona%20(sin%20gastos%20de%20reserva)%0A%E2%80%A2%201%20d%C3%ADa%20%C2%B7%20Bus%20Mix%0A%E2%80%A2%20Salidas%3A%2031%20oct%20%C2%B7%2028%20nov%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
+          Consultar por WhatsApp
+        </a>
+      </article>
+  </div>
+</main>
+
+<section class="otras">
+  <div class="container">
+    <h2>Mirá también</h2>
+    <div class="otras-links">
+      <a href="../escapadas/">Escapadas en bus</a>
+      <a href="../termas/">Termas para desconectar</a>
+      <a href="../aereos/">Volá lejos, pagá en cuotas</a>
+      <a href="../verano-2027/">Verano 2027</a>
+      <a href="../#contacto">Viajes a medida</a>
+    </div>
+  </div>
+</section>
+
+<footer class="pie">
+  <div class="container">
+    <p>Precios por persona en base habitación doble/triple, sujetos a disponibilidad y a cambios sin previo aviso.</p>
+    <p>Fotos: Leopogonza · CC BY-SA 3.0 · Ermell · CC BY-SA 4.0 · Pinpa82 · CC BY-SA 4.0 · Paula Kindsvater · CC BY-SA 4.0 — vía Wikimedia Commons.</p>
+    <p>MyE Turismo · <a href="https://wa.me/5491131537638" target="_blank" rel="noopener">11-3153-7638</a> · mye.turismo@hotmail.com.ar</p>
+  </div>
+</footer>
+
+</body>
+</html>

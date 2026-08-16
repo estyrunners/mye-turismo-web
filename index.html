@@ -673,6 +673,149 @@
     }
 
     /* Destacados de la semana */
+    /* ===== Puertas de entrada al catálogo ===== */
+    .puertas-section {
+      background:
+        radial-gradient(circle at 8% 12%, rgba(8, 152, 155, 0.10), transparent 26%),
+        radial-gradient(circle at 92% 18%, rgba(242, 169, 91, 0.12), transparent 26%),
+        linear-gradient(180deg, var(--white) 0%, #f7fbfb 100%);
+    }
+
+    .puertas-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+      margin-top: 34px;
+    }
+
+    .puerta-card {
+      position: relative;
+      display: flex;
+      overflow: hidden;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 26px 24px 24px;
+      border: 1px solid rgba(18, 52, 71, 0.09);
+      border-radius: 24px;
+      background: var(--white);
+      box-shadow: 0 16px 38px rgba(18, 52, 71, 0.08);
+      color: inherit;
+      text-align: left;
+      text-decoration: none;
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .puerta-card::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--turquoise-dark), var(--sand));
+      content: "";
+    }
+
+    .puerta-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 50px rgba(18, 52, 71, 0.14);
+    }
+
+    .puerta-card .eyebrow {
+      margin-bottom: 6px;
+    }
+
+    .puerta-card h3 {
+      margin-bottom: 8px;
+      color: var(--navy);
+      font-family: "Playfair Display", serif;
+      font-size: 1.6rem;
+      line-height: 1.12;
+    }
+
+    .puerta-card p {
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .puerta-meta {
+      display: flex;
+      width: 100%;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-top: auto;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(18, 52, 71, 0.08);
+    }
+
+    .puerta-desde small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .puerta-desde strong {
+      color: var(--navy);
+      font-family: "Playfair Display", serif;
+      font-size: 1.35rem;
+    }
+
+    .puerta-cantidad {
+      padding: 5px 11px;
+      border-radius: 999px;
+      color: var(--turquoise-dark);
+      background: rgba(8, 152, 155, 0.11);
+      font-size: 0.76rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .puerta-medida {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 22px;
+      padding: 18px 24px;
+      border: 1px dashed rgba(8, 152, 155, 0.35);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.75);
+    }
+
+    .puerta-medida p {
+      margin: 0;
+      color: var(--navy);
+      font-size: 0.95rem;
+    }
+
+    .puerta-medida p span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .cuotas-banner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 30px;
+      padding: 14px 20px;
+      border-radius: 999px;
+      color: var(--navy);
+      background: rgba(242, 169, 91, 0.16);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
     .weekly-highlights {
       overflow: hidden;
       background:
@@ -783,14 +926,15 @@
 
     .weekly-card-image {
       width: 100%;
-      aspect-ratio: 934 / 1280;
+      aspect-ratio: 21 / 9;
       object-fit: cover;
+      object-position: top center;
       background: var(--turquoise-soft);
       cursor: zoom-in;
     }
 
     .weekly-card > .youtube-preview {
-      aspect-ratio: 934 / 1280;
+      aspect-ratio: 21 / 9;
     }
 
     .weekly-card-body {
@@ -821,6 +965,33 @@
       color: var(--muted);
       font-size: 0.9rem;
       line-height: 1.55;
+    }
+
+    .weekly-price {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .weekly-price-label {
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .weekly-price-value {
+      color: var(--navy);
+      font-family: "Playfair Display", serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .weekly-price-note {
+      color: var(--muted);
+      font-size: 0.78rem;
     }
 
     .weekly-card-body .btn {
@@ -3318,19 +3489,33 @@
       </div>
     </div>
 
-    <aside class="construction-notice" aria-label="Aviso de actualizaciones">
+    <section class="section puertas-section" id="puertas">
       <div class="container">
-        <div class="construction-notice-inner">
-          <span class="construction-notice-icon" aria-hidden="true">
-            <svg class="icon"><use href="#icon-progress"></use></svg>
-          </span>
-          <div>
-            <strong><span class="construction-status">Sitio en expansión</span>Página en construcción</strong>
-            <span>No te pierdas las actualizaciones: cada semana sumamos nuevas propuestas, destinos y herramientas para viajar mejor.</span>
-          </div>
+        <div class="section-heading">
+          <span class="eyebrow">Elegí por dónde empezar</span>
+          <h2>¿Qué viaje estás buscando?</h2>
+          <p>Todas las salidas tienen fecha confirmada y cupo limitado. Elegí una categoría y mirá precios, hoteles y qué incluye cada una.</p>
         </div>
+
+        <div class="puertas-grid" id="puertasGrid"></div>
+
+        <div class="puerta-medida">
+          <p>
+            ¿No encontrás lo que buscabas?
+            <span>Armamos el viaje a tu medida, con tus fechas y tu presupuesto.</span>
+          </p>
+          <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero un viaje a medida. Les cuento cómo lo imagino:">
+            <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+            Contanos cómo lo soñás
+          </a>
+        </div>
+
+        <p class="cuotas-banner">
+          <span aria-hidden="true">💳</span>
+          Pagá en cuotas, con o sin tarjeta de crédito
+        </p>
       </div>
-    </aside>
+    </section>
 
     <section class="package-search-section" id="buscar-paquetes">
       <div class="container">
@@ -3361,8 +3546,7 @@
         </div>
 
         <div class="salidas-tabs" id="salidasTabs" role="tablist">
-          <button class="salidas-tab active" type="button" data-panel="panel-feriado-agosto">Feriado de Agosto</button>
-          <button class="salidas-tab" type="button" data-panel="panel-vacaciones-invierno">Vacaciones de Invierno</button>
+          <button class="salidas-tab active" type="button" data-panel="panel-feriado-agosto">Salen primero</button>
           <button class="salidas-tab" type="button" data-panel="panel-destinos-destacados">Destinos Destacados</button>
           <button class="salidas-tab" type="button" data-panel="panel-dia-maestro">Día del Maestro</button>
         </div>
@@ -3373,109 +3557,13 @@
               <svg class="icon"><use href="#icon-arrow"></use></svg>
             </button>
 
-            <div class="weekly-carousel" id="weeklyCarousel">
-              <article class="weekly-card" id="paquete-mendoza-cacheuta-agosto" data-search="Mendoza Termas de Cacheuta Cuyo aereo feriado agosto">
-                <img class="weekly-card-image" src="feriado-agosto-mendoza-cacheuta.jpeg" alt="Flyer de Mendoza con Termas de Cacheuta para el feriado de agosto">
-                <div class="weekly-card-body">
-                  <small>Aereo - Feriado de agosto</small>
-                  <h3>Mendoza con Termas de Cacheuta</h3>
-                  <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por Mendoza con Termas de Cacheuta para el feriado de agosto.">
-                    <svg class="icon"><use href="#icon-whatsapp"></use></svg>
-                    Consultar por WhatsApp
-                  </a>
-                </div>
-              </article>
-
-              <article class="weekly-card" id="paquete-jujuy-humahuaca-agosto" data-search="Jujuy Humahuaca Norte Argentino NOA aereo feriado agosto">
-                <img class="weekly-card-image" src="feriado-agosto-jujuy-humahuaca.jpeg" alt="Flyer de Jujuy y Humahuaca para el feriado de agosto">
-                <div class="weekly-card-body">
-                  <small>Aereo - Feriado de agosto</small>
-                  <h3>Jujuy y Humahuaca</h3>
-                  <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por Jujuy y Humahuaca para el feriado de agosto.">
-                    <svg class="icon"><use href="#icon-whatsapp"></use></svg>
-                    Consultar por WhatsApp
-                  </a>
-                </div>
-              </article>
-
-              <article class="weekly-card" id="paquete-puerto-madryn-agosto" data-search="Puerto Madryn Patagonia ballenas aereo feriado agosto">
-                <img class="weekly-card-image" src="feriado-agosto-puerto-madryn.jpeg" alt="Flyer de Puerto Madryn para el feriado de agosto">
-                <div class="weekly-card-body">
-                  <small>Aereo - Feriado de agosto</small>
-                  <h3>Puerto Madryn</h3>
-                  <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por Puerto Madryn para el feriado de agosto.">
-                    <svg class="icon"><use href="#icon-whatsapp"></use></svg>
-                    Consultar por WhatsApp
-                  </a>
-                </div>
-              </article>
-
-              <article class="weekly-card" id="paquete-la-falda-agosto" data-search="La Falda Cordoba Centro bus feriado agosto">
-                <img class="weekly-card-image" src="feriado-agosto-la-falda.jpeg" alt="Flyer de La Falda para el feriado de agosto">
-                <div class="weekly-card-body">
-                  <small>Bus - Feriado de agosto</small>
-                  <h3>La Falda</h3>
-                  <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por La Falda para el feriado de agosto.">
-                    <svg class="icon"><use href="#icon-whatsapp"></use></svg>
-                    Consultar por WhatsApp
-                  </a>
-                </div>
-              </article>
-
-              <article class="weekly-card" id="paquete-villa-carlos-paz-agosto" data-search="Villa Carlos Paz Cordoba Centro bus feriado agosto">
-                <img class="weekly-card-image" src="feriado-agosto-villa-carlos-paz.jpeg" alt="Flyer de Villa Carlos Paz para el feriado de agosto">
-                <div class="weekly-card-body">
-                  <small>Bus - Feriado de agosto</small>
-                  <h3>Villa Carlos Paz</h3>
-                  <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por Villa Carlos Paz para el feriado de agosto.">
-                    <svg class="icon"><use href="#icon-whatsapp"></use></svg>
-                    Consultar por WhatsApp
-                  </a>
-                </div>
-              </article>
-
-              <article class="weekly-card" id="paquete-termas-federacion-agosto" data-search="Termas de Federacion Entre Rios termales bus feriado agosto">
-                <img class="weekly-card-image" src="feriado-agosto-termas-federacion.jpeg" alt="Flyer de Termas de Federacion para el feriado de agosto">
-                <div class="weekly-card-body">
-                  <small>Bus - Feriado de agosto</small>
-                  <h3>Termas de Federacion</h3>
-                  <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por Termas de Federacion para el feriado de agosto.">
-                    <svg class="icon"><use href="#icon-whatsapp"></use></svg>
-                    Consultar por WhatsApp
-                  </a>
-                </div>
-              </article>
-
-              <article class="weekly-card" id="paquete-mar-del-plata-agosto" data-search="Mar del Plata Costa Argentina Buenos Aires bus feriado agosto">
-                <img class="weekly-card-image" src="feriado-agosto-mar-del-plata.jpeg" alt="Flyer de Mar del Plata para el feriado de agosto">
-                <div class="weekly-card-body">
-                  <small>Bus - Feriado de agosto</small>
-                  <h3>Mar del Plata</h3>
-                  <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por Mar del Plata para el feriado de agosto.">
-                    <svg class="icon"><use href="#icon-whatsapp"></use></svg>
-                    Consultar por WhatsApp
-                  </a>
-                </div>
-              </article>
-
-              <article class="weekly-card" id="paquete-cataratas-iguazu-agosto" data-search="Cataratas del Iguazu Misiones Litoral aereo feriado agosto">
-                <img class="weekly-card-image" src="feriado-agosto-cataratas-iguazu.jpeg" alt="Flyer de Cataratas del Iguazu para el feriado de agosto">
-                <div class="weekly-card-body">
-                  <small>Aereo - Feriado de agosto</small>
-                  <h3>Cataratas del Iguazu</h3>
-                  <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por Cataratas del Iguazu para el feriado de agosto.">
-                    <svg class="icon"><use href="#icon-whatsapp"></use></svg>
-                    Consultar por WhatsApp
-                  </a>
-                </div>
-              </article>
-            </div>
+            <div class="weekly-carousel" id="weeklyCarousel"></div>
 
             <button class="weekly-arrow weekly-arrow-next" id="weeklyNext" type="button" aria-label="Ver destacado siguiente">
               <svg class="icon"><use href="#icon-arrow"></use></svg>
             </button>
           </div>
-          <a class="btn btn-light salidas-panel-cta whatsapp-link" href="#" data-message="Hola MyE Turismo, busco otra opción para el feriado de agosto. ¿Qué destinos tienen disponibles?">
+          <a class="btn btn-light salidas-panel-cta whatsapp-link" href="#" data-message="Hola MyE Turismo, busco otro destino. ¿Qué salidas tienen disponibles?">
             <svg class="icon"><use href="#icon-whatsapp"></use></svg>
             Consultar otro destino
           </a>
@@ -3864,6 +3952,8 @@
   <a class="whatsapp-float whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por un viaje." aria-label="Consultar por WhatsApp">
     <svg class="icon"><use href="#icon-whatsapp"></use></svg>
   </a>
+
+  <script src="paquetes.js"></script>
 
   <script>
     /* =========================================================
@@ -6067,6 +6157,131 @@
 
     document.getElementById("year").textContent = new Date().getFullYear();
     markFlyerImages();
+
+    /* =========================================================
+       PUERTAS DE ENTRADA AL CATÁLOGO
+       Se renderizan desde paquetes.js (fuente única). Cada puerta
+       filtra por tag, así un paquete existe una sola vez aunque
+       aparezca en dos puertas (ej: Federación en Escapadas y Termas).
+       ========================================================= */
+    (function renderPuertas() {
+      const grid = document.getElementById("puertasGrid");
+      if (!grid || !window.PUERTAS || !window.PAQUETES) return;
+
+      const money = (valor, moneda) =>
+        moneda === "USD"
+          ? `USD ${valor.toLocaleString("es-AR")}`
+          : `$${valor.toLocaleString("es-AR")}`;
+
+      grid.innerHTML = window.PUERTAS.map((puerta) => {
+        const items = window.PAQUETES.filter((p) => p.tags.includes(puerta.tag));
+        if (!items.length) return "";
+
+        /* "Desde" = el más barato, comparando cada moneda por separado
+           para no mezclar pesos con dólares. */
+        const pesos = items.filter((p) => p.moneda === "ARS").map((p) => p.precio);
+        const dolares = items.filter((p) => p.moneda === "USD").map((p) => p.precio);
+        const desde = pesos.length
+          ? money(Math.min(...pesos), "ARS")
+          : money(Math.min(...dolares), "USD");
+
+        return `
+          <a class="puerta-card" href="${puerta.id}/">
+            <span class="eyebrow">${puerta.eyebrow}</span>
+            <h3>${puerta.titulo}</h3>
+            <p>${puerta.bajada}</p>
+            <span class="puerta-meta">
+              <span class="puerta-desde">
+                <small>Desde</small>
+                <strong>${desde}</strong>
+              </span>
+              <span class="puerta-cantidad">${items.length} ${items.length === 1 ? "salida" : "salidas"}</span>
+            </span>
+          </a>`;
+      }).join("");
+    })();
+
+    /* =========================================================
+       "SALEN PRIMERO" — las próximas salidas, con el total adelante
+       y los gastos de reserva aclarados. Mismo origen de datos.
+       ========================================================= */
+    (function renderProximasSalidas() {
+      const carrusel = document.getElementById("weeklyCarousel");
+      if (!carrusel || !window.PAQUETES) return;
+
+      const money = (valor, moneda) =>
+        moneda === "USD"
+          ? `USD ${valor.toLocaleString("es-AR")}`
+          : `$${valor.toLocaleString("es-AR")}`;
+
+      /* Las de fecha más cercana: septiembre y octubre primero. */
+      const orden = ["septiembre", "octubre", "noviembre", "diciembre"];
+      const mesDe = (p) => {
+        const f = (p.fechas || "").toLowerCase();
+        const i = orden.findIndex((m) => f.includes(m) || f.includes(m.slice(0, 3)));
+        return i === -1 ? 99 : i;
+      };
+
+      /* Ordena solo por cercanía de fecha. No se ordena por precio porque
+         hay paquetes en pesos y en dólares y compararlos daría cualquier cosa. */
+      const proximas = window.PAQUETES
+        .filter((p) => p.puerta !== "verano-2027")
+        .map((p, i) => ({ p, i }))
+        .sort((a, b) => mesDe(a.p) - mesDe(b.p) || a.i - b.i)
+        .map((x) => x.p)
+        .slice(0, 8);
+
+      carrusel.innerHTML = proximas
+        .map((p) => {
+          const reserva = p.reserva
+            ? `<span class="weekly-price-note">+ ${money(p.reserva, p.moneda)} gastos de reserva</span>`
+            : `<span class="weekly-price-note">Sin gastos de reserva</span>`;
+
+          const mensaje = [
+            `Hola MyE Turismo, quiero consultar por ${p.nombre}${p.subtitulo ? " — " + p.subtitulo : ""}.`,
+            "",
+            "Esto es lo que vi en la página:",
+            `• Desde ${money(p.precio, p.moneda)} por persona${p.reserva ? ` + ${money(p.reserva, p.moneda)} de gastos de reserva` : ""}`,
+            `• ${p.duracion} · ${p.transporte}`,
+            `• Salidas: ${p.fechas}`,
+            "",
+            "¿Me confirman disponibilidad?"
+          ].join("\n");
+
+          return `
+            <article class="weekly-card" id="paquete-${p.id}" data-search="${p.nombre} ${p.subtitulo || ""} ${p.hotel || ""} ${p.transporte}">
+              <div class="weekly-card-body">
+                <small>${p.duracion} · ${p.transporte}</small>
+                <h3>${p.nombre}</h3>
+                ${p.subtitulo ? `<p>${p.subtitulo}</p>` : ""}
+                <p>Salidas: ${p.fechas}</p>
+                <div class="weekly-price">
+                  <span class="weekly-price-label">Desde</span>
+                  <span class="weekly-price-value">${money(p.precio, p.moneda)}</span>
+                  ${reserva}
+                </div>
+                <a class="btn btn-primary whatsapp-link" href="#" data-message="${mensaje.replace(/"/g, "&quot;")}">
+                  <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+                  Consultar por WhatsApp
+                </a>
+              </div>
+            </article>`;
+        })
+        .join("");
+
+      conectarWhatsapp(carrusel);
+    })();
+
+    /* Los bloques de arriba crean links después de que corrió el wiring
+       general de .whatsapp-link, así que hay que conectarlos a mano. */
+    function conectarWhatsapp(scope) {
+      (scope || document).querySelectorAll(".whatsapp-link").forEach((link) => {
+        if (link.href && link.href.includes("wa.me")) return;
+        link.href = whatsappUrl(link.dataset.message || "Hola MyE Turismo, quiero hacer una consulta.");
+        link.target = "_blank";
+        link.rel = "noopener";
+      });
+    }
   </script>
 </body>
 </html>

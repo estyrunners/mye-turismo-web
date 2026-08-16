@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Volá lejos, pagá en cuotas — MyE Turismo</title>
+<meta name="description" content="Patagonia, el Norte y Brasil con aéreo y equipaje incluido.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --navy:#123447;--ink:#17313f;--muted:#5c7180;--white:#fff;
+    --teal:#08989b;--teal-dark:#077b7e;--sand:#f3e1c7;--sand-2:#f2a95b;
+    --shadow:0 16px 38px rgba(18,52,71,.09);
+  }
+  body{font-family:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:#f7fbfb;line-height:1.6}
+  h1,h2,h3{font-family:"Playfair Display",Georgia,serif;color:var(--navy);line-height:1.15}
+  .container{width:min(1120px,92vw);margin:0 auto}
+  .top{background:var(--white);border-bottom:1px solid rgba(18,52,71,.08);position:sticky;top:0;z-index:20}
+  .top .container{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+  .top a.volver{color:var(--teal-dark);font-weight:700;text-decoration:none;font-size:.92rem}
+  .top a.volver:hover{text-decoration:underline}
+  .top .tel{color:var(--navy);font-weight:700;text-decoration:none;font-size:.92rem}
+  .hero{padding:52px 0 34px;background:linear-gradient(180deg,#fff 0%,#f7fbfb 100%)}
+  .eyebrow{display:inline-block;color:var(--teal-dark);font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+  .hero h1{font-size:clamp(2rem,5vw,3rem);margin-bottom:12px}
+  .hero p.bajada{color:var(--muted);max-width:62ch;font-size:1.02rem}
+  .cuotas{display:inline-flex;align-items:center;gap:9px;margin-top:20px;padding:11px 18px;border-radius:999px;background:rgba(242,169,91,.18);color:var(--navy);font-weight:700;font-size:.93rem}
+  .grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));padding:8px 0 60px}
+  .paq{position:relative;display:flex;flex-direction:column;background:var(--white);border:1px solid rgba(18,52,71,.09);border-radius:22px;padding:24px;box-shadow:var(--shadow)}
+  .paq-con-foto{padding-top:0;overflow:hidden}
+  .paq-foto{position:relative;margin:0 -24px 20px;line-height:0}
+  .paq-foto img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;display:block}
+  .paq-foto figcaption{position:absolute;right:10px;bottom:10px;padding:4px 9px;border-radius:6px;background:rgba(18,52,71,.62);color:#fff;font-size:.66rem;font-weight:700;line-height:1.4;letter-spacing:.02em}
+  .paq-badge{position:absolute;top:-11px;left:22px;background:var(--sand-2);color:#3d2508;font-size:.72rem;font-weight:800;padding:5px 12px;border-radius:999px;z-index:2}
+  .paq-con-foto .paq-badge{top:14px;left:14px}
+  .paq-meta{color:var(--teal-dark);font-size:.71rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;margin-bottom:6px}
+  .paq h3{font-size:1.5rem;margin-bottom:4px}
+  .paq-sub{color:var(--muted);font-size:.9rem;margin-bottom:6px}
+  .paq-fechas,.paq-hotel{color:var(--muted);font-size:.88rem;margin-top:4px}
+  .paq-precio{margin:18px 0 0;padding:15px 0;border-top:1px solid rgba(18,52,71,.08);border-bottom:1px solid rgba(18,52,71,.08)}
+  .paq-precio-label{display:block;color:var(--muted);font-size:.7rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+  .paq-precio-valor{display:block;font-family:"Playfair Display",Georgia,serif;font-size:2.1rem;font-weight:700;color:var(--navy);line-height:1.1}
+  .paq-precio-nota{display:block;color:var(--muted);font-size:.8rem;margin-top:3px}
+  .paq-opciones{list-style:none;margin:14px 0 0}
+  .paq-opciones li{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px dashed rgba(18,52,71,.12);font-size:.9rem}
+  .paq-opciones li:last-child{border-bottom:0}
+  .paq-opciones span{color:var(--muted);flex:1 1 55%}
+  .paq-opciones b{color:var(--navy);font-size:1rem;white-space:nowrap}
+  .paq-opciones em{flex-basis:100%;color:var(--muted);font-size:.78rem;font-style:normal}
+  .paq-detalle{margin-top:14px}
+  .paq-detalle summary{cursor:pointer;color:var(--teal-dark);font-weight:700;font-size:.9rem}
+  .paq-detalle ul{margin:10px 0 0 18px;color:var(--muted);font-size:.88rem}
+  .paq-detalle li{margin-bottom:4px}
+  .paq-detalle li.no{color:#9b5a5a}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 20px;border-radius:999px;font-weight:800;font-size:.95rem;text-decoration:none;cursor:pointer;border:0}
+  .btn-primary{background:var(--teal);color:#fff;width:100%;margin-top:auto}
+  .btn-primary:hover{background:var(--teal-dark)}
+  .paq .btn-primary{margin-top:18px}
+  .otras{background:var(--white);border-top:1px solid rgba(18,52,71,.08);padding:40px 0 56px}
+  .otras h2{font-size:1.5rem;margin-bottom:16px}
+  .otras-links{display:flex;flex-wrap:wrap;gap:10px}
+  .otras-links a{padding:10px 16px;border-radius:999px;background:#f2f8f8;color:var(--navy);text-decoration:none;font-weight:700;font-size:.9rem;border:1px solid rgba(8,152,155,.18)}
+  .otras-links a:hover{background:rgba(8,152,155,.12)}
+  .pie{padding:26px 0 40px;color:var(--muted);font-size:.84rem;text-align:center}
+  .pie a{color:var(--teal-dark)}
+  @media(max-width:640px){.grid{grid-template-columns:1fr}.paq-precio-valor{font-size:1.85rem}}
+</style>
+<script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','1812483333531317');fbq('track','PageView');
+</script>
+</head>
+<body>
+
+<header class="top">
+  <div class="container">
+    <a class="volver" href="../">← Volver al inicio</a>
+    <a class="tel" href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener">📱 11-3153-7638</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">Hasta 12 cuotas</span>
+    <h1>Volá lejos, pagá en cuotas</h1>
+    <p class="bajada">Patagonia, el Norte y Brasil con aéreo y equipaje incluido.</p>
+    <p class="cuotas"><span aria-hidden="true">💳</span> Pagá en cuotas, con o sin tarjeta de crédito</p>
+  </div>
+</section>
+
+<main class="container">
+  <div class="grid">
+    
+      <article class="paq paq-con-foto">
+        <figure class="paq-foto"><img src="../foto-patagonia-lagos.jpg" alt="Lago y cerros de la Patagonia andina" width="1600" height="1000" loading="lazy" decoding="async"><figcaption>Imagen ilustrativa</figcaption></figure>
+        <span class="paq-badge">Descuento en triple: $181.000</span>
+        <div class="paq-head">
+          <p class="paq-meta">6 días / 5 noches · Aéreo JetSmart</p>
+          <h3>Bariloche</h3>
+          
+          <p class="paq-fechas"><span aria-hidden="true">📅</span> 26, 27 y 31 oct · 1, 7, 8, 14 y 15 nov</p>
+          <p class="paq-hotel"><span aria-hidden="true">🏨</span> Patagonia Sur</p>
+        </div>
+
+        <div class="paq-precio">
+          <span class="paq-precio-label">Desde</span>
+          <span class="paq-precio-valor">$616.780</span>
+          <span class="paq-precio-nota">por persona · + $15.000 gastos de reserva</span>
+          
+        </div>
+
+        <ul class="paq-opciones"><li><span>Desayuno buffet</span><b>$616.780</b></li><li><span>Media pensión</span><b>$765.380</b></li><li><span>Media pensión + 7 lagos con San Martín de los Andes</span><b>$848.740</b></li></ul>
+
+        <details class="paq-detalle"><summary>Qué incluye</summary><ul><li>Aéreo ida y vuelta con equipaje incluido</li><li>Transfer in/out</li><li>5 noches de alojamiento</li><li>Llao Llao con punto panorámico, Cerro Campanario y fábrica de chocolates</li><li>Cobertura de salud</li></ul></details>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20Bariloche.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20%24616.780%20por%20persona%20%2B%20%2415.000%20de%20gastos%20de%20reserva%0A%E2%80%A2%206%20d%C3%ADas%20%2F%205%20noches%20%C2%B7%20A%C3%A9reo%20JetSmart%0A%E2%80%A2%20Hotel%3A%20Patagonia%20Sur%0A%E2%80%A2%20Salidas%3A%2026%2C%2027%20y%2031%20oct%20%C2%B7%201%2C%207%2C%208%2C%2014%20y%2015%20nov%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
+          Consultar por WhatsApp
+        </a>
+      </article>
+
+      <article class="paq paq-con-foto">
+        <figure class="paq-foto"><img src="../foto-cafayate.jpg" alt="Quebrada de las Conchas, Cafayate" width="1600" height="1000" loading="lazy" decoding="async"></figure>
+        
+        <div class="paq-head">
+          <p class="paq-meta">5 días / 4 noches · Aéreo JetSmart</p>
+          <h3>Salta</h3>
+          
+          <p class="paq-fechas"><span aria-hidden="true">📅</span> 24 oct · 14 y 25 nov · 1 dic</p>
+          <p class="paq-hotel"><span aria-hidden="true">🏨</span> Mirador del Cerro</p>
+        </div>
+
+        <div class="paq-precio">
+          <span class="paq-precio-label">Desde</span>
+          <span class="paq-precio-valor">$562.640</span>
+          <span class="paq-precio-nota">por persona · + $15.000 gastos de reserva</span>
+          
+        </div>
+
+        <ul class="paq-opciones"><li><span>Desayuno buffet</span><b>$562.640</b></li><li><span>Media pensión</span><b>$684.880</b></li><li><span>Media pensión + Cafayate y bodega</span><b>$802.940</b></li></ul>
+
+        <details class="paq-detalle"><summary>Qué incluye</summary><ul><li>Aéreo ida y vuelta con equipaje incluido</li><li>Transfer in/out</li><li>4 noches de alojamiento</li><li>City tour, Quebrada San Lorenzo, Cerro San Bernardo y mercado artesanal</li><li>Cobertura de salud</li></ul></details>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20Salta.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20%24562.640%20por%20persona%20%2B%20%2415.000%20de%20gastos%20de%20reserva%0A%E2%80%A2%205%20d%C3%ADas%20%2F%204%20noches%20%C2%B7%20A%C3%A9reo%20JetSmart%0A%E2%80%A2%20Hotel%3A%20Mirador%20del%20Cerro%0A%E2%80%A2%20Salidas%3A%2024%20oct%20%C2%B7%2014%20y%2025%20nov%20%C2%B7%201%20dic%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
+          Consultar por WhatsApp
+        </a>
+      </article>
+
+      <article class="paq paq-con-foto">
+        <figure class="paq-foto"><img src="../foto-vinedos.jpg" alt="Viñedos al atardecer con la cordillera de fondo" width="1600" height="1000" loading="lazy" decoding="async"><figcaption>Imagen ilustrativa</figcaption></figure>
+        
+        <div class="paq-head">
+          <p class="paq-meta">5 días / 4 noches · Aéreo JetSmart</p>
+          <h3>Mendoza y Termas de Cacheuta</h3>
+          <p class="paq-sub">En avión, salida de diciembre</p>
+          <p class="paq-fechas"><span aria-hidden="true">📅</span> Salida 1 de diciembre</p>
+          <p class="paq-hotel"><span aria-hidden="true">🏨</span> M. Céntrico</p>
+        </div>
+
+        <div class="paq-precio">
+          <span class="paq-precio-label">Desde</span>
+          <span class="paq-precio-valor">$642.440</span>
+          <span class="paq-precio-nota">por persona · + $15.000 gastos de reserva</span>
+          
+        </div>
+
+        <ul class="paq-opciones"><li><span>Desayuno buffet</span><b>$642.440</b></li><li><span>Media pensión + tour Mendoza y bodega</span><b>$824.780</b></li><li><span>Media pensión + Alta Montaña</span><b>$924.780</b></li></ul>
+
+        <details class="paq-detalle"><summary>Qué incluye</summary><ul><li>Aéreo ida y vuelta con equipaje incluido</li><li>Transfer in/out</li><li>4 noches de alojamiento</li><li>Termas de Cacheuta (sin entrada)</li><li>Cobertura de salud</li></ul></details>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20Mendoza%20y%20Termas%20de%20Cacheuta%20%E2%80%94%20En%20avi%C3%B3n%2C%20salida%20de%20diciembre.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20%24642.440%20por%20persona%20%2B%20%2415.000%20de%20gastos%20de%20reserva%0A%E2%80%A2%205%20d%C3%ADas%20%2F%204%20noches%20%C2%B7%20A%C3%A9reo%20JetSmart%0A%E2%80%A2%20Hotel%3A%20M.%20C%C3%A9ntrico%0A%E2%80%A2%20Salidas%3A%20Salida%201%20de%20diciembre%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
+          Consultar por WhatsApp
+        </a>
+      </article>
+
+      <article class="paq paq-con-foto">
+        <figure class="paq-foto"><img src="../foto-quebrada-norte.jpg" alt="Quebrada de cerros rojizos del noroeste argentino" width="1600" height="1000" loading="lazy" decoding="async"><figcaption>Imagen ilustrativa</figcaption></figure>
+        
+        <div class="paq-head">
+          <p class="paq-meta">5 días / 4 noches · Aéreo Aerolíneas Argentinas</p>
+          <h3>Catamarca</h3>
+          
+          <p class="paq-fechas"><span aria-hidden="true">📅</span> Salidas 14 de octubre</p>
+          <p class="paq-hotel"><span aria-hidden="true">🏨</span> De Turismo, Tinogasta</p>
+        </div>
+
+        <div class="paq-precio">
+          <span class="paq-precio-label">Desde</span>
+          <span class="paq-precio-valor">$1.388.340</span>
+          <span class="paq-precio-nota">por persona · + $15.000 gastos de reserva</span>
+          
+        </div>
+
+        <ul class="paq-opciones"><li><span>Media pensión</span><b>$1.388.340</b></li></ul>
+
+        <details class="paq-detalle"><summary>Qué incluye</summary><ul><li>Aéreo ida y vuelta con equipaje incluido</li><li>Transfer in/out</li><li>4 noches de alojamiento</li><li>Ruta del Adobe y Termas de Fiambalá (sin entradas)</li><li>Cobertura de salud</li></ul></details>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20Catamarca.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20%241.388.340%20por%20persona%20%2B%20%2415.000%20de%20gastos%20de%20reserva%0A%E2%80%A2%205%20d%C3%ADas%20%2F%204%20noches%20%C2%B7%20A%C3%A9reo%20Aerol%C3%ADneas%20Argentinas%0A%E2%80%A2%20Hotel%3A%20De%20Turismo%2C%20Tinogasta%0A%E2%80%A2%20Salidas%3A%20Salidas%2014%20de%20octubre%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
+          Consultar por WhatsApp
+        </a>
+      </article>
+
+      <article class="paq paq-con-foto">
+        <figure class="paq-foto"><img src="../foto-patagonia-bosque.jpg" alt="Lago y bosque andino patagónico" width="1600" height="1000" loading="lazy" decoding="async"><figcaption>Imagen ilustrativa</figcaption></figure>
+        
+        <div class="paq-head">
+          <p class="paq-meta">4 días / 3 noches · Aéreo</p>
+          <h3>Esquel y Campo de Tulipanes</h3>
+          
+          <p class="paq-fechas"><span aria-hidden="true">📅</span> Salida 28 de octubre</p>
+          <p class="paq-hotel"><span aria-hidden="true">🏨</span> Tehuelche</p>
+        </div>
+
+        <div class="paq-precio">
+          <span class="paq-precio-label">Desde</span>
+          <span class="paq-precio-valor">$1.402.780</span>
+          <span class="paq-precio-nota">por persona · + $15.000 gastos de reserva</span>
+          
+        </div>
+
+        <ul class="paq-opciones"><li><span>Desayuno</span><b>$1.402.780</b></li><li><span>Desayuno + PN Los Alerces</span><b>$1.499.980</b></li><li><span>Media pensión + PN Los Alerces</span><b>$1.572.980</b></li></ul>
+
+        <details class="paq-detalle"><summary>Qué incluye</summary><ul><li>Aéreo ida y vuelta con equipaje incluido</li><li>Transfer in/out</li><li>3 noches de alojamiento</li><li>Campo de Tulipanes, Cascadas Nant y Fall y Trevelin (sin entradas)</li><li>Cobertura de salud</li></ul></details>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20Esquel%20y%20Campo%20de%20Tulipanes.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20%241.402.780%20por%20persona%20%2B%20%2415.000%20de%20gastos%20de%20reserva%0A%E2%80%A2%204%20d%C3%ADas%20%2F%203%20noches%20%C2%B7%20A%C3%A9reo%0A%E2%80%A2%20Hotel%3A%20Tehuelche%0A%E2%80%A2%20Salidas%3A%20Salida%2028%20de%20octubre%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
+          Consultar por WhatsApp
+        </a>
+      </article>
+
+      <article class="paq paq-con-foto">
+        <figure class="paq-foto"><img src="../foto-ushuaia.jpg" alt="Valle Carbajal, Tierra del Fuego" width="1600" height="1000" loading="lazy" decoding="async"></figure>
+        <span class="paq-badge">Descuento en triple: $155.680</span>
+        <div class="paq-head">
+          <p class="paq-meta">7 días / 6 noches · Aéreo Aerolíneas Argentinas</p>
+          <h3>El Calafate y Ushuaia</h3>
+          
+          <p class="paq-fechas"><span aria-hidden="true">📅</span> Septiembre a diciembre</p>
+          <p class="paq-hotel"><span aria-hidden="true">🏨</span> Ushuaia (Ushuaia) + Tehuel (El Calafate)</p>
+        </div>
+
+        <div class="paq-precio">
+          <span class="paq-precio-label">Desde</span>
+          <span class="paq-precio-valor">$1.543.840</span>
+          <span class="paq-precio-nota">por persona · + $15.000 gastos de reserva</span>
+          
+        </div>
+
+        <ul class="paq-opciones"><li><span>Desayuno</span><b>$1.543.840</b></li><li><span>Desayuno buffet en Ushuaia + media pensión en El Calafate</span><b>$1.633.040</b></li></ul>
+
+        <details class="paq-detalle"><summary>Qué incluye</summary><ul><li>Aéreo ida y vuelta con equipaje incluido</li><li>Transfer in/out</li><li>6 noches de alojamiento</li><li>Parque Nacional Tierra del Fuego y Parque Nacional Los Glaciares (sin entradas)</li><li>Cobertura de salud</li></ul></details>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20El%20Calafate%20y%20Ushuaia.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20%241.543.840%20por%20persona%20%2B%20%2415.000%20de%20gastos%20de%20reserva%0A%E2%80%A2%207%20d%C3%ADas%20%2F%206%20noches%20%C2%B7%20A%C3%A9reo%20Aerol%C3%ADneas%20Argentinas%0A%E2%80%A2%20Hotel%3A%20Ushuaia%20(Ushuaia)%20%2B%20Tehuel%20(El%20Calafate)%0A%E2%80%A2%20Salidas%3A%20Septiembre%20a%20diciembre%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
+          Consultar por WhatsApp
+        </a>
+      </article>
+
+      <article class="paq paq-con-foto">
+        <figure class="paq-foto"><img src="../foto-playa-generica.jpg" alt="Playa de aguas turquesas en Búzios" width="1600" height="1000" loading="lazy" decoding="async"><figcaption>Imagen ilustrativa</figcaption></figure>
+        
+        <div class="paq-head">
+          <p class="paq-meta">7 días / 6 noches · Aéreo</p>
+          <h3>Búzios y Arraial do Cabo</h3>
+          <p class="paq-sub">Hotel Coronado Beach</p>
+          <p class="paq-fechas"><span aria-hidden="true">📅</span> 25 oct · 8 nov · 6 dic</p>
+          <p class="paq-hotel"><span aria-hidden="true">🏨</span> Coronado Beach — frente a la playa de João Fernandes</p>
+        </div>
+
+        <div class="paq-precio">
+          <span class="paq-precio-label">Desde</span>
+          <span class="paq-precio-valor">USD 1.140</span>
+          <span class="paq-precio-nota">por persona · + USD 50 gastos de reserva</span>
+          
+        </div>
+
+        <ul class="paq-opciones"><li><span>Desayuno y merienda</span><b>USD 1.140</b></li><li><span>Media pensión y merienda</span><b>USD 1.250</b></li><li><span>Media pensión + excursión Arraial do Cabo</span><b>USD 1.310</b></li></ul>
+
+        <details class="paq-detalle"><summary>Qué incluye</summary><ul><li>Aéreo ida y vuelta con equipaje incluido</li><li>Traslados in/out</li><li>6 noches de alojamiento</li><li>Cobertura de salud</li></ul></details>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20B%C3%BAzios%20y%20Arraial%20do%20Cabo%20%E2%80%94%20Hotel%20Coronado%20Beach.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20USD%201.140%20por%20persona%20%2B%20USD%2050%20de%20gastos%20de%20reserva%0A%E2%80%A2%207%20d%C3%ADas%20%2F%206%20noches%20%C2%B7%20A%C3%A9reo%0A%E2%80%A2%20Hotel%3A%20Coronado%20Beach%20%E2%80%94%20frente%20a%20la%20playa%20de%20Jo%C3%A3o%20Fernandes%0A%E2%80%A2%20Salidas%3A%2025%20oct%20%C2%B7%208%20nov%20%C2%B7%206%20dic%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
+          Consultar por WhatsApp
+        </a>
+      </article>
+
+      <article class="paq paq-con-foto">
+        <figure class="paq-foto"><img src="../foto-playa-generica.jpg" alt="Playa de aguas turquesas en Búzios" width="1600" height="1000" loading="lazy" decoding="async"><figcaption>Imagen ilustrativa</figcaption></figure>
+        
+        <div class="paq-head">
+          <p class="paq-meta">7 días / 6 noches · Aéreo</p>
+          <h3>Búzios y Arraial do Cabo</h3>
+          <p class="paq-sub">Pousada Brisas de Buzios</p>
+          <p class="paq-fechas"><span aria-hidden="true">📅</span> 25 oct · 8 nov · 6 dic</p>
+          <p class="paq-hotel"><span aria-hidden="true">🏨</span> Pousada Brisas de Buzios</p>
+        </div>
+
+        <div class="paq-precio">
+          <span class="paq-precio-label">Desde</span>
+          <span class="paq-precio-valor">USD 930</span>
+          <span class="paq-precio-nota">por persona · + USD 50 gastos de reserva</span>
+          
+        </div>
+
+        <ul class="paq-opciones"><li><span>Desayuno</span><b>USD 930</b></li><li><span>Desayuno + excursión Arraial do Cabo</span><b>USD 1.040</b></li></ul>
+
+        <details class="paq-detalle"><summary>Qué incluye</summary><ul><li>Aéreo ida y vuelta con equipaje incluido</li><li>Traslados in/out</li><li>6 noches de alojamiento</li><li>Cobertura de salud</li></ul></details>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20B%C3%BAzios%20y%20Arraial%20do%20Cabo%20%E2%80%94%20Pousada%20Brisas%20de%20Buzios.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20USD%20930%20por%20persona%20%2B%20USD%2050%20de%20gastos%20de%20reserva%0A%E2%80%A2%207%20d%C3%ADas%20%2F%206%20noches%20%C2%B7%20A%C3%A9reo%0A%E2%80%A2%20Hotel%3A%20Pousada%20Brisas%20de%20Buzios%0A%E2%80%A2%20Salidas%3A%2025%20oct%20%C2%B7%208%20nov%20%C2%B7%206%20dic%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
+          Consultar por WhatsApp
+        </a>
+      </article>
+
+      <article class="paq paq-con-foto">
+        <figure class="paq-foto"><img src="../foto-rio.jpg" alt="Atardecer sobre Río de Janeiro y Copacabana" width="1600" height="1000" loading="lazy" decoding="async"></figure>
+        
+        <div class="paq-head">
+          <p class="paq-meta">8 días / 7 noches · Aéreo</p>
+          <h3>Cabo Frío y Río de Janeiro</h3>
+          
+          <p class="paq-fechas"><span aria-hidden="true">📅</span> Salida 28 de noviembre</p>
+          <p class="paq-hotel"><span aria-hidden="true">🏨</span> Copa Sul (Río, 3 noches) + Marlen (Cabo Frío, 4 noches)</p>
+        </div>
+
+        <div class="paq-precio">
+          <span class="paq-precio-label">Desde</span>
+          <span class="paq-precio-valor">USD 1.100</span>
+          <span class="paq-precio-nota">por persona · + USD 50 gastos de reserva</span>
+          
+        </div>
+
+        <ul class="paq-opciones"><li><span>Desayuno</span><b>USD 1.100</b></li><li><span>Media pensión</span><b>USD 1.300</b></li><li><span>Media pensión + full day Río: Cristo y Pan de Azúcar</span><b>USD 1.420</b></li></ul>
+
+        <details class="paq-detalle"><summary>Qué incluye</summary><ul><li>Aéreo ida y vuelta con equipaje incluido</li><li>Traslados in/out</li><li>7 noches de alojamiento</li><li>Cobertura de salud</li></ul></details>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20Cabo%20Fr%C3%ADo%20y%20R%C3%ADo%20de%20Janeiro.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20USD%201.100%20por%20persona%20%2B%20USD%2050%20de%20gastos%20de%20reserva%0A%E2%80%A2%208%20d%C3%ADas%20%2F%207%20noches%20%C2%B7%20A%C3%A9reo%0A%E2%80%A2%20Hotel%3A%20Copa%20Sul%20(R%C3%ADo%2C%203%20noches)%20%2B%20Marlen%20(Cabo%20Fr%C3%ADo%2C%204%20noches)%0A%E2%80%A2%20Salidas%3A%20Salida%2028%20de%20noviembre%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
+          Consultar por WhatsApp
+        </a>
+      </article>
+
+      <article class="paq paq-con-foto">
+        <figure class="paq-foto"><img src="../foto-playa-generica.jpg" alt="Playa de aguas turquesas en Maceió" width="1600" height="1000" loading="lazy" decoding="async"><figcaption>Imagen ilustrativa</figcaption></figure>
+        
+        <div class="paq-head">
+          <p class="paq-meta">9 días / 7 noches · Aéreo</p>
+          <h3>Maceió</h3>
+          
+          <p class="paq-fechas"><span aria-hidden="true">📅</span> 24 oct · 28 nov · 5 dic</p>
+          <p class="paq-hotel"><span aria-hidden="true">🏨</span> Ponta Verde</p>
+        </div>
+
+        <div class="paq-precio">
+          <span class="paq-precio-label">Desde</span>
+          <span class="paq-precio-valor">USD 1.250</span>
+          <span class="paq-precio-nota">por persona · + USD 50 gastos de reserva</span>
+          
+        </div>
+
+        <ul class="paq-opciones"><li><span>Desayuno</span><b>USD 1.250</b><em>3er pasajero USD 1.160</em><em>$1.360 en la salida del 5 de diciembre</em></li><li><span>Media pensión</span><b>USD 1.410</b><em>3er pasajero USD 1.320</em><em>$1.520 en la salida del 5 de diciembre</em></li><li><span>Media pensión + excursión a Maragogi</span><b>USD 1.460</b><em>3er pasajero USD 1.370</em><em>$1.570 en la salida del 5 de diciembre</em></li></ul>
+
+        <details class="paq-detalle"><summary>Qué incluye</summary><ul><li>Aéreo ida y vuelta con equipaje incluido</li><li>Traslados in/out</li><li>7 noches de alojamiento</li><li>Cobertura de salud</li></ul></details>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20Macei%C3%B3.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20USD%201.250%20por%20persona%20%2B%20USD%2050%20de%20gastos%20de%20reserva%0A%E2%80%A2%209%20d%C3%ADas%20%2F%207%20noches%20%C2%B7%20A%C3%A9reo%0A%E2%80%A2%20Hotel%3A%20Ponta%20Verde%0A%E2%80%A2%20Salidas%3A%2024%20oct%20%C2%B7%2028%20nov%20%C2%B7%205%20dic%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
+          Consultar por WhatsApp
+        </a>
+      </article>
+
+      <article class="paq paq-con-foto">
+        <figure class="paq-foto"><img src="../foto-natal.jpg" alt="Dunas de Jenipabu, Natal" width="1600" height="1000" loading="lazy" decoding="async"></figure>
+        
+        <div class="paq-head">
+          <p class="paq-meta">7 días / 6 noches · Aéreo</p>
+          <h3>Natal</h3>
+          <p class="paq-sub">Hotel Visual Praia — salidas de noviembre y diciembre</p>
+          <p class="paq-fechas"><span aria-hidden="true">📅</span> 8 nov · 6 dic</p>
+          <p class="paq-hotel"><span aria-hidden="true">🏨</span> Visual Praia, Ponta Negra</p>
+        </div>
+
+        <div class="paq-precio">
+          <span class="paq-precio-label">Desde</span>
+          <span class="paq-precio-valor">USD 1.190</span>
+          <span class="paq-precio-nota">por persona · + USD 50 gastos de reserva</span>
+          
+        </div>
+
+        <ul class="paq-opciones"><li><span>Desayuno</span><b>USD 1.190</b><em>$1.280 en la salida del 6 de diciembre</em></li><li><span>Media pensión</span><b>USD 1.290</b><em>$1.380 en la salida del 6 de diciembre</em></li><li><span>Media pensión + excursión a Pipa</span><b>USD 1.320</b><em>$1.410 en la salida del 6 de diciembre</em></li></ul>
+
+        <details class="paq-detalle"><summary>Qué incluye</summary><ul><li>Aéreo ida y vuelta con equipaje incluido</li><li>Traslados in/out</li><li>6 noches de alojamiento</li><li>Cobertura de salud</li></ul></details>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20Natal%20%E2%80%94%20Hotel%20Visual%20Praia%20%E2%80%94%20salidas%20de%20noviembre%20y%20diciembre.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20USD%201.190%20por%20persona%20%2B%20USD%2050%20de%20gastos%20de%20reserva%0A%E2%80%A2%207%20d%C3%ADas%20%2F%206%20noches%20%C2%B7%20A%C3%A9reo%0A%E2%80%A2%20Hotel%3A%20Visual%20Praia%2C%20Ponta%20Negra%0A%E2%80%A2%20Salidas%3A%208%20nov%20%C2%B7%206%20dic%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
+          Consultar por WhatsApp
+        </a>
+      </article>
+
+      <article class="paq paq-con-foto">
+        <figure class="paq-foto"><img src="../foto-playa-generica.jpg" alt="Playa de aguas turquesas en Praia do Francês" width="1600" height="1000" loading="lazy" decoding="async"><figcaption>Imagen ilustrativa</figcaption></figure>
+        
+        <div class="paq-head">
+          <p class="paq-meta">9 días / 7 noches · Aéreo</p>
+          <h3>Praia do Francês</h3>
+          
+          <p class="paq-fechas"><span aria-hidden="true">📅</span> 24 oct · 28 nov · 5 dic</p>
+          <p class="paq-hotel"><span aria-hidden="true">🏨</span> Ponta Verde Frances — servicio de playa, frente al mar</p>
+        </div>
+
+        <div class="paq-precio">
+          <span class="paq-precio-label">Desde</span>
+          <span class="paq-precio-valor">USD 1.400</span>
+          <span class="paq-precio-nota">por persona · + USD 50 gastos de reserva</span>
+          
+        </div>
+
+        <ul class="paq-opciones"><li><span>Desayuno</span><b>USD 1.400</b><em>3er pasajero USD 1.210</em><em>$1.510 en la salida del 5 de diciembre</em></li><li><span>Media pensión</span><b>USD 1.680</b><em>3er pasajero USD 1.490</em><em>$1.790 en la salida del 5 de diciembre</em></li></ul>
+
+        <details class="paq-detalle"><summary>Qué incluye</summary><ul><li>Aéreo ida y vuelta con equipaje incluido</li><li>Traslados in/out</li><li>7 noches de alojamiento</li><li>Cobertura de salud</li></ul></details>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20Praia%20do%20Franc%C3%AAs.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20USD%201.400%20por%20persona%20%2B%20USD%2050%20de%20gastos%20de%20reserva%0A%E2%80%A2%209%20d%C3%ADas%20%2F%207%20noches%20%C2%B7%20A%C3%A9reo%0A%E2%80%A2%20Hotel%3A%20Ponta%20Verde%20Frances%20%E2%80%94%20servicio%20de%20playa%2C%20frente%20al%20mar%0A%E2%80%A2%20Salidas%3A%2024%20oct%20%C2%B7%2028%20nov%20%C2%B7%205%20dic%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
+          Consultar por WhatsApp
+        </a>
+      </article>
+  </div>
+</main>
+
+<section class="otras">
+  <div class="container">
+    <h2>Mirá también</h2>
+    <div class="otras-links">
+      <a href="../full-day/">Full day</a>
+      <a href="../escapadas/">Escapadas en bus</a>
+      <a href="../termas/">Termas para desconectar</a>
+      <a href="../verano-2027/">Verano 2027</a>
+      <a href="../#contacto">Viajes a medida</a>
+    </div>
+  </div>
+</section>
+
+<footer class="pie">
+  <div class="container">
+    <p>Precios por persona en base habitación doble/triple, sujetos a disponibilidad y a cambios sin previo aviso.</p>
+    <p>Fotos: Bernard Gagnon · CC BY-SA 4.0 · Godot13 · CC BY-SA 4.0 · Maria Eduarda Trajano Mangueira de Melo · CC BY-SA 4.0 — vía Wikimedia Commons.</p>
+    <p>MyE Turismo · <a href="https://wa.me/5491131537638" target="_blank" rel="noopener">11-3153-7638</a> · mye.turismo@hotmail.com.ar</p>
+  </div>
+</footer>
+
+</body>
+</html>
