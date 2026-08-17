@@ -54,9 +54,11 @@ function tarjeta(p) {
       <article class="paq${p.foto ? " paq-con-foto" : ""}">
         ${
           p.foto
-            ? `<figure class="paq-foto"><img src="${esc(p.foto)}" alt="${esc(p.fotoAlt || p.nombre)}" width="1600" height="1000" loading="lazy" decoding="async">${
-                p.ilustrativa ? `<figcaption>Imagen ilustrativa</figcaption>` : ""
-              }</figure>`
+            /* El flag `ilustrativa` se conserva en paquetes.js para saber a
+               cuáles les falta la foto real, pero no se muestra: todas las
+               genéricas son de paisaje, no de hoteles concretos, así que no
+               hay nada que aclararle al cliente. */
+            ? `<figure class="paq-foto"><img src="${esc(p.foto)}" alt="${esc(p.fotoAlt || p.nombre)}" width="1600" height="1000" loading="lazy" decoding="async"></figure>`
             : ""
         }
         ${p.destacado ? `<span class="paq-badge">${esc(p.destacado)}</span>` : ""}
