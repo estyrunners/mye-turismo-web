@@ -21,7 +21,7 @@ function mensajeWhatsapp(p) {
     `Hola MyE Turismo, quiero consultar por ${p.nombre}${p.subtitulo ? " — " + p.subtitulo : ""}.`,
     "",
     "Esto es lo que vi en la página:",
-    `• Desde ${money(p.precio, p.moneda)} por persona${p.reserva ? ` + ${money(p.reserva, p.moneda)} de gastos de reserva` : " (sin gastos de reserva)"}`,
+    `• Desde ${money(p.precio, p.moneda)} por persona${p.reserva ? ` + ${money(p.reserva, p.moneda)} de gastos de reserva` : ""}`,
     `• ${p.duracion} · ${p.transporte}`,
   ];
   if (p.hotel) l.push(`• Hotel: ${p.hotel}`);
@@ -72,9 +72,10 @@ function tarjeta(p) {
           <span class="paq-precio-label">Desde</span>
           <span class="paq-precio-valor">${money(p.precio, p.moneda)}</span>
           <span class="paq-precio-nota">por persona${
-            p.reserva
-              ? ` · + ${money(p.reserva, p.moneda)} gastos de reserva`
-              : " · sin gastos de reserva"
+            /* Cuando el paquete no tiene gastos cargados no se dice nada:
+               afirmar "sin gastos de reserva" nos ata, porque hay operadores
+               que igual los cobran. */
+            p.reserva ? ` · + ${money(p.reserva, p.moneda)} gastos de reserva` : ""
           }</span>
           ${p.precioLista ? `<span class="paq-precio-nota">Precio de lista ${money(p.precioLista, p.moneda)} por transferencia</span>` : ""}
         </div>

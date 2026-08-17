@@ -1200,7 +1200,7 @@ window.PUERTAS = [
     fotoAlt: "Costanera de Colón al atardecer",
     eyebrow: "Salidas de un día",
     titulo: "Full day",
-    bajada: "Salís y volvés el mismo día. Sin gastos de reserva.",
+    bajada: "Salís y volvés el mismo día, con traslado y coordinador.",
     tag: "full-day"
   },
   {

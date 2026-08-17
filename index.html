@@ -3605,9 +3605,9 @@
   <main>
     <section class="hero" id="inicio">
       <div class="container hero-content">
-        <h1>Cada viaje tiene una historia. Empecemos la tuya.</h1>
+        <h1>Ya está todo armado. Vos elegí y viajá.</h1>
         <p class="hero-description">
-          En MyE Turismo diseñamos experiencias de viaje personalizadas, con atención cercana, respaldo profesional y el apoyo de los principales operadores turísticos.
+          <strong id="heroCantidad">44 salidas</strong> con fecha confirmada a <strong id="heroDestinos">36 destinos</strong>: bus o avión, hotel, traslados y coordinador. Reservás tu lugar con una seña y el resto lo pagás <strong>en cuotas, con o sin tarjeta de crédito</strong>.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por un viaje.">
@@ -3632,17 +3632,6 @@
         </div>
 
         <div class="puertas-grid" id="puertasGrid"></div>
-
-        <div class="puerta-medida">
-          <p>
-            ¿No encontrás lo que buscabas?
-            <span>Armamos el viaje a tu medida, con tus fechas y tu presupuesto.</span>
-          </p>
-          <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero un viaje a medida. Les cuento cómo lo imagino:">
-            <svg class="icon"><use href="#icon-whatsapp"></use></svg>
-            Contanos cómo lo soñás
-          </a>
-        </div>
 
         <p class="cuotas-banner">
           <span aria-hidden="true">💳</span>
@@ -6146,6 +6135,19 @@
     document.getElementById("teacherPrev").addEventListener("click", () => scrollTeacherCarousel(-1));
     document.getElementById("teacherNext").addEventListener("click", () => scrollTeacherCarousel(1));
 
+    /* Los números del hero salen de paquetes.js, no van escritos a mano:
+       si mañana se cargan o se sacan salidas, el texto no puede quedar
+       mintiendo. */
+    (function numerosDelHero() {
+      if (!window.PAQUETES) return;
+      const total = window.PAQUETES.length;
+      const destinos = new Set(window.PAQUETES.map((p) => p.nombre)).size;
+      const cant = document.getElementById("heroCantidad");
+      const dest = document.getElementById("heroDestinos");
+      if (cant) cant.textContent = `${total} salidas`;
+      if (dest) dest.textContent = `${destinos} destinos`;
+    })();
+
     /* El carrusel de guías se sacó de la página. Se conservan los controles
        por si vuelve, pero gateados: sin la guarda, este bloque tiraba una
        excepción que cortaba todo el script de acá para abajo — se caían las
@@ -6307,7 +6309,7 @@
         .map((p) => {
           const reserva = p.reserva
             ? `<span class="weekly-price-note">+ ${money(p.reserva, p.moneda)} gastos de reserva</span>`
-            : `<span class="weekly-price-note">Sin gastos de reserva</span>`;
+            : "";
 
           const mensaje = [
             `Hola MyE Turismo, quiero consultar por ${p.nombre}${p.subtitulo ? " — " + p.subtitulo : ""}.`,
