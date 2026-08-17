@@ -849,9 +849,8 @@ window.PAQUETES = [
   },
   {
     id: "brasil-praia-do-frances",
-    foto: "../foto-playa-generica.jpg",
-    fotoAlt: "Playa de aguas turquesas en Praia do Francês",
-    ilustrativa: true,
+    foto: "../foto-praia-do-frances.jpg",
+    fotoAlt: "Jangada en la playa de Praia do Francês, Alagoas",
     nombre: "Praia do Francês",
     provincia: "Alagoas",
     pais: "Brasil",
