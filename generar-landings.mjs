@@ -114,7 +114,16 @@ const CSS = `
   h1,h2,h3{font-family:"Playfair Display",Georgia,serif;color:var(--navy);line-height:1.15}
   .container{width:min(1120px,92vw);margin:0 auto}
   .top{background:var(--white);border-bottom:1px solid rgba(18,52,71,.08);position:sticky;top:0;z-index:20}
-  .top .container{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+  .top .container{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;flex-wrap:wrap}
+  .top .ascenso{margin-right:auto;color:var(--navy);font-weight:700;text-decoration:none;font-size:.92rem;border:1px solid rgba(18,52,71,.16);border-radius:999px;padding:5px 12px}
+  .top .ascenso:hover{border-color:var(--teal);color:var(--teal-dark)}
+  /* En celular los tres no entran en una línea: se acomodan en dos, centrados
+     y más compactos, para no comerse la portada. */
+  @media (max-width:560px){
+    .top .container{justify-content:center;gap:8px;padding:9px 0}
+    .top .ascenso{margin-right:0;padding:4px 10px;font-size:.85rem}
+    .top a.volver,.top .tel{font-size:.85rem}
+  }
   .top a.volver{color:var(--teal-dark);font-weight:700;text-decoration:none;font-size:.92rem}
   .top a.volver:hover{text-decoration:underline}
   .top .tel{color:var(--navy);font-weight:700;text-decoration:none;font-size:.92rem}
@@ -205,6 +214,9 @@ PUERTAS.forEach((puerta) => {
 <header class="top">
   <div class="container">
     <a class="volver" href="../">← Volver al inicio</a>
+    <!-- "¿De dónde sale el micro?" es la primera objeción y aparece justo
+         acá, mirando precios. El link la contesta sin salir a preguntar. -->
+    <a class="ascenso" href="../puntos-de-ascenso/">📍 Puntos de ascenso</a>
     <a class="tel" href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent(
     "Hola MyE Turismo, quiero hacer una consulta."
   )}" target="_blank" rel="noopener">📱 11-3153-7638</a>

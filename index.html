@@ -293,6 +293,7 @@
       font-size: 0.9rem;
       font-weight: 800;
       text-shadow: none;
+      white-space: nowrap;
       transition: color 0.2s ease, transform 0.2s ease;
     }
 
@@ -303,6 +304,98 @@
     .nav-links a:not(.btn):hover {
       color: var(--turquoise);
       transform: translateY(-1px);
+    }
+
+    .barra-avisos {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .header.scrolled .barra-avisos {
+      border-bottom-color: rgba(18, 52, 71, 0.08);
+    }
+
+    .barra-avisos-inner {
+      display: flex;
+      /* stretch y no center: el chip del feriado lleva la píldora de la fecha
+         adentro y queda 2 px más alto que el otro. */
+      align-items: stretch;
+      justify-content: space-between;
+      gap: 10px;
+      padding-block: 7px;
+    }
+
+    .barra-avisos .header-cuotas {
+      padding: 6px 11px;
+      font-size: 0.82rem;
+    }
+
+    .header-cuotas--link:hover,
+    .header-cuotas--aviso:hover {
+      color: var(--turquoise-dark);
+      background: var(--white);
+      transform: translateY(-1px);
+    }
+
+    /* El punto naranja es lo único que se mueve en toda la franja: marca cuál
+       de los tres chips tiene fecha de vencimiento. */
+    .aviso-punto {
+      width: 7px;
+      height: 7px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: #e8674a;
+      animation: avisoPunto 2.6s ease-out infinite;
+    }
+
+    @keyframes avisoPunto {
+      0% { box-shadow: 0 0 0 0 rgba(232, 103, 74, 0.5); }
+      70% { box-shadow: 0 0 0 7px rgba(232, 103, 74, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(232, 103, 74, 0); }
+    }
+
+    .header-cuotas--aviso em {
+      padding: 1px 7px;
+      border-radius: 999px;
+      color: var(--turquoise-dark);
+      background: var(--turquoise-soft);
+      font-size: 0.76rem;
+      font-style: normal;
+      font-weight: 900;
+    }
+
+    .header-cuotas[hidden] {
+      display: none;
+    }
+
+    /* La franja tiene su propia escala: el chip de cuotas del logo ya se
+       achica solo más abajo, pero estos dos son más específicos y no heredan
+       esos ajustes. */
+    @media (max-width: 760px) {
+      /* Los 64 px de aire del header son mucho para dos chips que ya vienen
+         justos: acá la franja usa casi todo el ancho. */
+      .header .barra-avisos-inner {
+        width: min(calc(100% - 20px), var(--container));
+        justify-content: center;
+        gap: 8px;
+        padding-block: 6px;
+      }
+
+      .barra-avisos .header-cuotas {
+        padding: 5px 9px;
+        flex: 0 0 auto;
+        font-size: 0.72rem;
+      }
+
+      .header-cuotas--aviso em {
+        font-size: 0.67rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .barra-avisos .header-cuotas {
+        padding: 5px 8px;
+        font-size: 0.66rem;
+      }
     }
 
     .header.scrolled .nav-links a:not(.btn):hover {
@@ -352,7 +445,7 @@
       width: min(calc(100% - 56px), var(--container));
       max-width: var(--container);
       margin-inline: auto;
-      padding-top: 92px;
+      padding-top: 124px;
     }
 
     .hero .eyebrow {
@@ -3591,6 +3684,26 @@
   </svg>
 
   <header class="header" id="header">
+    <!-- Franja de accesos. Va arriba del menú y no adentro porque son las dos
+         puertas con fecha y con objeción: la salida más próxima y de dónde
+         sale el micro (la primera pregunta que llega por WhatsApp). Metidas
+         como ítems del menú quedaban en séptimo lugar y apretaban el logo. -->
+    <div class="barra-avisos">
+      <div class="container barra-avisos-inner">
+        <!-- data-hasta: cuando la fecha pasa, el chip se esconde solo y la
+             barra deja de mandar a una landing vencida. Para apuntar al
+             feriado siguiente se cambian href, fecha visible y data-hasta. -->
+        <a class="header-cuotas header-cuotas--aviso" href="dia-del-maestro/" data-hasta="2026-09-11">
+          <span class="aviso-punto" aria-hidden="true"></span>
+          Próximo feriado <em>11 sept</em>
+        </a>
+        <a class="header-cuotas header-cuotas--link" href="puntos-de-ascenso/">
+          <span aria-hidden="true">📍</span>
+          Puntos de ascenso
+        </a>
+      </div>
+    </div>
+
     <div class="container nav">
       <div class="brand-block">
         <a class="brand" href="#inicio" aria-label="Ir al inicio">
@@ -3609,8 +3722,6 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#paquetes">Paquetes</a></li>
-        
-        
         <li><a href="#quienes-somos">Nosotros</a></li>
         <li><a href="#contacto">Contacto</a></li>
         <li>
@@ -6163,6 +6274,17 @@
 
       const totales = document.getElementById("salidasTotales");
       if (totales) totales.textContent = window.PAQUETES.length;
+    })();
+
+    /* Vencimiento de avisos con fecha (hoy: el del próximo feriado).
+       Falla para el lado seguro: si esto no corriera, el ítem queda visible,
+       que es mucho menos grave que no mostrarlo nunca. */
+    (function vencerAvisos() {
+      const hoy = new Date();
+      document.querySelectorAll("[data-hasta]").forEach((el) => {
+        const hasta = new Date(`${el.dataset.hasta}T23:59:59-03:00`);
+        if (!isNaN(hasta) && hasta < hoy) el.hidden = true;
+      });
     })();
 
     /* El carrusel de guías se sacó de la página. Se conservan los controles
