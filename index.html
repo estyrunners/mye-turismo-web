@@ -959,6 +959,79 @@
       cursor: zoom-in;
     }
 
+    /* Foto de la salida: sin ella las tarjetas quedaban todas blancas. */
+    .weekly-foto {
+      position: relative;
+      margin: 0;
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    .weekly-foto img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    /* La provincia sobre la foto ubica al lector sin gastar una línea. */
+    .weekly-foto-lugar {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      padding: 5px 11px;
+      border-radius: 999px;
+      color: var(--navy);
+      background: rgba(255, 255, 255, 0.9);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      line-height: 1.3;
+      text-transform: uppercase;
+      backdrop-filter: blur(6px);
+    }
+
+    .weekly-foto-lugar:empty {
+      display: none;
+    }
+
+    .revelable {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    .revelable.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .weekly-card-con-foto {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .weekly-card-con-foto:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 26px 52px rgba(18, 52, 71, 0.16);
+    }
+
+    .weekly-card-con-foto:hover .weekly-foto img {
+      transform: scale(1.06);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .weekly-foto img,
+      .weekly-card-con-foto {
+        transition: none;
+      }
+
+      .weekly-card-con-foto:hover .weekly-foto img {
+        transform: none;
+      }
+    }
+
     .weekly-card > .youtube-preview {
       aspect-ratio: 21 / 9;
     }
@@ -3532,8 +3605,7 @@
   <main>
     <section class="hero" id="inicio">
       <div class="container hero-content">
-        <span class="eyebrow">Tu próxima experiencia comienza acá</span>
-        <h1><span class="hero-sparkle" aria-hidden="true">✨</span>Cada viaje tiene una historia. Empecemos la tuya.</h1>
+        <h1>Cada viaje tiene una historia. Empecemos la tuya.</h1>
         <p class="hero-description">
           En MyE Turismo diseñamos experiencias de viaje personalizadas, con atención cercana, respaldo profesional y el apoyo de los principales operadores turísticos.
         </p>
@@ -6074,16 +6146,24 @@
     document.getElementById("teacherPrev").addEventListener("click", () => scrollTeacherCarousel(-1));
     document.getElementById("teacherNext").addEventListener("click", () => scrollTeacherCarousel(1));
 
-    /* Controles del carrusel de guías y videos. */
+    /* El carrusel de guías se sacó de la página. Se conservan los controles
+       por si vuelve, pero gateados: sin la guarda, este bloque tiraba una
+       excepción que cortaba todo el script de acá para abajo — se caían las
+       tarjetas de salidas y el cableado de los links de WhatsApp. */
     const mediaCarousel = document.getElementById("mediaCarousel");
-    const scrollMediaCarousel = (direction) => {
-      const firstCard = mediaCarousel.querySelector(".media-card");
-      const distance = firstCard ? firstCard.getBoundingClientRect().width + 22 : 620;
-      mediaCarousel.scrollBy({ left: distance * direction, behavior: "smooth" });
-    };
+    const mediaPrev = document.getElementById("mediaPrev");
+    const mediaNext = document.getElementById("mediaNext");
 
-    document.getElementById("mediaPrev").addEventListener("click", () => scrollMediaCarousel(-1));
-    document.getElementById("mediaNext").addEventListener("click", () => scrollMediaCarousel(1));
+    if (mediaCarousel && mediaPrev && mediaNext) {
+      const scrollMediaCarousel = (direction) => {
+        const firstCard = mediaCarousel.querySelector(".media-card");
+        const distance = firstCard ? firstCard.getBoundingClientRect().width + 22 : 620;
+        mediaCarousel.scrollBy({ left: distance * direction, behavior: "smooth" });
+      };
+
+      mediaPrev.addEventListener("click", () => scrollMediaCarousel(-1));
+      mediaNext.addEventListener("click", () => scrollMediaCarousel(1));
+    }
 
     document.querySelectorAll(".whatsapp-link").forEach((link) => {
       link.href = whatsappUrl(link.dataset.message || "Hola MyE Turismo, quiero hacer una consulta.");
@@ -6240,8 +6320,20 @@
             "¿Me confirman disponibilidad?"
           ].join("\n");
 
+          /* La foto vive en paquetes.js con ruta relativa a las landings
+             (../foto-x.jpg); acá estamos en la raíz, así que se saca el ../ */
+          const foto = p.foto ? p.foto.replace(/^\.\.\//, "") : "";
+
           return `
-            <article class="weekly-card" id="paquete-${p.id}" data-search="${p.nombre} ${p.subtitulo || ""} ${p.hotel || ""} ${p.transporte}">
+            <article class="weekly-card${foto ? " weekly-card-con-foto" : ""}" id="paquete-${p.id}" data-search="${p.nombre} ${p.subtitulo || ""} ${p.hotel || ""} ${p.transporte}">
+              ${
+                foto
+                  ? `<figure class="weekly-foto">
+                       <img src="${foto}" alt="${p.fotoAlt || p.nombre}" width="1100" height="688" loading="lazy" decoding="async">
+                       <figcaption class="weekly-foto-lugar">${p.provincia || ""}</figcaption>
+                     </figure>`
+                  : ""
+              }
               <div class="weekly-card-body">
                 <small>${p.duracion} · ${p.transporte}</small>
                 <h3>${p.nombre}</h3>
@@ -6262,7 +6354,44 @@
         .join("");
 
       conectarWhatsapp(carrusel);
+      revelarAlScrollear(carrusel.querySelectorAll(".weekly-card"));
     })();
+
+    /* Las tarjetas entran a medida que se scrollea, en vez de estar todas
+       puestas de una. Si el sistema pide menos movimiento, no se anima. */
+    function revelarAlScrollear(nodos) {
+      const lista = [...nodos];
+      if (!lista.length) return;
+
+      const sinMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (sinMovimiento || !("IntersectionObserver" in window)) {
+        lista.forEach((n) => n.classList.add("visible"));
+        return;
+      }
+
+      lista.forEach((n) => n.classList.add("revelable"));
+      const obs = new IntersectionObserver(
+        (entradas) => {
+          entradas.forEach((e, i) => {
+            if (!e.isIntersecting) return;
+            /* Escalonado corto: se nota el orden sin que se haga esperar. */
+            setTimeout(() => e.target.classList.add("visible"), i * 70);
+            obs.unobserve(e.target);
+          });
+        },
+        { rootMargin: "0px 0px -60px 0px", threshold: 0.12 }
+      );
+      lista.forEach((n) => obs.observe(n));
+
+      /* Red de seguridad: en un carrusel horizontal las tarjetas de la
+         derecha nunca entran al viewport, así que sin esto quedarían
+         invisibles para siempre. Una animación no puede esconder el
+         producto: pase lo que pase, a los 1,2 s se muestran todas. */
+      setTimeout(() => {
+        lista.forEach((n) => n.classList.add("visible"));
+        obs.disconnect();
+      }, 1200);
+    }
 
     /* Los bloques de arriba crean links después de que corrió el wiring
        general de .whatsapp-link, así que hay que conectarlos a mano. */
