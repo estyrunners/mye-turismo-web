@@ -1672,15 +1672,15 @@
         const sena = Number(b.dataset.sena || 0);
         const gastos = Number(b.dataset.gastos || 0);
         const incluye = b.dataset.incluye || "";
+        /* El clic queda contado en el pixel (evento Lead, con el destino en
+           content_name) y NO se escribe en el tablero.
+           Antes sí se escribía, con nombre "Sin datos — WhatsApp directo".
+           Como acá todavía no hay teléfono, esas filas no se podían
+           contestar: llegaron a ser 64 de 100 consultas y 64 de 103
+           clientes, taparon a la gente real en la cola de Estela y
+           ensuciaron la base de contactos. La cuenta de cuántos tocaron
+           el botón la tiene Meta, que es donde va esa métrica. */
         trackLead({ content_name: opcion, ...(precio ? { value: precio, currency: "ARS" } : {}) });
-        // Todavía no hay nombre/teléfono en este punto (va directo a
-        // WhatsApp sin pasar por el formulario) — se registra igual,
-        // sin eso, para que la consulta no se pierda del tablero.
-        registrarLead({
-          nombre: `Sin datos — WhatsApp directo (${opcion})`,
-          destino: opcion === "Barra fija" ? null : opcion,
-          mensaje: "Tocó 'Consultar por WhatsApp' en la landing de Día del Maestro, sin pasar por el formulario."
-        });
         abrirWhatsapp(
           opcion === "Barra fija"
             ? mensajeGenerico()
