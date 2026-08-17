@@ -122,6 +122,13 @@ const CSS = `
   .cuotas{display:inline-flex;align-items:center;gap:9px;margin-top:20px;padding:11px 18px;border-radius:999px;background:rgba(242,169,91,.18);color:var(--navy);font-weight:700;font-size:.93rem}
   .grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));padding:8px 0 60px}
   .paq{position:relative;display:flex;flex-direction:column;background:var(--white);border:1px solid rgba(18,52,71,.09);border-radius:22px;padding:24px;box-shadow:var(--shadow)}
+  /* Las guías dejaron de ser una sección aparte sin precio ni botón: ahora
+     son un argumento de cierre, y van debajo del catálogo. */
+  .regalo{display:flex;gap:16px;align-items:flex-start;margin:34px 0 6px;padding:20px 22px;border:1px dashed rgba(8,152,155,.42);border-radius:18px;background:#fffaf3}
+  .regalo-icono{font-size:1.6rem;line-height:1}
+  .regalo strong{display:block;margin-bottom:4px;color:var(--ink);font-size:1rem}
+  .regalo span{color:var(--muted);font-size:.92rem;line-height:1.55}
+  .regalo em{font-style:normal;font-weight:700;color:var(--ink)}
   .paq-con-foto{padding-top:0;overflow:hidden}
   .paq-foto{position:relative;margin:0 -24px 20px;line-height:0}
   .paq-foto img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;display:block}
@@ -214,6 +221,14 @@ PUERTAS.forEach((puerta) => {
   <div class="grid">
     ${items.map(tarjeta).join("\n")}
   </div>
+
+  <aside class="regalo">
+    <span class="regalo-icono" aria-hidden="true">🎁</span>
+    <div>
+      <strong>De regalo con tu reserva</strong>
+      <span>Con cualquier paquete te llevás las dos guías de MyE: <em>Entre Rutas y Recuerdos</em>, para organizar un viaje en grupo, y la <em>Guía de Viaje Saludable &amp; Keto</em>.</span>
+    </div>
+  </aside>
 </main>
 
 <section class="otras">

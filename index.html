@@ -2514,13 +2514,69 @@
       content: "";
     }
 
+    /* La foto de Estela y Matías va al lado del título: es el activo de
+       confianza más fuerte que tiene la agencia. */
+    .why-intro {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      align-items: center;
+      gap: 38px;
+      margin-bottom: 42px;
+    }
+
+    .why-foto {
+      margin: 0;
+      overflow: hidden;
+      border-radius: 22px;
+      box-shadow: 0 22px 48px rgba(0, 0, 0, 0.3);
+      line-height: 0;
+    }
+
+    .why-foto img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      display: block;
+    }
+
+    .why-intro .section-heading {
+      margin: 0;
+      text-align: left;
+    }
+
+    .why-intro .section-heading .eyebrow {
+      justify-content: flex-start;
+    }
+
     .why .section-heading h2,
     .why .section-heading p {
       color: var(--white);
     }
 
+    /* Playfair en blanco sobre azul oscuro se afina y encandila.
+       Se compensa con más cuerpo y menos tamaño. */
+    .why .section-heading h2 {
+      font-weight: 700;
+      font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+      letter-spacing: -0.01em;
+    }
+
     .why .section-heading p {
       opacity: 0.7;
+    }
+
+    @media (max-width: 820px) {
+      .why-intro {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .why-foto {
+        max-width: 230px;
+      }
     }
 
     .why .eyebrow {
@@ -3461,7 +3517,7 @@
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#paquetes">Paquetes</a></li>
         
-        <li><a href="#guias-videos">Guías</a></li>
+        
         <li><a href="#quienes-somos">Nosotros</a></li>
         <li><a href="#contacto">Contacto</a></li>
         <li>
@@ -3625,81 +3681,6 @@
       </div>
     </section>
 
-    <section class="section media-showcase" id="guias-videos">
-      <div class="container">
-        <div class="media-heading-row">
-          <div class="section-heading">
-            <span class="eyebrow">Contenido para inspirarte</span>
-            <h2>Inspirate para tu próximo viaje</h2>
-            <p>Una selección breve de guías e historias para empezar a imaginar tu próxima experiencia. Los videos de cada destino también los vas a encontrar dentro de su sección correspondiente.</p>
-          </div>
-          <a class="btn btn-light" href="#destinos">
-            Ver todos los videos
-            <svg class="icon"><use href="#icon-arrow"></use></svg>
-          </a>
-        </div>
-
-        <div class="media-carousel-shell">
-          <button class="weekly-arrow media-arrow-prev" id="mediaPrev" type="button" aria-label="Ver contenido anterior">
-            <svg class="icon"><use href="#icon-arrow"></use></svg>
-          </button>
-
-          <div class="media-carousel" id="mediaCarousel">
-            <article class="media-card">
-              <div class="media-cover">
-                <img data-media-image="routes" src="" alt="Portada de Entre Rutas y Recuerdos">
-                <span class="media-badge">Guía de viajes</span>
-              </div>
-              <div class="media-card-content">
-                <small>Planificación en grupo</small>
-                <h3>Entre Rutas y Recuerdos</h3>
-                <p>Un manual completo para planificar, organizar y disfrutar viajes en grupo, creando recuerdos que quedan para siempre.</p>
-                <a class="btn youtube-button" href="https://youtube.com/shorts/jDQn9Os9-AA?si=JccSWCZLnPOin2aX" target="_blank" rel="noopener">
-                  <svg class="icon"><use href="#icon-play"></use></svg>
-                  Ver en YouTube
-                </a>
-              </div>
-            </article>
-
-            <article class="media-card">
-              <div class="media-cover">
-                <img data-media-image="healthy" src="" alt="Portada de Guía de viaje saludable y keto">
-                <span class="media-badge">Guía saludable</span>
-              </div>
-              <div class="media-card-content">
-                <small>Bienestar durante el viaje</small>
-                <h3>Guía de Viaje Saludable &amp; Keto</h3>
-                <p>Ideas, recomendaciones y consejos para disfrutar cualquier destino sin descuidar tu alimentación y bienestar.</p>
-                <a class="btn youtube-button" href="https://youtube.com/shorts/6AjyuSiXC4k?si=23g40ggUhpzrSaIB" target="_blank" rel="noopener">
-                  <svg class="icon"><use href="#icon-play"></use></svg>
-                  Ver en YouTube
-                </a>
-              </div>
-            </article>
-
-            <article class="media-card">
-              <div class="media-cover">
-                <img data-media-image="agent" src="" alt="Estela y Matías, de MyE Turismo">
-                <span class="media-badge">Conocé a Estela</span>
-              </div>
-              <div class="media-card-content">
-                <small>Carta de presentación</small>
-                <h3>El rostro detrás de MyE Turismo</h3>
-                <p>Conocé a Estela y la mirada profesional y cercana con la que acompaña cada experiencia de viaje.</p>
-                <a class="btn youtube-button" href="https://youtube.com/shorts/WWfMNcJtciM?si=jAZSwtbPfZyvd3Cx" target="_blank" rel="noopener">
-                  <svg class="icon"><use href="#icon-play"></use></svg>
-                  Ver presentación
-                </a>
-              </div>
-            </article>
-          </div>
-
-          <button class="weekly-arrow media-arrow-next" id="mediaNext" type="button" aria-label="Ver contenido siguiente">
-            <svg class="icon"><use href="#icon-arrow"></use></svg>
-          </button>
-        </div>
-      </div>
-    </section>
 
     <section class="section section-soft" id="destinos" hidden style="display:none">
       <div class="container">
@@ -3780,10 +3761,15 @@
 
     <section class="section why" id="nosotros">
       <div class="container">
-        <div class="section-heading">
-          <span class="eyebrow">Viajá con confianza</span>
-          <h2>¿Por qué viajar con MyE Turismo?</h2>
-          <p>Porque cada viaje merece atención, claridad y alguien que esté presente en todo el camino.</p>
+        <div class="why-intro">
+          <figure class="why-foto">
+            <img src="matias-estela-4.webp" alt="Estela y Matías, de MyE Turismo" width="800" height="1000" loading="lazy" decoding="async">
+          </figure>
+          <div class="section-heading">
+            <span class="eyebrow">Viajá con confianza</span>
+            <h2>¿Por qué viajar con MyE Turismo?</h2>
+            <p>Porque cada viaje merece atención, claridad y alguien que esté presente en todo el camino.</p>
+          </div>
         </div>
 
         <div class="benefits-grid">
@@ -3811,25 +3797,6 @@
       </div>
     </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="custom-trip">
-          <div class="custom-trip-image" role="img" aria-label="Viajera disfrutando de su recorrido"></div>
-          <div class="custom-trip-content">
-            <span class="eyebrow">Viajes a medida</span>
-            <h2>Tu viaje, a tu manera.</h2>
-            <p>
-              ¿Tenés un destino en mente o querés una propuesta especial? Contanos qué imaginás y diseñamos juntos un viaje que se adapte a vos.
-            </p>
-            <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero armar un viaje a medida.">
-              Diseñar mi viaje
-              <svg class="icon"><use href="#icon-arrow"></use></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
 
     <section class="section" id="contacto">
       <div class="container contact-wrap">
@@ -3837,10 +3804,6 @@
           <span class="eyebrow">Hablemos de tu viaje</span>
           <h2>¿A dónde te gustaría ir?</h2>
           <p>Completá el formulario y se abrirá WhatsApp con tu consulta lista para enviar.</p>
-          <a class="contact-detail whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero hacer una consulta.">
-            <span><svg class="icon"><use href="#icon-phone"></use></svg></span>
-            11 3153-7638
-          </a>
         </div>
 
         <form class="contact-form" id="contactForm">
