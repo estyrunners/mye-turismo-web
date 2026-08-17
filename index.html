@@ -719,6 +719,7 @@
     /* La foto se mete a sangre arriba: la tarjeta trae padding propio,
        así que se compensa con márgenes negativos. */
     .puerta-foto {
+      position: relative;
       display: block;
       width: calc(100% + 48px);
       margin: -26px -24px 18px;
@@ -731,6 +732,25 @@
       aspect-ratio: 16 / 9;
       object-fit: cover;
       display: block;
+    }
+
+    /* Sin este número, las cinco tarjetas se leen como cinco viajes. */
+    .puerta-contador {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 2;
+      padding: 6px 13px;
+      border-radius: 999px;
+      color: var(--navy);
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 6px 16px rgba(18, 52, 71, 0.18);
+      font-size: 0.74rem;
+      font-weight: 900;
+      letter-spacing: 0.03em;
+      line-height: 1.3;
+      text-transform: uppercase;
+      backdrop-filter: blur(6px);
     }
 
     .puerta-card:hover .puerta-foto img {
@@ -3607,15 +3627,11 @@
       <div class="container hero-content">
         <h1>Ya está todo armado. Vos elegí y viajá.</h1>
         <p class="hero-description">
-          <strong id="heroCantidad">44 salidas</strong> con fecha confirmada a <strong id="heroDestinos">36 destinos</strong>: bus o avión, hotel, traslados y coordinador. Reservás tu lugar con una seña y el resto lo pagás <strong>en cuotas, con o sin tarjeta de crédito</strong>.
+          <strong id="heroDestinos">36 destinos</strong>: bus o avión, hotel, traslados y coordinador. Reservás tu lugar con una seña y el resto lo pagás <strong>en cuotas, con o sin tarjeta de crédito</strong>.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero consultar por un viaje.">
-            <svg class="icon"><use href="#icon-whatsapp"></use></svg>
-            Hablar por WhatsApp
-          </a>
-          <a class="btn btn-light" href="#paquetes">
-            Ver experiencias
+          <a class="btn btn-primary" href="#puertas">
+            Ver destinos
             <svg class="icon"><use href="#icon-arrow"></use></svg>
           </a>
         </div>
@@ -3627,8 +3643,8 @@
       <div class="container">
         <div class="section-heading">
           <span class="eyebrow">Elegí por dónde empezar</span>
-          <h2>¿Qué viaje estás buscando?</h2>
-          <p>Todas las salidas tienen fecha confirmada y cupo limitado. Elegí una categoría y mirá precios, hoteles y qué incluye cada una.</p>
+          <h2>¿Qué tipo de viaje buscás?</h2>
+          <p><strong id="puertasResumen">44 salidas</strong> agrupadas en cinco categorías. Entrá a la que te interese y mirá precios, hoteles, fechas y qué incluye cada una.</p>
         </div>
 
         <div class="puertas-grid" id="puertasGrid"></div>
@@ -6140,12 +6156,12 @@
        mintiendo. */
     (function numerosDelHero() {
       if (!window.PAQUETES) return;
-      const total = window.PAQUETES.length;
       const destinos = new Set(window.PAQUETES.map((p) => p.nombre)).size;
-      const cant = document.getElementById("heroCantidad");
       const dest = document.getElementById("heroDestinos");
-      if (cant) cant.textContent = `${total} salidas`;
       if (dest) dest.textContent = `${destinos} destinos`;
+
+      const resumen = document.getElementById("puertasResumen");
+      if (resumen) resumen.textContent = `${window.PAQUETES.length} salidas`;
     })();
 
     /* El carrusel de guías se sacó de la página. Se conservan los controles
@@ -6254,11 +6270,20 @@
           ? money(Math.min(...pesos), "ARS")
           : money(Math.min(...dolares), "USD");
 
+        /* Se cuentan destinos y no salidas: dos hoteles en Villa Gesell son
+           dos salidas pero un solo lugar, y contarlo doble suena a relleno.
+           El número va sobre la foto para que se vea que cada tarjeta es una
+           categoría con muchos viajes adentro, no un viaje suelto. */
+        const destinos = new Set(items.map((p) => p.nombre)).size;
+
         return `
           <a class="puerta-card" href="${puerta.id}/">
             ${
               puerta.foto
-                ? `<span class="puerta-foto"><img src="${puerta.foto}" alt="${puerta.fotoAlt || ""}" width="1100" height="688" loading="lazy" decoding="async"></span>`
+                ? `<span class="puerta-foto">
+                     <img src="${puerta.foto}" alt="${puerta.fotoAlt || ""}" width="1100" height="688" loading="lazy" decoding="async">
+                     <span class="puerta-contador">${destinos} ${destinos === 1 ? "destino" : "destinos"}</span>
+                   </span>`
                 : ""
             }
             <span class="eyebrow">${puerta.eyebrow}</span>
