@@ -159,13 +159,28 @@
       background: #16c9c5;
     }
 
-    .volver {
-      display: block;
-      margin-top: 1.5rem;
-      color: var(--grey);
-      font-size: .9rem;
-      text-decoration: underline;
-      text-underline-offset: 3px;
+    /* Los dos botones apilados, no en fila: el de WhatsApp es la acción que
+       queremos y el de volver no tiene que competirle. */
+    .cta {
+      max-width: 100%;
+      text-align: center;
+    }
+
+    .cta-secundario {
+      display: flex;
+      width: max-content;
+      max-width: 100%;
+      margin-top: .9rem;
+      color: #dfe9ec;
+      background: transparent;
+      border: 1px solid var(--line);
+      font-weight: 700;
+      box-shadow: none;
+    }
+
+    .cta-secundario:hover {
+      background: rgba(255, 255, 255, .06);
+      border-color: rgba(255, 255, 255, .3);
     }
 
     footer {
@@ -190,8 +205,8 @@
     <p class="etiqueta">MyE Turismo</p>
     <h1>Salimos <i>cerca tuyo</i></h1>
     <p class="bajada">
-      Estas son las zonas donde el micro suele parar a levantar pasajeros
-      antes de salir a la ruta. Elegí la más cómoda para vos.
+      Conocé nuestros puntos de ascenso (pueden modificarse según destino),
+      y elegí el más cómodo para comenzar tu viaje.
     </p>
 
     <ul class="zonas">
@@ -230,14 +245,18 @@
           <circle cx="10" cy="8" r="2" /></svg>La Plata</li>
     </ul>
 
+    <!-- Acá ya no se repite "pueden modificarse": eso se dice arriba. Queda
+         sólo lo que el que lee todavía no sabe: de qué depende y cuándo lo
+         confirmamos. -->
     <p class="aviso">
-      <b>Estos puntos pueden variar</b> según el operador, el viaje puntual
-      y la disponibilidad de ese momento. El punto exacto se confirma por
-      WhatsApp antes de reservar.
+      El punto exacto <b>lo confirmamos por WhatsApp antes de que reserves</b>:
+      depende del operador y de la salida.
     </p>
 
-    <a class="cta" id="wa" href="#">Consultar por WhatsApp</a>
-    <a class="volver" href="../dia-del-maestro/">← Volver a los destinos</a>
+    <a class="cta" id="wa" href="#">Consultar el ascenso del destino que querés</a>
+    <!-- Antes este link decía "Volver a los destinos" y apuntaba a la landing
+         de Día del Maestro: te sacaba de la página a un viaje puntual. -->
+    <a class="cta cta-secundario" href="../">← Volver al inicio</a>
   </div>
 
   <footer>
@@ -247,10 +266,14 @@
 
   <script>
     const WHATSAPP = "5491131537638";
+    /* El mensaje arranca con el destino porque es lo primero que Estela
+       necesita para poder contestar de qué punto sale. */
     const mensaje = [
-      "Hola! Vi los puntos de ascenso y quiero consultar por un viaje.",
+      "Hola! Quiero consultar desde qué punto sale este viaje:",
       "",
-      "Cuántos pasajeros son, las edades y desde qué punto saldrían:"
+      "Destino:",
+      "Fecha aproximada:",
+      "Punto de ascenso que me queda cómodo:"
     ].join("\n");
     document.getElementById("wa").href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
   </script>
