@@ -229,9 +229,8 @@ window.PAQUETES = [
   /* ---------- ESCAPADAS EN BUS — Oct a Dic ---------- */
   {
     id: "bus-federacion-clima-termal",
-    foto: "../foto-termas-generica.jpg",
-    fotoAlt: "Pileta climatizada del complejo termal de Federación",
-    ilustrativa: true,
+    foto: "../foto-federacion.jpg",
+    fotoAlt: "Pileta climatizada bajo la cúpula del parque termal de Federación",
     nombre: "Termas de Federación",
     provincia: "Entre Ríos",
     pais: "Argentina",
@@ -1144,9 +1143,8 @@ window.PAQUETES = [
   },
   {
     id: "v27-federacion",
-    foto: "../foto-termas-generica.jpg",
-    fotoAlt: "Pileta climatizada del complejo termal de Federación",
-    ilustrativa: true,
+    foto: "../foto-federacion.jpg",
+    fotoAlt: "Pileta climatizada bajo la cúpula del parque termal de Federación",
     nombre: "Federación, Entre Ríos",
     provincia: "Entre Ríos",
     pais: "Argentina",
