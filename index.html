@@ -306,6 +306,38 @@
       transform: translateY(-1px);
     }
 
+    /* Cierre de formularios: mismo bloque para el de contacto y el de viaje
+       a medida. */
+    .form-ok {
+      grid-column: 1 / -1;
+      margin-top: 14px;
+      padding: 18px 20px;
+      border: 1px solid rgba(8, 152, 155, 0.32);
+      border-radius: 18px;
+      background: var(--turquoise-soft);
+      text-align: center;
+    }
+
+    .form-ok[hidden] {
+      display: none;
+    }
+
+    .form-ok-titulo {
+      color: var(--navy);
+      font-size: 1.06rem;
+      font-weight: 800;
+    }
+
+    .form-ok-sub {
+      margin-top: 3px;
+      color: var(--ink);
+      font-size: 0.94rem;
+    }
+
+    .form-ok .btn {
+      margin-top: 13px;
+    }
+
     .barra-avisos {
       border-bottom: 1px solid rgba(255, 255, 255, 0.14);
     }
@@ -3939,7 +3971,7 @@
         <div class="contact-copy">
           <span class="eyebrow">Hablemos de tu viaje</span>
           <h2>¿A dónde te gustaría ir?</h2>
-          <p>Completá el formulario y se abrirá WhatsApp con tu consulta lista para enviar.</p>
+          <p>Dejanos tus datos y te escribimos por WhatsApp. Si preferís escribir vos, después te dejamos el chat listo.</p>
         </div>
 
         <form class="contact-form" id="contactForm">
@@ -3970,8 +4002,20 @@
           </div>
           <button class="btn btn-primary" type="submit">
             <svg class="icon"><use href="#icon-whatsapp"></use></svg>
-            Enviar consulta por WhatsApp
+            Quiero que me escriban
           </button>
+
+          <!-- Ver el comentario de enviarFormulario más abajo: el éxito ya no
+               abre WhatsApp solo, porque así se perdía gente que dejaba los
+               datos y creía que la íbamos a contactar. -->
+          <div class="form-ok" id="contactOk" hidden>
+            <p class="form-ok-titulo" id="contactOkTitulo">¡Listo! Ya tenemos tus datos.</p>
+            <p class="form-ok-sub">Te escribimos hoy por WhatsApp.</p>
+            <a class="btn btn-primary" id="contactOkWhatsapp" href="#" target="_blank" rel="noopener">
+              <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+              ¿Preferís escribirnos vos ahora?
+            </a>
+          </div>
         </form>
       </div>
     </section>
@@ -5321,6 +5365,29 @@
       }
     };
 
+    /* Cierre de los formularios.
+       Antes el submit hacía window.open() a wa.me con un mensaje que la
+       persona todavía tenía que enviar. El botón decía "que me escriban" y
+       lo que pasaba era lo contrario, así que mucha gente dejaba sus datos y
+       se quedaba esperando: en la campaña de Día del Maestro fueron 7 de 22.
+       Ahora el lead ya quedó guardado, el mensaje dice la verdad, y el que
+       quiera escribir tiene un link real — que además ningún bloqueador de
+       ventanas emergentes puede frenar, cosa que sí pasaba con window.open
+       en iPhone. */
+    const mostrarExito = (form, { panel, titulo, link, nombre, mensaje }) => {
+      const caja = form.querySelector(panel);
+      if (!caja) return;
+      const primerNombre = String(nombre || "").trim().split(/\s+/)[0];
+      const h = caja.querySelector(titulo);
+      if (h && primerNombre) h.textContent = `¡Listo, ${primerNombre}! Ya tenemos tus datos.`;
+      const a = caja.querySelector(link);
+      if (a) a.href = whatsappUrl(mensaje);
+      caja.hidden = false;
+      const boton = form.querySelector("button[type=submit]");
+      if (boton) boton.disabled = true;
+      caja.scrollIntoView({ behavior: "smooth", block: "center" });
+    };
+
     const whatsappUrl = (message) =>
       `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
@@ -5370,7 +5437,13 @@
         mensaje: message
       });
 
-      window.open(whatsappUrl(message), "_blank", "noopener");
+      mostrarExito(event.currentTarget, {
+        panel: "[data-trip-ok]",
+        titulo: "[data-trip-ok-titulo]",
+        link: "[data-trip-ok-whatsapp]",
+        nombre: name,
+        mensaje: message
+      });
     };
 
     const setupCustomTripForm = (form) => {
@@ -5785,8 +5858,17 @@
 
               <button class="btn btn-primary custom-trip-submit" type="submit">
                 <svg class="icon"><use href="#icon-whatsapp"></use></svg>
-                Enviar consulta por WhatsApp
+                Quiero que me escriban
               </button>
+
+              <div class="form-ok" data-trip-ok hidden>
+                <p class="form-ok-titulo" data-trip-ok-titulo>¡Listo! Ya tenemos tus datos.</p>
+                <p class="form-ok-sub">Te escribimos hoy por WhatsApp con opciones armadas.</p>
+                <a class="btn btn-primary" data-trip-ok-whatsapp href="#" target="_blank" rel="noopener">
+                  <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+                  ¿Preferís escribirnos vos ahora?
+                </a>
+              </div>
             </form>
           </article>
         `;
@@ -6372,7 +6454,14 @@
         `Me interesa: ${form.get("destination")}.`,
         form.get("message") ? `Mi consulta: ${form.get("message")}` : ""
       ].filter(Boolean).join("\n");
-      window.open(whatsappUrl(message), "_blank", "noopener");
+
+      mostrarExito(event.currentTarget, {
+        panel: "#contactOk",
+        titulo: "#contactOkTitulo",
+        link: "#contactOkWhatsapp",
+        nombre: String(form.get("name") || ""),
+        mensaje: message
+      });
     });
 
     document.getElementById("year").textContent = new Date().getFullYear();

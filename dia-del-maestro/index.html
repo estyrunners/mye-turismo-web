@@ -915,6 +915,23 @@
       text-align: center;
     }
 
+    .ok.visible {
+      display: block;
+    }
+
+    .ok-sub {
+      margin-top: .2rem;
+      font-weight: 600;
+      color: #cfeeed;
+    }
+
+    .ok-cta {
+      width: 100%;
+      margin-top: .9rem;
+      font-size: .92rem;
+      padding: .8rem 1.2rem;
+    }
+
     .aviso {
       font-size: .8rem;
       color: var(--grey);
@@ -1559,8 +1576,20 @@
             <option value="Todavía no sé">Todavía no sé, quiero que me asesoren</option>
           </select>
         </div>
-        <button class="cta" type="submit">Que me escriban por WhatsApp</button>
-        <p class="ok" id="ok">¡Listo! Te estamos abriendo el WhatsApp.</p>
+        <button class="cta" type="submit">Quiero que me escriban</button>
+        <!-- El éxito no abre WhatsApp solo. Antes lo hacía, y ahí se perdían:
+             el botón prometía "que me escriban", pero el navegador abría un
+             chat con un mensaje que la persona tenía que enviar. Muchos
+             dejaban los datos y se quedaban esperando. Ahora el mensaje dice
+             la verdad, y el que quiera escribir ya tiene el link a mano —
+             como link real, que ningún bloqueador de ventanas frena. -->
+        <div class="ok" id="ok">
+          <p id="okTitulo">¡Listo! Ya tenemos tus datos.</p>
+          <p class="ok-sub">Te escribimos hoy por WhatsApp.</p>
+          <a class="cta ok-cta" id="okWhatsapp" href="#" target="_blank" rel="noopener">
+            ¿Preferís escribirnos vos ahora?
+          </a>
+        </div>
         <p class="aviso">Te contesta una persona, no un robot.</p>
       </form>
     </div>
@@ -1698,14 +1727,20 @@
 
       registrarLead({ nombre, telefono, destino, mensaje: "Vino de la landing de Día del Maestro." });
       trackLead({ content_name: destino, currency: "ARS" });
-      document.getElementById("ok").style.display = "block";
-      abrirWhatsapp(
-        [
-          `Hola! Soy ${nombre}. Me interesa ${destino} para el Día del Maestro.`,
-          "",
-          `Somos MyE Turismo. Estos son los puntos de ascenso 👉 ${linkAscensos()}`
-        ].join("\n")
-      );
+
+      const texto = [
+        `Hola! Soy ${nombre}. Me interesa ${destino} para el Día del Maestro.`,
+        "",
+        `Somos MyE Turismo. Estos son los puntos de ascenso 👉 ${linkAscensos()}`
+      ].join("\n");
+
+      const ok = document.getElementById("ok");
+      document.getElementById("okTitulo").textContent = `¡Listo, ${nombre.split(" ")[0]}! Ya tenemos tus datos.`;
+      document.getElementById("okWhatsapp").href =
+        `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(texto)}`;
+      ok.classList.add("visible");
+      ok.scrollIntoView({ behavior: "smooth", block: "center" });
+      e.currentTarget.querySelector("button[type=submit]").disabled = true;
     });
 
     /* ---------- Cuenta regresiva ---------- */
