@@ -1509,27 +1509,24 @@
       color: var(--navy);
     }
 
-    .about-video-card {
-      display: grid;
-      grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
-      gap: clamp(28px, 5vw, 58px);
-      align-items: center;
-      margin-bottom: 42px;
-      padding: clamp(24px, 4vw, 38px);
-      border: 1px solid rgba(8, 152, 155, 0.16);
-      border-radius: 26px;
-      background: linear-gradient(135deg, var(--turquoise-soft), var(--white));
-      box-shadow: 0 16px 38px rgba(18, 52, 71, 0.08);
-    }
-
-    .about-video-frame {
-      width: min(100%, 280px);
-      aspect-ratio: 9 / 16;
-      justify-self: center;
+    /* Mismo ancho, mismo radio y mismo recorte 4:5 que .why-foto: es la otra
+       foto de los dos que hay en la página, y tienen que verse hermanas. */
+    .about-foto {
+      width: 260px;
+      max-width: 100%;
+      margin: 30px 0 0;
       overflow: hidden;
       border-radius: 22px;
-      background: var(--navy);
-      box-shadow: var(--shadow);
+      box-shadow: 0 22px 48px rgba(18, 52, 71, 0.22);
+      line-height: 0;
+    }
+
+    .about-foto img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
     }
 
     .youtube-preview {
@@ -1714,20 +1711,6 @@
     .video-modal-youtube {
       width: min(100%, 280px);
       justify-content: center;
-    }
-
-    .about-video-copy h3 {
-      margin: 12px 0;
-      color: var(--navy);
-      font-family: "Playfair Display", serif;
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      line-height: 1.1;
-    }
-
-    .about-video-copy p {
-      margin-bottom: 22px;
-      color: var(--muted);
-      line-height: 1.7;
     }
 
     .trust-grid {
@@ -3294,12 +3277,14 @@
         grid-template-columns: 1fr;
       }
 
-      .about-video-card {
-        grid-template-columns: 1fr;
-      }
-
       .about-title {
         position: static;
+      }
+
+      /* En una sola columna la foto va arriba del texto y centrada: pegada a
+         la izquierda quedaba un hueco raro al lado. */
+      .about-foto {
+        margin: 24px auto 0;
       }
 
       .trust-grid {
@@ -4025,6 +4010,14 @@
           <div class="about-title">
             <span class="eyebrow">Experiencia y confianza</span>
             <h2>¿Quiénes somos?</h2>
+            <!-- La cara va acá y no en la tarjeta de video que había antes:
+                 al lado está el texto que dice quiénes son y la matrícula.
+                 Mismo tratamiento y mismo ancho (260 px) que la foto de
+                 "¿Por qué viajar con MyE Turismo?", para que las dos se lean
+                 como parte de la misma web. -->
+            <figure class="about-foto">
+              <img src="estela-matias-quienes-somos.jpg" alt="Estela y Matías, de MyE Turismo" width="800" height="1000" loading="lazy" decoding="async">
+            </figure>
           </div>
 
           <div class="about-copy">
@@ -4038,27 +4031,6 @@
             <p><strong>Estela</strong> es la fundadora y directora: <strong>Técnica Superior en Turismo, Mat. Nro. 1077 (Miembro del Colegio de Profesionales del Turismo)</strong>. Es quien te asesora, te arma el viaje y sigue tu reserva hasta el día de la salida. <strong>Matías</strong>, cofundador, se ocupa de la comunicación y de los sistemas con los que trabajamos.</p>
           </div>
         </div>
-
-        <article class="about-video-card">
-          <div class="about-video-frame">
-            <button class="youtube-preview" type="button" data-video-id="wR4c95F3n_U" data-video-title="Conocé más sobre MyE Turismo" aria-label="Reproducir video Conocé más sobre MyE Turismo dentro de la página">
-              <!-- Portada propia en vez de la miniatura automática de YouTube,
-                   que venía de un cuadro viejo del video. -->
-              <img src="portada-video-mye.jpg" alt="Estela y Matías, de MyE Turismo" width="562" height="1000" loading="lazy" decoding="async">
-              <span class="youtube-preview-play" aria-hidden="true"><svg class="icon"><use href="#icon-play"></use></svg></span>
-              <span class="youtube-preview-label">Vista previa</span>
-            </button>
-          </div>
-          <div class="about-video-copy">
-            <span class="eyebrow">Nuestra historia</span>
-            <h3>Conocé un poco más sobre MyE Turismo</h3>
-            <p>Te invitamos a descubrir la atención cercana y el compromiso profesional que acompañan cada experiencia de viaje.</p>
-            <a class="btn youtube-button" href="https://youtube.com/shorts/wR4c95F3n_U" target="_blank" rel="noopener">
-              <svg class="icon"><use href="#icon-play"></use></svg>
-              Ver en YouTube
-            </a>
-          </div>
-        </article>
 
         <div class="trust-grid">
           <article class="trust-card">
