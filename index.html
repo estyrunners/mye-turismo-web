@@ -249,13 +249,13 @@
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      padding: 8px 12px;
+      padding: 9px 14px;
       border: 1px solid rgba(255, 255, 255, 0.42);
       border-radius: 999px;
       color: var(--navy);
       background: rgba(255, 255, 255, 0.78);
       box-shadow: 0 10px 24px rgba(18, 52, 71, 0.1);
-      font-size: 0.86rem;
+      font-size: 0.9rem;
       font-weight: 900;
       white-space: nowrap;
       backdrop-filter: blur(10px);
@@ -271,6 +271,24 @@
     .header.scrolled .header-cuotas {
       border-color: rgba(8, 152, 155, 0.18);
       background: var(--turquoise-soft);
+    }
+
+    /* El chip del encabezado dice lo mismo que la banda de "cómo se paga", pero
+       en blanco translúcido se perdía contra la portada. Va en turquesa lleno.
+       Se pinta sólo el de la marca: los chips de la barra de avisos de arriba
+       tienen que seguir siendo claros para no competir entre ellos. */
+    .brand-block .header-cuotas,
+    .header.scrolled .brand-block .header-cuotas {
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.3);
+      background: linear-gradient(120deg, var(--turquoise) 0%, var(--turquoise-dark) 100%);
+      box-shadow: 0 10px 22px rgba(8, 152, 155, 0.32);
+    }
+
+    @media (max-width: 900px) {
+      .header-cuotas-resto {
+        display: none;
+      }
     }
 
     .nav-links {
@@ -971,20 +989,131 @@
       font-size: 0.84rem;
     }
 
-    .cuotas-banner {
+    /* Cómo se paga. Era una píldora beige que se leía como una nota al pie, y
+       es el argumento más fuerte que tiene la agencia: no hace falta la plata
+       hoy. Ahora es una banda con peso propio, con las condiciones reales (las
+       mismas que ya están publicadas en la landing del Día del Maestro) y con
+       un botón que abre WhatsApp. */
+    .cuotas-destacado {
+      position: relative;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 30px;
-      padding: 14px 20px;
+      gap: 18px 24px;
+      overflow: hidden;
+      margin-top: 38px;
+      padding: 24px 28px;
+      border-radius: var(--radius);
+      color: var(--white);
+      background: linear-gradient(115deg, var(--navy) 0%, #0d4a5b 48%, var(--turquoise-dark) 100%);
+      box-shadow: 0 22px 46px rgba(18, 52, 71, 0.24);
+    }
+
+    /* Un brillo que cruza la banda cada tantos segundos. Llama el ojo sin ser
+       un cartel que parpadea. */
+    .cuotas-destacado::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -45%;
+      width: 34%;
+      background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+      transform: skewX(-18deg);
+      pointer-events: none;
+      animation: cuotasBrillo 6s ease-in-out infinite;
+    }
+
+    @keyframes cuotasBrillo {
+      0%, 66% { left: -45%; }
+      100% { left: 118%; }
+    }
+
+    .cuotas-destacado-icono {
+      display: grid;
+      flex: 0 0 auto;
+      place-items: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.14);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.24);
+      font-size: 1.65rem;
+      line-height: 1;
+    }
+
+    .cuotas-destacado-texto {
+      flex: 1 1 320px;
+      min-width: 0;
+    }
+
+    .cuotas-destacado-titulo {
+      color: var(--white);
+      font-size: clamp(1.14rem, 2.1vw, 1.45rem);
+      font-weight: 900;
+      line-height: 1.24;
+    }
+
+    .cuotas-destacado-sub {
+      margin-top: 7px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .cuotas-destacado-sub strong {
+      color: #ffd9a3;
+      font-weight: 900;
+    }
+
+    .cuotas-destacado-cta {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-items: center;
+      gap: 9px;
+      padding: 14px 24px;
       border-radius: 999px;
       color: var(--navy);
-      background: rgba(242, 169, 91, 0.16);
+      background: var(--white);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.2);
       font-size: 0.95rem;
-      font-weight: 700;
-      text-align: center;
+      font-weight: 900;
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .cuotas-destacado-cta:hover {
+      transform: translateY(-2px);
+      background: var(--sand-light);
+      box-shadow: 0 18px 32px rgba(0, 0, 0, 0.26);
+    }
+
+    .cuotas-destacado-cta .icon {
+      width: 19px;
+      height: 19px;
+    }
+
+    @media (max-width: 620px) {
+      .cuotas-destacado {
+        gap: 14px 16px;
+        padding: 22px 20px;
+      }
+
+      .cuotas-destacado-icono {
+        width: 46px;
+        height: 46px;
+        font-size: 1.4rem;
+      }
+
+      .cuotas-destacado-cta {
+        flex: 1 1 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cuotas-destacado::after {
+        display: none;
+      }
     }
 
     .weekly-highlights {
@@ -1471,27 +1600,30 @@
         var(--white);
     }
 
-    .about-intro {
-      display: grid;
-      grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
-      gap: clamp(38px, 7vw, 90px);
-      align-items: start;
-      margin-bottom: 48px;
+    .about-heading {
+      margin-bottom: clamp(26px, 3vw, 38px);
     }
 
-    .about-title {
-      position: sticky;
-      top: 120px;
-    }
-
-    .about-title h2 {
+    .about-heading h2 {
       color: var(--navy);
       font-family: "Playfair Display", serif;
       font-size: clamp(2.6rem, 5vw, 4.6rem);
       line-height: 1.05;
     }
 
+    /* Foto y texto arrancan en la misma línea (align-items: start y ningún
+       margen arriba en la figura). Es lo que estaba desalineado. */
+    .about-intro {
+      display: grid;
+      grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+      gap: clamp(32px, 5vw, 66px);
+      align-items: start;
+      margin-bottom: 48px;
+    }
+
     .about-copy {
+      /* Sin tope, la línea se iba a 110 caracteres y se lee mal. */
+      max-width: 64ch;
       padding-left: clamp(24px, 4vw, 48px);
       border-left: 2px solid var(--sand);
     }
@@ -1509,12 +1641,13 @@
       color: var(--navy);
     }
 
-    /* Mismo ancho, mismo radio y mismo recorte 4:5 que .why-foto: es la otra
-       foto de los dos que hay en la página, y tienen que verse hermanas. */
+    /* Mismo radio y mismo recorte 4:5 que .why-foto, para que las dos fotos de
+       Estela y Matías se lean como hermanas. Un poco más ancha que aquélla
+       (300 vs 260) porque acá convive con un bloque de texto largo y al lado
+       del título grande, a 260, quedaba de estampilla. */
     .about-foto {
-      width: 260px;
-      max-width: 100%;
-      margin: 30px 0 0;
+      width: 100%;
+      margin: 0;
       overflow: hidden;
       border-radius: 22px;
       box-shadow: 0 22px 48px rgba(18, 52, 71, 0.22);
@@ -3103,11 +3236,16 @@
       margin-top: 11px;
     }
 
+    /* El mail es una tira larga sin espacios: sin overflow-wrap desbordaba la
+       columna y hacía que TODA la página se pudiera arrastrar de costado en
+       pantallas de ~700 a 1000 px. */
     .footer-contact-list a {
       display: inline-flex;
       flex-wrap: wrap;
       gap: 5px;
+      max-width: 100%;
       line-height: 1.35;
+      overflow-wrap: anywhere;
     }
 
     .footer-contact-list span {
@@ -3273,18 +3411,22 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
+      /* En una sola columna la foto va arriba del texto y centrada: pegada a
+         la izquierda dejaba un hueco raro al lado. La raya del margen también
+         se va: sin la foto al lado no separa nada, sólo corre el texto. */
       .about-intro {
         grid-template-columns: 1fr;
+        justify-items: center;
       }
 
-      .about-title {
-        position: static;
-      }
-
-      /* En una sola columna la foto va arriba del texto y centrada: pegada a
-         la izquierda quedaba un hueco raro al lado. */
       .about-foto {
-        margin: 24px auto 0;
+        width: min(100%, 320px);
+      }
+
+      .about-copy {
+        max-width: 62ch;
+        padding-left: 0;
+        border-left: 0;
       }
 
       .trust-grid {
@@ -3527,10 +3669,6 @@
         margin-bottom: 36px;
       }
 
-      .about-copy {
-        padding-left: 20px;
-      }
-
       .explorer-toolbar {
         align-items: stretch;
         flex-direction: column;
@@ -3726,9 +3864,12 @@
         <a class="brand" href="#inicio" aria-label="Ir al inicio">
           <img class="brand-logo" src="" alt="MyE Turismo">
         </a>
+        <!-- En celular la frase entera no entra al lado del logo y se cortaba
+             a la mitad. El final se esconde y queda "Pagá en cuotas", que sí
+             entra; la frase completa está en la banda de abajo. -->
         <span class="header-cuotas">
           <span aria-hidden="true">💳</span>
-          Pagá en cuotas, con o sin tarjeta de crédito
+          Pagá en cuotas<span class="header-cuotas-resto">, con o sin tarjeta de crédito</span>
         </span>
       </div>
 
@@ -3777,10 +3918,17 @@
 
         <div class="puertas-grid" id="puertasGrid"></div>
 
-        <p class="cuotas-banner">
-          <span aria-hidden="true">💳</span>
-          Pagá en cuotas, con o sin tarjeta de crédito
-        </p>
+        <aside class="cuotas-destacado">
+          <span class="cuotas-destacado-icono" aria-hidden="true">💳</span>
+          <div class="cuotas-destacado-texto">
+            <p class="cuotas-destacado-titulo">Pagá en cuotas, con o sin tarjeta de crédito</p>
+            <p class="cuotas-destacado-sub">Señás el <strong>30%</strong> y el resto lo pagás como puedas, <strong>hasta 10 días antes</strong> de subirte al micro. Sin tarjeta, sin intereses y sin cuotas fijas.</p>
+          </div>
+          <a class="cuotas-destacado-cta whatsapp-link" href="#" data-message="Hola MyE Turismo, quiero saber cómo es el pago en cuotas.">
+            <svg class="icon"><use href="#icon-whatsapp"></use></svg>
+            Cómo pagar en cuotas
+          </a>
+        </aside>
       </div>
     </section>
 
@@ -4006,19 +4154,19 @@
     </section>
     <section class="section about" id="quienes-somos">
       <div class="container">
+        <!-- El título va solo arriba y ocupa el ancho completo. Antes estaba
+             en la columna izquierda y la foto colgaba abajo, así que arrancaba
+             200 px más abajo que el texto y todo se veía desalineado. Ahora
+             foto y texto empiezan en la misma línea. -->
+        <div class="about-heading">
+          <span class="eyebrow">Experiencia y confianza</span>
+          <h2>¿Quiénes somos?</h2>
+        </div>
+
         <div class="about-intro">
-          <div class="about-title">
-            <span class="eyebrow">Experiencia y confianza</span>
-            <h2>¿Quiénes somos?</h2>
-            <!-- La cara va acá y no en la tarjeta de video que había antes:
-                 al lado está el texto que dice quiénes son y la matrícula.
-                 Mismo tratamiento y mismo ancho (260 px) que la foto de
-                 "¿Por qué viajar con MyE Turismo?", para que las dos se lean
-                 como parte de la misma web. -->
-            <figure class="about-foto">
-              <img src="estela-matias-quienes-somos.jpg" alt="Estela y Matías, de MyE Turismo" width="800" height="1000" loading="lazy" decoding="async">
-            </figure>
-          </div>
+          <figure class="about-foto">
+            <img src="estela-matias-quienes-somos.jpg" alt="Estela y Matías, de MyE Turismo" width="768" height="960" loading="lazy" decoding="async">
+          </figure>
 
           <div class="about-copy">
             <p>MyE Turismo nació con la convicción de que cada viaje merece dedicación, experiencia y atención personalizada. Trabajamos junto a los principales operadores mayoristas del mercado para ofrecer propuestas confiables y adaptadas a cada viajero.</p>

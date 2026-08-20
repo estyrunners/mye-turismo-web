@@ -36,7 +36,26 @@
   .eyebrow{display:inline-block;color:var(--teal-dark);font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
   .hero h1{font-size:clamp(2rem,5vw,3rem);margin-bottom:12px}
   .hero p.bajada{color:var(--muted);max-width:62ch;font-size:1.02rem}
-  .cuotas{display:inline-flex;align-items:center;gap:9px;margin-top:20px;padding:11px 18px;border-radius:999px;background:rgba(242,169,91,.18);color:var(--navy);font-weight:700;font-size:.93rem}
+  /* Cómo se paga. Era una píldora beige que se leía como nota al pie y es el
+     argumento más fuerte de la agencia: no hace falta la plata hoy. Las
+     condiciones son las mismas que ya están publicadas en la landing del Día
+     del Maestro. */
+  .cuotas{position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:16px 22px;overflow:hidden;margin-top:26px;padding:22px 26px;border-radius:24px;color:var(--white);background:linear-gradient(115deg,var(--navy) 0%,#0d4a5b 48%,var(--teal-dark) 100%);box-shadow:0 20px 42px rgba(18,52,71,.22)}
+  .cuotas::after{content:"";position:absolute;top:0;bottom:0;left:-45%;width:34%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.15),transparent);transform:skewX(-18deg);pointer-events:none;animation:cuotasBrillo 6s ease-in-out infinite}
+  @keyframes cuotasBrillo{0%,66%{left:-45%}100%{left:118%}}
+  .cuotas-icono{display:grid;place-items:center;flex:0 0 auto;width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.14);box-shadow:inset 0 0 0 1px rgba(255,255,255,.24);font-size:1.6rem;line-height:1}
+  .cuotas-texto{flex:1 1 300px;min-width:0}
+  .cuotas-titulo{color:var(--white);font-family:"Manrope",system-ui,sans-serif;font-size:clamp(1.1rem,2.2vw,1.35rem);font-weight:800;line-height:1.25}
+  .cuotas-sub{margin-top:6px;color:rgba(255,255,255,.82);font-size:.93rem;line-height:1.55}
+  .cuotas-sub b{color:#ffd9a3}
+  .cuotas-cta{display:inline-flex;flex:0 0 auto;align-items:center;gap:8px;padding:13px 22px;border-radius:999px;color:var(--navy);background:var(--white);box-shadow:0 12px 26px rgba(0,0,0,.2);font-weight:800;font-size:.93rem;text-decoration:none;transition:transform .2s ease,background .2s ease,box-shadow .2s ease}
+  .cuotas-cta:hover{transform:translateY(-2px);background:#fffaf3;box-shadow:0 18px 32px rgba(0,0,0,.26)}
+  @media (max-width:620px){
+    .cuotas{gap:14px 16px;padding:20px}
+    .cuotas-icono{width:46px;height:46px;font-size:1.35rem}
+    .cuotas-cta{flex:1 1 100%;justify-content:center}
+  }
+  @media (prefers-reduced-motion:reduce){.cuotas::after{display:none}}
   .grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));padding:8px 0 60px}
   .paq{position:relative;display:flex;flex-direction:column;background:var(--white);border:1px solid rgba(18,52,71,.09);border-radius:22px;padding:24px;box-shadow:var(--shadow)}
   /* Las guías dejaron de ser una sección aparte sin precio ni botón: ahora
@@ -110,7 +129,14 @@
     <span class="eyebrow">Pre venta</span>
     <h1>Verano 2027</h1>
     <p class="bajada">Reservá ahora la playa de enero y febrero, al precio de hoy.</p>
-    <p class="cuotas"><span aria-hidden="true">💳</span> Pagá en cuotas, con o sin tarjeta de crédito</p>
+    <aside class="cuotas">
+      <span class="cuotas-icono" aria-hidden="true">💳</span>
+      <div class="cuotas-texto">
+        <p class="cuotas-titulo">Pagá en cuotas, con o sin tarjeta de crédito</p>
+        <p class="cuotas-sub">Señás el <b>30%</b> y el resto lo pagás como puedas, <b>hasta 10 días antes</b> de subirte al micro. Sin tarjeta, sin intereses y sin cuotas fijas.</p>
+      </div>
+      <a class="cuotas-cta" href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20saber%20c%C3%B3mo%20es%20el%20pago%20en%20cuotas." target="_blank" rel="noopener">💬 Cómo pagar en cuotas</a>
+    </aside>
   </div>
 </section>
 
