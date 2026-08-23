@@ -27,6 +27,7 @@
       --ink: #17313f;
       --muted: #61747e;
       --white: #ffffff;
+      --sale-lima: #d4f52c;
       --shadow: 0 18px 50px rgba(16, 55, 69, 0.13);
       --radius: 24px;
       --container: 1180px;
@@ -908,6 +909,78 @@
       z-index: 2;
       background: linear-gradient(90deg, var(--turquoise-dark), var(--sand));
       content: "";
+    }
+
+    /* ---- Tarjeta del SALE ----
+       Va entre las puertas del catálogo porque es ahí donde la gente elige,
+       no en un chip del encabezado. En vez de foto lleva un cartel propio:
+       es lo único de la grilla que vence, y tiene que verse distinto de un
+       vistazo. La tarjeta desaparece sola pasado el 30/8 (ver renderPuertas). */
+    .puerta-sale::before {
+      background: linear-gradient(90deg, #e8484a, var(--sale-lima));
+    }
+
+    .puerta-sale-banner {
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      line-height: 1;
+      background:
+        radial-gradient(circle at 22% 18%, rgba(212, 245, 44, 0.24), transparent 55%),
+        linear-gradient(135deg, #07161f 0%, #7a1d23 56%, #c62f38 100%);
+    }
+
+    .puerta-sale-banner::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -45%;
+      width: 34%;
+      background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+      transform: skewX(-18deg);
+      pointer-events: none;
+      animation: saleBrillo 5.5s ease-in-out infinite;
+    }
+
+    @keyframes saleBrillo {
+      0%, 64% { left: -45%; }
+      100% { left: 118%; }
+    }
+
+    .puerta-sale-palabra {
+      color: var(--sale-lima);
+      font-size: clamp(2.4rem, 8vw, 3.4rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      text-shadow: 0 8px 26px rgba(212, 245, 44, 0.3);
+    }
+
+    .puerta-sale-sub {
+      display: block;
+      margin-top: 4px;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .puerta-sale .puerta-contador {
+      color: var(--white);
+      background: rgba(198, 47, 56, 0.94);
+    }
+
+    .puerta-sale .puerta-cantidad {
+      color: #c62f38;
+      background: rgba(232, 72, 74, 0.14);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .puerta-sale-banner::after { display: none; }
     }
 
     /* La foto se mete a sangre arriba: la tarjeta trae padding propio,
@@ -3975,7 +4048,9 @@
         <div class="section-heading">
           <span class="eyebrow">Elegí por dónde empezar</span>
           <h2>¿Qué tipo de viaje buscás?</h2>
-          <p><strong id="puertasResumen">44 salidas</strong> agrupadas en cinco categorías. Entrá a la que te interese y mirá precios, hoteles, fechas y qué incluye cada una.</p>
+          <!-- Sin el número de categorías: la grilla suma y saca la tarjeta
+               del SALE sola, y "cinco categorías" quedaba mintiendo. -->
+          <p><strong id="puertasResumen">44 salidas</strong> agrupadas por tipo de viaje. Entrá a la que te interese y mirá precios, hoteles, fechas y qué incluye cada una.</p>
         </div>
 
         <div class="puertas-grid" id="puertasGrid"></div>
@@ -6664,7 +6739,34 @@
           ? `USD ${valor.toLocaleString("es-AR")}`
           : `$${valor.toLocaleString("es-AR")}`;
 
-      grid.innerHTML = window.PUERTAS.map((puerta) => {
+      /* La feria de descuentos entra como una puerta más, y primera: es la
+         única con fecha de vencimiento. No sale de PAQUETES porque sus datos
+         viven en sale/index.html, así que se arma a mano. Pasado el 30/8 la
+         tarjeta no se genera: la grilla vuelve sola a las cinco de siempre,
+         sin que nadie tenga que acordarse de sacarla. */
+      const SALE_HASTA = new Date("2026-08-30T23:59:59-03:00");
+      const tarjetaSale = new Date() > SALE_HASTA ? "" : `
+        <a class="puerta-card puerta-sale" href="sale/">
+          <span class="puerta-foto puerta-sale-banner">
+            <span>
+              <span class="puerta-sale-palabra">SALE</span>
+              <span class="puerta-sale-sub">Semana de descuentos</span>
+            </span>
+            <span class="puerta-contador">10 destinos</span>
+          </span>
+          <span class="eyebrow">Del 24 al 30 de agosto</span>
+          <h3>Precios bomba en septiembre</h3>
+          <p>Últimos lugares en 10 salidas de septiembre, a precio de liquidación.</p>
+          <span class="puerta-meta">
+            <span class="puerta-desde">
+              <small>Desde</small>
+              <strong>$185.990</strong>
+            </span>
+            <span class="puerta-cantidad">Hasta el 30/8</span>
+          </span>
+        </a>`;
+
+      grid.innerHTML = tarjetaSale + window.PUERTAS.map((puerta) => {
         const items = window.PAQUETES.filter((p) => p.tags.includes(puerta.tag));
         if (!items.length) return "";
 
