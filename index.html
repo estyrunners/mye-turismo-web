@@ -374,6 +374,31 @@
       padding-block: 7px;
     }
 
+    /* El chip del SALE va en rojo: es el único de la barra con fecha de
+       vencimiento corta y tiene que ganarle al resto sin discusión. */
+    .header-cuotas--sale {
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.34);
+      background: linear-gradient(120deg, #e8484a 0%, #c62f38 100%);
+      box-shadow: 0 8px 20px rgba(232, 72, 74, 0.34);
+    }
+
+    .header.scrolled .header-cuotas--sale,
+    .header-cuotas--sale:hover {
+      color: var(--white);
+      border-color: rgba(232, 72, 74, 0.5);
+      background: linear-gradient(120deg, #e8484a 0%, #c62f38 100%);
+    }
+
+    .header-cuotas--sale em {
+      padding: 1px 7px;
+      border-radius: 999px;
+      color: #c62f38;
+      background: var(--white);
+      font-style: normal;
+      font-weight: 900;
+    }
+
     .barra-avisos .header-cuotas {
       padding: 6px 11px;
       font-size: 0.82rem;
@@ -417,6 +442,11 @@
       display: none;
     }
 
+    /* En pantalla ancha manda el texto completo; la versión corta espera. */
+    .barra-avisos .header-cuotas .corto {
+      display: none;
+    }
+
     /* La franja tiene su propia escala: el chip de cuotas del logo ya se
        achica solo más abajo, pero estos dos son más específicos y no heredan
        esos ajustes. */
@@ -438,6 +468,27 @@
 
       .header-cuotas--aviso em {
         font-size: 0.67rem;
+      }
+
+      /* Textos abreviados y, por las dudas, la barra se puede arrastrar:
+         si algún día entra un cuarto chip, se desliza en vez de cortarse. */
+      .barra-avisos .header-cuotas .ancho {
+        display: none;
+      }
+
+      .barra-avisos .header-cuotas .corto {
+        display: inline;
+      }
+
+      .header .barra-avisos-inner {
+        justify-content: flex-start;
+        gap: 7px;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+
+      .header .barra-avisos-inner::-webkit-scrollbar {
+        display: none;
       }
     }
 
@@ -3848,13 +3899,24 @@
         <!-- data-hasta: cuando la fecha pasa, el chip se esconde solo y la
              barra deja de mandar a una landing vencida. Para apuntar al
              feriado siguiente se cambian href, fecha visible y data-hasta. -->
+        <!-- La feria de descuentos vence antes que el feriado, así que va
+             primera: es lo que se apaga solo el 30 de agosto. -->
+        <!-- Con tres chips el texto largo no entra en un celular: se corta por
+             los dos lados. Cada uno lleva su versión corta y la barra cambia
+             sola. Los textos de .corto son los mismos, abreviados. -->
+        <a class="header-cuotas header-cuotas--sale" href="sale/" data-hasta="2026-08-30">
+          <span aria-hidden="true">🔥</span>
+          <span class="ancho">SALE septiembre</span><span class="corto">SALE</span>
+          <em><span class="ancho">hasta el 30/8</span><span class="corto">30/8</span></em>
+        </a>
         <a class="header-cuotas header-cuotas--aviso" href="dia-del-maestro/" data-hasta="2026-09-11">
           <span class="aviso-punto" aria-hidden="true"></span>
-          Próximo feriado <em>11 sept</em>
+          <span class="ancho">Próximo feriado</span><span class="corto">Feriado</span>
+          <em><span class="ancho">11 sept</span><span class="corto">11/9</span></em>
         </a>
         <a class="header-cuotas header-cuotas--link" href="puntos-de-ascenso/">
           <span aria-hidden="true">📍</span>
-          Puntos de ascenso
+          <span class="ancho">Puntos de ascenso</span><span class="corto">Ascensos</span>
         </a>
       </div>
     </div>
