@@ -981,11 +981,6 @@
       text-transform: uppercase;
     }
 
-    .puerta-sale .puerta-contador {
-      position: static;
-      color: var(--white);
-      background: rgba(198, 47, 56, 0.94);
-    }
 
     .puerta-sale .puerta-cantidad {
       color: #c62f38;
@@ -6761,15 +6756,19 @@
       const tarjetaSale = new Date() > SALE_HASTA ? "" : `
         <a class="puerta-card puerta-sale" href="sale/">
           <span class="puerta-foto puerta-sale-banner">
+            <!-- Sin contador, a propósito (decisión de Matías, 23/08). Las
+                 otras puertas calculan el suyo desde PAQUETES; ésta no puede,
+                 porque sus datos viven en sale/index.html, así que el número
+                 había que escribirlo a mano y se desactualizaba solo cada vez
+                 que entra o sale una salida. -->
             <span class="puerta-sale-pila">
-              <span class="puerta-contador">11 destinos</span>
               <span class="puerta-sale-palabra">SALE</span>
               <span class="puerta-sale-sub">Semana de descuentos</span>
             </span>
           </span>
           <span class="eyebrow">Del 24 al 30 de agosto</span>
           <h3>Precios bomba en septiembre</h3>
-          <p>Últimos lugares en 11 salidas de septiembre, a precio de liquidación.</p>
+          <p>Últimos lugares en las salidas de septiembre, a precio de liquidación.</p>
           <span class="puerta-meta">
             <span class="puerta-desde">
               <small>Desde</small>
