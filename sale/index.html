@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SALE · Precios bomba en salidas de septiembre | MyE Turismo</title>
   <meta name="description"
-    content="Feria de descuentos MyE Turismo: salidas de septiembre a precio bomba, del 24 al 30 de agosto. Últimos lugares, hasta agotar. Precios de pago contado por transferencia o depósito.">
+    content="Feria de descuentos MyE Turismo: salidas de septiembre a precio bomba, sólo para quien reserva entre el 24 y el 30 de agosto. Últimos lugares, hasta agotar. Se abonan en un pago por transferencia o depósito.">
   <meta name="theme-color" content="#07161f">
   <link rel="canonical" href="https://mye-turismo-web.pages.dev/sale/">
 
@@ -122,6 +122,15 @@
 
     .hero .bajada { max-width: 60ch; color: rgba(255, 255, 255, .82); font-size: 1.02rem }
 
+    .hero .condicion {
+      max-width: 60ch; margin-top: 16px; padding: 14px 18px;
+      border-radius: 14px; border-left: 4px solid var(--lima);
+      background: rgba(212, 245, 44, .1);
+      color: rgba(255, 255, 255, .88); font-size: .96rem; line-height: 1.5;
+    }
+
+    .hero .condicion b { display: block; color: var(--lima); font-size: 1.02rem }
+
     .hero-datos { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px }
 
     .dato {
@@ -232,7 +241,8 @@
     .paq .precio-caja { margin-top: auto; padding-top: 14px; border-top: 1px dashed rgba(18, 52, 71, .16) }
     .paq .rotulo { display: inline-block; padding: 3px 10px; border-radius: 999px; background: rgba(242, 139, 43, .16); color: #b45a08; font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase }
     .paq .precio { display: block; margin: 6px 0 1px; font-size: 1.9rem; font-weight: 800; color: var(--navy); letter-spacing: -.02em }
-    .paq .gastos { display: block; color: var(--muted); font-size: .82rem; margin-bottom: 14px }
+    .paq .gastos { display: block; color: var(--muted); font-size: .82rem }
+    .paq .condicion-card { display: block; margin: 8px 0 14px; padding: 7px 10px; border-radius: 10px; background: rgba(242, 139, 43, .12); color: #a75207; font-size: .78rem; font-weight: 700; line-height: 1.4 }
     .paq .cta { width: 100%; padding: 12px 18px; font-size: .93rem }
 
     /* ---------- cómo se paga (contado, NO cuotas) ---------- */
@@ -354,6 +364,14 @@
         Por eso bajan de precio: los últimos asientos se venden, no se guardan.
       </p>
 
+      <!-- La condición que hace que el precio exista. Va acá arriba y no en la
+           letra chica: si la persona se entera recién en el chat, se enoja. -->
+      <p class="condicion rev">
+        <b>Estos precios son únicamente para quien reserva esta semana.</b>
+        Del 24 al 30 de agosto. Pasado el 30, cada salida vuelve a su precio
+        de lista.
+      </p>
+
       <div class="hero-datos rev">
         <span class="dato">📅 Del <b>24</b> al <b>30 de agosto</b></span>
         <span class="dato">🎟️ <b>Últimos lugares</b>, hasta agotar</span>
@@ -390,11 +408,12 @@
       <aside class="pago rev">
         <span class="pago-icono" aria-hidden="true">⚡</span>
         <div class="pago-texto">
-          <p class="pago-titulo">Estos precios son de pago contado</p>
+          <p class="pago-titulo">El precio es para quien reserva esta semana</p>
           <p class="pago-sub">
-            Se abonan en <b>un solo pago</b>, por transferencia o depósito. Son
-            precios de liquidación por los últimos lugares: por eso no van con
-            la financiación habitual de la agencia.
+            Del <b>24 al 30 de agosto</b>, y se abona en <b>un solo pago</b> por
+            transferencia o depósito. Son precios de liquidación por los últimos
+            lugares: por eso no van con la financiación habitual de la agencia
+            y no siguen vigentes después del 30.
           </p>
           <p class="pago-nota">
             ¿Preferís pagarlo en cuotas? <a href="../">Mirá el resto de los viajes</a> —
@@ -468,14 +487,14 @@
     <div class="container">
       <p class="marca">MyE Turismo</p>
       <p>WhatsApp 11 3153-7638 · Idóneos en turismo Matriculados</p>
-      <p style="margin-top:.4rem">Precios por persona en base doble, de pago contado en un pago (transferencia o depósito), sujetos a modificación y disponibilidad. Promoción válida del 24 al 30 de agosto de 2026 o hasta agotar lugares.</p>
+      <p style="margin-top:.4rem">Precios por persona en base doble, exclusivos para reservas confirmadas entre el 24 y el 30 de agosto de 2026 o hasta agotar lugares, abonadas en un solo pago por transferencia o depósito. Fuera de ese plazo rige el precio de lista de cada salida. Sujetos a disponibilidad.</p>
       <p style="margin-top:.4rem"><a href="../">Ir a la web de MyE Turismo</a> · <a href="../terminos-y-condiciones/">Términos y Condiciones</a></p>
     </div>
   </footer>
 
   <div id="barra">
     <div class="container">
-      <p><b id="barraDesde">Desde $185.990</b><span id="barraTexto">Últimos lugares · hasta el 30 de agosto</span></p>
+      <p><b id="barraDesde">Desde $185.990</b><span id="barraTexto">Sólo reservando hasta el 30 de agosto</span></p>
       <button class="cta" id="barraCta" type="button">Consultar</button>
     </div>
   </div>
@@ -596,7 +615,7 @@
         `• Sale el ${s.fechaTexto} · ${s.noches}`,
         `• ${plata(s.precio)} por persona + ${plata(s.gastos)} de gastos administrativos`,
         `• ${s.regimen} · ${s.hotel}`,
-        "• Precio de pago contado (un pago, transferencia o depósito)",
+        "• Precio para reservas del 24 al 30 de agosto, en un pago (transferencia o depósito)",
         "",
         "¿Me confirman si quedan lugares?",
         "",
@@ -630,6 +649,7 @@
             <span class="rotulo">Precio bomba</span>
             <strong class="precio">${plata(s.precio)}</strong>
             <span class="gastos">por persona + ${plata(s.gastos)} de gastos adm.</span>
+            <span class="condicion-card">⚡ Reservando del 24 al 30 de agosto, en un pago</span>
             <button class="cta" type="button" data-salida="${esc(s.nombre)}">💬 Consultar por WhatsApp</button>
           </div>
         </div>
