@@ -6,14 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SALE · Precios bomba en salidas de septiembre | MyE Turismo</title>
   <meta name="description"
-    content="Semana de descuentos MyE Turismo: salidas de septiembre a precio bomba, sólo para quien reserva entre el 24 y el 30 de agosto. Últimos lugares, hasta agotar. Se abonan en un pago por transferencia o depósito.">
+    content="Semana de descuentos MyE Turismo: salidas de septiembre a precio bomba, sólo para quien reserva entre el 24 y el 30 de agosto. Siete días para reservar. Se abonan en un pago por transferencia o depósito.">
   <meta name="theme-color" content="#07161f">
   <link rel="canonical" href="https://mye-turismo-web.pages.dev/sale/">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="SALE · Precios bomba en septiembre">
   <meta property="og:description"
-    content="Últimos lugares en las salidas de septiembre. Del 24 al 30 de agosto.">
+    content="Precios promocionales en las salidas de septiembre. Del 24 al 30 de agosto.">
   <meta property="og:image" content="https://mye-turismo-web.pages.dev/sale/flyer-cataratas-iguazu.jpg">
   <meta property="og:locale" content="es_AR">
 
@@ -359,9 +359,13 @@
       <p class="marca rev">MyE Turismo · Semana de descuentos</p>
       <p class="sale rev">SALE</p>
       <h1 class="rev">Precios bomba en las salidas de <i>septiembre</i></h1>
+      <!-- Sin argumento de escasez: no hay dato de cupos y, como dijo Matías
+           el 23/08, el sentido de la promo es dar oportunidad de reservar, no
+           rematar asientos sobrantes. La urgencia la pone la fecha de corte,
+           que es real y verificable. -->
       <p class="bajada rev">
-        Son las salidas que ya tienen fecha y a las que les quedan pocos lugares.
-        Por eso bajan de precio: los últimos asientos se venden, no se guardan.
+        Son salidas con fecha confirmada, a precio promocional durante siete
+        días. Una semana para reservar el viaje que venías postergando.
       </p>
 
       <!-- La condición que hace que el precio exista. Va acá arriba y no en la
@@ -374,7 +378,7 @@
 
       <div class="hero-datos rev">
         <span class="dato">📅 Del <b>24</b> al <b>30 de agosto</b></span>
-        <span class="dato">🎟️ <b>Últimos lugares</b>, hasta agotar</span>
+        <span class="dato">🎟️ <b id="datoDestinos">—</b> destinos en promoción</span>
         <span class="dato">⚡ <b>Pago contado</b>, en un pago</span>
       </div>
 
@@ -411,9 +415,9 @@
           <p class="pago-titulo">El precio es para quien reserva esta semana</p>
           <p class="pago-sub">
             Del <b>24 al 30 de agosto</b>, y se abona en <b>un solo pago</b> por
-            transferencia o depósito. Son precios de liquidación por los últimos
-            lugares: por eso no van con la financiación habitual de la agencia
-            y no siguen vigentes después del 30.
+            transferencia o depósito. Son precios promocionales por siete días:
+            por eso no van con la financiación habitual de la agencia y no
+            siguen vigentes después del 30.
           </p>
           <p class="pago-nota">
             ¿Preferís pagarlo en cuotas? <a href="../">Mirá el resto de los viajes</a> —
@@ -487,7 +491,7 @@
     <div class="container">
       <p class="marca">MyE Turismo</p>
       <p>WhatsApp 11 3153-7638 · Idóneos en turismo Matriculados</p>
-      <p style="margin-top:.4rem">Precios por persona en base doble, exclusivos para reservas confirmadas entre el 24 y el 30 de agosto de 2026 o hasta agotar lugares, abonadas en un solo pago por transferencia o depósito. Fuera de ese plazo rige el precio de lista de cada salida. Sujetos a disponibilidad.</p>
+      <p style="margin-top:.4rem">Precios por persona en base doble, exclusivos para reservas confirmadas entre el 24 y el 30 de agosto de 2026, abonadas en un solo pago por transferencia o depósito. Fuera de ese plazo rige el precio de lista de cada salida. Sujetos a disponibilidad.</p>
       <p style="margin-top:.4rem"><a href="../">Ir a la web de MyE Turismo</a> · <a href="../terminos-y-condiciones/">Términos y Condiciones</a></p>
     </div>
   </footer>
@@ -551,7 +555,7 @@
       },
       /* Va sí o sí, decisión de Matías (23/08): que esta salida esté más
          barata que lo que pagó una reserva anterior no es un problema, son
-         precios de liquidación por una semana y de pago contado. */
+         precios promocionales por una semana y de pago contado. */
       {
         nombre: "Maestrazo en Federación", lugar: "Federación, Entre Ríos",
         fecha: "2026-09-11", fechaTexto: "11 de septiembre",
@@ -637,7 +641,7 @@
     const grid = document.getElementById("grid");
     grid.innerHTML = enFeria.map((s, i) => `
       <article class="paq rev">
-        <span class="cintillo">Últimos lugares</span>
+        <span class="cintillo">Precio bomba</span>
         <button class="paq-flyer" type="button" data-flyer="${esc(s.flyer)}" data-nombre="${esc(s.nombre)}"
           aria-label="Ver el flyer de ${esc(s.nombre)} en grande">
           <img src="${esc(s.flyer)}" alt="Flyer de ${esc(s.nombre)}, ${esc(s.lugar)}"
@@ -682,6 +686,9 @@
     /* ---------- barra fija ---------- */
     const masBarato = Math.min(...enFeria.map((s) => s.precio));
     document.getElementById("barraDesde").textContent = `Desde ${plata(masBarato)}`;
+    /* El número sale del propio listado: si mañana entran o salen salidas, el
+       dato del encabezado no queda mintiendo. */
+    document.getElementById("datoDestinos").textContent = String(enFeria.length);
 
     /* ---------- links de WhatsApp sueltos ---------- */
     const msgGenerico = [
