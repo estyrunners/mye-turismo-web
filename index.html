@@ -3963,6 +3963,47 @@
         font-size: 0.68rem;
       }
     }
+
+    /* =========================================================
+       LEGIBILIDAD DE LOS TÍTULOS CHICOS  (pedido de Matías, 24/08)
+       ---------------------------------------------------------
+       Playfair Display es una serif de contraste alto: los trazos finos
+       son finísimos. A 3 o 4 rem eso se ve elegante, pero en un título de
+       tarjeta de 1,5 rem y en un celular, esos trazos casi desaparecen y
+       cuesta leer. El público de MyE es en buena parte gente grande
+       mirando desde el teléfono, así que la legibilidad gana.
+
+       La regla es por TAMAÑO, no por elemento: de 2 rem para abajo va
+       Manrope, que es la misma tipografía del cuerpo y está pensada para
+       leerse chica. Los títulos grandes siguen en Playfair, que es lo que
+       le da carácter a la marca y a ese tamaño se lee perfecto.
+
+       Los precios entran también: un número mal leído cuesta una venta.
+       Va al final de la hoja para ganar por orden, sin tocar 12 reglas
+       sueltas y sin subir especificidad — así se revierte borrando este
+       bloque y nada más.
+       ========================================================= */
+    .puerta-card h3,
+    .weekly-card-body h3,
+    .package-body h3,
+    .destination-content h3,
+    .search-results-header h3,
+    .empty-state h4,
+    .destination-video-copy h4,
+    .subcategory-card strong,
+    .search-heading h2,
+    .construction-notice strong {
+      font-family: "Manrope", system-ui, sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.015em;
+    }
+
+    .puerta-desde strong,
+    .weekly-price-value {
+      font-family: "Manrope", system-ui, sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
   </style>
 
   <!-- ============================================================

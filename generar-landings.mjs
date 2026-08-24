@@ -177,7 +177,11 @@ const CSS = `
   .paq-fechas,.paq-hotel{color:var(--muted);font-size:.88rem;margin-top:4px}
   .paq-precio{margin:18px 0 0;padding:15px 0;border-top:1px solid rgba(18,52,71,.08);border-bottom:1px solid rgba(18,52,71,.08)}
   .paq-precio-label{display:block;color:var(--muted);font-size:.7rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
-  .paq-precio-valor{display:block;font-family:"Playfair Display",Georgia,serif;font-size:2.1rem;font-weight:700;color:var(--navy);line-height:1.1}
+  /* Mismo criterio que en el inicio (pedido de Matías, 24/08): de 2 rem para
+     abajo manda la legibilidad, no el carácter. El nombre del paquete y el
+     precio van en Manrope; los títulos grandes de sección siguen en Playfair. */
+  .paq h3{font-family:"Manrope",system-ui,sans-serif;font-weight:800;letter-spacing:-.015em}
+  .paq-precio-valor{display:block;font-family:"Manrope",system-ui,sans-serif;font-size:2.1rem;font-weight:800;letter-spacing:-.01em;color:var(--navy);line-height:1.1}
   .paq-precio-nota{display:block;color:var(--muted);font-size:.8rem;margin-top:3px}
   .paq-opciones{list-style:none;margin:14px 0 0}
   .paq-opciones li{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px dashed rgba(18,52,71,.12);font-size:.9rem}
