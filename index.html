@@ -967,6 +967,52 @@
       text-align: center;
     }
 
+    /* Atardecer de playa, para que se distinga del rojo de liquidación de la
+       tarjeta de al lado sin dejar de leerse como promo. */
+    .puerta-verano::before {
+      background: linear-gradient(90deg, #ff8a3d, var(--sale-lima));
+    }
+
+    .puerta-verano .puerta-verano-banner {
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      line-height: 1;
+      background:
+        radial-gradient(circle at 78% 22%, rgba(255, 214, 102, 0.42), transparent 52%),
+        linear-gradient(140deg, #0b2f4a 0%, #b4462f 58%, #ff8a3d 100%);
+    }
+
+    .puerta-verano .puerta-verano-banner::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -45%;
+      width: 34%;
+      background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+      transform: skewX(-18deg);
+      pointer-events: none;
+      animation: saleBrillo 5.5s ease-in-out infinite 1.4s;
+    }
+
+    /* "SALE VERANO" es el doble de largo que "SALE": entra más chico y en una
+       sola línea, si no se parte en dos y descoloca el cartel. */
+    .puerta-verano .puerta-sale-palabra {
+      font-size: clamp(1.7rem, 5.6vw, 2.35rem);
+      white-space: nowrap;
+    }
+
+    .puerta-verano .puerta-cantidad {
+      color: #b4462f;
+      background: rgba(255, 138, 61, 0.16);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .puerta-verano .puerta-verano-banner::after { display: none; }
+    }
+
     .puerta-sale-palabra {
       color: var(--sale-lima);
       font-size: clamp(2.4rem, 8vw, 3.4rem);
@@ -6784,7 +6830,34 @@
           </span>
         </a>`;
 
-      grid.innerHTML = tarjetaSale + window.PUERTAS.map((puerta) => {
+      /* La hermana de verano. Misma semana, oferta opuesta: aquélla es contado
+         y fecha fija, ésta es en cuotas y la fecha la elige el pasajero. Van
+         juntas y primeras porque las dos vencen el 30/8, pero se leen distinto
+         a propósito para que nadie confunda una con la otra.
+         No lleva precio: los siete paquetes todavía no están cargados, y un
+         "Desde" escrito a mano envejece mal. El gancho acá es la forma de
+         pago, no el número. */
+      const tarjetaVerano = new Date() > SALE_HASTA ? "" : `
+        <a class="puerta-card puerta-verano" href="verano/">
+          <span class="puerta-foto puerta-verano-banner">
+            <span class="puerta-sale-pila">
+              <span class="puerta-sale-palabra">SALE VERANO</span>
+              <span class="puerta-sale-sub">4 cuotas sin tarjeta</span>
+            </span>
+          </span>
+          <span class="eyebrow">Del 24 al 30 de agosto</span>
+          <h3>Congelá tus vacaciones</h3>
+          <p>Elegís la fecha ahora, viajás desde diciembre y lo pagás en cuatro cuotas sin interés.</p>
+          <span class="puerta-meta">
+            <span class="puerta-desde">
+              <small>Sin tarjeta</small>
+              <strong>4 cuotas</strong>
+            </span>
+            <span class="puerta-cantidad">Hasta el 30/8</span>
+          </span>
+        </a>`;
+
+      grid.innerHTML = tarjetaSale + tarjetaVerano + window.PUERTAS.map((puerta) => {
         const items = window.PAQUETES.filter((p) => p.tags.includes(puerta.tag));
         if (!items.length) return "";
 
