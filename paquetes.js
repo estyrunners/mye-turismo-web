@@ -226,6 +226,282 @@ window.PAQUETES = [
     ]
   },
 
+  /* ---------- FULL DAY — Colprim ----------
+     Los dos usan el collage del operador entero, sin recortar: son
+     verticales y llevan `fotoCompleta`. */
+  {
+    id: "fd-uribelarrea",
+    foto: "../collage-uribelarrea.jpg",
+    fotoAlt: "Pórtico de entrada y pulpería de Uribelarrea",
+    fotoCompleta: true,
+    nombre: "Uribelarrea",
+    provincia: "Buenos Aires",
+    pais: "Argentina",
+    region: "Provincia de Buenos Aires",
+    puerta: "full-day",
+    tags: ["full-day"],
+    transporte: "Bus",
+    operador: "Colprim",
+    /* El flyer traía el sábado 22 de agosto, que ya pasó. Matías pidió
+       dejarlo publicado a la espera de fecha nueva. */
+    fechas: "Consultar fechas",
+    duracion: "1 día",
+    precio: 105000,
+    moneda: "ARS",
+    reserva: 0,
+    incluye: [
+      "Bus ida y vuelta en el día",
+      "Parrilla libre en El Palenque",
+      "Visita guiada por el pueblo",
+      "Coordinador permanente",
+      "Menores de 3 a 10 años: $85.000"
+    ]
+  },
+  {
+    id: "fd-estancia-la-mariana",
+    foto: "../collage-estancia-la-mariana.jpg",
+    fotoAlt: "Piletas, quinchos y parque de la Estancia La Mariana, en Mercedes",
+    fotoCompleta: true,
+    nombre: "Estancia La Mariana",
+    provincia: "Buenos Aires",
+    pais: "Argentina",
+    region: "Provincia de Buenos Aires",
+    puerta: "full-day",
+    tags: ["full-day"],
+    transporte: "Bus",
+    operador: "Colprim",
+    fechas: "27 sept",
+    duracion: "1 día",
+    precio: 99000,
+    moneda: "ARS",
+    reserva: 0,
+    incluye: [
+      "Traslados en bus ida y vuelta",
+      "Desayuno, almuerzo y merienda",
+      "Una bebida sin alcohol",
+      "Coordinador permanente",
+      "Menores de 3 a 10 años: $79.000"
+    ]
+  },
+
+  /* ---------- ESCAPADAS EN BUS — Opciones Argentinas ----------
+     Cada paquete tiene 2 o 3 circuitos según el régimen: la tarjeta muestra
+     "Desde" el más barato y la lista completa adentro (decisión de Matías,
+     24/08). Los flyers no traen fecha de salida, sólo los meses, así que
+     `fechas` dice "Consultar fecha" con los meses disponibles — y por eso
+     todavía NO están en el tablero: una salida sin fecha no se puede reservar.
+     Gastos de reserva: $15.000 por pasajero en todos.
+     Las fotos son los collages del operador, enteros y sin recortar. */
+  {
+    id: "bus-merlo-oa",
+    foto: "../collage-merlo.jpg",
+    fotoAlt: "Sierras de Merlo, piletas y comedor del hotel",
+    fotoCompleta: true,
+    nombre: "Merlo",
+    provincia: "San Luis",
+    pais: "Argentina",
+    region: "Sierras",
+    puerta: "escapadas",
+    tags: ["escapadas"],
+    transporte: "Bus semicama",
+    operador: "Opciones Argentinas",
+    fechas: "Consultar fecha · octubre a diciembre",
+    duracion: "6 días / 4 noches",
+    hotel: "Clima 3 / Gran Parque",
+    precio: 333940,
+    moneda: "ARS",
+    reserva: 15000,
+    circuitos: [
+      { nombre: "Circuito 1 · Desayuno", precio: 333940 },
+      { nombre: "Circuito 2 · Pensión completa", precio: 429780 },
+      { nombre: "Circuito 3 · Pensión completa con barra libre", precio: 527840 }
+    ],
+    incluye: [
+      "Bus semicama ida y vuelta",
+      "4 noches de alojamiento",
+      "Salida grupal con coordinador",
+      "Circuito 3: bebidas, barra libre, merienda, baile, actividades recreativas y cupón de casino"
+    ]
+  },
+  {
+    id: "bus-villa-giardino-oa",
+    foto: "../collage-villa-giardino.jpg",
+    fotoAlt: "Río y arboleda de Villa Giardino, con el Cristo de La Cumbre",
+    fotoCompleta: true,
+    nombre: "Villa Giardino",
+    provincia: "Córdoba",
+    pais: "Argentina",
+    region: "Sierras",
+    puerta: "escapadas",
+    tags: ["escapadas"],
+    transporte: "Bus semicama",
+    operador: "Opciones Argentinas",
+    fechas: "Consultar fecha · octubre a diciembre",
+    duracion: "6 días / 4 noches",
+    hotel: "Luz y Fuerza — habitación standard",
+    precio: 436940,
+    moneda: "ARS",
+    reserva: 15000,
+    circuitos: [
+      { nombre: "Circuito 1 · Pensión completa", precio: 436940 },
+      { nombre: "Circuito 2 · Pensión completa con excursiones", precio: 466380 }
+    ],
+    incluye: [
+      "Bus semicama ida y vuelta",
+      "4 noches de alojamiento con pensión completa",
+      "Piscina cubierta en el hotel",
+      "Coordinador permanente",
+      "Circuito 2: excursiones a La Cumbre y Los Cocos"
+    ]
+  },
+  {
+    id: "bus-san-bernardo-oa",
+    foto: "../collage-san-bernardo.jpg",
+    fotoAlt: "Playa de San Bernardo, pileta climatizada del hotel y Paseo del Centro",
+    fotoCompleta: true,
+    nombre: "San Bernardo",
+    provincia: "Buenos Aires",
+    pais: "Argentina",
+    region: "Costa Atlántica",
+    puerta: "escapadas",
+    tags: ["escapadas"],
+    transporte: "Bus semicama",
+    operador: "Opciones Argentinas",
+    fechas: "Consultar fecha · diciembre",
+    duracion: "5 días / 4 noches",
+    hotel: "The New Place — piscina y comedor",
+    precio: 292180,
+    moneda: "ARS",
+    reserva: 15000,
+    circuitos: [
+      { nombre: "Circuito 1 · Desayuno", precio: 292180 },
+      { nombre: "Circuito 2 · Pensión completa con actividades", precio: 439250 }
+    ],
+    incluye: [
+      "Bus semicama ida y vuelta",
+      "4 noches de alojamiento",
+      "Salida grupal con coordinador",
+      "Circuito 2: merienda express, noche de baile, noche de cine o karaoke, visita a casa de alfajores, aquagym, juegos de mesa y city tour"
+    ]
+  },
+  {
+    id: "bus-copahue-oa",
+    foto: "../collage-copahue.jpg",
+    fotoAlt: "Lago Caviahue, piletas termales de Copahue y la villa al pie del volcán",
+    fotoCompleta: true,
+    nombre: "Termas de Copahue",
+    provincia: "Neuquén",
+    pais: "Argentina",
+    region: "Patagonia",
+    puerta: "escapadas",
+    tags: ["escapadas", "termas"],
+    transporte: "Bus cama",
+    operador: "Opciones Argentinas",
+    fechas: "Consultar fecha · diciembre",
+    duracion: "7 días / 4 noches",
+    hotel: "Termas de Copahue",
+    precio: 940180,
+    moneda: "ARS",
+    reserva: 15000,
+    circuitos: [
+      { nombre: "Circuito 1 · Media pensión", precio: 940180 },
+      { nombre: "Circuito 2 · Pensión completa", precio: 1074980 }
+    ],
+    incluye: [
+      "Bus cama ida y vuelta",
+      "4 noches de alojamiento",
+      "Salida grupal con coordinador",
+      "Visita a Villa Caviahue"
+    ]
+  },
+  {
+    id: "bus-ruinas-termas-volcanes-oa",
+    foto: "../collage-ruinas-termas-volcanes.jpg",
+    fotoAlt: "Formaciones de piedra, termas de Fiambalá y cerros del noroeste",
+    fotoCompleta: true,
+    nombre: "Ruinas, Termas y Volcanes",
+    provincia: "Catamarca",
+    pais: "Argentina",
+    region: "Norte NOA",
+    puerta: "escapadas",
+    tags: ["escapadas", "termas"],
+    transporte: "Bus cama",
+    operador: "Opciones Argentinas",
+    fechas: "Consultar fecha · octubre y noviembre",
+    duracion: "8 días / 5 noches",
+    hotel: "A confirmar — 2 noches en Aimogasta, 2 en Belén y 1 en Tafí del Valle",
+    precio: 965880,
+    moneda: "ARS",
+    reserva: 15000,
+    circuitos: [
+      { nombre: "Circuito 1 · Media pensión", precio: 965880 },
+      { nombre: "Circuito 2 · Media pensión con Piedra Pómez", precio: 1214340 }
+    ],
+    incluye: [
+      "Bus cama ida y vuelta",
+      "5 noches de alojamiento con media pensión",
+      "Ruta del Adobe, Termas de Fiambalá, Belén, Londres y El Shincal",
+      "Santa María, Amaicha del Valle, Abra del Infiernillo y Quebrada de los Sosa",
+      "Coordinador permanente",
+      "Circuito 2: excursión a Piedra Pómez en camioneta",
+      "No incluye entradas a los sitios"
+    ]
+  },
+
+  /* ---------- ESCAPADAS EN BUS — Mejores Viajes, temporada baja ---------- */
+  {
+    id: "bus-huerta-grande-mv",
+    foto: "../collage-huerta-grande.jpg",
+    fotoAlt: "Arroyo y parque de Huerta Grande, en las sierras de Córdoba",
+    fotoCompleta: true,
+    nombre: "Huerta Grande",
+    provincia: "Córdoba",
+    pais: "Argentina",
+    region: "Sierras",
+    puerta: "escapadas",
+    tags: ["escapadas"],
+    transporte: "Bus semicama",
+    operador: "Mejores Viajes",
+    fechas: "16 sept · 21 oct · 11 nov",
+    duracion: "5 días / 3 noches",
+    hotel: "11 de Junio (Sindicato del Vidrio)",
+    precio: 279999,
+    moneda: "ARS",
+    reserva: 10000,
+    incluye: [
+      "Bus semicama ida y vuelta",
+      "3 noches de alojamiento con pensión completa",
+      "Coordinador permanente"
+    ]
+  },
+  {
+    id: "bus-san-rafael-lenas-mv",
+    foto: "../collage-san-rafael.jpg",
+    fotoAlt: "Cañón del Atuel y arboleda de San Rafael, Mendoza",
+    fotoCompleta: true,
+    nombre: "San Rafael y Las Leñas",
+    provincia: "Mendoza",
+    pais: "Argentina",
+    region: "Cuyo",
+    puerta: "escapadas",
+    tags: ["escapadas"],
+    transporte: "Bus semicama",
+    operador: "Mejores Viajes",
+    fechas: "30 sept",
+    duracion: "5 días / 3 noches",
+    hotel: "Intis",
+    precio: 359999,
+    moneda: "ARS",
+    reserva: 10000,
+    incluye: [
+      "Bus semicama ida y vuelta",
+      "3 noches de alojamiento con media pensión",
+      "Excursión a Las Leñas incluida",
+      "Coordinador permanente",
+      "Coche cama opcional: +$20.000"
+    ]
+  },
+
   /* ---------- ESCAPADAS EN BUS — Oct a Dic ---------- */
   {
     id: "bus-federacion-clima-termal",

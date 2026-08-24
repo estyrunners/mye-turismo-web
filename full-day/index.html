@@ -68,6 +68,11 @@
   .paq-con-foto{padding-top:0;overflow:hidden}
   .paq-foto{position:relative;margin:0 -24px 20px;line-height:0}
   .paq-foto img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;display:block}
+  /* Los collages del operador son verticales y traen tres franjas: recortarlos
+     a 16:10 se come dos tercios. Decisión de Matías (24/08): se muestran
+     enteros, porque 9 de cada 10 visitas entran por celular y ahí llenan la
+     pantalla. La tarjeta se hace más alta y está bien. */
+  .paq-foto--completa img{aspect-ratio:auto;object-fit:contain}
   .paq-foto figcaption{position:absolute;right:10px;bottom:10px;padding:4px 9px;border-radius:6px;background:rgba(18,52,71,.62);color:#fff;font-size:.66rem;font-weight:700;line-height:1.4;letter-spacing:.02em}
   .paq-badge{position:absolute;top:-11px;left:22px;background:var(--sand-2);color:#3d2508;font-size:.72rem;font-weight:800;padding:5px 12px;border-radius:999px;z-index:2}
   .paq-con-foto .paq-badge{top:14px;left:14px}
@@ -363,6 +368,62 @@
 
         <a class="btn btn-primary" target="_blank" rel="noopener"
            href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20Termas%20de%20Col%C3%B3n.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20%2499.990%20por%20persona%0A%E2%80%A2%201%20d%C3%ADa%20%C2%B7%20Bus%20Mix%0A%E2%80%A2%20Salidas%3A%2031%20oct%20%C2%B7%2028%20nov%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
+          Consultar por WhatsApp
+        </a>
+      </article>
+
+      <article class="paq paq-con-foto">
+        <figure class="paq-foto paq-foto--completa"><img src="../collage-uribelarrea.jpg" alt="Pórtico de entrada y pulpería de Uribelarrea" loading="lazy" decoding="async"></figure>
+        
+        <div class="paq-head">
+          <p class="paq-meta">1 día · Bus</p>
+          <h3>Uribelarrea</h3>
+          
+          <p class="paq-fechas"><span aria-hidden="true">📅</span> Consultar fechas</p>
+          
+        </div>
+
+        <div class="paq-precio">
+          <span class="paq-precio-label">Desde</span>
+          <span class="paq-precio-valor">$105.000</span>
+          <span class="paq-precio-nota">por persona</span>
+          
+        </div>
+
+        
+
+        <details class="paq-detalle"><summary>Qué incluye</summary><ul><li>Bus ida y vuelta en el día</li><li>Parrilla libre en El Palenque</li><li>Visita guiada por el pueblo</li><li>Coordinador permanente</li><li>Menores de 3 a 10 años: $85.000</li></ul></details>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20Uribelarrea.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20%24105.000%20por%20persona%0A%E2%80%A2%201%20d%C3%ADa%20%C2%B7%20Bus%0A%E2%80%A2%20Salidas%3A%20Consultar%20fechas%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
+          Consultar por WhatsApp
+        </a>
+      </article>
+
+      <article class="paq paq-con-foto">
+        <figure class="paq-foto paq-foto--completa"><img src="../collage-estancia-la-mariana.jpg" alt="Piletas, quinchos y parque de la Estancia La Mariana, en Mercedes" loading="lazy" decoding="async"></figure>
+        
+        <div class="paq-head">
+          <p class="paq-meta">1 día · Bus</p>
+          <h3>Estancia La Mariana</h3>
+          
+          <p class="paq-fechas"><span aria-hidden="true">📅</span> 27 sept</p>
+          
+        </div>
+
+        <div class="paq-precio">
+          <span class="paq-precio-label">Desde</span>
+          <span class="paq-precio-valor">$99.000</span>
+          <span class="paq-precio-nota">por persona</span>
+          
+        </div>
+
+        
+
+        <details class="paq-detalle"><summary>Qué incluye</summary><ul><li>Traslados en bus ida y vuelta</li><li>Desayuno, almuerzo y merienda</li><li>Una bebida sin alcohol</li><li>Coordinador permanente</li><li>Menores de 3 a 10 años: $79.000</li></ul></details>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20Estancia%20La%20Mariana.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20%2499.000%20por%20persona%0A%E2%80%A2%201%20d%C3%ADa%20%C2%B7%20Bus%0A%E2%80%A2%20Salidas%3A%2027%20sept%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
           Consultar por WhatsApp
         </a>
       </article>

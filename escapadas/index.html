@@ -68,6 +68,11 @@
   .paq-con-foto{padding-top:0;overflow:hidden}
   .paq-foto{position:relative;margin:0 -24px 20px;line-height:0}
   .paq-foto img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;display:block}
+  /* Los collages del operador son verticales y traen tres franjas: recortarlos
+     a 16:10 se come dos tercios. Decisión de Matías (24/08): se muestran
+     enteros, porque 9 de cada 10 visitas entran por celular y ahí llenan la
+     pantalla. La tarjeta se hace más alta y está bien. */
+  .paq-foto--completa img{aspect-ratio:auto;object-fit:contain}
   .paq-foto figcaption{position:absolute;right:10px;bottom:10px;padding:4px 9px;border-radius:6px;background:rgba(18,52,71,.62);color:#fff;font-size:.66rem;font-weight:700;line-height:1.4;letter-spacing:.02em}
   .paq-badge{position:absolute;top:-11px;left:22px;background:var(--sand-2);color:#3d2508;font-size:.72rem;font-weight:800;padding:5px 12px;border-radius:999px;z-index:2}
   .paq-con-foto .paq-badge{top:14px;left:14px}
@@ -143,6 +148,202 @@
 <main class="container">
   <div class="grid">
     
+      <article class="paq paq-con-foto">
+        <figure class="paq-foto paq-foto--completa"><img src="../collage-merlo.jpg" alt="Sierras de Merlo, piletas y comedor del hotel" loading="lazy" decoding="async"></figure>
+        
+        <div class="paq-head">
+          <p class="paq-meta">6 días / 4 noches · Bus semicama</p>
+          <h3>Merlo</h3>
+          
+          <p class="paq-fechas"><span aria-hidden="true">📅</span> Consultar fecha · octubre a diciembre</p>
+          <p class="paq-hotel"><span aria-hidden="true">🏨</span> Clima 3 / Gran Parque</p>
+        </div>
+
+        <div class="paq-precio">
+          <span class="paq-precio-label">Desde</span>
+          <span class="paq-precio-valor">$333.940</span>
+          <span class="paq-precio-nota">por persona · + $15.000 gastos de reserva</span>
+          
+        </div>
+
+        <ul class="paq-opciones"><li><span>Circuito 1 · Desayuno</span><b>$333.940</b></li><li><span>Circuito 2 · Pensión completa</span><b>$429.780</b></li><li><span>Circuito 3 · Pensión completa con barra libre</span><b>$527.840</b></li></ul>
+
+        <details class="paq-detalle"><summary>Qué incluye</summary><ul><li>Bus semicama ida y vuelta</li><li>4 noches de alojamiento</li><li>Salida grupal con coordinador</li><li>Circuito 3: bebidas, barra libre, merienda, baile, actividades recreativas y cupón de casino</li></ul></details>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20Merlo.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20%24333.940%20por%20persona%20%2B%20%2415.000%20de%20gastos%20de%20reserva%0A%E2%80%A2%206%20d%C3%ADas%20%2F%204%20noches%20%C2%B7%20Bus%20semicama%0A%E2%80%A2%20Hotel%3A%20Clima%203%20%2F%20Gran%20Parque%0A%E2%80%A2%20Salidas%3A%20Consultar%20fecha%20%C2%B7%20octubre%20a%20diciembre%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
+          Consultar por WhatsApp
+        </a>
+      </article>
+
+      <article class="paq paq-con-foto">
+        <figure class="paq-foto paq-foto--completa"><img src="../collage-villa-giardino.jpg" alt="Río y arboleda de Villa Giardino, con el Cristo de La Cumbre" loading="lazy" decoding="async"></figure>
+        
+        <div class="paq-head">
+          <p class="paq-meta">6 días / 4 noches · Bus semicama</p>
+          <h3>Villa Giardino</h3>
+          
+          <p class="paq-fechas"><span aria-hidden="true">📅</span> Consultar fecha · octubre a diciembre</p>
+          <p class="paq-hotel"><span aria-hidden="true">🏨</span> Luz y Fuerza — habitación standard</p>
+        </div>
+
+        <div class="paq-precio">
+          <span class="paq-precio-label">Desde</span>
+          <span class="paq-precio-valor">$436.940</span>
+          <span class="paq-precio-nota">por persona · + $15.000 gastos de reserva</span>
+          
+        </div>
+
+        <ul class="paq-opciones"><li><span>Circuito 1 · Pensión completa</span><b>$436.940</b></li><li><span>Circuito 2 · Pensión completa con excursiones</span><b>$466.380</b></li></ul>
+
+        <details class="paq-detalle"><summary>Qué incluye</summary><ul><li>Bus semicama ida y vuelta</li><li>4 noches de alojamiento con pensión completa</li><li>Piscina cubierta en el hotel</li><li>Coordinador permanente</li><li>Circuito 2: excursiones a La Cumbre y Los Cocos</li></ul></details>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20Villa%20Giardino.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20%24436.940%20por%20persona%20%2B%20%2415.000%20de%20gastos%20de%20reserva%0A%E2%80%A2%206%20d%C3%ADas%20%2F%204%20noches%20%C2%B7%20Bus%20semicama%0A%E2%80%A2%20Hotel%3A%20Luz%20y%20Fuerza%20%E2%80%94%20habitaci%C3%B3n%20standard%0A%E2%80%A2%20Salidas%3A%20Consultar%20fecha%20%C2%B7%20octubre%20a%20diciembre%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
+          Consultar por WhatsApp
+        </a>
+      </article>
+
+      <article class="paq paq-con-foto">
+        <figure class="paq-foto paq-foto--completa"><img src="../collage-san-bernardo.jpg" alt="Playa de San Bernardo, pileta climatizada del hotel y Paseo del Centro" loading="lazy" decoding="async"></figure>
+        
+        <div class="paq-head">
+          <p class="paq-meta">5 días / 4 noches · Bus semicama</p>
+          <h3>San Bernardo</h3>
+          
+          <p class="paq-fechas"><span aria-hidden="true">📅</span> Consultar fecha · diciembre</p>
+          <p class="paq-hotel"><span aria-hidden="true">🏨</span> The New Place — piscina y comedor</p>
+        </div>
+
+        <div class="paq-precio">
+          <span class="paq-precio-label">Desde</span>
+          <span class="paq-precio-valor">$292.180</span>
+          <span class="paq-precio-nota">por persona · + $15.000 gastos de reserva</span>
+          
+        </div>
+
+        <ul class="paq-opciones"><li><span>Circuito 1 · Desayuno</span><b>$292.180</b></li><li><span>Circuito 2 · Pensión completa con actividades</span><b>$439.250</b></li></ul>
+
+        <details class="paq-detalle"><summary>Qué incluye</summary><ul><li>Bus semicama ida y vuelta</li><li>4 noches de alojamiento</li><li>Salida grupal con coordinador</li><li>Circuito 2: merienda express, noche de baile, noche de cine o karaoke, visita a casa de alfajores, aquagym, juegos de mesa y city tour</li></ul></details>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20San%20Bernardo.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20%24292.180%20por%20persona%20%2B%20%2415.000%20de%20gastos%20de%20reserva%0A%E2%80%A2%205%20d%C3%ADas%20%2F%204%20noches%20%C2%B7%20Bus%20semicama%0A%E2%80%A2%20Hotel%3A%20The%20New%20Place%20%E2%80%94%20piscina%20y%20comedor%0A%E2%80%A2%20Salidas%3A%20Consultar%20fecha%20%C2%B7%20diciembre%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
+          Consultar por WhatsApp
+        </a>
+      </article>
+
+      <article class="paq paq-con-foto">
+        <figure class="paq-foto paq-foto--completa"><img src="../collage-copahue.jpg" alt="Lago Caviahue, piletas termales de Copahue y la villa al pie del volcán" loading="lazy" decoding="async"></figure>
+        
+        <div class="paq-head">
+          <p class="paq-meta">7 días / 4 noches · Bus cama</p>
+          <h3>Termas de Copahue</h3>
+          
+          <p class="paq-fechas"><span aria-hidden="true">📅</span> Consultar fecha · diciembre</p>
+          <p class="paq-hotel"><span aria-hidden="true">🏨</span> Termas de Copahue</p>
+        </div>
+
+        <div class="paq-precio">
+          <span class="paq-precio-label">Desde</span>
+          <span class="paq-precio-valor">$940.180</span>
+          <span class="paq-precio-nota">por persona · + $15.000 gastos de reserva</span>
+          
+        </div>
+
+        <ul class="paq-opciones"><li><span>Circuito 1 · Media pensión</span><b>$940.180</b></li><li><span>Circuito 2 · Pensión completa</span><b>$1.074.980</b></li></ul>
+
+        <details class="paq-detalle"><summary>Qué incluye</summary><ul><li>Bus cama ida y vuelta</li><li>4 noches de alojamiento</li><li>Salida grupal con coordinador</li><li>Visita a Villa Caviahue</li></ul></details>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20Termas%20de%20Copahue.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20%24940.180%20por%20persona%20%2B%20%2415.000%20de%20gastos%20de%20reserva%0A%E2%80%A2%207%20d%C3%ADas%20%2F%204%20noches%20%C2%B7%20Bus%20cama%0A%E2%80%A2%20Hotel%3A%20Termas%20de%20Copahue%0A%E2%80%A2%20Salidas%3A%20Consultar%20fecha%20%C2%B7%20diciembre%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
+          Consultar por WhatsApp
+        </a>
+      </article>
+
+      <article class="paq paq-con-foto">
+        <figure class="paq-foto paq-foto--completa"><img src="../collage-ruinas-termas-volcanes.jpg" alt="Formaciones de piedra, termas de Fiambalá y cerros del noroeste" loading="lazy" decoding="async"></figure>
+        
+        <div class="paq-head">
+          <p class="paq-meta">8 días / 5 noches · Bus cama</p>
+          <h3>Ruinas, Termas y Volcanes</h3>
+          
+          <p class="paq-fechas"><span aria-hidden="true">📅</span> Consultar fecha · octubre y noviembre</p>
+          <p class="paq-hotel"><span aria-hidden="true">🏨</span> A confirmar — 2 noches en Aimogasta, 2 en Belén y 1 en Tafí del Valle</p>
+        </div>
+
+        <div class="paq-precio">
+          <span class="paq-precio-label">Desde</span>
+          <span class="paq-precio-valor">$965.880</span>
+          <span class="paq-precio-nota">por persona · + $15.000 gastos de reserva</span>
+          
+        </div>
+
+        <ul class="paq-opciones"><li><span>Circuito 1 · Media pensión</span><b>$965.880</b></li><li><span>Circuito 2 · Media pensión con Piedra Pómez</span><b>$1.214.340</b></li></ul>
+
+        <details class="paq-detalle"><summary>Qué incluye</summary><ul><li>Bus cama ida y vuelta</li><li>5 noches de alojamiento con media pensión</li><li>Ruta del Adobe, Termas de Fiambalá, Belén, Londres y El Shincal</li><li>Santa María, Amaicha del Valle, Abra del Infiernillo y Quebrada de los Sosa</li><li>Coordinador permanente</li><li>Circuito 2: excursión a Piedra Pómez en camioneta</li><li>No incluye entradas a los sitios</li></ul></details>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20Ruinas%2C%20Termas%20y%20Volcanes.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20%24965.880%20por%20persona%20%2B%20%2415.000%20de%20gastos%20de%20reserva%0A%E2%80%A2%208%20d%C3%ADas%20%2F%205%20noches%20%C2%B7%20Bus%20cama%0A%E2%80%A2%20Hotel%3A%20A%20confirmar%20%E2%80%94%202%20noches%20en%20Aimogasta%2C%202%20en%20Bel%C3%A9n%20y%201%20en%20Taf%C3%AD%20del%20Valle%0A%E2%80%A2%20Salidas%3A%20Consultar%20fecha%20%C2%B7%20octubre%20y%20noviembre%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
+          Consultar por WhatsApp
+        </a>
+      </article>
+
+      <article class="paq paq-con-foto">
+        <figure class="paq-foto paq-foto--completa"><img src="../collage-huerta-grande.jpg" alt="Arroyo y parque de Huerta Grande, en las sierras de Córdoba" loading="lazy" decoding="async"></figure>
+        
+        <div class="paq-head">
+          <p class="paq-meta">5 días / 3 noches · Bus semicama</p>
+          <h3>Huerta Grande</h3>
+          
+          <p class="paq-fechas"><span aria-hidden="true">📅</span> 16 sept · 21 oct · 11 nov</p>
+          <p class="paq-hotel"><span aria-hidden="true">🏨</span> 11 de Junio (Sindicato del Vidrio)</p>
+        </div>
+
+        <div class="paq-precio">
+          <span class="paq-precio-label">Desde</span>
+          <span class="paq-precio-valor">$279.999</span>
+          <span class="paq-precio-nota">por persona · + $10.000 gastos de reserva</span>
+          
+        </div>
+
+        
+
+        <details class="paq-detalle"><summary>Qué incluye</summary><ul><li>Bus semicama ida y vuelta</li><li>3 noches de alojamiento con pensión completa</li><li>Coordinador permanente</li></ul></details>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20Huerta%20Grande.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20%24279.999%20por%20persona%20%2B%20%2410.000%20de%20gastos%20de%20reserva%0A%E2%80%A2%205%20d%C3%ADas%20%2F%203%20noches%20%C2%B7%20Bus%20semicama%0A%E2%80%A2%20Hotel%3A%2011%20de%20Junio%20(Sindicato%20del%20Vidrio)%0A%E2%80%A2%20Salidas%3A%2016%20sept%20%C2%B7%2021%20oct%20%C2%B7%2011%20nov%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
+          Consultar por WhatsApp
+        </a>
+      </article>
+
+      <article class="paq paq-con-foto">
+        <figure class="paq-foto paq-foto--completa"><img src="../collage-san-rafael.jpg" alt="Cañón del Atuel y arboleda de San Rafael, Mendoza" loading="lazy" decoding="async"></figure>
+        
+        <div class="paq-head">
+          <p class="paq-meta">5 días / 3 noches · Bus semicama</p>
+          <h3>San Rafael y Las Leñas</h3>
+          
+          <p class="paq-fechas"><span aria-hidden="true">📅</span> 30 sept</p>
+          <p class="paq-hotel"><span aria-hidden="true">🏨</span> Intis</p>
+        </div>
+
+        <div class="paq-precio">
+          <span class="paq-precio-label">Desde</span>
+          <span class="paq-precio-valor">$359.999</span>
+          <span class="paq-precio-nota">por persona · + $10.000 gastos de reserva</span>
+          
+        </div>
+
+        
+
+        <details class="paq-detalle"><summary>Qué incluye</summary><ul><li>Bus semicama ida y vuelta</li><li>3 noches de alojamiento con media pensión</li><li>Excursión a Las Leñas incluida</li><li>Coordinador permanente</li><li>Coche cama opcional: +$20.000</li></ul></details>
+
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+           href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20San%20Rafael%20y%20Las%20Le%C3%B1as.%0A%0AEsto%20es%20lo%20que%20vi%20en%20la%20p%C3%A1gina%3A%0A%E2%80%A2%20Desde%20%24359.999%20por%20persona%20%2B%20%2410.000%20de%20gastos%20de%20reserva%0A%E2%80%A2%205%20d%C3%ADas%20%2F%203%20noches%20%C2%B7%20Bus%20semicama%0A%E2%80%A2%20Hotel%3A%20Intis%0A%E2%80%A2%20Salidas%3A%2030%20sept%0A%0A%C2%BFMe%20confirman%20disponibilidad%20y%20formas%20de%20pago%3F">
+          Consultar por WhatsApp
+        </a>
+      </article>
+
       <article class="paq paq-con-foto">
         <figure class="paq-foto"><img src="../foto-federacion.jpg" alt="Pileta climatizada bajo la cúpula del parque termal de Federación" width="1600" height="1000" loading="lazy" decoding="async"></figure>
         

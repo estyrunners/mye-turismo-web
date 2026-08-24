@@ -58,7 +58,7 @@ function tarjeta(p) {
                cuáles les falta la foto real, pero no se muestra: todas las
                genéricas son de paisaje, no de hoteles concretos, así que no
                hay nada que aclararle al cliente. */
-            ? `<figure class="paq-foto"><img src="${esc(p.foto)}" alt="${esc(p.fotoAlt || p.nombre)}" width="1600" height="1000" loading="lazy" decoding="async"></figure>`
+            ? `<figure class="paq-foto${p.fotoCompleta ? " paq-foto--completa" : ""}"><img src="${esc(p.foto)}" alt="${esc(p.fotoAlt || p.nombre)}"${p.fotoCompleta ? "" : ` width="1600" height="1000"`} loading="lazy" decoding="async"></figure>`
             : ""
         }
         ${p.destacado ? `<span class="paq-badge">${esc(p.destacado)}</span>` : ""}
@@ -163,6 +163,11 @@ const CSS = `
   .paq-con-foto{padding-top:0;overflow:hidden}
   .paq-foto{position:relative;margin:0 -24px 20px;line-height:0}
   .paq-foto img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;display:block}
+  /* Los collages del operador son verticales y traen tres franjas: recortarlos
+     a 16:10 se come dos tercios. Decisión de Matías (24/08): se muestran
+     enteros, porque 9 de cada 10 visitas entran por celular y ahí llenan la
+     pantalla. La tarjeta se hace más alta y está bien. */
+  .paq-foto--completa img{aspect-ratio:auto;object-fit:contain}
   .paq-foto figcaption{position:absolute;right:10px;bottom:10px;padding:4px 9px;border-radius:6px;background:rgba(18,52,71,.62);color:#fff;font-size:.66rem;font-weight:700;line-height:1.4;letter-spacing:.02em}
   .paq-badge{position:absolute;top:-11px;left:22px;background:var(--sand-2);color:#3d2508;font-size:.72rem;font-weight:800;padding:5px 12px;border-radius:999px;z-index:2}
   .paq-con-foto .paq-badge{top:14px;left:14px}
