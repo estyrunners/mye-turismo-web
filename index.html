@@ -920,7 +920,11 @@
       background: linear-gradient(90deg, #e8484a, var(--sale-lima));
     }
 
-    .puerta-sale-banner {
+    /* Va anidado bajo .puerta-sale a propósito: .puerta-foto se declara más
+       abajo con la misma especificidad, y su `display:block` y su
+       `line-height:0` le ganaban a los de acá. Sin grid, place-items no hace
+       nada y el texto quedaba apoyado arriba del cartel. */
+    .puerta-sale .puerta-sale-banner {
       display: grid;
       place-items: center;
       overflow: hidden;
