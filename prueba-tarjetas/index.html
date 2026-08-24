@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Prueba de tarjetas · MyE Turismo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --turquoise:#08989b; --turquoise-dark:#06777b; --navy:#123447;
+    --muted:#61747e; --white:#fff; --sand:#f3e1c7;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Manrope",system-ui,sans-serif;color:#17313f;background:#f4f8f8;line-height:1.6}
+  .wrap{max-width:1180px;margin:0 auto;padding:22px 16px 70px}
+  h1{font-family:"Playfair Display",serif;color:var(--navy);font-size:clamp(1.6rem,5vw,2.4rem);line-height:1.15;margin-bottom:6px}
+  .sub{color:var(--muted);font-size:.95rem;margin-bottom:6px}
+  .aviso{margin:14px 0 26px;padding:13px 16px;border-radius:14px;background:#fff8e6;border:1px solid #f0d9a8;font-size:.9rem;color:#6b4e14}
+
+  h2{font-family:"Playfair Display",serif;color:var(--navy);font-size:1.45rem;margin:34px 0 3px}
+  .nota{color:var(--muted);font-size:.88rem;margin-bottom:16px}
+
+  .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+
+  .card{display:flex;flex-direction:column;overflow:hidden;border-radius:22px;background:var(--white);
+        border:1px solid rgba(18,52,71,.09);box-shadow:0 14px 32px rgba(18,52,71,.09)}
+  .card .foto{display:block;width:100%;line-height:0;background:#e9eff0}
+  .card .foto img{display:block;width:100%;height:auto}
+  .card .cuerpo{padding:16px 18px 18px}
+  .card h3{font-family:"Playfair Display",serif;color:var(--navy);font-size:1.2rem;line-height:1.15;margin-bottom:4px}
+  .card p{color:var(--muted);font-size:.85rem}
+  .card .pie{display:flex;align-items:flex-end;justify-content:space-between;margin-top:12px;padding-top:11px;border-top:1px solid #eef3f3}
+  .card small{display:block;color:var(--muted);font-size:.66rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+  .card strong{color:var(--navy);font-size:1.05rem}
+  .pill{padding:5px 11px;border-radius:999px;background:#e8f7f6;color:var(--turquoise-dark);font-size:.7rem;font-weight:900}
+
+  /* --- A: collage completo, sin recortar --- */
+  .completa .foto img{aspect-ratio:auto}
+
+  /* --- B: recorte apaisado, como las 44 de ahora --- */
+  .apaisada .foto img{aspect-ratio:16/10;object-fit:cover}
+
+  /* --- C: vertical en celular, apaisada en escritorio --- */
+  .mixta .foto img{aspect-ratio:2/3;object-fit:cover}
+  @media (min-width:760px){ .mixta .foto img{aspect-ratio:16/10} }
+
+  .marca{display:inline-block;margin-bottom:10px;padding:4px 12px;border-radius:999px;
+         font-size:.72rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+  .mA{background:#dff5e4;color:#1d6b34}
+  .mB{background:#e8eef2;color:#3c5a6b}
+  .mC{background:#f3e6f7;color:#6b357f}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Tres formas de mostrar los collages</h1>
+  <p class="sub">Mirá esto en el celular, que es donde entra el 90% de la gente. Después decime A, B o C.</p>
+
+  <div class="aviso">
+    <b>Los datos son de mentira</b> — precios y textos inventados sólo para que la tarjeta se vea completa.
+    Lo único real acá son las fotos. Todavía no leí los flyers.
+  </div>
+
+  <span class="marca mA">Opción A</span>
+  <h2>El collage completo</h2>
+  <p class="nota">Se ve todo, no se recorta nada. Es lo que pediste. En escritorio la tarjeta se vuelve muy alta.</p>
+  <div class="grid completa" id="gA"></div>
+
+  <span class="marca mB">Opción B</span>
+  <h2>Recorte apaisado</h2>
+  <p class="nota">Como las 44 tarjetas que ya están. Queda parejo con el resto de la web, pero del collage se ve sólo la franja del medio.</p>
+  <div class="grid apaisada" id="gB"></div>
+
+  <span class="marca mC">Opción C</span>
+  <h2>Vertical en celular, apaisada en escritorio</h2>
+  <p class="nota">La misma foto recortada distinto según el aparato. En el celular se parece a A; si abrís esto en la compu, se parece a B.</p>
+  <div class="grid mixta" id="gC"></div>
+</div>
+
+<script>
+  const VIAJES = [
+    { id:"merlo",         nombre:"Merlo",                    lugar:"San Luis" },
+    { id:"copahue",       nombre:"Termas de Copahue",        lugar:"Neuquén" },
+    { id:"giardino",      nombre:"Villa Giardino",           lugar:"Córdoba" },
+    { id:"san-bernardo",  nombre:"San Bernardo",             lugar:"Costa Atlántica" },
+    { id:"ruinas",        nombre:"Ruinas, termas y volcanes",lugar:"Norte argentino" },
+    { id:"uribelarrea",   nombre:"Uribelarrea",              lugar:"Full day · Buenos Aires" },
+    { id:"mariana",       nombre:"Estancia La Mariana",      lugar:"Full day · Buenos Aires" },
+    { id:"huerta-grande", nombre:"Huerta Grande",            lugar:"Córdoba" },
+    { id:"machu-pichu",   nombre:"Machu Picchu",             lugar:"Perú" },
+    { id:"san-rafael",    nombre:"San Rafael y Las Leñas",   lugar:"Mendoza" }
+  ];
+
+  const tarjeta = (v) => `
+    <article class="card">
+      <span class="foto"><img src="${v.id}.jpg" alt="${v.nombre}" loading="lazy" decoding="async"></span>
+      <div class="cuerpo">
+        <h3>${v.nombre}</h3>
+        <p>${v.lugar}</p>
+        <span class="pie">
+          <span><small>Desde</small><strong>$000.000</strong></span>
+          <span class="pill">Salidas</span>
+        </span>
+      </div>
+    </article>`;
+
+  for (const id of ["gA", "gB", "gC"]) {
+    document.getElementById(id).innerHTML = VIAJES.map(tarjeta).join("");
+  }
+</script>
+</body>
+</html>
