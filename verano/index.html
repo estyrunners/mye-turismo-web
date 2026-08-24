@@ -237,16 +237,18 @@
     .paq-foto-simple { margin: 0; line-height: 0; background: #dfe8ea }
     .paq-foto-simple img { width: 100%; height: auto; aspect-ratio: 16/10; object-fit: cover }
 
-    /* Las tarifas van plegadas: mostrar cinco precios de entrada asusta, y el
-       que compara ocupaciones es el que ya está decidido. */
+    /* Las tarifas van a la vista, sin desplegar (decisión de Matías, 24/08).
+       El argumento de esta oferta es que el precio baja cuanto más gente
+       comparte la habitación: esconder esa escalera es esconder el argumento.
+       La primera fila es la más barata, y va resaltada porque es la que la
+       tarjeta anuncia arriba como "Desde". */
     .paq-tarifas { margin: 4px 0 14px; border-top: 1px solid rgba(18, 52, 71, .1); padding-top: 10px }
-    .paq-tarifas summary { cursor: pointer; color: var(--teal-dark); font-size: .88rem; font-weight: 800; list-style: none }
-    .paq-tarifas summary::-webkit-details-marker { display: none }
-    .paq-tarifas summary::after { content: " ▾" }
-    .paq-tarifas[open] summary::after { content: " ▴" }
-    .tarifas-lista { list-style: none; margin-top: 9px; display: grid; gap: 5px }
-    .tarifas-lista li { display: flex; justify-content: space-between; gap: 12px; font-size: .9rem; color: var(--muted) }
+    .tarifas-titulo { color: var(--muted); font-size: .78rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; margin-bottom: 8px }
+    .tarifas-lista { list-style: none; display: grid; gap: 4px }
+    .tarifas-lista li { display: flex; justify-content: space-between; gap: 12px; font-size: .92rem; color: var(--muted); padding: 3px 8px; border-radius: 8px }
+    .tarifas-lista li:first-child { background: rgba(8, 152, 155, .09); color: var(--teal-dark); font-weight: 700 }
     .tarifas-lista b { color: var(--navy) }
+    .tarifas-lista li:first-child b { color: var(--teal-dark) }
 
     .paq-flyer { position: relative; border: 0; padding: 0; background: var(--noche); cursor: zoom-in; line-height: 0 }
     /* Sin recorte: el flyer se ve entero, con el bloque de precio incluido.
@@ -734,12 +736,12 @@
             ${h.extras.map((e) => `<li>${esc(e)}</li>`).join("")}
             ${h.web ? `<li><a href="${esc(h.web)}" target="_blank" rel="noopener nofollow">Ver el hotel ↗</a></li>` : ""}
           </ul>
-          <details class="paq-tarifas">
-            <summary>Ver las ${h.tarifas.length} tarifas</summary>
+          <div class="paq-tarifas">
+            <p class="tarifas-titulo">Precio por persona según la habitación</p>
             <ul class="tarifas-lista">
               ${h.tarifas.map((x) => `<li><span>${esc(x.nombre)}</span><b>${plata(x.precio)}</b></li>`).join("")}
             </ul>
-          </details>
+          </div>
           <div class="precio-caja">
             <span class="rotulo">Desde</span>
             <strong class="precio">${plata(t.precio)}</strong>
