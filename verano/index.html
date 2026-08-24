@@ -14,7 +14,7 @@
   <meta property="og:title" content="SALE Verano · 4 cuotas sin interés y sin tarjeta">
   <meta property="og:description"
     content="Congelá tus vacaciones de verano. Elegís la fecha, viajás desde diciembre y lo pagás en 4 cuotas sin tarjeta de crédito.">
-  <meta property="og:image" content="https://mye-turismo-web.pages.dev/verano-sb-falkner.jpg">
+  <meta property="og:image" content="https://mye-turismo-web.pages.dev/verano/portada-verano.jpg">
   <meta property="og:locale" content="es_AR">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -111,7 +111,9 @@
       position: absolute;
       inset: 0;
       z-index: -2;
-      background: url("portada-verano.jpg") center 55% / cover no-repeat;
+      /* 45% de alto deja el horizonte y las sombrillas dentro del cuadro; más
+         abajo se llenaba de arena vacía. */
+      background: url("portada-verano.jpg") center 45% / cover no-repeat;
     }
 
     .hero::after {
@@ -127,7 +129,10 @@
     /* En celular la columna es angosta y el texto ocupa todo el ancho: el
        degradado lateral no alcanza, hace falta parejo y más oscuro. */
     @media (max-width: 720px) {
-      .hero::before { background-position: center 30%; }
+      /* En celular el recorte es angosto y se come los costados. Corrido al
+         72% para que queden las sombrillas de colores, que es lo que dice
+         "verano" de un vistazo; centrado se veía sólo mar y arena. */
+      .hero::before { background-position: 72% 45%; }
       .hero::after {
         background: linear-gradient(180deg, rgba(4, 22, 30, .74) 0%, rgba(4, 22, 30, .8) 45%, rgba(4, 22, 30, .92) 100%);
       }
