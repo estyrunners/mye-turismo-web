@@ -809,6 +809,42 @@ window.PAQUETES = [
   },
 
   /* ---------- VOLÁ LEJOS, PAGÁ EN CUOTAS — aéreos ---------- */
+  /* Machu Picchu va acá por decisión de Matías (24/08). No es aéreo —viaja
+     en bus cama— pero es el único lugar de la web para un viaje grande y
+     largo, y es la puerta de "pagá en cuotas". Es el primer paquete en
+     dólares: `moneda: "USD"` hace que se muestre "USD 1.999" y no "$1.999".
+     Por eso mismo NO está en el tablero: `salidas.precio_pax` guarda pesos y
+     no hay campo de moneda, así que cargarlo ahí daría una comisión falsa. */
+  {
+    id: "aereo-machu-picchu-2027",
+    foto: "../collage-machu-picchu.jpg",
+    fotoAlt: "Machu Picchu, el altiplano y la Quebrada de Humahuaca",
+    fotoCompleta: true,
+    nombre: "Machu Picchu Premium 2027",
+    provincia: "Cusco",
+    pais: "Perú",
+    region: "Sudamérica",
+    puerta: "aereos",
+    tags: ["aereos"],
+    transporte: "Bus cama",
+    operador: "Mejores Viajes",
+    fechas: "16 may 2027",
+    duracion: "17 días / 13 noches",
+    hotel: "A confirmar — Tilcara, San Pedro de Atacama, Arica, Arequipa, Cusco, Aguas Calientes y La Paz",
+    precio: 1999,
+    moneda: "USD",
+    reserva: 100,
+    destacado: "Argentina, Chile, Perú y Bolivia en un solo viaje",
+    incluye: [
+      "Bus cama y media pensión durante todo el viaje",
+      "Coordinador permanente",
+      "4 noches en Cusco, 2 en Arequipa, 2 en La Paz y 1 en Aguas Calientes",
+      "Excursión a Machu Picchu con entrada, guía, bus y tren de retorno",
+      "City tour por Cusco más 4 ruinas, city tour por Arequipa",
+      "Navegación por el lago Titicaca y visita a Purmamarca",
+      "No incluye entradas a las ruinas del city tour de Cusco"
+    ]
+  },
   {
     id: "aereo-bariloche",
     foto: "../foto-bariloche.jpg",

@@ -14,7 +14,7 @@
   <meta property="og:title" content="SALE · Precios bomba en septiembre">
   <meta property="og:description"
     content="Precios promocionales en las salidas de septiembre. Del 24 al 30 de agosto.">
-  <meta property="og:image" content="https://mye-turismo-web.pages.dev/sale/flyer-cataratas-iguazu.jpg">
+  <meta property="og:image" content="https://mye-turismo-web.pages.dev/sale/portada-sale.jpg">
   <meta property="og:locale" content="es_AR">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -91,15 +91,46 @@
     }
 
     /* ---------- portada ---------- */
+    /* La portada va de fondo, no como <img>: así se adapta sola a cualquier
+       pantalla sin dejar bordes. El degradado de encima es lo que mantiene
+       legible el texto — sin él, la palabra SALE en lima se pierde contra el
+       cielo del atardecer. Más opaco a la izquierda, que es donde está el
+       texto, y casi transparente a la derecha para que se vea el cartel de
+       madera con los destinos. */
     .hero {
       position: relative;
+      isolation: isolate;
       overflow: hidden;
       padding: 46px 0 40px;
       color: var(--white);
+      background: var(--noche);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background: url("portada-sale.jpg") center 38% / cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
       background:
-        radial-gradient(circle at 15% 10%, rgba(8, 152, 155, .38), transparent 45%),
-        radial-gradient(circle at 88% 82%, rgba(242, 139, 43, .28), transparent 45%),
-        linear-gradient(160deg, var(--noche) 0%, #0d2f3f 55%, #103a4d 100%);
+        linear-gradient(100deg, rgba(4, 22, 30, .93) 0%, rgba(4, 22, 30, .84) 38%, rgba(4, 22, 30, .5) 72%, rgba(4, 22, 30, .34) 100%),
+        linear-gradient(180deg, rgba(4, 22, 30, .35) 0%, transparent 30%, rgba(4, 22, 30, .55) 100%);
+    }
+
+    /* En celular la columna es angosta y el texto ocupa todo el ancho: el
+       degradado lateral no alcanza, hace falta parejo y más oscuro. */
+    @media (max-width: 720px) {
+      .hero::before { background-position: center 30%; }
+      .hero::after {
+        background: linear-gradient(180deg, rgba(4, 22, 30, .74) 0%, rgba(4, 22, 30, .8) 45%, rgba(4, 22, 30, .92) 100%);
+      }
     }
 
     .hero .container { position: relative; z-index: 2 }

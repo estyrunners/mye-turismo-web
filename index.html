@@ -926,9 +926,11 @@
       overflow: hidden;
       aspect-ratio: 16 / 9;
       line-height: 1;
+      /* Oscuro en el centro y rojo en las puntas, no al revés: la palabra va
+         en el medio y sobre el rojo la lima se leía flojo. */
       background:
-        radial-gradient(circle at 22% 18%, rgba(212, 245, 44, 0.24), transparent 55%),
-        linear-gradient(135deg, #07161f 0%, #7a1d23 56%, #c62f38 100%);
+        radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.55), transparent 62%),
+        linear-gradient(135deg, #8d2027 0%, #0a1a22 48%, #c62f38 100%);
     }
 
     .puerta-sale-banner::after {
