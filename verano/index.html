@@ -573,7 +573,7 @@
     <div class="container">
       <p class="marca">MyE Turismo</p>
       <p>WhatsApp 11 3153-7638 · Idóneos en turismo Matriculados</p>
-      <p style="margin-top:.4rem">Precios por persona según la ocupación de la habitación, en pesos argentinos, para reservas confirmadas entre el 24 y el 30 de agosto de 2026. La financiación en 4 cuotas sin interés, en efectivo o por transferencia, aplica únicamente a las reservas hechas dentro de ese plazo. Los gastos administrativos son el 1,5% del valor del paquete y no están incluidos en el precio mostrado. Viajes a partir de diciembre de 2026, con fecha a elección del pasajero y sujetos a disponibilidad. Operador mayorista: La Familia Turismo, legajo 18064.</p>
+      <p style="margin-top:.4rem">Precios por persona según la ocupación de la habitación, en pesos argentinos, para reservas confirmadas entre el 24 y el 30 de agosto de 2026. La financiación en 4 cuotas sin interés, en efectivo o por transferencia, aplica únicamente a las reservas hechas dentro de ese plazo. Los gastos administrativos son el 1,5% del valor del paquete y no están incluidos en el precio mostrado. Viajes a partir de diciembre de 2026, con fecha a elección del pasajero y sujetos a disponibilidad.</p>
       <p style="margin-top:.4rem"><a href="../">Ir a la web de MyE Turismo</a> · <a href="../terminos-y-condiciones/">Términos y Condiciones</a></p>
     </div>
   </footer>
@@ -605,7 +605,7 @@
        Cuando pasa, la página deja de prometer un precio que ya no existe. */
     const FIN_PROMO = new Date("2026-08-30T23:59:59-03:00");
 
-    /* Los siete paquetes de La Familia Turismo (leg. 18064), verano 2027.
+    /* Los siete paquetes de verano 2027.
        `tarifas` va de mayor a menor ocupación: el precio por persona baja
        cuanto más gente comparte, y ese es el argumento de venta para el
        público de esta oferta. La tarjeta muestra "Desde" la más barata.
@@ -731,9 +731,9 @@
     const linkAscensos = () => `${location.origin}/puntos-de-ascenso/`;
     const urlWa = (t) => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(t)}`;
 
-    /* La Familia cobra los gastos administrativos como 1,5% del precio base,
-       no como un monto fijo en pesos igual que el resto de los operadores.
-       Se calcula sobre la tarifa que la persona está mirando. */
+    /* En estos paquetes los gastos administrativos son el 1,5% del precio
+       base, no un monto fijo en pesos. Se calcula sobre la tarifa que la
+       persona está mirando. */
     const gastosAdm = (precio) => Math.round(precio * 0.015);
     const desde = (h) => h.tarifas[0];
 

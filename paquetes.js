@@ -15,7 +15,7 @@
    ============================================================ */
 
 window.PAQUETES = [
-  /* ---------- FULL DAY — Punto de Partida (leg. 17789) ---------- */
+  /* ---------- FULL DAY ---------- */
   {
     id: "fd-tandil",
     foto: "../foto-tandil.jpg",
@@ -28,7 +28,6 @@ window.PAQUETES = [
     puerta: "full-day",
     tags: ["full-day"],
     transporte: "Bus Mix",
-    operador: "Punto de Partida",
     fechas: "31 oct · 14 nov",
     duracion: "1 día",
     precio: 119990,
@@ -54,7 +53,6 @@ window.PAQUETES = [
     puerta: "full-day",
     tags: ["full-day", "termas"],
     transporte: "Bus Mix",
-    operador: "Punto de Partida",
     fechas: "3 oct · 15 nov",
     duracion: "1 día",
     precio: 105990,
@@ -80,7 +78,6 @@ window.PAQUETES = [
     puerta: "full-day",
     tags: ["full-day"],
     transporte: "Bus Mix",
-    operador: "Punto de Partida",
     fechas: "24 oct · 8 y 21 nov",
     duracion: "1 día",
     precio: 105990,
@@ -108,7 +105,6 @@ window.PAQUETES = [
     puerta: "full-day",
     tags: ["full-day"],
     transporte: "Bus Mix",
-    operador: "Punto de Partida",
     fechas: "17 oct · 8 nov",
     duracion: "1 día",
     precio: 105990,
@@ -134,7 +130,6 @@ window.PAQUETES = [
     puerta: "full-day",
     tags: ["full-day", "termas"],
     transporte: "Bus Mix",
-    operador: "Punto de Partida",
     fechas: "4 oct · 1 y 29 nov",
     duracion: "1 día",
     precio: 105990,
@@ -159,7 +154,6 @@ window.PAQUETES = [
     puerta: "full-day",
     tags: ["full-day", "termas"],
     transporte: "Bus Mix",
-    operador: "Punto de Partida",
     fechas: "18 oct",
     duracion: "1 día",
     precio: 105990,
@@ -185,7 +179,6 @@ window.PAQUETES = [
     puerta: "full-day",
     tags: ["full-day"],
     transporte: "Bus Mix",
-    operador: "Punto de Partida",
     fechas: "4 y 25 oct · 1 y 22 nov",
     duracion: "1 día",
     precio: 105990,
@@ -211,7 +204,6 @@ window.PAQUETES = [
     puerta: "full-day",
     tags: ["full-day", "termas"],
     transporte: "Bus Mix",
-    operador: "Punto de Partida",
     fechas: "31 oct · 28 nov",
     duracion: "1 día",
     precio: 99990,
@@ -226,7 +218,7 @@ window.PAQUETES = [
     ]
   },
 
-  /* ---------- FULL DAY — Colprim ----------
+  /* ---------- FULL DAY (collage vertical) ----------
      Los dos usan el collage del operador entero, sin recortar: son
      verticales y llevan `fotoCompleta`. */
   {
@@ -241,7 +233,6 @@ window.PAQUETES = [
     puerta: "full-day",
     tags: ["full-day"],
     transporte: "Bus",
-    operador: "Colprim",
     /* El flyer traía el sábado 22 de agosto, que ya pasó. Matías pidió
        dejarlo publicado a la espera de fecha nueva. */
     fechas: "Consultar fechas",
@@ -269,7 +260,6 @@ window.PAQUETES = [
     puerta: "full-day",
     tags: ["full-day"],
     transporte: "Bus",
-    operador: "Colprim",
     fechas: "27 sept",
     duracion: "1 día",
     precio: 99000,
@@ -284,7 +274,7 @@ window.PAQUETES = [
     ]
   },
 
-  /* ---------- ESCAPADAS EN BUS — Opciones Argentinas ----------
+  /* ---------- ESCAPADAS EN BUS — cuotas sin interés ----------
      Cada paquete tiene 2 o 3 circuitos según el régimen: la tarjeta muestra
      "Desde" el más barato y la lista completa adentro (decisión de Matías,
      24/08). Los flyers no traen fecha de salida, sólo los meses, así que
@@ -304,7 +294,6 @@ window.PAQUETES = [
     puerta: "escapadas",
     tags: ["escapadas"],
     transporte: "Bus semicama",
-    operador: "Opciones Argentinas",
     fechas: "Consultar fecha · octubre a diciembre",
     duracion: "6 días / 4 noches",
     hotel: "Clima 3 / Gran Parque",
@@ -335,7 +324,6 @@ window.PAQUETES = [
     puerta: "escapadas",
     tags: ["escapadas"],
     transporte: "Bus semicama",
-    operador: "Opciones Argentinas",
     fechas: "Consultar fecha · octubre a diciembre",
     duracion: "6 días / 4 noches",
     hotel: "Luz y Fuerza — habitación standard",
@@ -366,7 +354,6 @@ window.PAQUETES = [
     puerta: "escapadas",
     tags: ["escapadas"],
     transporte: "Bus semicama",
-    operador: "Opciones Argentinas",
     fechas: "Consultar fecha · diciembre",
     duracion: "5 días / 4 noches",
     hotel: "The New Place — piscina y comedor",
@@ -396,7 +383,6 @@ window.PAQUETES = [
     puerta: "escapadas",
     tags: ["escapadas", "termas"],
     transporte: "Bus cama",
-    operador: "Opciones Argentinas",
     fechas: "Consultar fecha · diciembre",
     duracion: "7 días / 4 noches",
     hotel: "Termas de Copahue",
@@ -426,7 +412,6 @@ window.PAQUETES = [
     puerta: "escapadas",
     tags: ["escapadas", "termas"],
     transporte: "Bus cama",
-    operador: "Opciones Argentinas",
     fechas: "Consultar fecha · octubre y noviembre",
     duracion: "8 días / 5 noches",
     hotel: "A confirmar — 2 noches en Aimogasta, 2 en Belén y 1 en Tafí del Valle",
@@ -448,7 +433,7 @@ window.PAQUETES = [
     ]
   },
 
-  /* ---------- ESCAPADAS EN BUS — Mejores Viajes, temporada baja ---------- */
+  /* ---------- ESCAPADAS EN BUS — temporada baja ---------- */
   {
     id: "bus-huerta-grande-mv",
     foto: "../collage-huerta-grande.jpg",
@@ -461,7 +446,6 @@ window.PAQUETES = [
     puerta: "escapadas",
     tags: ["escapadas"],
     transporte: "Bus semicama",
-    operador: "Mejores Viajes",
     fechas: "16 sept · 21 oct · 11 nov",
     duracion: "5 días / 3 noches",
     hotel: "11 de Junio (Sindicato del Vidrio)",
@@ -486,7 +470,6 @@ window.PAQUETES = [
     puerta: "escapadas",
     tags: ["escapadas"],
     transporte: "Bus semicama",
-    operador: "Mejores Viajes",
     fechas: "30 sept",
     duracion: "5 días / 3 noches",
     hotel: "Intis",
@@ -827,7 +810,6 @@ window.PAQUETES = [
     puerta: "aereos",
     tags: ["aereos"],
     transporte: "Bus cama",
-    operador: "Mejores Viajes",
     fechas: "16 may 2027",
     duracion: "17 días / 13 noches",
     hotel: "A confirmar — Tilcara, San Pedro de Atacama, Arica, Arequipa, Cusco, Aguas Calientes y La Paz",
@@ -1036,7 +1018,6 @@ window.PAQUETES = [
     puerta: "aereos",
     tags: ["aereos", "brasil", "playa"],
     transporte: "Aéreo",
-    operador: "Opciones Argentinas",
     fechas: "25 oct · 8 nov · 6 dic",
     duracion: "7 días / 6 noches",
     hotel: "Coronado Beach — frente a la playa de João Fernandes",
@@ -1062,7 +1043,6 @@ window.PAQUETES = [
     puerta: "aereos",
     tags: ["aereos", "brasil", "playa"],
     transporte: "Aéreo",
-    operador: "Opciones Argentinas",
     fechas: "25 oct · 8 nov · 6 dic",
     duracion: "7 días / 6 noches",
     hotel: "Pousada Brisas de Buzios",
@@ -1086,7 +1066,6 @@ window.PAQUETES = [
     puerta: "aereos",
     tags: ["aereos", "brasil", "playa"],
     transporte: "Aéreo",
-    operador: "Opciones Argentinas",
     fechas: "Salida 28 de noviembre",
     duracion: "8 días / 7 noches",
     hotel: "Copa Sul (Río, 3 noches) + Marlen (Cabo Frío, 4 noches)",
@@ -1111,7 +1090,6 @@ window.PAQUETES = [
     puerta: "aereos",
     tags: ["aereos", "brasil", "playa"],
     transporte: "Aéreo",
-    operador: "Opciones Argentinas",
     fechas: "24 oct · 28 nov · 5 dic",
     duracion: "9 días / 7 noches",
     hotel: "Ponta Verde",
@@ -1137,7 +1115,6 @@ window.PAQUETES = [
     puerta: "aereos",
     tags: ["aereos", "brasil", "playa"],
     transporte: "Aéreo",
-    operador: "Opciones Argentinas",
     fechas: "8 nov · 6 dic",
     duracion: "7 días / 6 noches",
     hotel: "Visual Praia, Ponta Negra",
@@ -1162,7 +1139,6 @@ window.PAQUETES = [
     puerta: "aereos",
     tags: ["aereos", "brasil", "playa"],
     transporte: "Aéreo",
-    operador: "Opciones Argentinas",
     fechas: "24 oct · 28 nov · 5 dic",
     duracion: "9 días / 7 noches",
     hotel: "Ponta Verde Frances — servicio de playa, frente al mar",
@@ -1302,7 +1278,7 @@ window.PAQUETES = [
     incluye: ["Aéreo ida y vuelta con equipaje 20 kg", "Transfer in/out", "7 noches con desayuno", "Coordinador permanente"]
   },
 
-  /* ---------- VERANO 2027 — Argentina, La Familia Turismo (leg. 18064) ---------- */
+  /* ---------- VERANO 2027 — Argentina ---------- */
   {
     id: "v27-gesell-smyrna",
     foto: "../foto-gesell.jpg",
@@ -1315,7 +1291,6 @@ window.PAQUETES = [
     puerta: "verano-2027",
     tags: ["verano-2027", "playa"],
     transporte: "Bus semicama",
-    operador: "La Familia Turismo",
     fechas: "Enero y febrero",
     duracion: "4 noches con 4 desayunos",
     hotel: "Smyrna — 3 estrellas, a 50 metros del mar",
@@ -1344,7 +1319,6 @@ window.PAQUETES = [
     puerta: "verano-2027",
     tags: ["verano-2027", "playa"],
     transporte: "Bus semicama",
-    operador: "La Familia Turismo",
     fechas: "Enero y febrero",
     duracion: "4 noches con 4 desayunos",
     hotel: "Coliseo — 4 estrellas, frente al mar, piscina climatizada descubierta",
@@ -1373,7 +1347,6 @@ window.PAQUETES = [
     puerta: "verano-2027",
     tags: ["verano-2027", "playa"],
     transporte: "Bus semicama",
-    operador: "La Familia Turismo",
     fechas: "Salidas diarias todo el verano",
     duracion: "4 noches con 4 desayunos",
     hotel: "América — 3 estrellas, en el centro de Mar del Plata",
@@ -1403,7 +1376,6 @@ window.PAQUETES = [
     puerta: "verano-2027",
     tags: ["verano-2027", "playa"],
     transporte: "Bus semicama",
-    operador: "La Familia Turismo",
     fechas: "Salidas diarias todo el verano",
     duracion: "4 noches con 4 desayunos",
     hotel: "Valles — 3 estrellas superior, en el centro de Mar del Plata",
@@ -1432,7 +1404,6 @@ window.PAQUETES = [
     puerta: "verano-2027",
     tags: ["verano-2027", "termas"],
     transporte: "Bus semicama",
-    operador: "La Familia Turismo",
     fechas: "Enero y febrero",
     duracion: "4 noches con 4 desayunos",
     hotel: "Cepeda Hotel",
@@ -1464,7 +1435,6 @@ window.PAQUETES = [
     puerta: "verano-2027",
     tags: ["verano-2027", "termas"],
     transporte: "Bus semicama",
-    operador: "La Familia Turismo",
     fechas: "Enero y febrero",
     duracion: "4 noches con 4 desayunos",
     hotel: "Hostal La Glorieta — a 100 metros del complejo termal",

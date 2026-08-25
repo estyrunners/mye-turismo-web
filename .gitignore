@@ -6,3 +6,6 @@ Desktop.ini
 *.tmp
 *.bak
 ~$*
+
+# Referencia interna: mapa de operadores. No se publica.
+OPERADORES.local.md
