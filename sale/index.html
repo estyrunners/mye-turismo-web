@@ -135,11 +135,6 @@
 
     .hero .container { position: relative; z-index: 2 }
 
-    /* Mismo lugar que en los creativos: el logo y el sello del Travel Sale
-       comparten la franja de arriba y se apoyan en los márgenes opuestos. */
-    .hero-logo { position: absolute; top: -6px; right: 0; width: min(172px, 32vw); height: auto; filter: drop-shadow(0 4px 14px rgba(0,0,0,.35)) }
-    @media (max-width: 560px) { .hero-logo { width: 128px; top: -10px } }
-
     .sello-travel { padding: 5px 12px; border-radius: 999px; background: var(--lima); color: var(--noche); letter-spacing: .1em; white-space: nowrap }
     .hero .marca { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 10px; font-size: .74rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--lima) }
 
@@ -399,7 +394,6 @@
 
   <header class="hero">
     <div class="container">
-      <img class="hero-logo rev" src="../logo-mye.png" alt="MyE Turismo" width="478" height="140">
       <p class="marca rev"><span class="sello-travel">Travel Sale 2026</span> MyE Turismo</p>
       <p class="sale rev">SALE</p>
       <h1 class="rev">Precios bomba en las salidas de <i>septiembre</i></h1>
