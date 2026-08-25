@@ -4,16 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SALE Verano · 4 cuotas sin interés y sin tarjeta | MyE Turismo</title>
+  <title>Travel Sale 2026 · Verano en 4 cuotas sin interés y sin tarjeta | MyE Turismo</title>
   <meta name="description"
-    content="Verano 2027 en la Costa Atlántica: San Bernardo, Santa Teresita y Necochea con bus, 4 noches y desayuno. Pagás en 4 cuotas sin interés y sin tarjeta de crédito. Elegís vos la fecha de viaje. Precio para quien reserva del 24 al 30 de agosto.">
+    content="Travel Sale 2026 en MyE Turismo, del 24 al 30 de agosto. Verano 2027 en la Costa Atlántica: Mar del Plata, San Bernardo, Santa Teresita y Necochea con bus, 4 noches y desayuno. Pagás en 4 cuotas sin interés y sin tarjeta de crédito, y elegís vos la fecha de viaje.">
   <meta name="theme-color" content="#07161f">
   <link rel="canonical" href="https://mye-turismo-web.pages.dev/verano/">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="SALE Verano · 4 cuotas sin interés y sin tarjeta">
+  <meta property="og:title" content="Travel Sale 2026 · Verano en 4 cuotas sin tarjeta | MyE Turismo">
   <meta property="og:description"
-    content="Congelá tus vacaciones de verano. Elegís la fecha, viajás desde diciembre y lo pagás en 4 cuotas sin tarjeta de crédito.">
+    content="Del 24 al 30 de agosto. Elegís la fecha, viajás desde diciembre y lo pagás en 4 cuotas sin interés y sin tarjeta de crédito.">
   <meta property="og:image" content="https://mye-turismo-web.pages.dev/verano/portada-verano.jpg">
   <meta property="og:locale" content="es_AR">
 
@@ -140,7 +140,18 @@
 
     .hero .container { position: relative; z-index: 2 }
 
-    .hero .marca { display: inline-flex; align-items: center; gap: 8px; font-size: .74rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--lima) }
+    .hero .marca { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 10px; font-size: .74rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--lima) }
+
+    /* El sello va en blanco sobre lima y no al revés: tiene que leerse como
+       una credencial ajena que MyE porta, no como un adorno más de la marca. */
+    .sello-travel {
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: var(--lima);
+      color: var(--noche);
+      letter-spacing: .1em;
+      white-space: nowrap;
+    }
 
     .hero .sale {
       margin: 6px 0 2px;
@@ -417,7 +428,16 @@
 
   <header class="hero">
     <div class="container">
-      <p class="marca rev">MyE Turismo · Sale Verano</p>
+      <!-- Travel Sale: es el evento nacional de las agencias de viajes que
+           organiza FAEVYT, y corre justo del 24 al 30 de agosto de 2026 — las
+           mismas fechas que mandaron los tres operadores en sus flyers. MyE
+           está inscripta (confirmado por Estela el 24/08), así que se nombra.
+           No es "Hot Sale": ése es de CACE y fue en mayo. Va arriba de todo
+           porque esta semana hay gente buscando el término. -->
+      <p class="marca rev">
+        <span class="sello-travel">Travel Sale 2026</span>
+        MyE Turismo · Agencia participante
+      </p>
       <p class="sale rev">SALE</p>
       <h1 class="rev">Verano 2027 en <i>4 cuotas sin interés</i></h1>
       <!-- El gancho no es el precio, es la forma de pago: sin tarjeta de
@@ -683,6 +703,23 @@
           { nombre: "Single", precio: 740000 }
         ],
         foto: "../verano-sb-la-argentina.jpg", web: "https://www.hotellaargentina.com.ar/"
+      },
+      /* Entró el 24/08 a último momento. Su flyer no trae la franja de las 4
+         cuotas que sí traen los otros siete, pero Matías lo confirmó con el
+         operador esa misma noche: aplica igual. Doble, triple y cuádruple
+         valen lo mismo, no es un error de carga: así vino el flyer. */
+      {
+        hotel: "Hotel América", lugar: "Mar del Plata", estrellas: 3,
+        ubicacion: "En pleno centro de Mar del Plata",
+        regimen: "4 noches con desayuno",
+        extras: ["Bus ida y vuelta semicama", "Salidas diarias todo el verano", "Cupos confirmados", "No incluye traslados de llegada y salida"],
+        tarifas: [
+          { nombre: "Cuádruple", precio: 430000 },
+          { nombre: "Triple", precio: 430000 },
+          { nombre: "Doble", precio: 430000 },
+          { nombre: "Single", precio: 660000 }
+        ],
+        foto: "../verano-mdq-america.jpg"
       }
     ];
 
