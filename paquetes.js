@@ -937,7 +937,11 @@ window.PAQUETES = [
     precio: 1388340,
     moneda: "ARS",
     reserva: 15000,
-    circuitos: [{ nombre: "Media pensión", precio: 1388340 }],
+    destacado: "Último lugar · también en tarifa single",
+    circuitos: [
+      { nombre: "Media pensión, base doble", precio: 1388340 },
+      { nombre: "Media pensión, tarifa single", precio: 1629860 }
+    ],
     incluye: [
       "Aéreo ida y vuelta con equipaje incluido",
       "Transfer in/out",
@@ -1454,6 +1458,217 @@ window.PAQUETES = [
       "Traslados de llegada y salida",
       "Ascenso por Retiro, Liniers, El Talar de Pacheco o Campana"
     ]
+  }
+  ,
+
+  /* ---------- VERANO 2027 — Preventa de aéreos y larga distancia ----------
+     Flyers del 07/10/2026. La preventa cierra el 16/10 y se paga el total
+     con Visa o Master de banco: las 6 cuotas sin interés son del plan de
+     tarjeta, NO son las cuotas sin tarjeta de la landing /verano/. No
+     mezclar los dos mensajes. */
+  {
+    id: "v27-san-juan",
+    foto: "../foto-canon-valles.jpg",
+    fotoAlt: "Formaciones de roca en los valles del oeste argentino",
+    nombre: "San Juan",
+    provincia: "San Juan",
+    pais: "Argentina",
+    region: "Cuyo",
+    subtitulo: "Hotel America Apart, con piscina",
+    puerta: "verano-2027",
+    tags: ["verano-2027", "preventa"],
+    transporte: "Aéreo",
+    fechas: "Salida 22 de enero",
+    duracion: "5 días / 4 noches",
+    hotel: "America Apart — con piscina",
+    precio: 678020,
+    moneda: "ARS",
+    reserva: 20000,
+    destacado: "Preventa hasta el 16/10 · 6 cuotas sin interés con tarjeta",
+    incluye: [
+      "Aéreo ida y vuelta",
+      "Traslados",
+      "Equipaje",
+      "4 noches de alojamiento con desayuno buffet",
+      "Seguro de asistencia"
+    ],
+    noIncluye: [
+      "Media pensión (opcional)",
+      "City tour, Casa Natal de Sarmiento, Auditorio Juan Victoria, Quebrada de Zonda, degustación de vinos en bodega, aceitera y Dique Ullum (opcionales, sin entradas)"
+    ],
+    nota: "Tarifa por persona en base doble. $678.020 = $567.040 + $110.980 de impuestos. Gastos de reserva $20.000 por pasajero."
+  },
+  {
+    id: "v27-salta-preventa",
+    foto: "../foto-cafayate.jpg",
+    fotoAlt: "Quebrada de las Conchas, Cafayate",
+    fotoCredito: "Bernard Gagnon · CC BY-SA 4.0",
+    nombre: "Salta",
+    provincia: "Salta",
+    pais: "Argentina",
+    region: "Norte NOA",
+    subtitulo: "Verano 2027 · dos hoteles a elección",
+    puerta: "verano-2027",
+    tags: ["verano-2027", "preventa"],
+    transporte: "Aéreo",
+    fechas: "Salidas 24 de enero y 2 de febrero",
+    duracion: "5 días / 4 noches",
+    hotel: "Mirador del Cerro o Amerian",
+    precio: 735240,
+    moneda: "ARS",
+    reserva: 20000,
+    destacado: "Preventa hasta el 16/10 · 6 cuotas sin interés con tarjeta",
+    circuitos: [
+      { nombre: "Hotel Mirador del Cerro", precio: 735240 },
+      { nombre: "Hotel Amerian", precio: 974880 }
+    ],
+    incluye: [
+      "Aéreo ida y vuelta",
+      "Traslados",
+      "Equipaje",
+      "4 noches con desayuno buffet",
+      "City tour panorámico por Salta, Quebrada de San Lorenzo, Cerro San Bernardo, Monumento a Güemes, Monumento a la Batalla 20 de Febrero y mercado artesanal",
+      "Seguro de asistencia"
+    ],
+    noIncluye: [
+      "Media pensión (opcional)",
+      "Cafayate, Garganta del Diablo, Anfiteatro, La Yesera, Los Castillos y bodega (opcionales)"
+    ],
+    nota: "Tarifa por persona en base doble. Los precios incluyen $110.980 de impuestos. Gastos de reserva $20.000 por pasajero."
+  },
+  {
+    id: "v27-san-martin-andes",
+    foto: "../foto-patagonia-lagos.jpg",
+    fotoAlt: "Lago de montaña en la cordillera patagónica",
+    nombre: "San Martín de los Andes",
+    provincia: "Neuquén",
+    pais: "Argentina",
+    region: "Patagonia",
+    subtitulo: "Hotel Chapelco Ski, céntrico y con media pensión",
+    puerta: "verano-2027",
+    tags: ["verano-2027", "preventa"],
+    transporte: "Aéreo",
+    fechas: "Salida 10 de febrero",
+    duracion: "5 días / 4 noches",
+    hotel: "Chapelco Ski — céntrico, con comedor",
+    precio: 1131740,
+    moneda: "ARS",
+    reserva: 20000,
+    destacado: "Preventa hasta el 16/10 · 6 cuotas sin interés con tarjeta",
+    incluye: [
+      "Aéreo ida y vuelta",
+      "Traslados",
+      "Equipaje",
+      "4 noches con media pensión",
+      "Seguro de asistencia"
+    ],
+    noIncluye: [
+      "Excursión 7 Lagos hasta Villa La Angostura (opcional)"
+    ],
+    nota: "Tarifa por persona en base doble. $1.131.740 = $990.860 + $140.880 de impuestos. Gastos de reserva $20.000 por pasajero."
+  },
+  {
+    id: "v27-norte-jujuy",
+    foto: "../foto-quebrada-norte.jpg",
+    fotoAlt: "Cerro de los Siete Colores en Purmamarca",
+    nombre: "Norte Argentino con Jujuy",
+    provincia: "Salta, Tucumán y Jujuy",
+    pais: "Argentina",
+    region: "Norte NOA",
+    subtitulo: "El circuito completo del norte, en bus cama",
+    puerta: "verano-2027",
+    tags: ["verano-2027", "preventa"],
+    transporte: "Bus cama",
+    fechas: "Salidas en enero",
+    duracion: "9 días / 6 noches",
+    hotel: "A confirmar con el operador",
+    precio: 1029440,
+    moneda: "ARS",
+    reserva: 20000,
+    destacado: "Preventa hasta el 16/10 · 6 cuotas sin interés con tarjeta",
+    incluye: [
+      "Bus cama ida y vuelta",
+      "6 noches con desayuno",
+      "City tour peatonal por Salta y Monumento a Güemes",
+      "Tafí del Valle, Quebrada de los Sosa, Cafayate con visita a una bodega y ciudad de Tucumán",
+      "Quebrada de Humahuaca, Purmamarca, Tilcara, Humahuaca, Salinas Grandes y Cuesta de Lipán",
+      "Coordinador permanente"
+    ],
+    noIncluye: [
+      "Media pensión (opcional)",
+      "Cobertura de salud: $6.000"
+    ],
+    nota: "Tarifa por persona en base doble. Gastos de reserva $20.000 por pasajero."
+  },
+  {
+    id: "v27-ruta-40-sur",
+    foto: "../foto-patagonia-bosque.jpg",
+    fotoAlt: "Bosque y montañas de la Patagonia andina",
+    nombre: "Ruta 40 al Sur",
+    provincia: "Chubut, Santa Cruz y Río Negro",
+    pais: "Argentina",
+    region: "Patagonia",
+    subtitulo: "Esquel, Perito Moreno, El Calafate y Puerto Madryn",
+    puerta: "verano-2027",
+    tags: ["verano-2027"],
+    transporte: "Bus cama",
+    fechas: "Salidas en enero y febrero",
+    duracion: "14 días / 10 noches",
+    hotel: "Hoteles de categoría, con media pensión",
+    precio: 2395180,
+    moneda: "ARS",
+    reserva: 20000,
+    destacado: "El viaje más largo del catálogo · 10 noches",
+    incluye: [
+      "Bus cama ida y vuelta",
+      "10 noches en hoteles de categoría, con media pensión",
+      "Esquel (2 noches), Perito Moreno (3), El Calafate (3) y Puerto Madryn (2)",
+      "El Bolsón, Parque Nacional Lago Puelo, Los Antiguos, Parque Nacional Los Glaciares, Piedra Buena, San Julián y Gaiman",
+      "Coordinador permanente"
+    ],
+    noIncluye: [
+      "Entradas a los parques y museos",
+      "Cueva de las Manos y Catedrales de Mármol (opcionales)",
+      "Cobertura de salud: $15.000"
+    ],
+    nota: "Tarifa por persona en base doble o triple. Gastos de reserva $20.000 por pasajero."
+  },
+
+  /* ---------- SALIDAS DE OCTUBRE CON LUGARES CONTADOS ----------
+     Las dos tienen fecha fija y cupo real informado por el operador.
+     Cuando pase la fecha hay que sacarlas, no dejarlas vencidas. */
+  {
+    id: "bus-merlo-feriado-octubre",
+    foto: "../collage-merlo.jpg",
+    fotoAlt: "Sierras de Merlo, piletas y comedor del hotel",
+    fotoCompleta: true,
+    nombre: "Merlo",
+    provincia: "San Luis",
+    pais: "Argentina",
+    region: "Sierras",
+    subtitulo: "Salida del feriado de octubre",
+    puerta: "escapadas",
+    tags: ["escapadas"],
+    transporte: "Bus semicama",
+    fechas: "Salida 9 de octubre",
+    duracion: "4 días / 2 noches",
+    hotel: "Clima 3",
+    precio: 262116,
+    precioLista: 291240,
+    moneda: "ARS",
+    reserva: 15000,
+    destacado: "10% OFF · últimos lugares · 3 cuotas sin interés",
+    incluye: [
+      "Bus semicama ida y vuelta",
+      "2 noches de alojamiento con desayuno",
+      "Coordinador permanente"
+    ],
+    noIncluye: [
+      "Media pensión o pensión completa con bebidas y actividades recreativas (opcionales)",
+      "Cobertura de salud: $6.000",
+      "Resolución AFIP 3819/25"
+    ],
+    nota: "Tarifa por persona en base doble o triple. Gastos de reserva $15.000 por pasajero."
   }
 ];
 
