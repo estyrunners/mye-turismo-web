@@ -6,14 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Verano 2027 en 3 cuotas sin interés y sin tarjeta | MyE Turismo</title>
   <meta name="description"
-    content="Verano 2027 con MyE Turismo, reservando en septiembre. Verano 2027 en la Costa Atlántica: Mar del Plata, San Bernardo, Santa Teresita y Necochea con bus, 4 noches y desayuno. Pagás en 3 cuotas sin interés y sin tarjeta de crédito, y elegís vos la fecha de viaje.">
+    content="Verano 2027 con MyE Turismo, reservando en octubre. Verano 2027 en la Costa Atlántica: Mar del Plata, San Bernardo, Santa Teresita y Necochea con bus, 4 noches y desayuno. Pagás en 3 cuotas sin interés y sin tarjeta de crédito, y elegís vos la fecha de viaje.">
   <meta name="theme-color" content="#07161f">
   <link rel="canonical" href="https://mye-turismo-web.pages.dev/verano/">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Verano 2027 en 3 cuotas sin tarjeta | MyE Turismo">
   <meta property="og:description"
-    content="Reservá en septiembre. Elegís la fecha, viajás desde diciembre y lo pagás en 3 cuotas sin interés y sin tarjeta de crédito.">
+    content="Reservá en octubre. Elegís la fecha, viajás desde diciembre y lo pagás en 3 cuotas sin interés y sin tarjeta de crédito.">
   <meta property="og:image" content="https://mye-turismo-web.pages.dev/verano/portada-verano.jpg">
   <meta property="og:locale" content="es_AR">
 
@@ -428,11 +428,10 @@
 
   <header class="hero">
     <div class="container">
-      <!-- La promo de septiembre: 3 cuotas sin interes porque de septiembre a
-           diciembre quedan tres meses. En octubre pasan a ser dos y en
-           noviembre a un pago. La urgencia sale del calendario, no de una
-           promesa, asi que no hay que inventar escasez. Ya no se nombra el
-           Travel Sale: ese evento de FAEVYT termino el 30 de agosto. -->
+      <!-- La promo de octubre. Las cuotas son una por mes hasta el mes antes
+           de viajar, asi que la cantidad depende de cuando viaja cada uno y
+           baja sola con el calendario. La urgencia sale de la aritmetica, no
+           de una promesa, asi que no hay que inventar escasez. -->
       <p class="marca rev">
         <span class="sello-travel">Verano 2027</span>
         MyE Turismo
@@ -451,14 +450,14 @@
       <!-- La condición que hace que el precio exista. Va acá arriba y no en la
            letra chica: si la persona se entera recién en el chat, se enoja. -->
       <p class="condicion rev">
-        <b>En septiembre son tres cuotas. En octubre son dos.</b>
-        Las cuotas son una por mes hasta el verano, así que cada mes que
-        pasa queda una menos. Después del 30 de septiembre, cada paquete
-        vuelve a su forma de pago habitual.
+        <b>Una cuota por mes, hasta el mes anterior a tu viaje.</b>
+        Por eso cada mes que pasa queda una cuota menos: reservando en
+        octubre y viajando en enero te entran tres. Después del 31 de
+        octubre, cada paquete vuelve a su forma de pago habitual.
       </p>
 
       <div class="hero-datos rev">
-        <span class="dato">📅 Reservando <b>en septiembre</b></span>
+        <span class="dato">📅 Reservando <b>en octubre</b></span>
         <span class="dato">🏨 <b id="datoDestinos">—</b> hoteles frente al mar</span>
         <span class="dato">💳 <b>3 cuotas</b>, sin tarjeta</span>
       </div>
@@ -573,14 +572,14 @@
     <div class="container">
       <p class="marca">MyE Turismo</p>
       <p>WhatsApp 11 3153-7638 · Idóneos en turismo Matriculados</p>
-      <p style="margin-top:.4rem">Precios por persona según la ocupación de la habitación, en pesos argentinos, para reservas confirmadas durante septiembre de 2026. La financiación en 3 cuotas sin interés, en efectivo o por transferencia, aplica únicamente a las reservas hechas dentro de ese plazo. Los gastos administrativos son el 1,5% del valor del paquete y no están incluidos en el precio mostrado. Viajes a partir de diciembre de 2026, con fecha a elección del pasajero y sujetos a disponibilidad.</p>
+      <p style="margin-top:.4rem">Precios por persona según la ocupación de la habitación, en pesos argentinos, para reservas confirmadas durante octubre de 2026. La financiación en 3 cuotas sin interés, en efectivo o por transferencia, aplica únicamente a las reservas hechas dentro de ese plazo. Los gastos administrativos son el 1,5% del valor del paquete y no están incluidos en el precio mostrado. Viajes a partir de diciembre de 2026, con fecha a elección del pasajero y sujetos a disponibilidad.</p>
       <p style="margin-top:.4rem"><a href="../">Ir a la web de MyE Turismo</a> · <a href="../terminos-y-condiciones/">Términos y Condiciones</a></p>
     </div>
   </footer>
 
   <div id="barra">
     <div class="container">
-      <p><b id="barraDesde">Desde $250.000</b><span id="barraTexto">3 cuotas sin tarjeta, hasta el 30 de septiembre</span></p>
+      <p><b id="barraDesde">Desde $250.000</b><span id="barraTexto">3 cuotas sin tarjeta, hasta el 31 de octubre</span></p>
       <a class="cta" id="barraCta" href="#" target="_blank" rel="noopener">Consultar</a>
     </div>
   </div>
@@ -597,13 +596,13 @@
        Para cambiar un precio se toca acá y en ningún otro lado.
        ============================================================ */
     const WHATSAPP = "5491131537638";
-    const CAMPANA = "verano-3cuotas-septiembre";
+    const CAMPANA = "verano-3cuotas-octubre";
     const SUPABASE_URL = "https://cfbewolbbiubflcjittt.supabase.co";
     const SUPABASE_ANON_KEY = "sb_publishable_Y5Jx65MAnTlcrPGkXarLgA_nJZ5j1op";
 
-    /* Fin de la promo: 30 de septiembre a las 23:59:59, hora de Argentina.
+    /* Fin de la promo: 31 de octubre a las 23:59:59, hora de Argentina.
        Cuando pasa, la página deja de prometer un precio que ya no existe. */
-    const FIN_PROMO = new Date("2026-09-30T23:59:59-03:00");
+    const FIN_PROMO = new Date("2026-10-31T23:59:59-03:00");
 
     /* Los siete paquetes de verano 2027.
        `tarifas` va de mayor a menor ocupación: el precio por persona baja
@@ -748,7 +747,7 @@
         `• ${t.nombre}: ${plata(t.precio)} por persona + ${plata(gastosAdm(t.precio))} de gastos administrativos`,
         `• ${h.regimen} · ${h.ubicacion}`,
         "• Bus ida y vuelta semicama, salidas diarias",
-        "• En 3 cuotas sin interés y sin tarjeta de crédito, reservando en septiembre",
+        "• En 3 cuotas sin interés y sin tarjeta de crédito, reservando en octubre",
         "",
         "¿Me confirman disponibilidad y cómo sigo?",
         "",
@@ -788,7 +787,7 @@
             <span class="rotulo">Desde</span>
             <strong class="precio">${plata(t.precio)}</strong>
             <span class="gastos">por persona en ${esc(t.nombre.toLowerCase())} + ${plata(gastosAdm(t.precio))} de gastos adm.</span>
-            <span class="condicion-card">💳 3 cuotas sin interés, reservando en septiembre</span>
+            <span class="condicion-card">💳 3 cuotas sin interés, reservando en octubre</span>
             <a class="cta" href="${esc(urlWa(mensajeSalida(h)))}" target="_blank" rel="noopener" data-salida="${esc(h.hotel)}">💬 Consultar por WhatsApp</a>
           </div>
         </div>
