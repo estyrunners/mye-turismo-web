@@ -912,7 +912,7 @@ window.PAQUETES = [
     puerta: "aereos",
     tags: ["aereos", "patagonia"],
     transporte: "Aéreo Aerolíneas Argentinas",
-    fechas: "Septiembre a diciembre",
+    fechas: "Octubre a diciembre",
     duracion: "7 días / 6 noches",
     hotel: "Ushuaia (Ushuaia) + Tehuel (El Calafate)",
     precio: 1543840,
