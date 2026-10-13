@@ -53,7 +53,7 @@ window.PAQUETES = [
     puerta: "full-day",
     tags: ["full-day", "termas"],
     transporte: "Bus Mix",
-    fechas: "3 oct · 15 nov",
+    fechas: "15 nov",
     duracion: "1 día",
     precio: 105990,
     precioLista: 124990,
@@ -130,7 +130,7 @@ window.PAQUETES = [
     puerta: "full-day",
     tags: ["full-day", "termas"],
     transporte: "Bus Mix",
-    fechas: "4 oct · 1 y 29 nov",
+    fechas: "1 y 29 nov",
     duracion: "1 día",
     precio: 105990,
     precioLista: 124990,
@@ -179,7 +179,7 @@ window.PAQUETES = [
     puerta: "full-day",
     tags: ["full-day"],
     transporte: "Bus Mix",
-    fechas: "4 y 25 oct · 1 y 22 nov",
+    fechas: "25 oct · 1 y 22 nov",
     duracion: "1 día",
     precio: 105990,
     precioLista: 124990,
@@ -248,32 +248,6 @@ window.PAQUETES = [
       "Menores de 3 a 10 años: $85.000"
     ]
   },
-  {
-    id: "fd-estancia-la-mariana",
-    foto: "../collage-estancia-la-mariana.jpg",
-    fotoAlt: "Piletas, quinchos y parque de la Estancia La Mariana, en Mercedes",
-    fotoCompleta: true,
-    nombre: "Estancia La Mariana",
-    provincia: "Buenos Aires",
-    pais: "Argentina",
-    region: "Provincia de Buenos Aires",
-    puerta: "full-day",
-    tags: ["full-day"],
-    transporte: "Bus",
-    fechas: "27 sept",
-    duracion: "1 día",
-    precio: 99000,
-    moneda: "ARS",
-    reserva: 0,
-    incluye: [
-      "Traslados en bus ida y vuelta",
-      "Desayuno, almuerzo y merienda",
-      "Una bebida sin alcohol",
-      "Coordinador permanente",
-      "Menores de 3 a 10 años: $79.000"
-    ]
-  },
-
   /* ---------- ESCAPADAS EN BUS — cuotas sin interés ----------
      Cada paquete tiene 2 o 3 circuitos según el régimen: la tarjeta muestra
      "Desde" el más barato y la lista completa adentro (decisión de Matías,
@@ -446,7 +420,7 @@ window.PAQUETES = [
     puerta: "escapadas",
     tags: ["escapadas"],
     transporte: "Bus semicama",
-    fechas: "16 sept · 21 oct · 11 nov",
+    fechas: "21 oct · 11 nov",
     duracion: "5 días / 3 noches",
     hotel: "11 de Junio (Sindicato del Vidrio)",
     precio: 279999,
@@ -458,33 +432,6 @@ window.PAQUETES = [
       "Coordinador permanente"
     ]
   },
-  {
-    id: "bus-san-rafael-lenas-mv",
-    foto: "../collage-san-rafael.jpg",
-    fotoAlt: "Cañón del Atuel y arboleda de San Rafael, Mendoza",
-    fotoCompleta: true,
-    nombre: "San Rafael y Las Leñas",
-    provincia: "Mendoza",
-    pais: "Argentina",
-    region: "Cuyo",
-    puerta: "escapadas",
-    tags: ["escapadas"],
-    transporte: "Bus semicama",
-    fechas: "30 sept",
-    duracion: "5 días / 3 noches",
-    hotel: "Intis",
-    precio: 359999,
-    moneda: "ARS",
-    reserva: 10000,
-    incluye: [
-      "Bus semicama ida y vuelta",
-      "3 noches de alojamiento con media pensión",
-      "Excursión a Las Leñas incluida",
-      "Coordinador permanente",
-      "Coche cama opcional: +$20.000"
-    ]
-  },
-
   /* ---------- ESCAPADAS EN BUS — Oct a Dic ---------- */
   {
     id: "bus-federacion-clima-termal",
@@ -657,32 +604,6 @@ window.PAQUETES = [
       "Cataratas lado argentino y lado brasilero (sin entradas)",
       "Salida grupal con coordinador"
     ]
-  },
-  {
-    id: "bus-laguna-brava-sep",
-    foto: "../foto-laguna-brava.jpg",
-    fotoAlt: "Volcán y flamencos en la laguna de altura de Laguna Brava",
-    nombre: "Laguna Brava y Valles Milenarios",
-    provincia: "La Rioja",
-    pais: "Argentina",
-    region: "Cuyo Norte NOA",
-    subtitulo: "Salida de septiembre",
-    puerta: "escapadas",
-    tags: ["escapadas", "norte"],
-    transporte: "Bus cama",
-    fechas: "Salida 20 de septiembre",
-    duracion: "7 días / 4 noches",
-    hotel: "Cuesta de Miranda 2, Villa Unión",
-    precio: 726440,
-    moneda: "ARS",
-    reserva: 15000,
-    destacado: "Nuevo destino",
-    circuitos: [
-      { nombre: "Desayuno", precio: 726440 },
-      { nombre: "Media pensión", precio: 872480 },
-      { nombre: "Media pensión + Talampaya y Valle de la Luna", precio: 948980 }
-    ],
-    incluye: ["Bus cama ida y vuelta", "4 noches de alojamiento", "Laguna Brava en excursión 4x4", "Salida grupal con coordinador"]
   },
   {
     id: "bus-laguna-brava-oct",
@@ -1637,40 +1558,7 @@ window.PAQUETES = [
   /* ---------- SALIDAS DE OCTUBRE CON LUGARES CONTADOS ----------
      Las dos tienen fecha fija y cupo real informado por el operador.
      Cuando pase la fecha hay que sacarlas, no dejarlas vencidas. */
-  {
-    id: "bus-merlo-feriado-octubre",
-    foto: "../collage-merlo.jpg",
-    fotoAlt: "Sierras de Merlo, piletas y comedor del hotel",
-    fotoCompleta: true,
-    nombre: "Merlo",
-    provincia: "San Luis",
-    pais: "Argentina",
-    region: "Sierras",
-    subtitulo: "Salida del feriado de octubre",
-    puerta: "escapadas",
-    tags: ["escapadas"],
-    transporte: "Bus semicama",
-    fechas: "Salida 9 de octubre",
-    duracion: "4 días / 2 noches",
-    hotel: "Clima 3",
-    precio: 262116,
-    precioLista: 291240,
-    moneda: "ARS",
-    reserva: 15000,
-    destacado: "10% OFF · últimos lugares · 3 cuotas sin interés",
-    incluye: [
-      "Bus semicama ida y vuelta",
-      "2 noches de alojamiento con desayuno",
-      "Coordinador permanente"
-    ],
-    noIncluye: [
-      "Media pensión o pensión completa con bebidas y actividades recreativas (opcionales)",
-      "Cobertura de salud: $6.000",
-      "Resolución AFIP 3819/25"
-    ],
-    nota: "Tarifa por persona en base doble o triple. Gastos de reserva $15.000 por pasajero."
-  }
-];
+  ];
 
 /* Las puertas de la home. `tag` es lo que se filtra sobre PAQUETES. */
 window.PUERTAS = [
