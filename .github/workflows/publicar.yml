@@ -1,0 +1,48 @@
+# Publica el sitio solo.
+#
+# La rama de produccion de Cloudflare Pages es `publicar`, no `main`. Antes eso
+# obligaba a hacer dos pushes a mano y era el paso que mas se olvidaba: el
+# commit quedaba en main y el sitio seguia mostrando lo viejo. Este workflow
+# copia main a publicar en cada push, asi quien edita solo tiene que pushear a
+# main y el sitio sale solo.
+#
+# Consecuencia: todo lo que llega a main se publica. No hay staging.
+
+name: Publicar el sitio
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publicar
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      # Control barato: si se toco paquetes.js y no se regeneraron las
+      # landings, el sitio queda incoherente. Regenerar aca seria peor (el
+      # commit de main no tendria el HTML), asi que solo avisamos.
+      - name: Avisar si las landings quedaron desactualizadas
+        run: |
+          node generar-landings.mjs
+          if ! git diff --quiet -- full-day escapadas termas aereos verano-2027; then
+            echo "::warning::Las mini landings no coinciden con paquetes.js. Corre 'node generar-landings.mjs' y volve a pushear."
+            git diff --stat -- full-day escapadas termas aereos verano-2027
+          fi
+          git checkout -- .
+
+      # --force a proposito: `publicar` es un espejo de main y nadie mas la
+      # escribe. Sin esto, un push viejo o un revert dejan la rama trabada.
+      - name: Copiar main a publicar
+        run: git push --force origin HEAD:publicar
