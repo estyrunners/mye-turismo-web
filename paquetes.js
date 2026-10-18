@@ -1352,11 +1352,8 @@ window.PAQUETES = [
   }
   ,
 
-  /* ---------- VERANO 2027 — Preventa de aéreos y larga distancia ----------
-     Flyers del 07/10/2026. La preventa cierra el 16/10 y se paga el total
-     con Visa o Master de banco: las 6 cuotas sin interés son del plan de
-     tarjeta, NO son las cuotas sin tarjeta de la landing /verano/. No
-     mezclar los dos mensajes. */
+  /* ---------- VERANO 2027 — Aéreos y larga distancia ----------
+     Flyers del 07/10/2026. */
   {
     id: "v27-san-juan",
     foto: "../foto-canon-valles.jpg",
@@ -1367,7 +1364,7 @@ window.PAQUETES = [
     region: "Cuyo",
     subtitulo: "Hotel America Apart, con piscina",
     puerta: "verano-2027",
-    tags: ["verano-2027", "preventa"],
+    tags: ["verano-2027"],
     transporte: "Aéreo",
     fechas: "Salida 22 de enero",
     duracion: "5 días / 4 noches",
@@ -1375,7 +1372,6 @@ window.PAQUETES = [
     precio: 678020,
     moneda: "ARS",
     reserva: 20000,
-    destacado: "Preventa hasta el 16/10 · 6 cuotas sin interés con tarjeta",
     incluye: [
       "Aéreo ida y vuelta",
       "Traslados",
@@ -1400,7 +1396,7 @@ window.PAQUETES = [
     region: "Norte NOA",
     subtitulo: "Verano 2027 · dos hoteles a elección",
     puerta: "verano-2027",
-    tags: ["verano-2027", "preventa"],
+    tags: ["verano-2027"],
     transporte: "Aéreo",
     fechas: "Salidas 24 de enero y 2 de febrero",
     duracion: "5 días / 4 noches",
@@ -1408,7 +1404,6 @@ window.PAQUETES = [
     precio: 735240,
     moneda: "ARS",
     reserva: 20000,
-    destacado: "Preventa hasta el 16/10 · 6 cuotas sin interés con tarjeta",
     circuitos: [
       { nombre: "Hotel Mirador del Cerro", precio: 735240 },
       { nombre: "Hotel Amerian", precio: 974880 }
@@ -1437,7 +1432,7 @@ window.PAQUETES = [
     region: "Patagonia",
     subtitulo: "Hotel Chapelco Ski, céntrico y con media pensión",
     puerta: "verano-2027",
-    tags: ["verano-2027", "preventa"],
+    tags: ["verano-2027"],
     transporte: "Aéreo",
     fechas: "Salida 10 de febrero",
     duracion: "5 días / 4 noches",
@@ -1445,7 +1440,6 @@ window.PAQUETES = [
     precio: 1131740,
     moneda: "ARS",
     reserva: 20000,
-    destacado: "Preventa hasta el 16/10 · 6 cuotas sin interés con tarjeta",
     incluye: [
       "Aéreo ida y vuelta",
       "Traslados",
@@ -1468,7 +1462,7 @@ window.PAQUETES = [
     region: "Norte NOA",
     subtitulo: "El circuito completo del norte, en bus cama",
     puerta: "verano-2027",
-    tags: ["verano-2027", "preventa"],
+    tags: ["verano-2027"],
     transporte: "Bus cama",
     fechas: "Salidas en enero",
     duracion: "9 días / 6 noches",
@@ -1476,7 +1470,6 @@ window.PAQUETES = [
     precio: 1029440,
     moneda: "ARS",
     reserva: 20000,
-    destacado: "Preventa hasta el 16/10 · 6 cuotas sin interés con tarjeta",
     incluye: [
       "Bus cama ida y vuelta",
       "6 noches con desayuno",
