@@ -1,9 +1,13 @@
 # Manual de este repo — para quien lo edite con un agente
 
-Esta es la web pública de **MyE Turismo** (Estela Nagore, agente de viajes,
-Mat. 1077). La operadora diaria es Estela y trabaja con un agente de IA; este
-archivo es el que le explica al agente cómo está hecho el sitio y qué está
-prohibido. Leerlo entero antes de tocar un archivo.
+Esta es la web pública de **MyE Turismo**. La fundadora y operadora diaria es
+**Estela** (Técnica Superior en Turismo, Mat. Nro. 1077) y trabaja con un
+agente de IA; este archivo es el que le explica al agente cómo está hecho el
+sitio y qué está prohibido. Leerlo entero antes de tocar un archivo.
+
+⚠️ El repositorio es **público**: todo lo que se commitea queda a la vista.
+No escribir en ningún archivo apellidos, mails, teléfonos ni documentos de
+personas que no estén ya publicados en el sitio.
 
 ---
 

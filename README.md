@@ -1,6 +1,7 @@
 # mye-turismo-web
 
-Sitio web oficial de **MyE Turismo** — Estela Nagore, agente de viajes, Mat. 1077.
+Sitio web oficial de **MyE Turismo** — Estela, Técnica Superior en Turismo,
+Mat. Nro. 1077.
 En producción en https://mye-turismo-web.pages.dev
 
 Sitio estático, sin build y sin dependencias. El catálogo de paquetes vive en
