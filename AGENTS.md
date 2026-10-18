@@ -42,6 +42,23 @@ paquete que sigue vivo: si `fechas` dice `"3 oct · 15 nov"` y hoy es 20 de
 octubre, hay que dejar `"15 nov"`. Un paquete cuya única fecha pasó se elimina
 entero. Las salidas que el operador marcó "Completo" no se cargan.
 
+⚠️ **No confundir la fecha del viaje con la fecha de una promoción.** Son dos
+cosas distintas y viven en campos distintos:
+
+- **`fechas`** es cuándo sale el viaje. Si venció, el paquete se saca.
+- **`destacado`** es la cintita de promoción ("Preventa hasta el 16/10",
+  "10% OFF", "últimos lugares"). Si venció la promo, **se corrige o se borra
+  esa línea — el paquete se queda.**
+
+Pasó de verdad el 17/10/2026: se pidió "borrá los paquetes que dicen preventa
+hasta el 16/10" y eran cuatro salidas de **enero y febrero**, los aéreos más
+caros del catálogo, con la preventa cerrada pero el viaje intacto. Borrarlos
+habría sacado de venta el verano entero.
+
+**Ante la duda, preguntar antes de borrar un paquete.** Una fecha de promoción
+vencida se arregla en un renglón; un paquete borrado por error se descubre
+cuando alguien pregunta por un viaje que ya no está.
+
 **1.5 Nada de datos personales de clientes en este repo.** Los nombres, DNI y
 teléfonos de los pasajeros van al tablero interno, nunca acá.
 
