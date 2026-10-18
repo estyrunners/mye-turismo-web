@@ -842,36 +842,6 @@ window.PAQUETES = [
     ]
   },
   {
-    id: "aereo-catamarca",
-    foto: "../foto-catamarca-volcan.jpg",
-    fotoAlt: "Volcán nevado sobre una laguna de altura en la puna catamarqueña",
-    nombre: "Catamarca",
-    provincia: "Catamarca",
-    pais: "Argentina",
-    region: "Norte NOA",
-    puerta: "aereos",
-    tags: ["aereos", "norte", "termas"],
-    transporte: "Aéreo Aerolíneas Argentinas",
-    fechas: "Salidas 14 de octubre",
-    duracion: "5 días / 4 noches",
-    hotel: "De Turismo, Tinogasta",
-    precio: 1388340,
-    moneda: "ARS",
-    reserva: 15000,
-    destacado: "Último lugar · también en tarifa single",
-    circuitos: [
-      { nombre: "Media pensión, base doble", precio: 1388340 },
-      { nombre: "Media pensión, tarifa single", precio: 1629860 }
-    ],
-    incluye: [
-      "Aéreo ida y vuelta con equipaje incluido",
-      "Transfer in/out",
-      "4 noches de alojamiento",
-      "Ruta del Adobe y Termas de Fiambalá (sin entradas)",
-      "Cobertura de salud"
-    ]
-  },
-  {
     id: "aereo-esquel-tulipanes",
     foto: "../foto-esquel-tulipanes.jpg",
     fotoAlt: "Campo de tulipanes en flor frente a los cerros nevados de Esquel",
