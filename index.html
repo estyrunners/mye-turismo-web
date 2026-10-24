@@ -1188,6 +1188,60 @@
        hoy. Ahora es una banda con peso propio, con las condiciones reales (las
        mismas que ya están publicadas en la landing del Día del Maestro) y con
        un botón que abre WhatsApp. */
+    .boca-destacado {
+      display: grid;
+      grid-template-columns: 82px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 22px;
+      margin-top: 24px;
+      padding: 28px;
+      border: 3px solid #ffda35;
+      border-radius: var(--radius);
+      background: #082857;
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 18px 38px rgba(8, 40, 87, 0.2);
+    }
+
+    .boca-destacado[hidden] { display: none; }
+    .boca-destacado-bandera { width: 82px; height: 90px; }
+    .boca-destacado-texto { min-width: 0; }
+    .boca-destacado-antetitulo {
+      display: block;
+      color: #ffda35;
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .boca-destacado-titulo {
+      display: block;
+      margin: 6px 0 10px;
+      color: #ffda35;
+      font-size: clamp(1.45rem, 2.7vw, 2rem);
+      line-height: 1.2;
+      font-weight: 900;
+    }
+    .boca-destacado-detalle { display: block; font-size: .96rem; line-height: 1.55; }
+    .boca-destacado-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 22px;
+      border-radius: 999px;
+      color: #082857;
+      background: #ffda35;
+      font-weight: 900;
+      text-align: center;
+    }
+    .boca-destacado:hover .boca-destacado-cta { background: #ffe779; }
+    .boca-destacado:focus-visible { outline: 3px solid var(--turquoise-dark); outline-offset: 5px; }
+    @media (max-width: 700px) {
+      .boca-destacado { grid-template-columns: 58px minmax(0, 1fr); gap: 16px; padding: 22px 18px; }
+      .boca-destacado-bandera { width: 58px; height: 68px; }
+      .boca-destacado-cta { grid-column: 1 / -1; }
+    }
+
     .cuotas-destacado {
       position: relative;
       display: flex;
@@ -4182,6 +4236,20 @@
             Cómo pagar en cuotas
           </a>
         </aside>
+
+        <a class="boca-destacado" href="boca-colombia/" data-hasta="2026-11-19">
+          <svg class="boca-destacado-bandera" viewBox="0 0 90 100" aria-hidden="true" focusable="false">
+            <path d="M12 94V8" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+            <path d="M15 12C37 0 56 26 82 12V70C56 84 37 58 15 70Z" fill="#124b9a" stroke="#ffda35" stroke-width="2"/>
+            <path d="M15 32C37 20 56 46 82 32V51C56 65 37 39 15 51Z" fill="#ffda35"/>
+          </svg>
+          <span class="boca-destacado-texto">
+            <span class="boca-destacado-antetitulo">⚽ Final de la Sudamericana</span>
+            <strong class="boca-destacado-titulo">¡Seguí a Boca en Colombia!</strong>
+            <span class="boca-destacado-detalle">Barranquilla · Partido el 21 de noviembre<br>Con aéreo o sin aéreo · Hotel + entrada categoría 2</span>
+          </span>
+          <span class="boca-destacado-cta">Ver las dos opciones →</span>
+        </a>
       </div>
     </section>
 
