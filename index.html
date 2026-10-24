@@ -400,6 +400,16 @@
       font-weight: 900;
     }
 
+    .header-cuotas--boca,
+    .header.scrolled .header-cuotas--boca {
+      color: #082857;
+      background: #ffda35;
+      border-color: #ffda35;
+      font-weight: 900;
+    }
+
+    .header-cuotas--boca:hover { background: #ffe779; color: #082857; }
+
     .barra-avisos .header-cuotas {
       padding: 6px 11px;
       font-size: 0.82rem;
@@ -4070,6 +4080,11 @@
          como ítems del menú quedaban en séptimo lugar y apretaban el logo. -->
     <div class="barra-avisos">
       <div class="container barra-avisos-inner">
+        <a class="header-cuotas header-cuotas--boca" href="boca-colombia/" data-hasta="2026-11-19">
+          <span aria-hidden="true">⚽</span>
+          <span class="ancho">¡Seguí a Boca en Colombia!</span><span class="corto">Boca en Colombia</span>
+          <span aria-hidden="true">→</span>
+        </a>
         <!-- data-hasta: cuando la fecha pasa, el chip se esconde solo y la
              barra deja de mandar a una landing vencida. Para apuntar al
              feriado siguiente se cambian href, fecha visible y data-hasta. -->

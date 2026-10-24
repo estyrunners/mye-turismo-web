@@ -15,6 +15,60 @@
    ============================================================ */
 
 window.PAQUETES = [
+  /* ---------- BOCA EN COLOMBIA — Final del 21 de noviembre de 2026 ---------- */
+  {
+    id: "boca-colombia-sin-aereo",
+    foto: "../boca-colombia-2026.jpeg",
+    fotoAlt: "Boca en Barranquilla: opciones de viaje para la final del 21 de noviembre",
+    fotoCompleta: true,
+    nombre: "Boca en Colombia · sin aéreo",
+    provincia: "Atlántico",
+    pais: "Colombia",
+    region: "Sudamérica",
+    subtitulo: "Final Sudamericana · hotel 3 estrellas y entrada categoría 2",
+    puerta: "aereos",
+    tags: ["aereos", "boca-colombia"],
+    transporte: "Sin aéreo",
+    fechas: "20 al 22 nov 2026 · partido 21 nov",
+    duracion: "3 días / 2 noches",
+    hotel: "Hotel 3 estrellas",
+    precio: 2017,
+    moneda: "USD",
+    incluye: [
+      "2 noches de alojamiento con desayuno, del 20 al 22 de noviembre",
+      "Traslados al estadio",
+      "Entrada a la final del 21 de noviembre, categoría 2"
+    ],
+    noIncluye: ["Pasajes aéreos"],
+    nota: "Tarifa por persona en base doble: USD 1.849 + USD 168 de impuestos = USD 2.017. Consultar disponibilidad, gastos de reserva y condiciones de pago al confirmar."
+  },
+  {
+    id: "boca-colombia-con-aereo",
+    foto: "../boca-colombia-2026.jpeg",
+    fotoAlt: "Boca en Barranquilla: opciones de viaje para la final del 21 de noviembre",
+    fotoCompleta: true,
+    nombre: "Boca en Colombia · con aéreo",
+    provincia: "Atlántico",
+    pais: "Colombia",
+    region: "Sudamérica",
+    subtitulo: "Final Sudamericana · hotel 4 estrellas, Avianca y entrada categoría 2",
+    puerta: "aereos",
+    tags: ["aereos", "boca-colombia"],
+    transporte: "Aéreo con Avianca",
+    fechas: "19 al 22 nov 2026 · partido 21 nov",
+    duracion: "4 días / 3 noches",
+    hotel: "Hotel 4 estrellas",
+    precio: 5758,
+    moneda: "USD",
+    incluye: [
+      "Ticket aéreo de Avianca",
+      "Traslados de llegada y salida (In/Out)",
+      "3 noches de alojamiento con desayuno, del 19 al 22 de noviembre",
+      "Traslados al estadio",
+      "Entrada a la final del 21 de noviembre, categoría 2"
+    ],
+    nota: "Tarifa por persona en base doble: USD 5.279 + USD 479 de impuestos = USD 5.758. Consultar disponibilidad, gastos de reserva, aeropuerto de salida, equipaje y condiciones de pago al confirmar."
+  },
   /* ---------- FULL DAY ---------- */
   {
     id: "fd-tandil",

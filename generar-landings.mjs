@@ -212,6 +212,7 @@ mkdirSync("./", { recursive: true });
 
 PUERTAS.forEach((puerta) => {
   const items = PAQUETES.filter((p) => p.tags.includes(puerta.tag));
+  const pagoEspecial = items.some((p) => p.tags.includes("boca-colombia"));
   const otras = PUERTAS.filter((o) => o.id !== puerta.id);
 
   /* Las licencias CC BY-SA exigen atribución: se junta una sola vez por página. */
@@ -259,12 +260,12 @@ PUERTAS.forEach((puerta) => {
     <aside class="cuotas">
       <span class="cuotas-icono" aria-hidden="true">💳</span>
       <div class="cuotas-texto">
-        <p class="cuotas-titulo">Pagá en cuotas, con o sin tarjeta de crédito</p>
-        <p class="cuotas-sub">Señás el <b>30%</b> y el resto lo pagás como puedas, <b>hasta 10 días antes</b> de subirte al micro. Sin tarjeta, sin intereses y sin cuotas fijas.</p>
+        <p class="cuotas-titulo">${pagoEspecial ? "Consultá cómo pagar tu viaje" : "Pagá en cuotas, con o sin tarjeta de crédito"}</p>
+        <p class="cuotas-sub">${pagoEspecial ? "Las condiciones dependen del paquete. Para la final de Boca en Colombia, consultanos por la seña, los plazos y los medios de pago antes de reservar." : "Señás el <b>30%</b> y el resto lo pagás como puedas, <b>hasta 10 días antes</b> de subirte al micro. Sin tarjeta, sin intereses y sin cuotas fijas."}</p>
       </div>
       <a class="cuotas-cta" href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent(
         "Hola MyE Turismo, quiero saber cómo es el pago en cuotas.",
-      )}" target="_blank" rel="noopener">💬 Cómo pagar en cuotas</a>
+      )}" target="_blank" rel="noopener">💬 ${pagoEspecial ? "Consultar formas de pago" : "Cómo pagar en cuotas"}</a>
     </aside>
   </div>
 </section>
@@ -313,5 +314,92 @@ PUERTAS.forEach((puerta) => {
   writeFileSync(`${puerta.id}/index.html`, html, "utf8");
   console.log(`✓ ${puerta.id}/index.html — ${items.length} paquetes`);
 });
+
+// La campaña también toma precios, fechas e inclusiones del catálogo único.
+const boca = PAQUETES.filter((p) => p.tags.includes("boca-colombia"));
+if (boca.length) {
+  const html = `<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>¡Seguí a Boca en Colombia! · Final Sudamericana 2026 | MyE Turismo</title>
+  <meta name="description" content="Final del 21 de noviembre en Barranquilla. Compará las opciones con aéreo y sin aéreo, con hotel, desayuno, traslados al estadio y entrada categoría 2.">
+  <meta name="theme-color" content="#082857">
+  <link rel="canonical" href="https://mye-turismo-web.pages.dev/boca-colombia/">
+  <meta property="og:title" content="¡Seguí a Boca en Colombia! · MyE Turismo">
+  <meta property="og:description" content="Barranquilla · 21 de noviembre de 2026. Dos opciones: con aéreo o sin aéreo.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mye-turismo-web.pages.dev/boca-colombia/">
+  <meta property="og:image" content="https://mye-turismo-web.pages.dev/boca-colombia-2026.jpeg">
+  <meta property="og:locale" content="es_AR">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    ${CSS}
+    body{background:#f6f8fc}
+    .top{border-bottom:3px solid #ffda35}
+    .boca-hero{padding:46px 0;background:#082857;color:white}
+    .boca-portada{display:grid;grid-template-columns:1fr minmax(240px,390px);align-items:center;gap:42px}
+    .boca-hero .eyebrow{color:#ffda35}
+    .boca-hero h1{color:#ffda35;font-size:clamp(2.6rem,6vw,4.5rem);margin-bottom:22px}
+    .boca-hero p{font-size:1.05rem;max-width:49ch;margin-bottom:18px}
+    .boca-fecha{font-weight:800}
+    .boca-hero img{display:block;width:100%;height:auto;border-radius:18px}
+    .boca-hero .btn{background:#ffda35;color:#082857;border:0;margin-top:12px}
+    .boca-opciones{padding-top:38px;padding-bottom:38px}
+    .boca-opciones h2{font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:12px}
+    .boca-opciones>.aclaracion{margin-bottom:24px;color:var(--muted)}
+    .boca-opciones .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+    .boca-condiciones{margin-top:28px;padding:24px;background:#fff;border-left:4px solid #ffda35;border-radius:12px}
+    .boca-condiciones p+p{margin-top:12px}
+    @media(max-width:700px){.boca-portada{grid-template-columns:1fr;gap:26px}.boca-hero{padding:30px 0}.boca-portada figure{max-width:390px;margin:auto}.boca-opciones .grid{grid-template-columns:1fr}}
+  </style>
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','${PIXEL}');fbq('track','PageView');
+    document.addEventListener('click',function(e){
+      if(e.target.closest('a[href^="https://wa.me/"]')&&window.fbq){fbq('track','Contact',{content_name:'Boca en Colombia'});}
+    });
+  </script>
+</head>
+<body>
+  <header class="top"><div class="container">
+    <a class="volver" href="../">← MyE Turismo · Volver al inicio</a>
+    <a class="tel" href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Hola MyE Turismo, quiero consultar por Boca en Colombia.")}">Consultar por WhatsApp</a>
+  </div></header>
+  <main>
+    <section class="boca-hero"><div class="container boca-portada">
+      <div>
+        <span class="eyebrow">Una final para vivirla en la cancha</span>
+        <h1>¡Seguí a Boca en Colombia!</h1>
+        <p class="boca-fecha">Final de la Sudamericana · 21 de noviembre de 2026<br>Barranquilla, Colombia</p>
+        <p>Elegí cómo viajar: con aéreo y hotel 4 estrellas, o sin aéreo con hotel 3 estrellas. Las dos opciones incluyen desayuno, traslados al estadio y entrada categoría 2.</p>
+        <a class="btn btn-primary" href="#opciones">Comparar las dos opciones ↓</a>
+      </div>
+      <figure><img src="../boca-colombia-2026.jpeg" alt="Flyer de Boca en Barranquilla con las opciones de hotel 3 estrellas sin aéreo y hotel 4 estrellas con vuelo" width="1177" height="1420" decoding="async"></figure>
+    </div></section>
+    <section class="container boca-opciones" id="opciones">
+      <h2>Dos formas de estar ahí</h2>
+      <p class="aclaracion">Precios por persona en base doble. Los importes destacados incluyen los impuestos informados; el desglose está en cada opción.</p>
+      <div class="grid">${boca.map((p) => tarjeta({ ...p, foto: null }).replace('<details class="paq-detalle">', '<details class="paq-detalle" open>')).join("\n")}</div>
+      <aside class="boca-condiciones">
+        <p><strong>El partido es el 21 de noviembre.</strong> Con aéreo: alojamiento del 19 al 22 de noviembre. Sin aéreo: alojamiento del 20 al 22 de noviembre.</p>
+        <p>Tarifas y cupos sujetos a disponibilidad al momento de confirmar. Consultanos por gastos de reserva y condiciones de pago. Para la opción con aéreo, confirmá también aeropuerto de salida, horarios y equipaje.</p>
+      </aside>
+    </section>
+  </main>
+  <footer class="pie"><div class="container"><p>MyE Turismo · Estela · Técnica Superior en Turismo · Mat. 1077</p><p><a href="../terminos-y-condiciones/">Términos y condiciones</a> · <a href="../aereos/">Ver más viajes</a></p></div></footer>
+</body>
+</html>`;
+  mkdirSync("boca-colombia", { recursive: true });
+  writeFileSync("boca-colombia/index.html", html, "utf8");
+  console.log(`✓ boca-colombia/index.html — ${boca.length} opciones`);
+}
 
 console.log("\nListo. Landings generadas desde paquetes.js.");
