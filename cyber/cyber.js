@@ -12,8 +12,7 @@
     }).join("");
   };
   if (todas.length) {
-    const hasta = todas.map(p=>p.cyber.hasta).sort().pop();
-    document.getElementById("vigencia").textContent = "Reservá con promoción hasta el " + new Date(hasta+"T12:00:00-03:00").toLocaleDateString("es-AR",{day:"numeric",month:"long",year:"numeric"}) + ". Las fechas de viaje figuran en cada propuesta.";
+    document.getElementById("vigencia").setAttribute("aria-label", "Promoción del 7 al 11 de noviembre de 2026");
   } else {
     document.getElementById("vigencia").textContent = "La campaña Cyber finalizó.";
     document.querySelector(".cyber-explicacion").hidden = true;
