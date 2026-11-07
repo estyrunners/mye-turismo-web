@@ -115,10 +115,8 @@ function tarjetaNormal(p) {
         ${cuota ? `<span class="paq-precio-nota paq-cuotas">o ${cuota.cantidad} cuotas de ${money(cuota.valor)}</span>` : ""}
         ${p.gastosAdministrativos && !opciones.gastosGenerales ? `<span class="paq-precio-nota">No incluye ${money(p.gastosAdministrativos)} de gastos administrativos por pasajero.</span>` : ""}
       </div>
-      ${cuota ? `<details class="paq-pago"><summary>Condiciones de pago</summary><p>Total de las ${cuota.cantidad} cuotas: ${money(cuota.cantidad*cuota.valor)}. Gastos administrativos aparte: ${money(p.gastosAdministrativos||0)} por pasajero. Total financiado con gastos: ${money(cuota.cantidad*cuota.valor+(p.gastosAdministrativos||0))} por persona. Consultá tarjetas y condiciones.</p></details>` : ""}
       ${variantes ? `<ul class="paq-opciones">${variantes}</ul>` : ""}
       ${p.incluye ? `<details class="paq-detalle"${opciones.abierto ? " open" : ""}><summary>Qué incluye</summary><ul>${p.incluye.map(i=>`<li>${e(i)}</li>`).join("")}${(p.noIncluye||[]).map(i=>`<li class="no">No incluye: ${e(i)}</li>`).join("")}</ul></details>` : ""}
-      ${p.nota ? `<details class="paq-pago"><summary>Más información</summary><p>${e(p.nota)}</p></details>` : ""}
       <a class="btn btn-primary" href="https://wa.me/5491131537638?text=${encodeURIComponent(mensajeWhatsapp(p))}" target="_blank" rel="noopener">Consultar por WhatsApp</a>
     </article>`.replace(/[ \t]+$/gm, "");
   }
