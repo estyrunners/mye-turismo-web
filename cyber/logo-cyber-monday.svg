@@ -1,0 +1,16 @@
+<svg viewBox="0 0 640 250" role="img" aria-label="Cyber Monday · MyE Turismo" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="cyberMarco" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#edff00"/><stop offset=".5" stop-color="#ff8200"/><stop offset="1" stop-color="#ff00a8"/></linearGradient>
+            <linearGradient id="cyberFondo" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff008a"/><stop offset=".6" stop-color="#e5008d"/><stop offset="1" stop-color="#ff6500"/></linearGradient>
+          </defs>
+          <path d="M66 24H612L574 226H28Z" fill="url(#cyberFondo)" stroke="url(#cyberMarco)" stroke-width="5"/>
+          <path d="M93 12H572M41 239H545" fill="none" stroke="url(#cyberMarco)" stroke-width="3" stroke-linecap="round"/>
+          <path d="M47 66L16 117H40L22 162L78 102H49L69 66Z" fill="#edff00"/>
+          <path d="M604 158L626 124H610L628 89L589 134H608L592 158Z" fill="#ff8200"/>
+          <g fill="#edff00" stroke="#66103f" stroke-width="2" paint-order="stroke fill" text-anchor="middle" font-family="Arial Black,Manrope,Arial,sans-serif" font-weight="900" font-style="italic">
+            <text x="329" y="111" font-size="87" letter-spacing="4">CYBER</text>
+            <text x="315" y="188" font-size="74" letter-spacing="2">MONDAY</text>
+          </g>
+          <path d="M92 205H538" stroke="#edff00" stroke-width="4" stroke-linecap="round"/>
+          <path d="M590 27V47M580 37H600M93 218V232M86 225H100" stroke="#edff00" stroke-width="3" stroke-linecap="round"/>
+        </svg>

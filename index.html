@@ -1191,20 +1191,20 @@
     .cyber-destacado {
       display: flex; flex-wrap: wrap; align-items: center; gap: 20px;
       margin-top: 24px; padding: 30px; border-radius: var(--radius);
-      border: 2px solid #fbb9d9; color: white; text-decoration: none;
-      background: linear-gradient(120deg,#123447,#50245c 64%,#913565);
+      border: 3px solid #edff00; color: white; text-decoration: none;
+      background: linear-gradient(120deg,#a80069,#dc007c 72%,#ff6500);
       box-shadow: 0 16px 36px rgba(53,25,71,.2);
     }
     [data-cyber-acceso][hidden] { display: none; }
-    .cyber-icono { font-size: 3rem; color: #ffe68e; }
+    .cyber-logo-home { display: block; width: min(240px,100%); height: auto; flex: 0 1 240px; }
     .cyber-texto { flex: 1 1 260px; }
-    .cyber-texto strong { display: block; margin: 5px 0; color: white; font-size: clamp(1.5rem,3vw,2rem); line-height: 1.2; }
-    .cyber-texto small { color: #ffe68e; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; }
-    .cyber-boton { padding: 15px 24px; border-radius: 999px; background: #fff; color: #50245c; font-weight: 900; }
-    .cyber-destacado:hover .cyber-boton { background: #ffe8f2; }
+    .cyber-texto strong { display: block; margin: 5px 0; color: #edff00; font-size: clamp(1.5rem,3vw,2rem); line-height: 1.2; }
+    .cyber-texto small { color: #edff00; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; }
+    .cyber-boton { padding: 15px 24px; border-radius: 999px; background: #edff00; color: #3d144b; font-weight: 900; }
+    .cyber-destacado:hover .cyber-boton { background: #f4ff70; }
     .cyber-destacado:focus-visible { outline: 3px solid var(--turquoise); outline-offset: 4px; }
     .header-cuotas--cyber { background: #913565; color: white; border-color: #fbb9d9; }
-    @media(max-width:600px) { .cyber-destacado { padding: 24px 20px; gap: 14px; } .cyber-icono { font-size: 2rem; } .cyber-boton { width: 100%; text-align: center; } }
+    @media(max-width:600px) { .cyber-destacado { padding: 24px 20px; gap: 14px; } .cyber-logo-home { width: 200px; flex-basis: 200px; } .cyber-boton { width: 100%; text-align: center; } }
 
     .boca-destacado {
       display: grid;
@@ -4257,10 +4257,11 @@
         </aside>
 
         <a class="cyber-destacado" href="cyber/" data-cyber-acceso hidden>
-          <span class="cyber-icono" aria-hidden="true">⚡</span>
-          <span class="cyber-texto"><small id="cyberVigencia">Promociones Cyber</small><strong>Tu próximo viaje tiene promo</strong><span id="cyberResumen">Full day, escapadas y aéreos. Mirá las opciones y qué incluye cada viaje.</span></span>
+          <img class="cyber-logo-home" src="cyber/logo-cyber-monday.svg" alt="Cyber Monday" width="640" height="250" loading="lazy">
+          <span class="cyber-texto"><small id="cyberVigencia">Promociones Cyber</small><strong>¡Aprovechá las promos Cyber!</strong><span id="cyberResumen">Full day, escapadas y aéreos. Mirá las opciones y qué incluye cada viaje.</span></span>
           <span class="cyber-boton">Entrá a ver las promos →</span>
         </a>
+
         <a class="boca-destacado" href="boca-colombia/" data-hasta="2026-11-18">
           <svg class="boca-destacado-bandera" viewBox="0 0 90 100" aria-hidden="true" focusable="false">
             <path d="M12 94V8" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
@@ -4274,6 +4275,7 @@
           </span>
           <span class="boca-destacado-cta">Ver las dos opciones →</span>
         </a>
+
       </div>
     </section>
 
