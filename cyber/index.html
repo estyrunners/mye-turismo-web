@@ -28,7 +28,24 @@
   <main>
     <section class="cyber-portada"><div class="container">
       <span class="eyebrow">MyE Turismo · Promociones para viajar</span>
-      <h1>Tu próximo viaje<br><em>tiene promo.</em></h1>
+      <h1 class="cyber-marca">
+        <svg viewBox="0 0 640 250" role="img" aria-label="Cyber Monday · MyE Turismo" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="cyberMarco" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#44ede0"/><stop offset=".5" stop-color="#a99bff"/><stop offset="1" stop-color="#ff8dc7"/></linearGradient>
+            <linearGradient id="cyberFondo" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#24305e"/><stop offset="1" stop-color="#66336e"/></linearGradient>
+          </defs>
+          <path d="M66 24H612L574 226H28Z" fill="url(#cyberFondo)" stroke="url(#cyberMarco)" stroke-width="5"/>
+          <path d="M93 12H572M41 239H545" fill="none" stroke="url(#cyberMarco)" stroke-width="3" stroke-linecap="round"/>
+          <path d="M47 66L16 117H40L22 162L78 102H49L69 66Z" fill="#ffe68e"/>
+          <path d="M604 158L626 124H610L628 89L589 134H608L592 158Z" fill="#44ede0"/>
+          <g fill="#fff" text-anchor="middle" font-family="Arial Black,Manrope,Arial,sans-serif" font-weight="900" font-style="italic">
+            <text x="329" y="111" font-size="87" letter-spacing="4">CYBER</text>
+            <text x="315" y="188" font-size="74" letter-spacing="2">MONDAY</text>
+          </g>
+          <path d="M92 205H538" stroke="#ff8dc7" stroke-width="4" stroke-linecap="round"/>
+          <path d="M590 27V47M580 37H600M93 218V232M86 225H100" stroke="#ffe68e" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </h1>
       <p>Elegí el destino, mirá qué incluye y encontrá tu forma de viajar.</p>
       <p class="vigencia" id="vigencia"></p>
     </div></section>
@@ -46,7 +63,7 @@
       <aside id="vencidas" hidden><h2>Esta campaña Cyber ya terminó</h2><p>Los viajes de verano siguen disponibles. Consultanos las tarifas actuales o <a href="../verano-2027/">mirá el catálogo de verano</a>.</p></aside>
     </section>
   </main>
-  <footer class="pie"><div class="container"><p>Precios por persona, sujetos a disponibilidad. Confirmá la base de habitación y las condiciones antes de reservar.</p><p id="creditos"></p><p><a href="../creditos-fotos/">Fuentes y licencias de las fotos</a></p><p>MyE Turismo · Estela · Técnica Superior en Turismo · Mat. 1077</p><p><a href="../puntos-de-ascenso/">Puntos de ascenso</a> · <a href="../terminos-y-condiciones/">Términos y condiciones</a></p></div></footer>
+  <footer class="pie"><div class="container"><p>Precios por persona, sujetos a disponibilidad. Confirmá la base de habitación y las condiciones antes de reservar.</p><details class="cyber-creditos"><summary>Créditos de fotos</summary><p id="creditos"></p><p><a href="../creditos-fotos/">Fuentes y licencias de las fotos</a></p></details><p>MyE Turismo · Estela · Técnica Superior en Turismo · Mat. 1077</p><p><a href="../puntos-de-ascenso/">Puntos de ascenso</a> · <a href="../terminos-y-condiciones/">Términos y condiciones</a></p></div></footer>
   <script src="../paquetes.js"></script>
   <script src="../catalogo-ui.js"></script>
   <script src="cyber.js"></script>

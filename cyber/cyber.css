@@ -1,4 +1,5 @@
 .cyber-portada{padding:32px 0 24px;background:radial-gradient(ellipse at top right,#913565 0,transparent 60%),#123447;color:#fff}
+.cyber-portada .cyber-marca{width:min(100%,580px);margin:12px 0 18px;line-height:1}.cyber-marca svg{display:block;width:100%;height:auto;overflow:visible}.cyber-creditos{margin:12px 0;font-size:.78rem;color:#5c7180}.cyber-creditos summary{cursor:pointer;display:list-item}.cyber-creditos p{margin-top:8px}
 .cyber-portada .eyebrow{color:#ffe68e}.cyber-portada h1{color:#fff;font-size:clamp(2rem,5vw,3.3rem);margin:10px 0 14px}.cyber-portada h1 em{color:#ffc0df;font-style:normal}
 .cyber-portada p{max-width:62ch;font-size:1.06rem}.cyber-portada .vigencia{font-weight:800;color:#ffe68e;margin-top:18px}.cyber-portada .btn{background:#fff;color:#50245c;margin-top:28px}
 .cyber-claves{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}.cyber-claves span{padding:6px 12px;border:1px solid #ffffff50;border-radius:999px;font-size:.83rem}
