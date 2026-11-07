@@ -6723,7 +6723,7 @@
                 <div class="package-body">
                   <h3>${escapeHTML(p.nombre)}</h3>
                   <p><strong>${escapeHTML(p.provincia || "")}${p.pais && p.pais !== "Argentina" ? escapeHTML(", " + p.pais) : ""}</strong><br>${escapeHTML(p.subtitulo ? p.subtitulo + " · " : "")}${escapeHTML(p.duracion)} · ${escapeHTML(p.transporte)}<br>Salidas: ${escapeHTML(p.fechas)}</p>
-                  <p><strong>Desde ${plata(window.MYE_CATALOGO.precioMostrado(p), p.moneda)}</strong> por persona${p.gastosAdministrativos ? `<br>${escapeHTML(window.MYE_CATALOGO.desglose(p))}` : ""}</p>
+                  <p><strong>Desde ${plata(window.MYE_CATALOGO.precioMostrado(p), p.moneda)}</strong> por persona${(p.gastosAdministrativos || p.salidas) ? `<br>${escapeHTML(window.MYE_CATALOGO.desglose(p))}` : ""}</p>
                   <a class="btn btn-outline" href="${p.puerta}/">Ver en ${escapeHTML(
                     (window.PUERTAS.find((x) => x.id === p.puerta) || {}).titulo || "el catálogo"
                   )}</a>
@@ -7130,7 +7130,7 @@
                   <span class="weekly-price-label">Desde</span>
                   <span class="weekly-price-value">${money(window.MYE_CATALOGO.precioMostrado(p), p.moneda)}</span>
                   ${reserva}
-                  ${p.gastosAdministrativos ? `<span class="weekly-price-note">${window.MYE_CATALOGO.desglose(p)}</span>` : ""}
+                  ${(p.gastosAdministrativos || p.salidas) ? `<span class="weekly-price-note">${window.MYE_CATALOGO.desglose(p)}</span>` : ""}
                 </div>
                 <a class="btn btn-primary whatsapp-link" href="#" data-message="${mensaje.replace(/"/g, "&quot;")}">
                   <svg class="icon"><use href="#icon-whatsapp"></use></svg>

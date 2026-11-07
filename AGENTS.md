@@ -150,6 +150,18 @@ exacta, se consulta; no completar esos datos desde un flyer anterior.
 se ocultan del catálogo público, conservando el registro en `PAQUETES_BASE`.
 Las landings generadas no incluyen esas tarifas en el respaldo sin JavaScript.
 
+Si un mismo paquete tiene precios o inclusiones distintos según la fecha,
+se conserva una sola tarjeta y se usa `salidas`: un array con `fechas`,
+`precio`, `transporte`, `incluye` y, cuando corresponda, `precioLista`,
+`gastosAdministrativos`, `condicionPago` y `cuotas: {cantidad, valor}`.
+`precioMostrado` muestra el mínimo; el detalle aclara cada tarifa por fecha.
+No agregar la fecha nueva al precio viejo ni extender sus inclusiones a todas
+las salidas. Los full day pueden tener gastos administrativos expresamente
+informados en el flyer; se guardan aparte de `reserva`, que sigue en cero.
+Si los gastos no están informados, se pueden dejar en `null`: no significa
+que no existan. Al limpiar fechas vencidas, revisar también las variantes de
+`salidas` para que el detalle no conserve una tarifa de una fecha pasada.
+
 `catalogo-ui.js` comparte la presentación de precios y gastos.
 `catalogo-landings.js` actualiza las tarjetas al abrir las landings para que
 el vencimiento no dependa de volver a publicarlas. Sin JavaScript, las

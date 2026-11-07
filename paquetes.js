@@ -15,6 +15,267 @@
    ============================================================ */
 
 window.PAQUETES = [
+  /* ---------- NOVIEMBRE Y DICIEMBRE 2026 — Full day ---------- */
+  {
+    "id": "fd-tierra-vasca",
+    "nombre": "Tierra Vasca · La Reja",
+    "pais": "Argentina",
+    "region": "Provincia de Buenos Aires",
+    "puerta": "full-day",
+    "tags": [
+      "full-day"
+    ],
+    "transporte": "Bus semicama",
+    "fechas": "22 nov",
+    "duracion": "1 día",
+    "precio": 89990,
+    "moneda": "ARS",
+    "reserva": 0,
+    "foto": "../full-day-tierra-vasca-nov2026.jpg",
+    "fotoAlt": "Tierra Vasca · La Reja",
+    "incluye": [
+      "Traslado ida y vuelta en el día",
+      "Desayuno, almuerzo y merienda",
+      "Show"
+    ],
+    "fotoCompleta": true,
+    "provincia": "Buenos Aires",
+    "precioLista": 109000,
+    "gastosAdministrativos": 10000,
+    "condicionPago": "Pago en efectivo"
+  },
+  {
+    "id": "fd-padre-ignacio",
+    "nombre": "Rosario · Misa del Padre Ignacio",
+    "pais": "Argentina",
+    "region": "Litoral",
+    "puerta": "full-day",
+    "tags": [
+      "full-day"
+    ],
+    "transporte": "Bus semicama",
+    "fechas": "15 y 29 nov",
+    "duracion": "1 día",
+    "precio": 69990,
+    "moneda": "ARS",
+    "reserva": 0,
+    "foto": "../full-day-padre-ignacio-nov2026.jpg",
+    "fotoAlt": "Rosario · Misa del Padre Ignacio",
+    "incluye": [
+      "Traslado ida y vuelta en el día",
+      "Coordinación",
+      "Encuentro espiritual en Rosario"
+    ],
+    "fotoCompleta": true,
+    "provincia": "Santa Fe",
+    "precioLista": 97000,
+    "gastosAdministrativos": 10000,
+    "condicionPago": "Pago en efectivo"
+  },
+  {
+    "id": "fd-concepcion-uruguay",
+    "nombre": "Termas de Concepción del Uruguay",
+    "pais": "Argentina",
+    "region": "Litoral",
+    "puerta": "full-day",
+    "tags": [
+      "full-day",
+      "termas"
+    ],
+    "transporte": "Traslado ida y vuelta",
+    "fechas": "15 nov",
+    "duracion": "1 día",
+    "precio": 95999,
+    "moneda": "ARS",
+    "reserva": 0,
+    "foto": "../foto-termas-generica.jpg",
+    "fotoAlt": "Piscina de agua termal",
+    "incluye": [
+      "Traslado ida y vuelta en el día",
+      "Coordinación",
+      "Entrada a las termas"
+    ],
+    "provincia": "Entre Ríos",
+    "gastosAdministrativos": 10000,
+    "pagoConsulta": "Consultá planes de pago en 1, 3 y 6 cuotas"
+  },
+  {
+    "id": "fd-san-jose",
+    "nombre": "Termas de San José",
+    "pais": "Argentina",
+    "region": "Litoral",
+    "puerta": "full-day",
+    "tags": [
+      "full-day",
+      "termas"
+    ],
+    "transporte": "Traslado ida y vuelta",
+    "fechas": "29 nov",
+    "duracion": "1 día",
+    "precio": 95999,
+    "moneda": "ARS",
+    "reserva": 0,
+    "foto": "../full-day-san-jose-nov2026.jpg",
+    "fotoAlt": "Termas de San José",
+    "incluye": [
+      "Traslado ida y vuelta en el día",
+      "Coordinación",
+      "Entrada a las termas"
+    ],
+    "fotoCompleta": true,
+    "provincia": "Entre Ríos",
+    "gastosAdministrativos": 10000,
+    "pagoConsulta": "Consultá planes de pago en 1, 3 y 6 cuotas"
+  },
+  {
+    "id": "fd-san-nicolas-san-pedro",
+    "nombre": "San Nicolás con San Pedro",
+    "pais": "Argentina",
+    "region": "Provincia de Buenos Aires",
+    "puerta": "full-day",
+    "tags": [
+      "full-day"
+    ],
+    "transporte": "Traslado ida y vuelta",
+    "fechas": "29 nov",
+    "duracion": "1 día",
+    "precio": 109990,
+    "moneda": "ARS",
+    "reserva": 0,
+    "foto": "../landing-san-pedro.jpg",
+    "fotoAlt": "Paisaje de San Pedro",
+    "incluye": [
+      "Traslado ida y vuelta en el día",
+      "Almuerzo en parrilla La Querencia",
+      "Visita a la Virgen de San Nicolás",
+      "Coordinador / guía"
+    ],
+    "provincia": "Buenos Aires",
+    "gastosAdministrativos": 10000,
+    "pagoConsulta": "Consultá planes de pago en 1, 3 y 6 cuotas"
+  },
+  {
+    "id": "fd-termas-dolores",
+    "nombre": "Termas de Dolores",
+    "pais": "Argentina",
+    "region": "Provincia de Buenos Aires",
+    "puerta": "full-day",
+    "tags": [
+      "full-day"
+    ],
+    "transporte": "Bus semicama",
+    "fechas": "29 nov",
+    "duracion": "1 día",
+    "precio": 89900,
+    "moneda": "ARS",
+    "reserva": 0,
+    "gastosAdministrativos": null,
+    "foto": "../dolores.jpg",
+    "fotoAlt": "Termas de Dolores",
+    "incluye": [
+      "Bus ida y vuelta en servicio semicama",
+      "Entrada al Complejo Termal de Dolores",
+      "Almuerzo: 2 empanadas de carne y gaseosa de 600 ml",
+      "Tiempo libre en Dolores para recorrer y comprar regionales",
+      "Coordinación permanente"
+    ],
+    "provincia": "Buenos Aires"
+  },
+  {
+    "id": "fd-tigre-noche",
+    "nombre": "Tigre de noche · gastronomía, show y baile",
+    "pais": "Argentina",
+    "region": "Provincia de Buenos Aires",
+    "puerta": "full-day",
+    "tags": [
+      "full-day"
+    ],
+    "transporte": "Lancha · encuentro en Tigre",
+    "fechas": "11 dic",
+    "duracion": "Salida nocturna",
+    "precio": 109900,
+    "moneda": "ARS",
+    "reserva": 0,
+    "gastosAdministrativos": null,
+    "foto": "../full-day-tigre-noche-dic2026.jpg",
+    "fotoAlt": "Tigre de noche · gastronomía, show y baile",
+    "incluye": [
+      "Punto de encuentro: Estación Fluvial de Tigre",
+      "Paseo en lancha de aproximadamente 1 hora y 15 minutos",
+      "Traslado al Club Velero",
+      "Cena",
+      "Show y baile"
+    ],
+    "fotoCompleta": true,
+    "provincia": "Buenos Aires",
+    "subtitulo": "Encuentro en la Estación Fluvial de Tigre"
+  },
+  {
+    "id": "fd-estancia-herradura",
+    "nombre": "Estancia La Herradura",
+    "pais": "Argentina",
+    "region": "Provincia de Buenos Aires",
+    "puerta": "full-day",
+    "tags": [
+      "full-day"
+    ],
+    "transporte": "Bus Mix",
+    "fechas": "19 dic",
+    "duracion": "1 día",
+    "precio": 109990,
+    "moneda": "ARS",
+    "reserva": 0,
+    "gastosAdministrativos": null,
+    "foto": "../full-day-herradura-dic2026.jpg",
+    "fotoAlt": "Estancia La Herradura",
+    "incluye": [
+      "Traslado ida y vuelta en el día en Bus Mix",
+      "Desayuno con infusión y galletas de campo, manteca y dulce",
+      "Almuerzo con empanada, parrilla, ensalada y postre; gaseosas libres durante el almuerzo",
+      "Merienda: mate cocido con pastelitos",
+      "Show musical y baile",
+      "Paseos a caballo"
+    ],
+    "fotoCompleta": true,
+    "condicionPago": "Efectivo o transferencia",
+    "cuotas": {
+      "cantidad": 6,
+      "valor": 25664
+    }
+  },
+  {
+    "id": "fd-granja-milagros",
+    "nombre": "Despedida de año en Granja Milagros",
+    "pais": "Argentina",
+    "region": "Provincia de Buenos Aires",
+    "puerta": "full-day",
+    "tags": [
+      "full-day"
+    ],
+    "transporte": "Bus Mix",
+    "fechas": "12 dic",
+    "duracion": "1 día",
+    "precio": 99990,
+    "moneda": "ARS",
+    "reserva": 0,
+    "gastosAdministrativos": null,
+    "foto": "../full-day-granja-milagros-dic2026.jpg",
+    "fotoAlt": "Despedida de año en Granja Milagros",
+    "incluye": [
+      "Traslado ida y vuelta en el día en Bus Mix",
+      "Desayuno: infusión y 3 porciones dulces",
+      "Almuerzo: tapeo de escabeches, cazuela caliente, empanada, parrilla, ensaladas y postre",
+      "Bebida libre durante el almuerzo: gaseosa, vino tinto y blanco, soda",
+      "Merienda: infusión, pastelito y torta frita",
+      "Show en vivo con transformista, artista invitado y folklore"
+    ],
+    "fotoCompleta": true,
+    "condicionPago": "Efectivo o transferencia",
+    "cuotas": {
+      "cantidad": 6,
+      "valor": 23331
+    }
+  },
   /* ---------- BRASIL — Cyber hasta el 11 de noviembre de 2026 ---------- */
   {
     "id": "cyber-brasil-porto-galinhas",
@@ -1168,54 +1429,114 @@ window.PAQUETES = [
     ]
   },
   {
-    id: "fd-guaychu",
-    foto: "../foto-termas-guaychu.jpg",
-    fotoAlt: "Pileta climatizada del complejo termal de Gualeguaychú",
-    nombre: "Termas del Guaychú",
-    provincia: "Entre Ríos",
-    pais: "Argentina",
-    region: "Litoral",
-    puerta: "full-day",
-    tags: ["full-day", "termas"],
-    transporte: "Bus Mix",
-    fechas: "15 nov",
-    duracion: "1 día",
-    precio: 105990,
-    precioLista: 124990,
-    moneda: "ARS",
-    reserva: 0,
-    incluye: [
+    "id": "fd-guaychu",
+    "foto": "../foto-termas-guaychu.jpg",
+    "fotoAlt": "Pileta climatizada del complejo termal de Gualeguaychú",
+    "nombre": "Termas del Guaychú",
+    "provincia": "Entre Ríos",
+    "pais": "Argentina",
+    "region": "Litoral",
+    "puerta": "full-day",
+    "tags": [
+      "full-day",
+      "termas"
+    ],
+    "transporte": "Bus · servicio según fecha",
+    "fechas": "15 nov · 29 nov",
+    "duracion": "1 día",
+    "precio": 105990,
+    "precioLista": 124990,
+    "moneda": "ARS",
+    "reserva": 0,
+    "incluye": [
       "Traslado ida y vuelta en el día",
       "Entrada al complejo termal",
       "Visita a regionales",
       "Coordinador permanente"
+    ],
+    "salidas": [
+      {
+        "fechas": "15 nov",
+        "precio": 105990,
+        "transporte": "Bus Mix",
+        "incluye": [
+          "Traslado ida y vuelta en el día",
+          "Entrada al complejo termal",
+          "Visita a regionales",
+          "Coordinador permanente"
+        ],
+        "precioLista": 124990
+      },
+      {
+        "fechas": "29 nov",
+        "precio": 79990,
+        "precioLista": 97000,
+        "gastosAdministrativos": 10000,
+        "condicionPago": "Pago en efectivo",
+        "transporte": "Bus semicama",
+        "incluye": [
+          "Traslado ida y vuelta en el día",
+          "Coordinación"
+        ]
+      }
     ]
   },
   {
-    id: "fd-rosario-san-nicolas",
-    foto: "../foto-rosario.jpg",
-    fotoAlt: "El Monumento a la Bandera, en Rosario",
-    fotoCredito: "Ermell · CC BY-SA 4.0",
-    nombre: "Rosario y Virgen de San Nicolás",
-    provincia: "Santa Fe Buenos Aires",
-    pais: "Argentina",
-    region: "Litoral",
-    puerta: "full-day",
-    tags: ["full-day"],
-    transporte: "Bus Mix",
-    fechas: "21 nov",
-    duracion: "1 día",
-    precio: 105990,
-    precioLista: 124990,
-    moneda: "ARS",
-    reserva: 0,
-    incluye: [
+    "id": "fd-rosario-san-nicolas",
+    "foto": "../foto-rosario.jpg",
+    "fotoAlt": "El Monumento a la Bandera, en Rosario",
+    "fotoCredito": "Ermell · CC BY-SA 4.0",
+    "nombre": "Rosario y Virgen de San Nicolás",
+    "provincia": "Santa Fe Buenos Aires",
+    "pais": "Argentina",
+    "region": "Litoral",
+    "puerta": "full-day",
+    "tags": [
+      "full-day"
+    ],
+    "transporte": "Bus · servicio según fecha",
+    "fechas": "21 nov · 28 nov",
+    "duracion": "1 día",
+    "precio": 105990,
+    "precioLista": 124990,
+    "moneda": "ARS",
+    "reserva": 0,
+    "incluye": [
       "Traslado ida y vuelta en el día",
       "Almuerzo completo con bebida",
       "Visita al Santuario de la Virgen de San Nicolás",
       "Visita al Monumento a la Bandera",
       "Tiempo libre en la costanera",
       "Coordinador permanente"
+    ],
+    "salidas": [
+      {
+        "fechas": "21 nov",
+        "precio": 105990,
+        "transporte": "Bus Mix",
+        "incluye": [
+          "Traslado ida y vuelta en el día",
+          "Almuerzo completo con bebida",
+          "Visita al Santuario de la Virgen de San Nicolás",
+          "Visita al Monumento a la Bandera",
+          "Tiempo libre en la costanera",
+          "Coordinador permanente"
+        ],
+        "precioLista": 124990
+      },
+      {
+        "fechas": "28 nov",
+        "precio": 89990,
+        "precioLista": 109000,
+        "gastosAdministrativos": 10000,
+        "condicionPago": "Pago en efectivo",
+        "transporte": "Bus semicama",
+        "incluye": [
+          "Traslado ida y vuelta en el día",
+          "Coordinación",
+          "Visita a regionales"
+        ]
+      }
     ]
   },
   {
@@ -1245,27 +1566,60 @@ window.PAQUETES = [
     ]
   },
   {
-    id: "fd-villa-elisa",
-    foto: "../foto-termas-villa-elisa.jpg",
-    fotoAlt: "Piletas del complejo termal de Villa Elisa",
-    nombre: "Termas de Villa Elisa",
-    provincia: "Entre Ríos",
-    pais: "Argentina",
-    region: "Litoral",
-    puerta: "full-day",
-    tags: ["full-day", "termas"],
-    transporte: "Bus Mix",
-    fechas: "29 nov",
-    duracion: "1 día",
-    precio: 105990,
-    precioLista: 124990,
-    moneda: "ARS",
-    reserva: 0,
-    incluye: [
+    "id": "fd-villa-elisa",
+    "foto": "../foto-termas-villa-elisa.jpg",
+    "fotoAlt": "Piletas del complejo termal de Villa Elisa",
+    "nombre": "Termas de Villa Elisa",
+    "provincia": "Entre Ríos",
+    "pais": "Argentina",
+    "region": "Litoral",
+    "puerta": "full-day",
+    "tags": [
+      "full-day",
+      "termas"
+    ],
+    "transporte": "Bus · servicio según fecha",
+    "fechas": "29 nov · 6 y 20 dic",
+    "duracion": "1 día",
+    "precio": 105990,
+    "precioLista": 124990,
+    "moneda": "ARS",
+    "reserva": 0,
+    "incluye": [
       "Traslado ida y vuelta en el día",
       "Entrada al complejo termal",
       "Visita a regionales",
       "Coordinador permanente"
+    ],
+    "salidas": [
+      {
+        "fechas": "29 nov",
+        "precio": 105990,
+        "transporte": "Bus Mix",
+        "incluye": [
+          "Traslado ida y vuelta en el día",
+          "Entrada al complejo termal",
+          "Visita a regionales",
+          "Coordinador permanente"
+        ],
+        "precioLista": 124990
+      },
+      {
+        "fechas": "6 y 20 dic",
+        "precio": 114990,
+        "condicionPago": "Efectivo o transferencia",
+        "cuotas": {
+          "cantidad": 6,
+          "valor": 26834
+        },
+        "transporte": "Bus Mix",
+        "incluye": [
+          "Traslado ida y vuelta en el día",
+          "Entrada al complejo termal",
+          "Visita a regionales",
+          "Coordinador permanente"
+        ]
+      }
     ]
   },
   {
@@ -1294,52 +1648,119 @@ window.PAQUETES = [
     ]
   },
   {
-    id: "fd-san-pedro",
-    foto: "../landing-san-pedro.jpg",
-    fotoAlt: "La Campiña de San Pedro sobre el río",
-    nombre: "San Pedro y La Campiña",
-    provincia: "Buenos Aires",
-    pais: "Argentina",
-    region: "Provincia de Buenos Aires",
-    puerta: "full-day",
-    tags: ["full-day"],
-    transporte: "Bus Mix",
-    fechas: "22 nov",
-    duracion: "1 día",
-    precio: 105990,
-    precioLista: 124990,
-    moneda: "ARS",
-    reserva: 0,
-    incluye: [
+    "id": "fd-san-pedro",
+    "foto": "../landing-san-pedro.jpg",
+    "fotoAlt": "La Campiña de San Pedro sobre el río",
+    "nombre": "San Pedro y La Campiña",
+    "provincia": "Buenos Aires",
+    "pais": "Argentina",
+    "region": "Provincia de Buenos Aires",
+    "puerta": "full-day",
+    "tags": [
+      "full-day"
+    ],
+    "transporte": "Bus · servicio según fecha",
+    "fechas": "22 nov · 5 y 19 dic",
+    "duracion": "1 día",
+    "precio": 105990,
+    "precioLista": 124990,
+    "moneda": "ARS",
+    "reserva": 0,
+    "incluye": [
       "Traslado ida y vuelta en el día",
       "Visita guiada por la campiña",
       "Almuerzo con parrilla libre",
       "Tiempo libre en Vuelta de Obligado",
       "Coordinador permanente"
+    ],
+    "salidas": [
+      {
+        "fechas": "22 nov",
+        "precio": 105990,
+        "transporte": "Bus Mix",
+        "incluye": [
+          "Traslado ida y vuelta en el día",
+          "Visita guiada por la campiña",
+          "Almuerzo con parrilla libre",
+          "Tiempo libre en Vuelta de Obligado",
+          "Coordinador permanente"
+        ],
+        "precioLista": 124990
+      },
+      {
+        "fechas": "5 y 19 dic",
+        "precio": 109990,
+        "condicionPago": "Efectivo o transferencia",
+        "cuotas": {
+          "cantidad": 6,
+          "valor": 25664
+        },
+        "transporte": "Bus Mix",
+        "incluye": [
+          "Traslado ida y vuelta en el día",
+          "Visita guiada a La Campiña",
+          "Almuerzo con parrilla libre, guarnición, postre y bebida sin alcohol",
+          "Tiempo libre en Vuelta de Obligado",
+          "Coordinador permanente"
+        ]
+      }
     ]
   },
   {
-    id: "fd-colon",
-    foto: "../foto-colon.jpg",
-    fotoAlt: "Costanera de Colón al atardecer",
-    nombre: "Termas de Colón",
-    provincia: "Entre Ríos",
-    pais: "Argentina",
-    region: "Litoral",
-    puerta: "full-day",
-    tags: ["full-day", "termas"],
-    transporte: "Bus Mix",
-    fechas: "28 nov",
-    duracion: "1 día",
-    precio: 99990,
-    precioLista: 114990,
-    moneda: "ARS",
-    reserva: 0,
-    incluye: [
+    "id": "fd-colon",
+    "foto": "../foto-colon.jpg",
+    "fotoAlt": "Costanera de Colón al atardecer",
+    "nombre": "Termas de Colón",
+    "provincia": "Entre Ríos",
+    "pais": "Argentina",
+    "region": "Litoral",
+    "puerta": "full-day",
+    "tags": [
+      "full-day",
+      "termas"
+    ],
+    "transporte": "Bus · servicio según fecha",
+    "fechas": "28 nov · 5 y 19 dic",
+    "duracion": "1 día",
+    "precio": 99990,
+    "precioLista": 114990,
+    "moneda": "ARS",
+    "reserva": 0,
+    "incluye": [
       "Traslado ida y vuelta en el día",
       "Entrada al complejo termal",
       "Visita a regionales",
       "Coordinador permanente"
+    ],
+    "salidas": [
+      {
+        "fechas": "28 nov",
+        "precio": 99990,
+        "transporte": "Bus Mix",
+        "incluye": [
+          "Traslado ida y vuelta en el día",
+          "Entrada al complejo termal",
+          "Visita a regionales",
+          "Coordinador permanente"
+        ],
+        "precioLista": 114990
+      },
+      {
+        "fechas": "5 y 19 dic",
+        "precio": 104990,
+        "condicionPago": "Efectivo o transferencia",
+        "cuotas": {
+          "cantidad": 6,
+          "valor": 24500
+        },
+        "transporte": "Bus Mix",
+        "incluye": [
+          "Traslado ida y vuelta en el día",
+          "Entrada al complejo termal",
+          "Visita a regionales",
+          "Coordinador permanente"
+        ]
+      }
     ]
   },
 

@@ -41,6 +41,9 @@ const CSS = `
   .paq-referencia{padding:5px 10px;font-size:.74rem;color:var(--muted);background:#fff}
   .paq-financiacion{margin:14px 0;padding:14px;border-radius:12px;background:#eef6f6;font-size:.85rem}
   .paq-financiacion p{margin-top:6px}
+  .paq-salida{margin-top:14px;padding:14px;border:1px solid #d9e5e7;border-radius:12px;font-size:.86rem}
+  .paq-salida h4{font-size:1rem;color:var(--navy);margin-bottom:6px}
+  .paq-salida p{margin:4px 0}.paq-salida strong{font-size:1.2rem;color:var(--navy)}
   .paq-cuotas{font-size:.88rem;font-weight:600}
   .paq-pago{font-size:.8rem;color:var(--muted);margin:8px 0}
   .paq-pago summary{cursor:pointer}
