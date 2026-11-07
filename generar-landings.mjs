@@ -41,6 +41,10 @@ const CSS = `
   .paq-referencia{padding:5px 10px;font-size:.74rem;color:var(--muted);background:#fff}
   .paq-financiacion{margin:14px 0;padding:14px;border-radius:12px;background:#eef6f6;font-size:.85rem}
   .paq-financiacion p{margin-top:6px}
+  .paq-cuotas{font-size:.88rem;font-weight:600}
+  .paq-pago{font-size:.8rem;color:var(--muted);margin:8px 0}
+  .paq-pago summary{cursor:pointer}
+  .paq-pago p{margin-top:8px;line-height:1.5}
   .hero{padding:52px 0 34px;background:linear-gradient(180deg,#fff 0%,#f7fbfb 100%)}
   .eyebrow{display:inline-block;color:var(--teal-dark);font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
   .hero h1{font-size:clamp(2rem,5vw,3rem);margin-bottom:12px}

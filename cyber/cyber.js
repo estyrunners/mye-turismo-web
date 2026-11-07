@@ -8,7 +8,7 @@
     document.getElementById("cantidad").textContent = lista.length ? `${lista.length} propuestas · Viajes en enero y febrero de 2027` : "No hay promociones vigentes para esta selección.";
     document.getElementById("ofertas").innerHTML = regiones.map(region=>{
       const items = lista.filter(p=>p.region===region);
-      return items.length ? `<section class="cyber-region"><h2>${ui.escapar(region)}</h2><div class="grid">${items.map(p=>ui.tarjeta(p,{abierto:true})).join("")}</div></section>` : "";
+      return items.length ? `<section class="cyber-region"><h2>${ui.escapar(region)}</h2><div class="grid">${items.map(p=>ui.tarjeta(p,{abierto:true,gastosGenerales:true})).join("")}</div></section>` : "";
     }).join("");
   };
   if (todas.length) {

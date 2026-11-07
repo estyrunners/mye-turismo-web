@@ -3,7 +3,7 @@
   "use strict";
   const dinero = (v, m) => m === "USD" ? `USD ${v.toLocaleString("es-AR")}` : `$${v.toLocaleString("es-AR")}`;
   const escapar = (s) => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-  const precioMostrado = (p) => p.precio + (p.gastosAdministrativos || 0);
+  const precioMostrado = (p) => p.precio;
   function desglose(p) {
     return p.gastosAdministrativos ? `Paquete ${dinero(p.precio,p.moneda)} + ${dinero(p.gastosAdministrativos,p.moneda)} de gastos administrativos por persona.` : "";
   }
@@ -109,16 +109,16 @@ function tarjetaNormal(p) {
         ${p.hotel ? `<p class="paq-hotel">🏨 ${e(p.hotel)}</p>` : ""}
       </div>
       <div class="paq-precio">
-        <span class="paq-precio-label">${p.gastosAdministrativos ? "Total por persona" : "Desde"}</span>
+        <span class="paq-precio-label">Desde</span>
         <span class="paq-precio-valor">${money(precioMostrado(p))}</span>
         <span class="paq-precio-nota">por persona${p.reserva ? ` · + ${money(p.reserva)} gastos de reserva` : ""}</span>
-        ${p.gastosAdministrativos ? `<span class="paq-precio-nota">${e(desglose(p))}</span>` : ""}
-        ${p.cyberActiva ? `<span class="paq-precio-nota">Valor del paquete sin promoción: ${money(p.precioBase)}. El 15% se aplica al paquete, no a los gastos.</span><span class="paq-precio-nota">Vigencia de la promoción: hasta el ${p.cyber.hasta.split("-").reverse().join("/")}.</span>` : p.precioLista ? `<span class="paq-precio-nota">Precio de lista ${money(p.precioLista)} por transferencia</span>` : ""}
+        ${cuota ? `<span class="paq-precio-nota paq-cuotas">o ${cuota.cantidad} cuotas de ${money(cuota.valor)}</span>` : ""}
+        ${p.gastosAdministrativos && !opciones.gastosGenerales ? `<span class="paq-precio-nota">No incluye ${money(p.gastosAdministrativos)} de gastos administrativos por pasajero.</span>` : ""}
       </div>
-      ${cuota ? `<div class="paq-financiacion"><strong>Otra opción: ${cuota.cantidad} cuotas de ${money(cuota.valor)}</strong><p>Total de cuotas: ${money(cuota.cantidad*cuota.valor)} + ${money(p.gastosAdministrativos||0)} de gastos administrativos. Total financiado: ${money(cuota.cantidad*cuota.valor+(p.gastosAdministrativos||0))} por persona.</p><p>Esta alternativa tiene un importe distinto del precio promocional destacado. Consultá tarjetas y condiciones.</p></div>` : ""}
+      ${cuota ? `<details class="paq-pago"><summary>Condiciones de pago</summary><p>Total de las ${cuota.cantidad} cuotas: ${money(cuota.cantidad*cuota.valor)}. Gastos administrativos aparte: ${money(p.gastosAdministrativos||0)} por pasajero. Total financiado con gastos: ${money(cuota.cantidad*cuota.valor+(p.gastosAdministrativos||0))} por persona. Consultá tarjetas y condiciones.</p></details>` : ""}
       ${variantes ? `<ul class="paq-opciones">${variantes}</ul>` : ""}
       ${p.incluye ? `<details class="paq-detalle"${opciones.abierto ? " open" : ""}><summary>Qué incluye</summary><ul>${p.incluye.map(i=>`<li>${e(i)}</li>`).join("")}${(p.noIncluye||[]).map(i=>`<li class="no">No incluye: ${e(i)}</li>`).join("")}</ul></details>` : ""}
-      ${p.nota ? `<p class="paq-nota">${e(p.nota)}</p>` : ""}
+      ${p.nota ? `<details class="paq-pago"><summary>Más información</summary><p>${e(p.nota)}</p></details>` : ""}
       <a class="btn btn-primary" href="https://wa.me/5491131537638?text=${encodeURIComponent(mensajeWhatsapp(p))}" target="_blank" rel="noopener">Consultar por WhatsApp</a>
     </article>`.replace(/[ \t]+$/gm, "");
   }
