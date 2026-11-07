@@ -140,6 +140,16 @@ aplica la promoción hasta el final del día indicado, en horario argentino;
 después retira el descuento y los accesos de campaña, conservando el viaje.
 No reemplazar la fecha de salida por la vigencia de la promoción.
 
+Las ofertas de Brasil cargadas desde el resumen Cyber de noviembre usan
+precios finales «desde», ya con el 10% aplicado: no volver a descontarlo.
+Sus gastos administrativos son USD 50 por pasajero y requieren pago total
+en efectivo, depósito o transferencia. No trasladarles las cuotas ni los
+$15.000 de gastos de Argentina. Si el resumen no informa hotel o fecha
+exacta, se consulta; no completar esos datos desde un flyer anterior.
+`soloCyber: true` identifica ofertas sin tarifa normal confirmada: al vencer
+se ocultan del catálogo público, conservando el registro en `PAQUETES_BASE`.
+Las landings generadas no incluyen esas tarifas en el respaldo sin JavaScript.
+
 `catalogo-ui.js` comparte la presentación de precios y gastos.
 `catalogo-landings.js` actualiza las tarjetas al abrir las landings para que
 el vencimiento no dependa de volver a publicarlas. Sin JavaScript, las

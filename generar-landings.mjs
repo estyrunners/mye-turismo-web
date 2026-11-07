@@ -191,7 +191,7 @@ PUERTAS.forEach((puerta) => {
 
 <main class="container">
   <div class="grid" data-catalogo-tag="${esc(puerta.tag)}">
-    ${items.map(p => tarjeta(p.cyber ? win.PAQUETES_BASE.find(base => base.id === p.id) : p)).join("\n")}
+    ${items.filter(p => !p.soloCyber).map(p => tarjeta(p.cyber ? win.PAQUETES_BASE.find(base => base.id === p.id) : p)).join("\n")}
   </div>
 
   <aside class="regalo">

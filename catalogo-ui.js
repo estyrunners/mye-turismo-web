@@ -5,13 +5,14 @@
   const escapar = (s) => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
   const precioMostrado = (p) => p.precio;
   function desglose(p) {
-    return p.gastosAdministrativos ? `Paquete ${dinero(p.precio,p.moneda)} + ${dinero(p.gastosAdministrativos,p.moneda)} de gastos administrativos por persona.` : "";
+    return p.gastosAdministrativos ? `Paquete ${dinero(p.precio,p.moneda)} + ${dinero(p.gastosAdministrativos,p.moneda)} de gastos administrativos por persona.${p.cyberActiva && p.cyber.condicion ? " " + p.cyber.condicion + "." : ""}` : "";
   }
   function mensajeWhatsapp(p) {
     const l = [`Hola MyE Turismo, quiero consultar por ${p.nombre}${p.subtitulo ? " — "+p.subtitulo : ""}.`, "", "Esto es lo que vi en la página:",
       `• Desde ${dinero(precioMostrado(p),p.moneda)} por persona${p.reserva ? ` + ${dinero(p.reserva,p.moneda)} de gastos de reserva` : ""}`];
     if (p.gastosAdministrativos) l.push(`• ${desglose(p)}`);
     if (p.cyberActiva) l.push(`• Promoción Cyber para reservar hasta el ${p.cyber.hasta.split("-").reverse().join("/")}.`);
+    if (p.cyberActiva && p.cyber.condicion) l.push(`• ${p.cyber.condicion}.`);
     l.push(`• ${p.duracion} · ${p.transporte}`);
     if (p.hotel) l.push(`• Hotel: ${p.hotel}`);
     l.push(`• Salidas: ${p.fechas}`,"","¿Me confirman disponibilidad y formas de pago?");
@@ -113,6 +114,7 @@ function tarjetaNormal(p) {
         <span class="paq-precio-valor">${money(precioMostrado(p))}</span>
         <span class="paq-precio-nota">por persona${p.reserva ? ` · + ${money(p.reserva)} gastos de reserva` : ""}</span>
         ${cuota ? `<span class="paq-precio-nota paq-cuotas">o ${cuota.cantidad} cuotas de ${money(cuota.valor)}</span>` : ""}
+        ${p.cyberActiva && p.cyber.condicion ? `<span class="paq-precio-nota">${e(p.cyber.condicion)}.</span>` : ""}
         ${p.gastosAdministrativos && !opciones.gastosGenerales ? `<span class="paq-precio-nota">No incluye ${money(p.gastosAdministrativos)} de gastos administrativos por pasajero.</span>` : ""}
       </div>
       ${variantes ? `<ul class="paq-opciones">${variantes}</ul>` : ""}

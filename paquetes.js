@@ -15,6 +15,433 @@
    ============================================================ */
 
 window.PAQUETES = [
+  /* ---------- BRASIL — Cyber hasta el 11 de noviembre de 2026 ---------- */
+  {
+    "id": "cyber-brasil-porto-galinhas",
+    "nombre": "Porto de Galinhas",
+    "pais": "Brasil",
+    "region": "Brasil",
+    "puerta": "aereos",
+    "tags": [
+      "aereos",
+      "verano-2027",
+      "brasil"
+    ],
+    "transporte": "Aéreo",
+    "fechas": "Verano 2027 · Consultá fechas disponibles",
+    "duracion": "8 días / 7 noches",
+    "subtitulo": "Desayuno",
+    "precio": 1360,
+    "moneda": "USD",
+    "reserva": 0,
+    "gastosAdministrativos": 50,
+    "soloCyber": true,
+    "cyber": {
+      "hasta": "2026-11-11",
+      "precio": 1360,
+      "descuento": 10,
+      "condicion": "Pago total en efectivo, depósito o transferencia"
+    },
+    "foto": "../foto-cyber-porto-galinhas.jpg",
+    "fotoAlt": "Paisaje de Porto de Galinhas",
+    "incluye": [
+      "Paquete con aéreo",
+      "Alojamiento",
+      "Desayuno"
+    ],
+    "nota": "Precio desde, por persona. Hotel, base de habitación, fechas y disponibilidad a confirmar.",
+    "fotoCredito": "Elvis Boaventura · CC BY 3.0"
+  },
+  {
+    "id": "cyber-brasil-joao-pessoa",
+    "nombre": "João Pessoa",
+    "pais": "Brasil",
+    "region": "Brasil",
+    "puerta": "aereos",
+    "tags": [
+      "aereos",
+      "verano-2027",
+      "brasil"
+    ],
+    "transporte": "Aéreo",
+    "fechas": "Verano 2027 · Consultá fechas disponibles",
+    "duracion": "8 días / 7 noches",
+    "subtitulo": "Desayuno",
+    "precio": 1099,
+    "moneda": "USD",
+    "reserva": 0,
+    "gastosAdministrativos": 50,
+    "soloCyber": true,
+    "cyber": {
+      "hasta": "2026-11-11",
+      "precio": 1099,
+      "descuento": 10,
+      "condicion": "Pago total en efectivo, depósito o transferencia"
+    },
+    "foto": "../foto-cyber-joao-pessoa.jpg",
+    "fotoAlt": "Paisaje de João Pessoa",
+    "incluye": [
+      "Paquete con aéreo",
+      "Alojamiento",
+      "Desayuno"
+    ],
+    "nota": "Precio desde, por persona. Hotel, base de habitación, fechas y disponibilidad a confirmar.",
+    "fotoCredito": "Patrick - Patrick · CC BY-SA 3.0"
+  },
+  {
+    "id": "cyber-brasil-salvador",
+    "nombre": "Salvador de Bahía",
+    "pais": "Brasil",
+    "region": "Brasil",
+    "puerta": "aereos",
+    "tags": [
+      "aereos",
+      "verano-2027",
+      "brasil"
+    ],
+    "transporte": "Aéreo",
+    "fechas": "Verano 2027 · Consultá fechas disponibles",
+    "duracion": "9 días / 8 noches",
+    "subtitulo": "Desayuno + city tour",
+    "precio": 1288,
+    "moneda": "USD",
+    "reserva": 0,
+    "gastosAdministrativos": 50,
+    "soloCyber": true,
+    "cyber": {
+      "hasta": "2026-11-11",
+      "precio": 1288,
+      "descuento": 10,
+      "condicion": "Pago total en efectivo, depósito o transferencia"
+    },
+    "foto": "../foto-salvador.jpg",
+    "fotoAlt": "Paisaje de Salvador de Bahía",
+    "incluye": [
+      "Paquete con aéreo",
+      "Alojamiento",
+      "Desayuno + city tour"
+    ],
+    "nota": "Precio desde, por persona. Hotel, base de habitación, fechas y disponibilidad a confirmar."
+  },
+  {
+    "id": "cyber-brasil-natal",
+    "nombre": "Natal",
+    "pais": "Brasil",
+    "region": "Brasil",
+    "puerta": "aereos",
+    "tags": [
+      "aereos",
+      "verano-2027",
+      "brasil"
+    ],
+    "transporte": "Aéreo",
+    "fechas": "Verano 2027 · Consultá fechas disponibles",
+    "duracion": "8 días / 7 noches o 7 días / 6 noches",
+    "subtitulo": "Desayuno",
+    "precio": 1360,
+    "moneda": "USD",
+    "reserva": 0,
+    "gastosAdministrativos": 50,
+    "soloCyber": true,
+    "cyber": {
+      "hasta": "2026-11-11",
+      "precio": 1360,
+      "descuento": 10,
+      "condicion": "Pago total en efectivo, depósito o transferencia"
+    },
+    "foto": "../foto-natal.jpg",
+    "fotoAlt": "Paisaje de Natal",
+    "incluye": [
+      "Paquete con aéreo",
+      "Alojamiento",
+      "Desayuno"
+    ],
+    "nota": "Precio desde, por persona. Hotel, base de habitación, fechas y disponibilidad a confirmar."
+  },
+  {
+    "id": "cyber-brasil-pipa",
+    "nombre": "Pipa",
+    "pais": "Brasil",
+    "region": "Brasil",
+    "puerta": "aereos",
+    "tags": [
+      "aereos",
+      "verano-2027",
+      "brasil"
+    ],
+    "transporte": "Aéreo",
+    "fechas": "Verano 2027 · Consultá fechas disponibles",
+    "duracion": "8 días / 7 noches o 7 días / 6 noches",
+    "subtitulo": "Desayuno",
+    "precio": 1270,
+    "moneda": "USD",
+    "reserva": 0,
+    "gastosAdministrativos": 50,
+    "soloCyber": true,
+    "cyber": {
+      "hasta": "2026-11-11",
+      "precio": 1270,
+      "descuento": 10,
+      "condicion": "Pago total en efectivo, depósito o transferencia"
+    },
+    "foto": "../foto-cyber-pipa.jpg",
+    "fotoAlt": "Paisaje de Pipa",
+    "incluye": [
+      "Paquete con aéreo",
+      "Alojamiento",
+      "Desayuno"
+    ],
+    "nota": "Precio desde, por persona. Hotel, base de habitación, fechas y disponibilidad a confirmar.",
+    "fotoCredito": "Bjørn Christian Tørrissen · CC BY-SA 4.0"
+  },
+  {
+    "id": "cyber-brasil-buzios-arraial",
+    "nombre": "Búzios & Arraial do Cabo",
+    "pais": "Brasil",
+    "region": "Brasil",
+    "puerta": "aereos",
+    "tags": [
+      "aereos",
+      "verano-2027",
+      "brasil"
+    ],
+    "transporte": "Aéreo",
+    "fechas": "Verano 2027 · Consultá fechas disponibles",
+    "duracion": "7 días / 6 noches",
+    "subtitulo": "Desayuno",
+    "precio": 982,
+    "moneda": "USD",
+    "reserva": 0,
+    "gastosAdministrativos": 50,
+    "soloCyber": true,
+    "cyber": {
+      "hasta": "2026-11-11",
+      "precio": 982,
+      "descuento": 10,
+      "condicion": "Pago total en efectivo, depósito o transferencia"
+    },
+    "foto": "../foto-buzios.jpg",
+    "fotoAlt": "Paisaje de Búzios & Arraial do Cabo",
+    "incluye": [
+      "Paquete con aéreo",
+      "Alojamiento",
+      "Desayuno"
+    ],
+    "nota": "Precio desde, por persona. Hotel, base de habitación, fechas y disponibilidad a confirmar."
+  },
+  {
+    "id": "cyber-brasil-porto-seguro",
+    "nombre": "Porto Seguro",
+    "pais": "Brasil",
+    "region": "Brasil",
+    "puerta": "aereos",
+    "tags": [
+      "aereos",
+      "verano-2027",
+      "brasil"
+    ],
+    "transporte": "Aéreo",
+    "fechas": "Verano 2027 · Consultá fechas disponibles",
+    "duracion": "8 días / 7 noches",
+    "subtitulo": "All inclusive premium",
+    "precio": 1990,
+    "moneda": "USD",
+    "reserva": 0,
+    "gastosAdministrativos": 50,
+    "soloCyber": true,
+    "cyber": {
+      "hasta": "2026-11-11",
+      "precio": 1990,
+      "descuento": 10,
+      "condicion": "Pago total en efectivo, depósito o transferencia"
+    },
+    "foto": "../foto-cyber-porto-seguro.jpg",
+    "fotoAlt": "Paisaje de Porto Seguro",
+    "incluye": [
+      "Paquete con aéreo",
+      "Alojamiento",
+      "All inclusive premium"
+    ],
+    "nota": "Precio desde, por persona. Hotel, base de habitación, fechas y disponibilidad a confirmar.",
+    "fotoCredito": "Quézia Graciele de Oliveira · CC BY-SA 3.0"
+  },
+  {
+    "id": "cyber-brasil-maceio",
+    "nombre": "Maceió",
+    "pais": "Brasil",
+    "region": "Brasil",
+    "puerta": "aereos",
+    "tags": [
+      "aereos",
+      "verano-2027",
+      "brasil"
+    ],
+    "transporte": "Aéreo",
+    "fechas": "Verano 2027 · Consultá fechas disponibles",
+    "duracion": "8 días / 7 noches",
+    "subtitulo": "Desayuno",
+    "precio": 1099,
+    "moneda": "USD",
+    "reserva": 0,
+    "gastosAdministrativos": 50,
+    "soloCyber": true,
+    "cyber": {
+      "hasta": "2026-11-11",
+      "precio": 1099,
+      "descuento": 10,
+      "condicion": "Pago total en efectivo, depósito o transferencia"
+    },
+    "foto": "../foto-maceio.jpg",
+    "fotoAlt": "Paisaje de Maceió",
+    "incluye": [
+      "Paquete con aéreo",
+      "Alojamiento",
+      "Desayuno"
+    ],
+    "nota": "Precio desde, por persona. Hotel, base de habitación, fechas y disponibilidad a confirmar."
+  },
+  {
+    "id": "cyber-brasil-maragogi",
+    "nombre": "Maragogi",
+    "pais": "Brasil",
+    "region": "Brasil",
+    "puerta": "aereos",
+    "tags": [
+      "aereos",
+      "verano-2027",
+      "brasil"
+    ],
+    "transporte": "Aéreo",
+    "fechas": "Verano 2027 · Consultá fechas disponibles",
+    "duracion": "8 días / 7 noches",
+    "subtitulo": "Media pensión",
+    "precio": 1693,
+    "moneda": "USD",
+    "reserva": 0,
+    "gastosAdministrativos": 50,
+    "soloCyber": true,
+    "cyber": {
+      "hasta": "2026-11-11",
+      "precio": 1693,
+      "descuento": 10,
+      "condicion": "Pago total en efectivo, depósito o transferencia"
+    },
+    "foto": "../foto-cyber-maragogi.jpg",
+    "fotoAlt": "Paisaje de Maragogi",
+    "incluye": [
+      "Paquete con aéreo",
+      "Alojamiento",
+      "Media pensión"
+    ],
+    "nota": "Precio desde, por persona. Hotel, base de habitación, fechas y disponibilidad a confirmar.",
+    "fotoCredito": "Alessandra Chanquet · CC BY-SA 4.0"
+  },
+  {
+    "id": "cyber-brasil-florianopolis",
+    "nombre": "Florianópolis",
+    "pais": "Brasil",
+    "region": "Brasil",
+    "puerta": "aereos",
+    "tags": [
+      "aereos",
+      "verano-2027",
+      "brasil"
+    ],
+    "transporte": "Aéreo",
+    "fechas": "Verano 2027 · Consultá fechas disponibles",
+    "duracion": "8 días / 7 noches",
+    "subtitulo": "Desayuno",
+    "precio": 964,
+    "moneda": "USD",
+    "reserva": 0,
+    "gastosAdministrativos": 50,
+    "soloCyber": true,
+    "cyber": {
+      "hasta": "2026-11-11",
+      "precio": 964,
+      "descuento": 10,
+      "condicion": "Pago total en efectivo, depósito o transferencia"
+    },
+    "foto": "../foto-florianopolis.jpg",
+    "fotoAlt": "Paisaje de Florianópolis",
+    "incluye": [
+      "Paquete con aéreo",
+      "Alojamiento",
+      "Desayuno"
+    ],
+    "nota": "Precio desde, por persona. Hotel, base de habitación, fechas y disponibilidad a confirmar."
+  },
+  {
+    "id": "cyber-brasil-praia-frances",
+    "nombre": "Praia do Francês",
+    "pais": "Brasil",
+    "region": "Brasil",
+    "puerta": "aereos",
+    "tags": [
+      "aereos",
+      "verano-2027",
+      "brasil"
+    ],
+    "transporte": "Aéreo",
+    "fechas": "Verano 2027 · Consultá fechas disponibles",
+    "duracion": "8 días / 7 noches",
+    "subtitulo": "Desayuno",
+    "precio": 1162,
+    "moneda": "USD",
+    "reserva": 0,
+    "gastosAdministrativos": 50,
+    "soloCyber": true,
+    "cyber": {
+      "hasta": "2026-11-11",
+      "precio": 1162,
+      "descuento": 10,
+      "condicion": "Pago total en efectivo, depósito o transferencia"
+    },
+    "foto": "../foto-praia-do-frances.jpg",
+    "fotoAlt": "Paisaje de Praia do Francês",
+    "incluye": [
+      "Paquete con aéreo",
+      "Alojamiento",
+      "Desayuno"
+    ],
+    "nota": "Precio desde, por persona. Hotel, base de habitación, fechas y disponibilidad a confirmar."
+  },
+  {
+    "id": "cyber-brasil-camboriu",
+    "nombre": "Camboriú",
+    "pais": "Brasil",
+    "region": "Brasil",
+    "puerta": "aereos",
+    "tags": [
+      "aereos",
+      "verano-2027",
+      "brasil"
+    ],
+    "transporte": "Aéreo",
+    "fechas": "Verano 2027 · Consultá fechas disponibles",
+    "duracion": "8 días / 7 noches",
+    "subtitulo": "Desayuno",
+    "precio": 1108,
+    "moneda": "USD",
+    "reserva": 0,
+    "gastosAdministrativos": 50,
+    "soloCyber": true,
+    "cyber": {
+      "hasta": "2026-11-11",
+      "precio": 1108,
+      "descuento": 10,
+      "condicion": "Pago total en efectivo, depósito o transferencia"
+    },
+    "foto": "../foto-cyber-camboriu.jpg",
+    "fotoAlt": "Paisaje de Camboriú",
+    "incluye": [
+      "Paquete con aéreo",
+      "Alojamiento",
+      "Desayuno"
+    ],
+    "nota": "Precio desde, por persona. Hotel, base de habitación, fechas y disponibilidad a confirmar.",
+    "fotoCredito": "CivArmy · CC BY-SA 4.0"
+  },
   /* ---------- VERANO 2027 — Promociones Cyber ---------- */
   {
     "id": "fd-nandubaysal-verano-2027",
@@ -2276,10 +2703,10 @@ window.resolverPaquete = function (p, ahora = new Date()) {
   if (!p.cyber) return p;
   const activa = ahora.getTime() <= new Date(p.cyber.hasta + "T23:59:59.999-03:00").getTime();
   return { ...p, precioBase: p.precio, precio: activa ? p.cyber.precio : p.precio,
-    cyberActiva: activa, destacado: activa ? "Cyber · 15% sobre el paquete" : p.destacado,
+    cyberActiva: activa, destacado: activa ? `Cyber · ${p.cyber.descuento}% ${p.soloCyber ? "OFF" : "sobre el paquete"}` : p.destacado,
     tags: [...p.tags.filter(t => t !== "cyber"), ...(activa ? ["cyber"] : [])] };
 };
-window.PAQUETES = window.PAQUETES_BASE.map(p => window.resolverPaquete(p));
+window.PAQUETES = window.PAQUETES_BASE.map(p => window.resolverPaquete(p)).filter(p => !p.soloCyber || p.cyberActiva);
 if (typeof document !== "undefined") {
   const ahora = Date.now();
   const cortes = window.PAQUETES_BASE.filter(p => p.cyber).map(p => new Date(p.cyber.hasta + "T23:59:59.999-03:00").getTime() + 1).filter(t => t > ahora);

@@ -2,10 +2,10 @@
   "use strict";
   const ui = window.MYE_CATALOGO;
   const todas = window.PAQUETES.filter(p=>p.cyberActiva);
-  const regiones = ["Litoral","Cuyo","Sierras","Costa Atlántica","Norte","Patagonia"];
+  const regiones = ["Brasil","Litoral","Cuyo","Sierras","Costa Atlántica","Norte","Patagonia"];
   const mostrar = (tipo) => {
-    const lista = todas.filter(p=>tipo==="todos" || p.puerta===tipo);
-    document.getElementById("cantidad").textContent = lista.length ? `${lista.length} propuestas · Viajes en enero y febrero de 2027` : "No hay promociones vigentes para esta selección.";
+    const lista = todas.filter(p=>tipo==="todos" || p.puerta===tipo || p.pais.toLowerCase()===tipo);
+    document.getElementById("cantidad").textContent = lista.length ? `${lista.length} propuestas · Viajes de verano 2027` : "No hay promociones vigentes para esta selección.";
     document.getElementById("ofertas").innerHTML = regiones.map(region=>{
       const items = lista.filter(p=>p.region===region);
       return items.length ? `<section class="cyber-region"><h2>${ui.escapar(region)}</h2><div class="grid">${items.map(p=>ui.tarjeta(p,{abierto:true,gastosGenerales:true})).join("")}</div></section>` : "";
