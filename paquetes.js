@@ -15,6 +15,646 @@
    ============================================================ */
 
 window.PAQUETES = [
+  /* ---------- VERANO 2027 — Promociones Cyber ---------- */
+  {
+    "id": "fd-nandubaysal-verano-2027",
+    "fotoAlt": "Ñandubaysal",
+    "nombre": "Ñandubaysal",
+    "provincia": "Entre Ríos",
+    "pais": "Argentina",
+    "region": "Litoral",
+    "puerta": "full-day",
+    "tags": [
+      "full-day",
+      "verano-2027"
+    ],
+    "transporte": "Bus ida y vuelta",
+    "fechas": "10, 17 y 31 ene · 14, 21 y 28 feb de 2027",
+    "duracion": "1 día",
+    "precio": 109990,
+    "moneda": "ARS",
+    "reserva": 0,
+    "gastosAdministrativos": 15000,
+    "cyber": {
+      "hasta": "2026-11-11",
+      "precio": 93492,
+      "descuento": 15,
+      "cuotas": {
+        "cantidad": 6,
+        "valor": 25315
+      }
+    },
+    "incluye": [
+      "Bus ida y vuelta",
+      "Coordinador permanente",
+      "Entrada al camping Ñandubaysal"
+    ],
+    "nota": "Precio por persona. Gastos administrativos por pasajero, aparte del valor del paquete y de las cuotas. Sujeto a disponibilidad al confirmar."
+  },
+  {
+    "id": "fd-guaychu-verano-2027",
+    "foto": "../foto-termas-guaychu.jpg",
+    "fotoAlt": "Paisaje de Termas del Guaychú",
+    "nombre": "Termas del Guaychú",
+    "provincia": "Entre Ríos",
+    "pais": "Argentina",
+    "region": "Litoral",
+    "puerta": "full-day",
+    "tags": [
+      "full-day",
+      "verano-2027",
+      "termas"
+    ],
+    "transporte": "Bus ida y vuelta",
+    "fechas": "10, 17 y 31 ene · 14, 21 y 28 feb de 2027",
+    "duracion": "1 día",
+    "precio": 109990,
+    "moneda": "ARS",
+    "reserva": 0,
+    "gastosAdministrativos": 15000,
+    "cyber": {
+      "hasta": "2026-11-11",
+      "precio": 93492,
+      "descuento": 15,
+      "cuotas": {
+        "cantidad": 6,
+        "valor": 25315
+      }
+    },
+    "incluye": [
+      "Bus ida y vuelta",
+      "Coordinador permanente",
+      "Entrada al complejo termal"
+    ],
+    "nota": "Precio por persona. Gastos administrativos por pasajero, aparte del valor del paquete y de las cuotas. Sujeto a disponibilidad al confirmar."
+  },
+  {
+    "id": "v27-iguazu-lilian",
+    "foto": "../foto-iguazu.jpg",
+    "fotoAlt": "Paisaje de Cataratas del Iguazú",
+    "nombre": "Cataratas del Iguazú",
+    "provincia": "Misiones",
+    "pais": "Argentina",
+    "region": "Litoral",
+    "puerta": "escapadas",
+    "tags": [
+      "escapadas",
+      "verano-2027"
+    ],
+    "transporte": "Bus ida y vuelta",
+    "fechas": "9, 12, 15, 18, 21, 24, 27 y 30 ene · 2, 8, 11, 14, 17 y 20 feb de 2027",
+    "duracion": "6 días / 3 noches",
+    "hotel": "Lilian",
+    "subtitulo": "Lilian · Desayuno",
+    "precio": 389990,
+    "moneda": "ARS",
+    "reserva": 0,
+    "gastosAdministrativos": 15000,
+    "cyber": {
+      "hasta": "2026-11-11",
+      "precio": 331492,
+      "descuento": 15,
+      "cuotas": {
+        "cantidad": 6,
+        "valor": 80848
+      }
+    },
+    "incluye": [
+      "Bus ida y vuelta",
+      "Coordinador permanente",
+      "3 noches de alojamiento",
+      "Desayuno",
+      "Hotel con piscina",
+      "Traslado a Minas de Wanda y Ruinas de San Ignacio"
+    ],
+    "nota": "Precio por persona. Gastos administrativos por pasajero, aparte del valor del paquete y de las cuotas. Consultar base de habitación. Sujeto a disponibilidad al confirmar."
+  },
+  {
+    "id": "v27-parana-el-circulo",
+    "fotoAlt": "Paraná",
+    "nombre": "Paraná",
+    "provincia": "Entre Ríos",
+    "pais": "Argentina",
+    "region": "Litoral",
+    "puerta": "escapadas",
+    "tags": [
+      "escapadas",
+      "verano-2027"
+    ],
+    "transporte": "Bus ida y vuelta",
+    "fechas": "22 ene · 12 y 26 feb de 2027",
+    "duracion": "3 días / 2 noches",
+    "hotel": "El Círculo",
+    "subtitulo": "El Círculo · Desayuno",
+    "precio": 249990,
+    "moneda": "ARS",
+    "reserva": 0,
+    "gastosAdministrativos": 15000,
+    "cyber": {
+      "hasta": "2026-11-11",
+      "precio": 212492,
+      "descuento": 15,
+      "cuotas": {
+        "cantidad": 6,
+        "valor": 53081
+      }
+    },
+    "incluye": [
+      "Bus ida y vuelta",
+      "Coordinador permanente",
+      "2 noches de alojamiento",
+      "Desayuno",
+      "Hotel céntrico"
+    ],
+    "nota": "Precio por persona. Gastos administrativos por pasajero, aparte del valor del paquete y de las cuotas. Consultar base de habitación. Sujeto a disponibilidad al confirmar."
+  },
+  {
+    "id": "v27-federacion-termas-del-este",
+    "foto": "../foto-federacion.jpg",
+    "fotoAlt": "Paisaje de Federación",
+    "nombre": "Federación",
+    "provincia": "Entre Ríos",
+    "pais": "Argentina",
+    "region": "Litoral",
+    "puerta": "escapadas",
+    "tags": [
+      "escapadas",
+      "verano-2027",
+      "termas"
+    ],
+    "transporte": "Bus ida y vuelta",
+    "fechas": "19 y 29 ene · 16 y 22 feb de 2027",
+    "duracion": "4 días / 3 noches",
+    "hotel": "Termas del Este",
+    "subtitulo": "Termas del Este · Desayuno",
+    "precio": 299990,
+    "moneda": "ARS",
+    "reserva": 0,
+    "gastosAdministrativos": 15000,
+    "cyber": {
+      "hasta": "2026-11-11",
+      "precio": 254992,
+      "descuento": 15,
+      "cuotas": {
+        "cantidad": 6,
+        "valor": 62998
+      }
+    },
+    "incluye": [
+      "Bus ida y vuelta",
+      "Coordinador permanente",
+      "3 noches de alojamiento",
+      "Desayuno",
+      "Hotel con piscina, frente al parque acuático y termal"
+    ],
+    "nota": "Precio por persona. Gastos administrativos por pasajero, aparte del valor del paquete y de las cuotas. Consultar base de habitación. Sujeto a disponibilidad al confirmar."
+  },
+  {
+    "id": "v27-san-rafael-puesta-del-sol",
+    "foto": "../foto-canon-valles.jpg",
+    "fotoAlt": "Paisaje ilustrativo de la región",
+    "nombre": "San Rafael",
+    "provincia": "Mendoza",
+    "pais": "Argentina",
+    "region": "Cuyo",
+    "puerta": "escapadas",
+    "tags": [
+      "escapadas",
+      "verano-2027"
+    ],
+    "transporte": "Bus ida y vuelta",
+    "fechas": "3, 6, 9, 12, 15, 18, 21, 24, 27 y 30 ene · 2, 8, 11, 14, 17, 20 y 23 feb de 2027",
+    "duracion": "6 días / 3 noches",
+    "hotel": "Puesta del Sol",
+    "subtitulo": "Puesta del Sol · Media pensión",
+    "precio": 419990,
+    "moneda": "ARS",
+    "reserva": 0,
+    "gastosAdministrativos": 15000,
+    "cyber": {
+      "hasta": "2026-11-11",
+      "precio": 356992,
+      "descuento": 15,
+      "cuotas": {
+        "cantidad": 6,
+        "valor": 86798
+      }
+    },
+    "incluye": [
+      "Bus ida y vuelta",
+      "Coordinador permanente",
+      "3 noches de alojamiento",
+      "Media pensión",
+      "Hotel con piscina exterior"
+    ],
+    "nota": "Precio por persona. Gastos administrativos por pasajero, aparte del valor del paquete y de las cuotas. Consultar base de habitación. Sujeto a disponibilidad al confirmar.",
+    "ilustrativa": true
+  },
+  {
+    "id": "v27-mendoza-geminis",
+    "foto": "../foto-mendoza-vinedos.jpg",
+    "fotoAlt": "Paisaje de Mendoza",
+    "nombre": "Mendoza",
+    "provincia": "Mendoza",
+    "pais": "Argentina",
+    "region": "Cuyo",
+    "puerta": "escapadas",
+    "tags": [
+      "escapadas",
+      "verano-2027"
+    ],
+    "transporte": "Bus ida y vuelta",
+    "fechas": "6, 9, 12, 15, 18, 21, 24, 27 y 30 ene · 2, 8, 11, 14, 17, 20 y 23 feb de 2027",
+    "duracion": "6 días / 3 noches",
+    "hotel": "Géminis",
+    "subtitulo": "Géminis · Desayuno",
+    "precio": 339990,
+    "moneda": "ARS",
+    "reserva": 0,
+    "gastosAdministrativos": 15000,
+    "cyber": {
+      "hasta": "2026-11-11",
+      "precio": 288992,
+      "descuento": 15,
+      "cuotas": {
+        "cantidad": 6,
+        "valor": 70931
+      }
+    },
+    "incluye": [
+      "Bus ida y vuelta",
+      "Coordinador permanente",
+      "3 noches de alojamiento",
+      "Desayuno",
+      "Hotel en el centro"
+    ],
+    "nota": "Precio por persona. Gastos administrativos por pasajero, aparte del valor del paquete y de las cuotas. Consultar base de habitación. Sujeto a disponibilidad al confirmar."
+  },
+  {
+    "id": "v27-carlos-paz-palmas-del-lago",
+    "foto": "../foto-sierras.jpg",
+    "fotoAlt": "Paisaje ilustrativo de la región",
+    "nombre": "Villa Carlos Paz",
+    "provincia": "Córdoba",
+    "pais": "Argentina",
+    "region": "Sierras",
+    "puerta": "escapadas",
+    "tags": [
+      "escapadas",
+      "verano-2027"
+    ],
+    "transporte": "Bus ida y vuelta",
+    "fechas": "4, 7, 10, 13, 16, 19, 22, 25 y 28 ene · 8, 11, 14, 17, 20, 23 y 26 feb de 2027",
+    "duracion": "5 días / 3 noches",
+    "hotel": "Palmas del Lago",
+    "subtitulo": "Palmas del Lago · Media pensión",
+    "precio": 349990,
+    "moneda": "ARS",
+    "reserva": 0,
+    "gastosAdministrativos": 15000,
+    "cyber": {
+      "hasta": "2026-11-11",
+      "precio": 297492,
+      "descuento": 15,
+      "cuotas": {
+        "cantidad": 6,
+        "valor": 72915
+      }
+    },
+    "incluye": [
+      "Bus ida y vuelta",
+      "Coordinador permanente",
+      "3 noches de alojamiento",
+      "Media pensión",
+      "Hotel con dos piscinas: exterior y climatizada"
+    ],
+    "nota": "Precio por persona. Gastos administrativos por pasajero, aparte del valor del paquete y de las cuotas. Consultar base de habitación. Sujeto a disponibilidad al confirmar.",
+    "ilustrativa": true
+  },
+  {
+    "id": "v27-merlo-virginia-spa",
+    "foto": "../foto-sierras.jpg",
+    "fotoAlt": "Paisaje ilustrativo de la región",
+    "nombre": "Villa de Merlo",
+    "provincia": "San Luis",
+    "pais": "Argentina",
+    "region": "Sierras",
+    "puerta": "escapadas",
+    "tags": [
+      "escapadas",
+      "verano-2027"
+    ],
+    "transporte": "Bus ida y vuelta",
+    "fechas": "5, 8, 11, 14, 17, 20, 23, 26 y 29 ene · 10, 13, 16, 19, 22 y 25 feb de 2027",
+    "duracion": "5 días / 3 noches",
+    "hotel": "Virginia Spa",
+    "subtitulo": "Virginia Spa · Media pensión",
+    "precio": 339990,
+    "moneda": "ARS",
+    "reserva": 0,
+    "gastosAdministrativos": 15000,
+    "cyber": {
+      "hasta": "2026-11-11",
+      "precio": 288992,
+      "descuento": 15,
+      "cuotas": {
+        "cantidad": 6,
+        "valor": 70931
+      }
+    },
+    "incluye": [
+      "Bus ida y vuelta",
+      "Coordinador permanente",
+      "3 noches de alojamiento",
+      "Media pensión",
+      "Hotel con dos piscinas: exterior y climatizada"
+    ],
+    "nota": "Precio por persona. Gastos administrativos por pasajero, aparte del valor del paquete y de las cuotas. Consultar base de habitación. Sujeto a disponibilidad al confirmar.",
+    "ilustrativa": true
+  },
+  {
+    "id": "v27-salta-inti-raymi",
+    "foto": "../foto-cafayate.jpg",
+    "fotoAlt": "Paisaje ilustrativo de la región",
+    "nombre": "Salta",
+    "provincia": "Salta",
+    "pais": "Argentina",
+    "region": "Norte",
+    "puerta": "aereos",
+    "tags": [
+      "aereos",
+      "verano-2027"
+    ],
+    "transporte": "Aéreo con JetSMART",
+    "fechas": "20 ene · 16 feb de 2027",
+    "duracion": "4 días / 3 noches",
+    "hotel": "Inti Raymi",
+    "subtitulo": "Inti Raymi · Media pensión",
+    "precio": 759990,
+    "moneda": "ARS",
+    "reserva": 0,
+    "gastosAdministrativos": 15000,
+    "cyber": {
+      "hasta": "2026-11-11",
+      "precio": 645992,
+      "descuento": 15,
+      "cuotas": {
+        "cantidad": 6,
+        "valor": 154231
+      }
+    },
+    "incluye": [
+      "Vuelos con JetSMART",
+      "Traslados de llegada y salida (In/Out)",
+      "Carry on de 10 kg",
+      "3 noches de alojamiento",
+      "Media pensión"
+    ],
+    "nota": "Precio por persona. Gastos administrativos por pasajero, aparte del valor del paquete y de las cuotas. Consultar base de habitación. Sujeto a disponibilidad al confirmar.",
+    "ilustrativa": true,
+    "fotoCredito": "Bernard Gagnon · CC BY-SA 4.0"
+  },
+  {
+    "id": "v27-santa-teresita-turista",
+    "foto": "../foto-playa-generica.jpg",
+    "fotoAlt": "Paisaje ilustrativo de la región",
+    "nombre": "Santa Teresita",
+    "provincia": "Buenos Aires",
+    "pais": "Argentina",
+    "region": "Costa Atlántica",
+    "puerta": "escapadas",
+    "tags": [
+      "escapadas",
+      "verano-2027"
+    ],
+    "transporte": "Bus ida y vuelta",
+    "fechas": "7, 10, 13, 16, 19, 22, 25, 28 y 31 ene · 3, 13, 16, 19, 22, 25 y 28 feb de 2027",
+    "duracion": "4 días / 3 noches",
+    "hotel": "Turista",
+    "subtitulo": "Turista · Desayuno",
+    "precio": 259990,
+    "moneda": "ARS",
+    "reserva": 0,
+    "gastosAdministrativos": 15000,
+    "cyber": {
+      "hasta": "2026-11-11",
+      "precio": 220992,
+      "descuento": 15,
+      "cuotas": {
+        "cantidad": 6,
+        "valor": 55065
+      }
+    },
+    "incluye": [
+      "Bus ida y vuelta",
+      "Coordinador permanente",
+      "3 noches de alojamiento",
+      "Desayuno",
+      "Hotel a metros del mar"
+    ],
+    "nota": "Precio por persona. Gastos administrativos por pasajero, aparte del valor del paquete y de las cuotas. Consultar base de habitación. Sujeto a disponibilidad al confirmar.",
+    "ilustrativa": true
+  },
+  {
+    "id": "v27-san-bernardo-carmen",
+    "foto": "../foto-san-bernardo.jpg",
+    "fotoAlt": "Paisaje de San Bernardo",
+    "nombre": "San Bernardo",
+    "provincia": "Buenos Aires",
+    "pais": "Argentina",
+    "region": "Costa Atlántica",
+    "puerta": "escapadas",
+    "tags": [
+      "escapadas",
+      "verano-2027"
+    ],
+    "transporte": "Bus ida y vuelta",
+    "fechas": "21 y 24 ene de 2027",
+    "duracion": "4 días / 3 noches",
+    "hotel": "Carmen",
+    "subtitulo": "Carmen · Desayuno",
+    "precio": 319990,
+    "moneda": "ARS",
+    "reserva": 0,
+    "gastosAdministrativos": 15000,
+    "cyber": {
+      "hasta": "2026-11-11",
+      "precio": 271992,
+      "descuento": 15,
+      "cuotas": {
+        "cantidad": 6,
+        "valor": 66965
+      }
+    },
+    "incluye": [
+      "Bus ida y vuelta",
+      "Coordinador permanente",
+      "3 noches de alojamiento",
+      "Desayuno"
+    ],
+    "nota": "Precio por persona. Gastos administrativos por pasajero, aparte del valor del paquete y de las cuotas. Consultar base de habitación. Sujeto a disponibilidad al confirmar."
+  },
+  {
+    "id": "v27-mar-de-ajo-atlantic",
+    "foto": "../foto-playa-generica.jpg",
+    "fotoAlt": "Paisaje ilustrativo de la región",
+    "nombre": "Mar de Ajó",
+    "provincia": "Buenos Aires",
+    "pais": "Argentina",
+    "region": "Costa Atlántica",
+    "puerta": "escapadas",
+    "tags": [
+      "escapadas",
+      "verano-2027"
+    ],
+    "transporte": "Bus ida y vuelta",
+    "fechas": "5, 8, 11, 14, 17, 20, 23, 26 y 29 ene · 1, 9, 12, 15, 18, 21, 24 y 27 feb de 2027",
+    "duracion": "4 días / 3 noches",
+    "hotel": "Atlantic",
+    "subtitulo": "Atlantic · Media pensión",
+    "precio": 299990,
+    "moneda": "ARS",
+    "reserva": 0,
+    "gastosAdministrativos": 15000,
+    "cyber": {
+      "hasta": "2026-11-11",
+      "precio": 254992,
+      "descuento": 15,
+      "cuotas": {
+        "cantidad": 6,
+        "valor": 62998
+      }
+    },
+    "incluye": [
+      "Bus ida y vuelta",
+      "Coordinador permanente",
+      "3 noches de alojamiento",
+      "Media pensión",
+      "Hotel a 30 metros de la playa"
+    ],
+    "nota": "Precio por persona. Gastos administrativos por pasajero, aparte del valor del paquete y de las cuotas. Consultar base de habitación. Sujeto a disponibilidad al confirmar.",
+    "ilustrativa": true
+  },
+  {
+    "id": "v27-mar-del-plata-riazor",
+    "foto": "../foto-mar-del-plata.jpg",
+    "fotoAlt": "Paisaje de Mar del Plata",
+    "nombre": "Mar del Plata",
+    "provincia": "Buenos Aires",
+    "pais": "Argentina",
+    "region": "Costa Atlántica",
+    "puerta": "escapadas",
+    "tags": [
+      "escapadas",
+      "verano-2027"
+    ],
+    "transporte": "Bus ida y vuelta",
+    "fechas": "4, 7, 10, 13, 16, 19, 22, 25, 28 y 31 ene · 3, 9, 12, 15, 18, 21, 24 y 27 feb de 2027",
+    "duracion": "4 días / 3 noches",
+    "hotel": "Riazor",
+    "subtitulo": "Riazor · Pensión completa",
+    "precio": 329990,
+    "moneda": "ARS",
+    "reserva": 0,
+    "gastosAdministrativos": 15000,
+    "cyber": {
+      "hasta": "2026-11-11",
+      "precio": 280492,
+      "descuento": 15,
+      "cuotas": {
+        "cantidad": 6,
+        "valor": 68948
+      }
+    },
+    "incluye": [
+      "Bus ida y vuelta",
+      "Coordinador permanente",
+      "3 noches de alojamiento",
+      "Pensión completa"
+    ],
+    "nota": "Precio por persona. Gastos administrativos por pasajero, aparte del valor del paquete y de las cuotas. Consultar base de habitación. Sujeto a disponibilidad al confirmar."
+  },
+  {
+    "id": "v27-bariloche-internacional",
+    "foto": "../foto-bariloche.jpg",
+    "fotoAlt": "Paisaje de Bariloche",
+    "nombre": "Bariloche",
+    "provincia": "Río Negro",
+    "pais": "Argentina",
+    "region": "Patagonia",
+    "puerta": "aereos",
+    "tags": [
+      "aereos",
+      "verano-2027"
+    ],
+    "transporte": "Aéreo con JetSMART",
+    "fechas": "22 ene · 12 feb de 2027",
+    "duracion": "4 días / 3 noches",
+    "hotel": "Internacional o similar",
+    "subtitulo": "Internacional o similar · Media pensión",
+    "precio": 899990,
+    "moneda": "ARS",
+    "reserva": 0,
+    "gastosAdministrativos": 15000,
+    "cyber": {
+      "hasta": "2026-11-11",
+      "precio": 764992,
+      "descuento": 15,
+      "cuotas": {
+        "cantidad": 6,
+        "valor": 181998
+      }
+    },
+    "incluye": [
+      "Vuelos con JetSMART",
+      "Traslados de llegada y salida (In/Out)",
+      "Carry on de 10 kg",
+      "3 noches de alojamiento",
+      "Media pensión"
+    ],
+    "nota": "Precio por persona. Gastos administrativos por pasajero, aparte del valor del paquete y de las cuotas. Consultar base de habitación. Sujeto a disponibilidad al confirmar."
+  },
+  {
+    "id": "v27-ushuaia-les-eclaireurs",
+    "foto": "../foto-ushuaia.jpg",
+    "fotoAlt": "Paisaje de Ushuaia",
+    "nombre": "Ushuaia",
+    "provincia": "Tierra del Fuego",
+    "pais": "Argentina",
+    "region": "Patagonia",
+    "puerta": "aereos",
+    "tags": [
+      "aereos",
+      "verano-2027"
+    ],
+    "transporte": "Aéreo con JetSMART",
+    "fechas": "18 feb de 2027",
+    "duracion": "5 días / 4 noches",
+    "hotel": "Les Eclaireurs",
+    "subtitulo": "Les Eclaireurs · Desayuno",
+    "precio": 899990,
+    "moneda": "ARS",
+    "reserva": 0,
+    "gastosAdministrativos": 15000,
+    "cyber": {
+      "hasta": "2026-11-11",
+      "precio": 764992,
+      "descuento": 15,
+      "cuotas": {
+        "cantidad": 6,
+        "valor": 181998
+      }
+    },
+    "incluye": [
+      "Vuelos con JetSMART",
+      "Traslados de llegada y salida (In/Out)",
+      "Carry on de 10 kg",
+      "4 noches de alojamiento",
+      "Desayuno"
+    ],
+    "nota": "Precio por persona. Gastos administrativos por pasajero, aparte del valor del paquete y de las cuotas. Consultar base de habitación. Sujeto a disponibilidad al confirmar."
+  },
+
   /* ---------- BOCA EN COLOMBIA — Final del 21 de noviembre de 2026 ---------- */
   {
     id: "boca-colombia-sin-aereo",
@@ -1625,3 +2265,22 @@ window.PUERTAS = [
     tag: "verano-2027"
   }
 ];
+
+/* La tarifa normal se conserva: al vencer una promoción, el viaje sigue en venta. */
+window.PAQUETES_BASE = window.PAQUETES;
+window.resolverPaquete = function (p, ahora = new Date()) {
+  if (!p.cyber) return p;
+  const activa = ahora.getTime() <= new Date(p.cyber.hasta + "T23:59:59.999-03:00").getTime();
+  return { ...p, precioBase: p.precio, precio: activa ? p.cyber.precio : p.precio,
+    cyberActiva: activa, destacado: activa ? "Cyber · 15% sobre el paquete" : p.destacado,
+    tags: [...p.tags.filter(t => t !== "cyber"), ...(activa ? ["cyber"] : [])] };
+};
+window.PAQUETES = window.PAQUETES_BASE.map(p => window.resolverPaquete(p));
+if (typeof document !== "undefined") {
+  const ahora = Date.now();
+  const cortes = window.PAQUETES_BASE.filter(p => p.cyber).map(p => new Date(p.cyber.hasta + "T23:59:59.999-03:00").getTime() + 1).filter(t => t > ahora);
+  if (cortes.length) {
+    const espera = Math.min(...cortes) - ahora;
+    if (espera < 2147483647) setTimeout(() => window.location.reload(), espera);
+  }
+}

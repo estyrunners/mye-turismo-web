@@ -6,6 +6,7 @@ Desktop.ini
 *.tmp
 *.bak
 ~$*
+.codex-remote-attachments/
 
 # Referencia interna: mapa de operadores. No se publica.
 OPERADORES.local.md

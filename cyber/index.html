@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cyber · Promociones para tu próximo viaje | MyE Turismo</title>
+  <meta name="description" content="Promociones de MyE Turismo: full day, escapadas y viajes con aéreo. Compará fechas, hoteles, inclusiones, precios y alternativas de pago.">
+  <meta name="theme-color" content="#123447">
+  <link rel="canonical" href="https://mye-turismo-web.pages.dev/cyber/">
+  <meta property="og:title" content="Cyber · Tu próximo viaje tiene promo | MyE Turismo">
+  <meta property="og:description" content="Full day, escapadas y aéreos. Precios con gastos claros y condiciones de cada promoción.">
+  <meta property="og:image" content="https://mye-turismo-web.pages.dev/foto-iguazu.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../catalogo.css">
+  <link rel="stylesheet" href="cyber.css">
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','1812483333531317');fbq('track','PageView');
+    document.addEventListener('click',function(e){if(e.target.closest('a[href^="https://wa.me/"]')&&window.fbq)fbq('track','Contact',{content_name:'Cyber'});});
+  </script>
+</head>
+<body>
+  <header class="top"><div class="container"><a class="volver" href="../">← MyE Turismo · Volver al inicio</a><a class="tel" href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20las%20promociones%20Cyber.">Consultar por WhatsApp</a></div></header>
+  <main>
+    <section class="cyber-portada"><div class="container">
+      <span class="eyebrow">MyE Turismo · Promociones para viajar</span>
+      <h1>Tu próximo viaje<br><em>tiene promo.</em></h1>
+      <p>Elegí el destino, mirá qué incluye y encontrá tu forma de viajar.</p>
+      <p class="vigencia" id="vigencia"></p>
+      <div class="cyber-claves"><span>Gastos claros</span><span>Fechas de viaje detalladas</span><span>Atención personalizada</span></div>
+      <a class="btn btn-primary" href="#promociones">Ver las propuestas ↓</a>
+    </div></section>
+    <section class="container cyber-contenido" id="promociones">
+      <div class="cyber-explicacion"><h2>Dos formas de pagar, bien explicadas</h2><p>El <strong>15% de descuento se aplica al valor del paquete</strong>, con cualquier medio de pago. Los gastos administrativos se agregan aparte. En cada propuesta mostramos el total por persona y su desglose.</p><p>Las <strong>seis cuotas</strong> publicadas son otra alternativa, con un total distinto del precio promocional. También detallamos ese total y los gastos; consultá las tarjetas y condiciones disponibles.</p></div>
+      <nav class="cyber-filtros" aria-label="Filtrar promociones por tipo de viaje">
+        <button type="button" data-tipo="todos" aria-pressed="true">Todas</button>
+        <button type="button" data-tipo="full-day" aria-pressed="false">Full day</button>
+        <button type="button" data-tipo="escapadas" aria-pressed="false">Bus con alojamiento</button>
+        <button type="button" data-tipo="aereos" aria-pressed="false">Aéreos</button>
+      </nav>
+      <p class="cyber-cantidad" id="cantidad" aria-live="polite"></p>
+      <div id="ofertas"></div>
+      <noscript><p>Para ver las promociones actualizadas, activá JavaScript o <a href="https://wa.me/5491131537638">consultanos por WhatsApp</a>.</p></noscript>
+      <aside id="vencidas" hidden><h2>Esta campaña Cyber ya terminó</h2><p>Los viajes de verano siguen disponibles. Consultanos las tarifas actuales o <a href="../verano-2027/">mirá el catálogo de verano</a>.</p></aside>
+    </section>
+  </main>
+  <footer class="pie"><div class="container"><p>Precios por persona, sujetos a disponibilidad. Confirmá la base de habitación y las condiciones antes de reservar.</p><p id="creditos"></p><p>MyE Turismo · Estela · Técnica Superior en Turismo · Mat. 1077</p><p><a href="../puntos-de-ascenso/">Puntos de ascenso</a> · <a href="../terminos-y-condiciones/">Términos y condiciones</a></p></div></footer>
+  <script src="../paquetes.js"></script>
+  <script src="../catalogo-ui.js"></script>
+  <script src="cyber.js"></script>
+</body>
+</html>

@@ -11,97 +11,8 @@ const { PAQUETES, PUERTAS } = win;
 const WHATSAPP = "5491131537638";
 const PIXEL = "1812483333531317";
 
-const money = (v, m) =>
-  m === "USD" ? `USD ${v.toLocaleString("es-AR")}` : `$${v.toLocaleString("es-AR")}`;
-
-const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-
-function mensajeWhatsapp(p) {
-  const l = [
-    `Hola MyE Turismo, quiero consultar por ${p.nombre}${p.subtitulo ? " — " + p.subtitulo : ""}.`,
-    "",
-    "Esto es lo que vi en la página:",
-    `• Desde ${money(p.precio, p.moneda)} por persona${p.reserva ? ` + ${money(p.reserva, p.moneda)} de gastos de reserva` : ""}`,
-    `• ${p.duracion} · ${p.transporte}`,
-  ];
-  if (p.hotel) l.push(`• Hotel: ${p.hotel}`);
-  l.push(`• Salidas: ${p.fechas}`, "", "¿Me confirman disponibilidad y formas de pago?");
-  return l.join("\n");
-}
-
-function tarjeta(p) {
-  const opciones = p.circuitos
-    ? p.circuitos
-        .map(
-          (c) =>
-            `<li><span>${esc(c.nombre)}</span><b>${money(c.precio, p.moneda)}</b>${
-              c.tercerPax ? `<em>3er pasajero ${money(c.tercerPax, p.moneda)}</em>` : ""
-            }${c.nota ? `<em>${esc(c.nota)}</em>` : ""}</li>`
-        )
-        .join("")
-    : p.ocupaciones
-    ? p.ocupaciones
-        .map(
-          (o) =>
-            `<li><span>${esc(o.nombre)}</span><b>${money(o.enero, p.moneda)}</b>${
-              o.febrero && o.febrero !== o.enero ? `<em>febrero ${money(o.febrero, p.moneda)}</em>` : ""
-            }</li>`
-        )
-        .join("")
-    : "";
-
-  return `
-      <article class="paq${p.foto ? " paq-con-foto" : ""}">
-        ${
-          p.foto
-            /* El flag `ilustrativa` se conserva en paquetes.js para saber a
-               cuáles les falta la foto real, pero no se muestra: todas las
-               genéricas son de paisaje, no de hoteles concretos, así que no
-               hay nada que aclararle al cliente. */
-            ? `<figure class="paq-foto${p.fotoCompleta ? " paq-foto--completa" : ""}"><img src="${esc(p.foto)}" alt="${esc(p.fotoAlt || p.nombre)}"${p.fotoCompleta ? "" : ` width="1600" height="1000"`} loading="lazy" decoding="async"></figure>`
-            : ""
-        }
-        ${p.destacado ? `<span class="paq-badge">${esc(p.destacado)}</span>` : ""}
-        <div class="paq-head">
-          <p class="paq-meta">${esc(p.duracion)} · ${esc(p.transporte)}</p>
-          <h3>${esc(p.nombre)}</h3>
-          ${p.subtitulo ? `<p class="paq-sub">${esc(p.subtitulo)}</p>` : ""}
-          <p class="paq-fechas"><span aria-hidden="true">📅</span> ${esc(p.fechas)}</p>
-          ${p.hotel ? `<p class="paq-hotel"><span aria-hidden="true">🏨</span> ${esc(p.hotel)}</p>` : ""}
-        </div>
-
-        <div class="paq-precio">
-          <span class="paq-precio-label">Desde</span>
-          <span class="paq-precio-valor">${money(p.precio, p.moneda)}</span>
-          <span class="paq-precio-nota">por persona${
-            /* Cuando el paquete no tiene gastos cargados no se dice nada:
-               afirmar "sin gastos de reserva" nos ata, porque hay operadores
-               que igual los cobran. */
-            p.reserva ? ` · + ${money(p.reserva, p.moneda)} gastos de reserva` : ""
-          }</span>
-          ${p.precioLista ? `<span class="paq-precio-nota">Precio de lista ${money(p.precioLista, p.moneda)} por transferencia</span>` : ""}
-        </div>
-
-        ${opciones ? `<ul class="paq-opciones">${opciones}</ul>` : ""}
-
-        ${
-          p.incluye
-            ? `<details class="paq-detalle"><summary>Qué incluye</summary><ul>${p.incluye
-                .map((i) => `<li>${esc(i)}</li>`)
-                .join("")}${
-                p.noIncluye
-                  ? p.noIncluye.map((i) => `<li class="no">No incluye: ${esc(i)}</li>`).join("")
-                  : ""
-              }</ul></details>`
-            : ""
-        }
-
-        <a class="btn btn-primary" target="_blank" rel="noopener"
-           href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensajeWhatsapp(p))}">
-          Consultar por WhatsApp
-        </a>
-      </article>`;
-}
+new Function("window", readFileSync("catalogo-ui.js", "utf8"))(win);
+const { dinero: money, escapar: esc, mensajeWhatsapp, tarjeta } = win.MYE_CATALOGO;
 
 const CSS = `
   *{margin:0;padding:0;box-sizing:border-box}
@@ -127,6 +38,9 @@ const CSS = `
   .top a.volver{color:var(--teal-dark);font-weight:700;text-decoration:none;font-size:.92rem}
   .top a.volver:hover{text-decoration:underline}
   .top .tel{color:var(--navy);font-weight:700;text-decoration:none;font-size:.92rem}
+  .paq-referencia{padding:5px 10px;font-size:.74rem;color:var(--muted);background:#fff}
+  .paq-financiacion{margin:14px 0;padding:14px;border-radius:12px;background:#eef6f6;font-size:.85rem}
+  .paq-financiacion p{margin-top:6px}
   .hero{padding:52px 0 34px;background:linear-gradient(180deg,#fff 0%,#f7fbfb 100%)}
   .eyebrow{display:inline-block;color:var(--teal-dark);font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
   .hero h1{font-size:clamp(2rem,5vw,3rem);margin-bottom:12px}
@@ -208,11 +122,12 @@ const CSS = `
   @media(max-width:640px){.grid{grid-template-columns:1fr}.paq-precio-valor{font-size:1.85rem}}
 `;
 
+writeFileSync("catalogo.css", CSS, "utf8");
 mkdirSync("./", { recursive: true });
 
 PUERTAS.forEach((puerta) => {
   const items = PAQUETES.filter((p) => p.tags.includes(puerta.tag));
-  const pagoEspecial = items.some((p) => p.tags.includes("boca-colombia"));
+  const pagoEspecial = items.some((p) => p.tags.includes("boca-colombia") || p.cyber);
   const otras = PUERTAS.filter((o) => o.id !== puerta.id);
 
   /* Las licencias CC BY-SA exigen atribución: se junta una sola vez por página. */
@@ -261,7 +176,7 @@ PUERTAS.forEach((puerta) => {
       <span class="cuotas-icono" aria-hidden="true">💳</span>
       <div class="cuotas-texto">
         <p class="cuotas-titulo">${pagoEspecial ? "Consultá cómo pagar tu viaje" : "Pagá en cuotas, con o sin tarjeta de crédito"}</p>
-        <p class="cuotas-sub">${pagoEspecial ? "Las condiciones dependen del paquete. Para la final de Boca en Colombia, consultanos por la seña, los plazos y los medios de pago antes de reservar." : "Señás el <b>30%</b> y el resto lo pagás como puedas, <b>hasta 10 días antes</b> de subirte al micro. Sin tarjeta, sin intereses y sin cuotas fijas."}</p>
+        <p class="cuotas-sub">${pagoEspecial ? "Las condiciones dependen del paquete. Las promociones Cyber y las salidas especiales tienen sus propias condiciones; consultá el detalle de cada propuesta." : "Señás el <b>30%</b> y el resto lo pagás como puedas, <b>hasta 10 días antes</b> de subirte al micro. Sin tarjeta, sin intereses y sin cuotas fijas."}</p>
       </div>
       <a class="cuotas-cta" href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent(
         "Hola MyE Turismo, quiero saber cómo es el pago en cuotas.",
@@ -271,8 +186,8 @@ PUERTAS.forEach((puerta) => {
 </section>
 
 <main class="container">
-  <div class="grid">
-    ${items.map(tarjeta).join("\n")}
+  <div class="grid" data-catalogo-tag="${esc(puerta.tag)}">
+    ${items.map(p => tarjeta(p.cyber ? win.PAQUETES_BASE.find(base => base.id === p.id) : p)).join("\n")}
   </div>
 
   <aside class="regalo">
@@ -296,7 +211,7 @@ PUERTAS.forEach((puerta) => {
 
 <footer class="pie">
   <div class="container">
-    <p>Precios por persona en base habitación doble/triple, sujetos a disponibilidad y a cambios sin previo aviso.</p>
+    <p>Precios por persona. La base de habitación y las condiciones se confirman para cada paquete. Tarifas sujetas a disponibilidad.</p>
     ${
       creditos.length
         ? `<p>Fotos: ${creditos.join(" · ")} — vía Wikimedia Commons.</p>`
@@ -306,6 +221,9 @@ PUERTAS.forEach((puerta) => {
   </div>
 </footer>
 
+<script src="../paquetes.js"></script>
+<script src="../catalogo-ui.js"></script>
+<script src="../catalogo-landings.js"></script>
 </body>
 </html>
 `;

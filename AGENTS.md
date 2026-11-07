@@ -132,6 +132,20 @@ muestra el cambio y las landings no — o peor, muestran el precio viejo.
 El script imprime cuántos paquetes quedaron en cada puerta; ese número sirve
 de control.
 
+La campaña `cyber/` también lee `paquetes.js`. Sus ofertas agregan
+`gastosAdministrativos` (por persona, aparte del paquete) y un objeto `cyber`
+con `hasta`, `precio`, `descuento` y la alternativa `cuotas: {cantidad, valor}`.
+El `precio` principal conserva la tarifa sin promoción. `resolverPaquete`
+aplica la promoción hasta el final del día indicado, en horario argentino;
+después retira el descuento y los accesos de campaña, conservando el viaje.
+No reemplazar la fecha de salida por la vigencia de la promoción.
+
+`catalogo-ui.js` comparte la presentación de precios y gastos.
+`catalogo-landings.js` actualiza las tarjetas al abrir las landings para que
+el vencimiento no dependa de volver a publicarlas. Sin JavaScript, las
+landings generadas conservan las tarifas normales de estos paquetes.
+`catalogo.css` se genera junto con las landings: no editarlo a mano.
+
 ### 2.3 Trampa: el array viejo dentro de `index.html`
 
 En `index.html` hay un `const packages = [...]` (alrededor de la línea 4600) y
