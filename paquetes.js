@@ -18,7 +18,7 @@ window.PAQUETES = [
   /* ---------- VERANO 2027 — Promociones Cyber ---------- */
   {
     "id": "fd-nandubaysal-verano-2027",
-    "fotoAlt": "Ñandubaysal",
+    "fotoAlt": "Playa y costa del río Uruguay en Ñandubaysal",
     "nombre": "Ñandubaysal",
     "provincia": "Entre Ríos",
     "pais": "Argentina",
@@ -49,7 +49,9 @@ window.PAQUETES = [
       "Coordinador permanente",
       "Entrada al camping Ñandubaysal"
     ],
-    "nota": "Precio por persona. Gastos administrativos por pasajero, aparte del valor del paquete y de las cuotas. Sujeto a disponibilidad al confirmar."
+    "nota": "Precio por persona. Gastos administrativos por pasajero, aparte del valor del paquete y de las cuotas. Sujeto a disponibilidad al confirmar.",
+    "foto": "../foto-nandubaysal-playa.jpg",
+    "fotoCredito": "Walter Nieto · CC BY-SA 3.0"
   },
   {
     "id": "fd-guaychu-verano-2027",
@@ -131,7 +133,7 @@ window.PAQUETES = [
   },
   {
     "id": "v27-parana-el-circulo",
-    "fotoAlt": "Paraná",
+    "fotoAlt": "Playa y costanera de Paraná junto al Parque Urquiza",
     "nombre": "Paraná",
     "provincia": "Entre Ríos",
     "pais": "Argentina",
@@ -166,7 +168,9 @@ window.PAQUETES = [
       "Desayuno",
       "Hotel céntrico"
     ],
-    "nota": "Precio por persona. Gastos administrativos por pasajero, aparte del valor del paquete y de las cuotas. Consultar base de habitación. Sujeto a disponibilidad al confirmar."
+    "nota": "Precio por persona. Gastos administrativos por pasajero, aparte del valor del paquete y de las cuotas. Consultar base de habitación. Sujeto a disponibilidad al confirmar.",
+    "foto": "../foto-parana-costanera.jpg",
+    "fotoCredito": "AnitaAD · CC BY-SA 4.0"
   },
   {
     "id": "v27-federacion-termas-del-este",
@@ -292,8 +296,8 @@ window.PAQUETES = [
   },
   {
     "id": "v27-carlos-paz-palmas-del-lago",
-    "foto": "../foto-sierras.jpg",
-    "fotoAlt": "Paisaje ilustrativo de la región",
+    "foto": "../landing-carlos-paz.jpg",
+    "fotoAlt": "Reloj Cucú de Villa Carlos Paz",
     "nombre": "Villa Carlos Paz",
     "provincia": "Córdoba",
     "pais": "Argentina",
@@ -329,12 +333,12 @@ window.PAQUETES = [
       "Hotel con dos piscinas: exterior y climatizada"
     ],
     "nota": "Precio por persona. Gastos administrativos por pasajero, aparte del valor del paquete y de las cuotas. Consultar base de habitación. Sujeto a disponibilidad al confirmar.",
-    "ilustrativa": true
+    "fotoCredito": "Ezarate · CC BY-SA"
   },
   {
     "id": "v27-merlo-virginia-spa",
-    "foto": "../foto-sierras.jpg",
-    "fotoAlt": "Paisaje ilustrativo de la región",
+    "foto": "../foto-merlo-mirador.jpg",
+    "fotoAlt": "Villa de Merlo y el valle desde el Mirador del Águila",
     "nombre": "Villa de Merlo",
     "provincia": "San Luis",
     "pais": "Argentina",
@@ -370,7 +374,7 @@ window.PAQUETES = [
       "Hotel con dos piscinas: exterior y climatizada"
     ],
     "nota": "Precio por persona. Gastos administrativos por pasajero, aparte del valor del paquete y de las cuotas. Consultar base de habitación. Sujeto a disponibilidad al confirmar.",
-    "ilustrativa": true
+    "fotoCredito": "Mariano Melgar · CC BY-SA 3.0"
   },
   {
     "id": "v27-salta-inti-raymi",
@@ -416,8 +420,8 @@ window.PAQUETES = [
   },
   {
     "id": "v27-santa-teresita-turista",
-    "foto": "../foto-playa-generica.jpg",
-    "fotoAlt": "Paisaje ilustrativo de la región",
+    "foto": "../foto-santa-teresita-playa.jpg",
+    "fotoAlt": "Playa de Santa Teresita con el muelle al fondo",
     "nombre": "Santa Teresita",
     "provincia": "Buenos Aires",
     "pais": "Argentina",
@@ -453,7 +457,7 @@ window.PAQUETES = [
       "Hotel a metros del mar"
     ],
     "nota": "Precio por persona. Gastos administrativos por pasajero, aparte del valor del paquete y de las cuotas. Consultar base de habitación. Sujeto a disponibilidad al confirmar.",
-    "ilustrativa": true
+    "fotoCredito": "Diegazo2000 · CC BY-SA 4.0"
   },
   {
     "id": "v27-san-bernardo-carmen",
@@ -496,8 +500,8 @@ window.PAQUETES = [
   },
   {
     "id": "v27-mar-de-ajo-atlantic",
-    "foto": "../foto-playa-generica.jpg",
-    "fotoAlt": "Paisaje ilustrativo de la región",
+    "foto": "../foto-mar-de-ajo-playa.jpg",
+    "fotoAlt": "Playa y costa de Mar de Ajó",
     "nombre": "Mar de Ajó",
     "provincia": "Buenos Aires",
     "pais": "Argentina",
@@ -533,7 +537,7 @@ window.PAQUETES = [
       "Hotel a 30 metros de la playa"
     ],
     "nota": "Precio por persona. Gastos administrativos por pasajero, aparte del valor del paquete y de las cuotas. Consultar base de habitación. Sujeto a disponibilidad al confirmar.",
-    "ilustrativa": true
+    "fotoCredito": "Roberto Fiadone · CC BY-SA 4.0"
   },
   {
     "id": "v27-mar-del-plata-riazor",

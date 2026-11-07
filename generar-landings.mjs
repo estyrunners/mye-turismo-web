@@ -218,7 +218,7 @@ PUERTAS.forEach((puerta) => {
     <p>Precios por persona. La base de habitación y las condiciones se confirman para cada paquete. Tarifas sujetas a disponibilidad.</p>
     ${
       creditos.length
-        ? `<p>Fotos: ${creditos.join(" · ")} — vía Wikimedia Commons.</p>`
+        ? `<p>Fotos: ${creditos.join(" · ")} — vía Wikimedia Commons. <a href="../creditos-fotos/">Fuentes y licencias de las fotos de Cyber</a>.</p>`
         : ""
     }
     <p>MyE Turismo · <a href="https://wa.me/${WHATSAPP}" target="_blank" rel="noopener">11-3153-7638</a> · mye.turismo@hotmail.com.ar</p>

@@ -99,7 +99,7 @@ function tarjetaNormal(p) {
       : p.ocupaciones ? p.ocupaciones.map(o=>`<li><span>${e(o.nombre)}</span><b>${money(o.enero)}</b>${o.febrero && o.febrero!==o.enero ? `<em>febrero ${money(o.febrero)}</em>` : ""}</li>`).join("") : "";
     const cuota = p.cyberActiva && p.cyber.cuotas;
     return `<article class="paq${p.foto ? " paq-con-foto" : ""}" id="${e(p.id)}">
-      ${p.foto ? `<figure class="paq-foto${p.fotoCompleta ? " paq-foto--completa" : ""}"><img src="${e(p.foto)}" alt="${e(p.fotoAlt || p.nombre)}"${p.fotoCompleta ? "" : ' width="1600" height="1000"'} loading="lazy" decoding="async">${p.ilustrativa ? '<figcaption class="paq-referencia">Imagen ilustrativa del destino o la región</figcaption>' : ""}</figure>` : ""}
+      ${p.foto ? `<figure class="paq-foto${p.fotoCompleta ? " paq-foto--completa" : ""}"><img src="${e(p.foto)}" alt="${e(p.fotoAlt || p.nombre)}"${p.fotoCompleta ? "" : ' width="1600" height="1000"'} loading="lazy" decoding="async"></figure>` : ""}
       ${p.destacado ? `<span class="paq-badge">${e(p.destacado)}</span>` : ""}
       <div class="paq-head">
         <p class="paq-meta">${e(p.duracion)} · ${e(p.transporte)}</p>
