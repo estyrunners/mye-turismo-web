@@ -179,6 +179,11 @@ Vacaciones de Invierno, que son contenido viejo. **Los paquetes nuevos van en
 
 ### 2.4 Fotos
 
+Preferencia de Estela para las tarjetas de Full day: mantener el diseño
+uniforme con una foto horizontal sin textos y la descripción en HTML debajo.
+Los flyers recibidos sirven para cargar los datos; no usarlos completos como
+imagen de estas tarjetas, aunque lleven el logo de MyE.
+
 Van en la raíz del repo, en `.jpg` o `.jpeg` (los flyers de los operadores) o
 `.png`. Las convenciones de nombre que ya existen:
 

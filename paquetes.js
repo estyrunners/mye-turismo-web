@@ -31,18 +31,18 @@ window.PAQUETES = [
     "precio": 89990,
     "moneda": "ARS",
     "reserva": 0,
-    "foto": "../full-day-tierra-vasca-nov2026.jpg",
-    "fotoAlt": "Tierra Vasca · La Reja",
+    "foto": "../foto-desayuno-campo.jpg",
+    "fotoAlt": "Desayuno con café y panificados",
     "incluye": [
       "Traslado ida y vuelta en el día",
       "Desayuno, almuerzo y merienda",
       "Show"
     ],
-    "fotoCompleta": true,
     "provincia": "Buenos Aires",
     "precioLista": 109000,
     "gastosAdministrativos": 10000,
-    "condicionPago": "Pago en efectivo"
+    "condicionPago": "Pago en efectivo",
+    "fotoCredito": "Kurt Kaiser · CC0"
   },
   {
     "id": "fd-padre-ignacio",
@@ -59,18 +59,18 @@ window.PAQUETES = [
     "precio": 69990,
     "moneda": "ARS",
     "reserva": 0,
-    "foto": "../full-day-padre-ignacio-nov2026.jpg",
-    "fotoAlt": "Rosario · Misa del Padre Ignacio",
+    "foto": "../foto-rosario.jpg",
+    "fotoAlt": "Monumento a la Bandera en Rosario",
     "incluye": [
       "Traslado ida y vuelta en el día",
       "Coordinación",
       "Encuentro espiritual en Rosario"
     ],
-    "fotoCompleta": true,
     "provincia": "Santa Fe",
     "precioLista": 97000,
     "gastosAdministrativos": 10000,
-    "condicionPago": "Pago en efectivo"
+    "condicionPago": "Pago en efectivo",
+    "fotoCredito": "Ermell · CC BY-SA 4.0"
   },
   {
     "id": "fd-concepcion-uruguay",
@@ -115,14 +115,13 @@ window.PAQUETES = [
     "precio": 95999,
     "moneda": "ARS",
     "reserva": 0,
-    "foto": "../full-day-san-jose-nov2026.jpg",
-    "fotoAlt": "Termas de San José",
+    "foto": "../foto-termas-generica.jpg",
+    "fotoAlt": "Piscina de agua termal",
     "incluye": [
       "Traslado ida y vuelta en el día",
       "Coordinación",
       "Entrada a las termas"
     ],
-    "fotoCompleta": true,
     "provincia": "Entre Ríos",
     "gastosAdministrativos": 10000,
     "pagoConsulta": "Consultá planes de pago en 1, 3 y 6 cuotas"
@@ -197,8 +196,8 @@ window.PAQUETES = [
     "moneda": "ARS",
     "reserva": 0,
     "gastosAdministrativos": null,
-    "foto": "../full-day-tigre-noche-dic2026.jpg",
-    "fotoAlt": "Tigre de noche · gastronomía, show y baile",
+    "foto": "../foto-tigre-museo.jpg",
+    "fotoAlt": "Vista del Museo de Arte Tigre desde el río",
     "incluye": [
       "Punto de encuentro: Estación Fluvial de Tigre",
       "Paseo en lancha de aproximadamente 1 hora y 15 minutos",
@@ -206,9 +205,9 @@ window.PAQUETES = [
       "Cena",
       "Show y baile"
     ],
-    "fotoCompleta": true,
     "provincia": "Buenos Aires",
-    "subtitulo": "Encuentro en la Estación Fluvial de Tigre"
+    "subtitulo": "Encuentro en la Estación Fluvial de Tigre",
+    "fotoCredito": "https://www.flickr.com/people/panr/ · CC BY 2.0"
   },
   {
     "id": "fd-estancia-herradura",
@@ -226,8 +225,8 @@ window.PAQUETES = [
     "moneda": "ARS",
     "reserva": 0,
     "gastosAdministrativos": null,
-    "foto": "../full-day-herradura-dic2026.jpg",
-    "fotoAlt": "Estancia La Herradura",
+    "foto": "../landing-herradura.jpg",
+    "fotoAlt": "Jornada de campo y caballos",
     "incluye": [
       "Traslado ida y vuelta en el día en Bus Mix",
       "Desayuno con infusión y galletas de campo, manteca y dulce",
@@ -236,7 +235,6 @@ window.PAQUETES = [
       "Show musical y baile",
       "Paseos a caballo"
     ],
-    "fotoCompleta": true,
     "condicionPago": "Efectivo o transferencia",
     "cuotas": {
       "cantidad": 6,
@@ -259,8 +257,8 @@ window.PAQUETES = [
     "moneda": "ARS",
     "reserva": 0,
     "gastosAdministrativos": null,
-    "foto": "../full-day-granja-milagros-dic2026.jpg",
-    "fotoAlt": "Despedida de año en Granja Milagros",
+    "foto": "../foto-asado-campo.jpg",
+    "fotoAlt": "Parrilla con asado para una jornada de campo",
     "incluye": [
       "Traslado ida y vuelta en el día en Bus Mix",
       "Desayuno: infusión y 3 porciones dulces",
@@ -269,12 +267,12 @@ window.PAQUETES = [
       "Merienda: infusión, pastelito y torta frita",
       "Show en vivo con transformista, artista invitado y folklore"
     ],
-    "fotoCompleta": true,
     "condicionPago": "Efectivo o transferencia",
     "cuotas": {
       "cantidad": 6,
       "valor": 23331
-    }
+    },
+    "fotoCredito": "by felixion from Argentina · CC BY-SA 2.0"
   },
   /* ---------- BRASIL — Cyber hasta el 11 de noviembre de 2026 ---------- */
   {
