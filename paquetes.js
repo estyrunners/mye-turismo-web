@@ -256,8 +256,8 @@ window.PAQUETES = [
     "moneda": "ARS",
     "reserva": 0,
     "gastosAdministrativos": null,
-    "foto": "../foto-asado-campo.jpg",
-    "fotoAlt": "Parrilla con asado para una jornada de campo",
+    "foto": "../foto-granja-milagros-sin-textos.png",
+    "fotoAlt": "Encuentro al aire libre en el parque de Granja Milagros",
     "incluye": [
       "Traslado ida y vuelta en el día en Bus Mix",
       "Desayuno: infusión y 3 porciones dulces",
@@ -270,8 +270,7 @@ window.PAQUETES = [
     "cuotas": {
       "cantidad": 6,
       "valor": 23331
-    },
-    "fotoCredito": "by felixion from Argentina · CC BY-SA 2.0"
+    }
   },
   /* ---------- BRASIL — Cyber hasta el 11 de noviembre de 2026 ---------- */
   {
