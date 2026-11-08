@@ -31,8 +31,8 @@ window.PAQUETES = [
     "precio": 89990,
     "moneda": "ARS",
     "reserva": 0,
-    "foto": "../foto-desayuno-campo.jpg",
-    "fotoAlt": "Desayuno con café y panificados",
+    "foto": "../collage-tierra-vasca.jpg",
+    "fotoAlt": "Tierra Vasca: parque, gastronomía y salón",
     "incluye": [
       "Traslado ida y vuelta en el día",
       "Desayuno, almuerzo y merienda",
@@ -42,7 +42,7 @@ window.PAQUETES = [
     "precioLista": 109000,
     "gastosAdministrativos": 10000,
     "condicionPago": "Pago en efectivo",
-    "fotoCredito": "Kurt Kaiser · CC0"
+    "fotoContener": true
   },
   {
     "id": "fd-padre-ignacio",
@@ -59,8 +59,8 @@ window.PAQUETES = [
     "precio": 69990,
     "moneda": "ARS",
     "reserva": 0,
-    "foto": "../foto-rosario.jpg",
-    "fotoAlt": "Monumento a la Bandera en Rosario",
+    "foto": "../foto-padre-ignacio-portada.jpg",
+    "fotoAlt": "Padre Ignacio junto a la parroquia",
     "incluye": [
       "Traslado ida y vuelta en el día",
       "Coordinación",
@@ -69,8 +69,7 @@ window.PAQUETES = [
     "provincia": "Santa Fe",
     "precioLista": 97000,
     "gastosAdministrativos": 10000,
-    "condicionPago": "Pago en efectivo",
-    "fotoCredito": "Ermell · CC BY-SA 4.0"
+    "condicionPago": "Pago en efectivo"
   },
   {
     "id": "fd-concepcion-uruguay",
@@ -115,8 +114,8 @@ window.PAQUETES = [
     "precio": 95999,
     "moneda": "ARS",
     "reserva": 0,
-    "foto": "../foto-termas-generica.jpg",
-    "fotoAlt": "Piscina de agua termal",
+    "foto": "../collage-termas-san-jose.jpg",
+    "fotoAlt": "Termas de San José: piscinas, entrada y entorno natural",
     "incluye": [
       "Traslado ida y vuelta en el día",
       "Coordinación",
@@ -124,7 +123,8 @@ window.PAQUETES = [
     ],
     "provincia": "Entre Ríos",
     "gastosAdministrativos": 10000,
-    "pagoConsulta": "Consultá planes de pago en 1, 3 y 6 cuotas"
+    "pagoConsulta": "Consultá planes de pago en 1, 3 y 6 cuotas",
+    "fotoContener": true
   },
   {
     "id": "fd-san-nicolas-san-pedro",
