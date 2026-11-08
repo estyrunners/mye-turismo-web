@@ -141,8 +141,8 @@ window.PAQUETES = [
     "precio": 109990,
     "moneda": "ARS",
     "reserva": 0,
-    "foto": "../landing-san-pedro.jpg",
-    "fotoAlt": "Paisaje de San Pedro",
+    "foto": "../foto-san-nicolas-san-pedro-sin-textos.png",
+    "fotoAlt": "Virgen de San Nicolás, bandera argentina y paisaje del río",
     "incluye": [
       "Traslado ida y vuelta en el día",
       "Almuerzo en parrilla La Querencia",
