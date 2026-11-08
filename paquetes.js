@@ -32,7 +32,7 @@ window.PAQUETES = [
     "moneda": "ARS",
     "reserva": 0,
     "foto": "../collage-tierra-vasca.jpg",
-    "fotoAlt": "Tierra Vasca: parque, gastronomía y salón",
+    "fotoAlt": "Pileta y parque de Tierra Vasca",
     "incluye": [
       "Traslado ida y vuelta en el día",
       "Desayuno, almuerzo y merienda",
@@ -42,7 +42,14 @@ window.PAQUETES = [
     "precioLista": 109000,
     "gastosAdministrativos": 10000,
     "condicionPago": "Pago en efectivo",
-    "fotoContener": true
+    "fotoEncuadre": {
+      "x": 18,
+      "y": 970,
+      "ancho": 334,
+      "alto": 208,
+      "originalAncho": 720,
+      "originalAlto": 1280
+    }
   },
   {
     "id": "fd-padre-ignacio",

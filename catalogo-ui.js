@@ -4,6 +4,12 @@
   const dinero = (v, m) => m === "USD" ? `USD ${v.toLocaleString("es-AR")}` : `$${v.toLocaleString("es-AR")}`;
   const escapar = (s) => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
   const precioMostrado = (p) => p.salidas ? Math.min(...p.salidas.map(s=>s.precio)) : p.precio;
+  function encuadreFoto(p) {
+    const r = p.fotoEncuadre;
+    if (!r) return "";
+    const pct = (n) => (n * 100).toFixed(4) + "%";
+    return ` data-foto-encuadre style="--foto-ancho:${pct(r.originalAncho/r.ancho)};--foto-alto:${pct(r.originalAlto/r.alto)};--foto-x:${pct(-r.x/r.ancho)};--foto-y:${pct(-r.y/r.alto)}"`;
+  }
   function desglose(p) {
     if (p.salidas) return "Precio y gastos según fecha de salida.";
     return p.gastosAdministrativos ? `Paquete ${dinero(p.precio,p.moneda)} + ${dinero(p.gastosAdministrativos,p.moneda)} de gastos administrativos por persona.${p.cyberActiva && p.cyber.condicion ? " " + p.cyber.condicion + "." : ""}` : "";
@@ -104,7 +110,7 @@ function tarjetaNormal(p) {
     const cuota = p.cuotas || (p.cyberActiva && p.cyber.cuotas);
     const salidas = p.salidas ? p.salidas.map(s=>`<section class="paq-salida"><h4>📅 ${e(s.fechas)}</h4><p><strong>${money(s.precio)}</strong> por persona</p>${s.condicionPago ? `<p>${e(s.condicionPago)}</p>` : ""}${s.cuotas ? `<p>o ${s.cuotas.cantidad} cuotas de ${money(s.cuotas.valor)}</p>` : ""}${s.gastosAdministrativos ? `<p>+ ${money(s.gastosAdministrativos)} de gastos administrativos por pasajero</p>` : ""}${s.precioLista ? `<p class="paq-precio-nota">Precio de lista: ${money(s.precioLista)}</p>` : ""}<p>${e(s.transporte)}</p><details class="paq-detalle"><summary>Qué incluye esta salida</summary><ul>${s.incluye.map(i=>`<li>${e(i)}</li>`).join("")}</ul></details></section>`).join("") : "";
     return `<article class="paq${p.foto ? " paq-con-foto" : ""}" id="${e(p.id)}">
-      ${p.foto ? `<figure class="paq-foto${p.fotoCompleta ? " paq-foto--completa" : p.fotoContener ? " paq-foto--contener" : ""}"><img src="${e(p.foto)}" alt="${e(p.fotoAlt || p.nombre)}"${p.fotoCompleta ? "" : ' width="1600" height="1000"'} loading="lazy" decoding="async"></figure>` : ""}
+      ${p.foto ? `<figure class="paq-foto${p.fotoCompleta ? " paq-foto--completa" : p.fotoContener ? " paq-foto--contener" : ""}"${encuadreFoto(p)}><img src="${e(p.foto)}" alt="${e(p.fotoAlt || p.nombre)}"${p.fotoCompleta ? "" : ' width="1600" height="1000"'} loading="lazy" decoding="async"></figure>` : ""}
       ${p.destacado ? `<span class="paq-badge">${e(p.destacado)}</span>` : ""}
       <div class="paq-head">
         <p class="paq-meta">${e(p.duracion)} · ${e(p.transporte)}</p>
@@ -130,5 +136,5 @@ function tarjetaNormal(p) {
       <a class="btn btn-primary" href="https://wa.me/5491131537638?text=${encodeURIComponent(mensajeWhatsapp(p))}" target="_blank" rel="noopener">Consultar por WhatsApp</a>
     </article>`.replace(/[ \t]+$/gm, "");
   }
-  window.MYE_CATALOGO = { dinero, escapar, precioMostrado, desglose, mensajeWhatsapp, tarjeta };
+  window.MYE_CATALOGO = { dinero, escapar, precioMostrado, desglose, mensajeWhatsapp, tarjeta, encuadreFoto };
 })(window);

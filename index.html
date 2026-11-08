@@ -1518,6 +1518,8 @@
 
     /* La provincia sobre la foto ubica al lector sin gastar una línea. */
     .weekly-foto--contener img { object-fit: contain; background: #eef4f4; }
+    [data-foto-encuadre] { aspect-ratio: 16/10; overflow: hidden; }
+    [data-foto-encuadre] img { position: absolute; left: var(--foto-x); top: var(--foto-y); width: var(--foto-ancho); height: var(--foto-alto); max-width: none; aspect-ratio: auto; object-fit: fill; }
 
     .weekly-foto-lugar {
       position: absolute;
@@ -7117,7 +7119,7 @@
             <article class="weekly-card${foto ? " weekly-card-con-foto" : ""}" id="paquete-${p.id}" data-search="${p.nombre} ${p.subtitulo || ""} ${p.hotel || ""} ${p.transporte}">
               ${
                 foto
-                  ? `<figure class="weekly-foto${p.fotoContener ? " weekly-foto--contener" : ""}">
+                  ? `<figure class="weekly-foto${p.fotoContener ? " weekly-foto--contener" : ""}"${window.MYE_CATALOGO.encuadreFoto(p)}>
                        <img src="${foto}" alt="${p.fotoAlt || p.nombre}" width="1100" height="688" loading="lazy" decoding="async">
                        <figcaption class="weekly-foto-lugar">${p.provincia || ""}</figcaption>
                      </figure>`
