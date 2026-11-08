@@ -15,6 +15,84 @@
    ============================================================ */
 
 window.PAQUETES = [
+  {
+    "id": "fiestas-salta-aereo",
+    "nombre": "Salta · Fin de año",
+    "provincia": "Salta",
+    "pais": "Argentina",
+    "region": "Norte",
+    "puerta": "aereos",
+    "tags": [
+      "aereos",
+      "fiestas"
+    ],
+    "transporte": "Aéreo",
+    "fechas": "30 dic",
+    "duracion": "5 días / 4 noches",
+    "hotel": "Mirador del Cerro / Amerian",
+    "precio": 562240,
+    "moneda": "ARS",
+    "reserva": 15000,
+    "aclaracionPrecio": "Consultar impuestos",
+    "foto": "../foto-cafayate.jpg",
+    "fotoAlt": "Paisaje de la provincia de Salta",
+    "fotoCredito": "Bernard Gagnon · CC BY-SA 4.0",
+    "pagoConsulta": "Consultá el plan de cuotas con o sin tarjeta",
+    "incluye": [
+      "Aéreos",
+      "Traslados",
+      "Equipaje",
+      "Alojamiento",
+      "Seguro",
+      "Desayuno buffet",
+      "City tour y excursiones"
+    ],
+    "salidas": [
+      {
+        "fechas": "30 dic · Fin de año",
+        "precio": 562240,
+        "hotel": "Mirador del Cerro",
+        "duracion": "5 días / 4 noches",
+        "transporte": "Aéreo",
+        "aclaracionPrecio": "Consultar impuestos",
+        "incluye": [
+          "Aéreos",
+          "Traslados",
+          "Equipaje",
+          "Alojamiento",
+          "Seguro",
+          "Desayuno buffet",
+          "City tour y excursiones"
+        ],
+        "opcionales": [
+          "Cafayate y visita a una bodega"
+        ]
+      },
+      {
+        "fechas": "30 dic · Fin de año",
+        "precio": 762340,
+        "hotel": "Amerian",
+        "duracion": "5 días / 4 noches",
+        "transporte": "Aéreo",
+        "aclaracionPrecio": "Consultar impuestos",
+        "incluye": [
+          "Aéreos",
+          "Traslados",
+          "Equipaje",
+          "Alojamiento",
+          "Seguro",
+          "Desayuno buffet",
+          "City tour y excursiones"
+        ],
+        "opcionales": [
+          "Media pensión y Cafayate (no incluye cena del 31/12)"
+        ],
+        "noIncluye": [
+          "Cena del 31/12"
+        ]
+      }
+    ]
+  },
   /* ---------- NAVIDAD Y FIN DE AÑO 2026 ---------- */
   {
     "id": "fiestas-merlo",
