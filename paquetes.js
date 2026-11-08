@@ -196,8 +196,8 @@ window.PAQUETES = [
     "moneda": "ARS",
     "reserva": 0,
     "gastosAdministrativos": null,
-    "foto": "../foto-tigre-museo.jpg",
-    "fotoAlt": "Vista del Museo de Arte Tigre desde el río",
+    "foto": "../foto-tigre-nocturna-portada.png",
+    "fotoAlt": "Museo de Arte Tigre iluminado de noche junto al río",
     "incluye": [
       "Punto de encuentro: Estación Fluvial de Tigre",
       "Paseo en lancha de aproximadamente 1 hora y 15 minutos",
@@ -206,8 +206,7 @@ window.PAQUETES = [
       "Show y baile"
     ],
     "provincia": "Buenos Aires",
-    "subtitulo": "Encuentro en la Estación Fluvial de Tigre",
-    "fotoCredito": "https://www.flickr.com/people/panr/ · CC BY 2.0"
+    "subtitulo": "Encuentro en la Estación Fluvial de Tigre"
   },
   {
     "id": "fd-estancia-herradura",
