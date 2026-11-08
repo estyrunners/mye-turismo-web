@@ -14,7 +14,7 @@ const PIXEL = "1812483333531317";
 new Function("window", readFileSync("catalogo-ui.js", "utf8"))(win);
 const { dinero: money, escapar: esc, mensajeWhatsapp, tarjeta } = win.MYE_CATALOGO;
 
-const CSS = `
+const CSS = readFileSync("fiestas-decoracion.css", "utf8") + `
   *{margin:0;padding:0;box-sizing:border-box}
   :root{
     --navy:#123447;--ink:#17313f;--muted:#5c7180;--white:#fff;

@@ -4124,6 +4124,7 @@
       if (window.fbq) window.fbq('track', 'Lead', detalle || {});
     };
   </script>
+  <link rel="stylesheet" href="fiestas-decoracion.css">
 </head>
 
 <body>
@@ -7134,6 +7135,7 @@
                 foto
                   ? `<figure class="weekly-foto${p.fotoContener ? " weekly-foto--contener" : ""}"${window.MYE_CATALOGO.encuadreFoto(p)}>
                        <img src="${foto}" alt="${p.fotoAlt || p.nombre}" width="1100" height="688" loading="lazy" decoding="async">
+                       ${window.MYE_CATALOGO.decoracionFiestas(p)}
                        <figcaption class="weekly-foto-lugar">${p.provincia || ""}</figcaption>
                      </figure>`
                   : ""
