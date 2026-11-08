@@ -1619,31 +1619,6 @@ window.PAQUETES = [
     ]
   },
   {
-    id: "fd-villa-elisa-madre",
-    foto: "../foto-termas-villa-elisa.jpg",
-    fotoAlt: "Piletas del complejo termal de Villa Elisa",
-    nombre: "Termas de Villa Elisa — Día de la Madre",
-    provincia: "Entre Ríos",
-    pais: "Argentina",
-    region: "Litoral",
-    puerta: "full-day",
-    tags: ["full-day", "termas"],
-    transporte: "Bus Mix",
-    fechas: "Consultá próximas fechas",
-    duracion: "1 día",
-    precio: 105990,
-    precioLista: 124990,
-    moneda: "ARS",
-    reserva: 0,
-    destacado: "Pagan 3 y mamá viaja gratis",
-    incluye: [
-      "Traslado ida y vuelta en el día",
-      "Entrada al complejo termal",
-      "Visita a regionales",
-      "Coordinador permanente"
-    ]
-  },
-  {
     "id": "fd-san-pedro",
     "foto": "../landing-san-pedro.jpg",
     "fotoAlt": "La Campiña de San Pedro sobre el río",

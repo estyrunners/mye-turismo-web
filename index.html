@@ -1196,6 +1196,11 @@
       box-shadow: 0 16px 36px rgba(53,25,71,.2);
     }
     [data-cyber-acceso][hidden] { display: none; }
+    [data-fiestas-acceso][hidden] { display: none; }
+    .header-cuotas--fiestas{background:#17473f;color:#ffe6a7;border-color:#e5c27b}
+    .fiestas-destacado{display:flex;flex-wrap:wrap;align-items:center;gap:20px;margin-top:24px;padding:28px;border:2px solid #e5c27b;border-radius:var(--radius);background:linear-gradient(110deg,#17473f,#285b4b);color:white;text-decoration:none}
+    .fiestas-destacado strong{display:block;font-size:clamp(1.5rem,3vw,2rem);color:#ffe6a7;margin-bottom:6px}
+    .fiestas-destacado-texto{flex:1 1 260px}.fiestas-destacado-icono{font-size:2.8rem}.fiestas-destacado-cta{padding:14px 22px;border-radius:999px;background:#ffe6a7;color:#17473f;font-weight:900}
     .cyber-logo-home { display: block; width: min(240px,100%); height: auto; flex: 0 1 240px; }
     .cyber-texto { flex: 1 1 260px; }
     .cyber-texto strong { display: block; margin: 5px 0; color: #edff00; font-size: clamp(1.5rem,3vw,2rem); line-height: 1.2; }
@@ -4157,6 +4162,7 @@
     <div class="barra-avisos">
       <div class="container barra-avisos-inner">
         <a class="header-cuotas header-cuotas--cyber" href="cyber/" data-cyber-acceso hidden>⚡ Cyber · Ver promociones</a>
+        <a class="header-cuotas header-cuotas--fiestas" href="fiestas/" data-fiestas-acceso hidden>🎄 Navidad y fin de año</a>
         <a class="header-cuotas header-cuotas--boca" href="boca-colombia/" data-hasta="2026-11-18">
           <span aria-hidden="true">⚽</span>
           <span class="ancho">¡Seguí a Boca en Colombia!</span><span class="corto">Boca en Colombia</span>
@@ -4278,6 +4284,11 @@
             <span class="boca-destacado-detalle">Barranquilla · Partido el 21 de noviembre<br>Con aéreo o sin aéreo · Hotel + entrada categoría 2</span>
           </span>
           <span class="boca-destacado-cta">Ver las dos opciones →</span>
+        </a>
+        <a class="fiestas-destacado" href="fiestas/" data-fiestas-acceso hidden>
+          <span class="fiestas-destacado-icono" aria-hidden="true">🎄</span>
+          <span class="fiestas-destacado-texto"><strong>Navidad y fin de año</strong><span>Elegí dónde viajar para celebrar las fiestas.</span></span>
+          <span class="fiestas-destacado-cta">Ver las salidas →</span>
         </a>
 
       </div>
@@ -4638,6 +4649,8 @@
   <script>
     (function () {
       const ofertas = (window.PAQUETES || []).filter(p => p.cyberActiva);
+      const fiestas = (window.PAQUETES || []).some(p => p.tags.includes('fiestas'));
+      document.querySelectorAll('[data-fiestas-acceso]').forEach(el => { el.hidden = !fiestas; });
       document.querySelectorAll('[data-cyber-acceso]').forEach(el => { el.hidden = !ofertas.length; });
       if (!ofertas.length) return;
       const hasta = ofertas.map(p=>p.cyber.hasta).sort().pop();

@@ -168,6 +168,11 @@ el vencimiento no dependa de volver a publicarlas. Sin JavaScript, las
 landings generadas conservan las tarifas normales de estos paquetes.
 `catalogo.css` se genera junto con las landings: no editarlo a mano.
 
+`fiestas/` es la campaña de Navidad y fin de año. Lee los paquetes con el tag
+`fiestas`, sin duplicarlos. Los accesos de la home aparecen solo cuando hay
+al menos una propuesta cargada con ese tag; no etiquetar salidas de diciembre
+como fiestas únicamente por el mes, sino por su propuesta de Navidad o Año Nuevo.
+
 ### 2.3 Trampa: el array viejo dentro de `index.html`
 
 En `index.html` hay un `const packages = [...]` (alrededor de la línea 4600) y
