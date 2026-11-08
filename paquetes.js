@@ -15,6 +15,510 @@
    ============================================================ */
 
 window.PAQUETES = [
+  /* ---------- NAVIDAD Y FIN DE AÑO 2026 ---------- */
+  {
+    "id": "fiestas-merlo",
+    "nombre": "Merlo · Navidad y fin de año",
+    "provincia": "San Luis",
+    "region": "Sierras",
+    "foto": "../foto-merlo-mirador.jpg",
+    "fotoCredito": "Mariano Melgar · CC BY-SA 3.0",
+    "fechas": "22 y 29 dic",
+    "duracion": "6 días / 4 noches",
+    "hotel": "Clima 3",
+    "salidas": [
+      {
+        "fechas": "22 dic · Navidad",
+        "precio": 339640,
+        "hotel": "Clima 3",
+        "duracion": "6 días / 4 noches",
+        "transporte": "Bus semicama",
+        "incluye": [
+          "Traslado en bus semicama",
+          "Alojamiento",
+          "Desayuno"
+        ],
+        "opcionales": [
+          "Media pensión (incluye cena del 24/12)"
+        ]
+      },
+      {
+        "fechas": "29 dic · Fin de año",
+        "precio": 357280,
+        "hotel": "Clima 3",
+        "duracion": "6 días / 4 noches",
+        "transporte": "Bus semicama",
+        "incluye": [
+          "Traslado en bus semicama",
+          "Alojamiento",
+          "Desayuno"
+        ],
+        "opcionales": [
+          "Media pensión (incluye cena del 31/12)"
+        ]
+      }
+    ],
+    "pais": "Argentina",
+    "puerta": "escapadas",
+    "tags": [
+      "escapadas",
+      "fiestas"
+    ],
+    "transporte": "Bus semicama",
+    "precio": 339640,
+    "moneda": "ARS",
+    "reserva": 15000,
+    "fotoAlt": "Paisaje de Merlo",
+    "pagoConsulta": "Consultá el plan de cuotas con o sin tarjeta",
+    "aclaracionPrecio": "Cobertura de salud adicional: $6.000 por pasajero.",
+    "incluye": [
+      "Traslado en bus semicama",
+      "Alojamiento",
+      "Desayuno"
+    ]
+  },
+  {
+    "id": "fiestas-carlos-paz",
+    "nombre": "Villa Carlos Paz · Navidad y fin de año",
+    "provincia": "Córdoba",
+    "region": "Sierras",
+    "foto": "../landing-carlos-paz.jpg",
+    "fotoCredito": "Ezarate · CC BY-SA",
+    "fechas": "22 y 29 dic",
+    "duracion": "6 días / 4 noches",
+    "hotel": "El Mirador / Turín, según opción",
+    "salidas": [
+      {
+        "fechas": "22 dic · Navidad",
+        "precio": 357680,
+        "hotel": "El Mirador",
+        "duracion": "6 días / 4 noches",
+        "transporte": "Bus semicama",
+        "incluye": [
+          "Traslado en bus semicama",
+          "Alojamiento",
+          "Desayuno"
+        ],
+        "opcionales": [
+          "Media pensión (incluye cena del 24/12)"
+        ]
+      },
+      {
+        "fechas": "29 dic · Fin de año",
+        "precio": 328240,
+        "hotel": "Turín",
+        "duracion": "6 días / 4 noches",
+        "transporte": "Bus semicama",
+        "incluye": [
+          "Traslado en bus semicama",
+          "Alojamiento",
+          "Desayuno"
+        ],
+        "opcionales": [
+          "Media pensión (incluye cena del 31/12)"
+        ]
+      },
+      {
+        "fechas": "29 dic · Fin de año",
+        "precio": 375340,
+        "hotel": "El Mirador",
+        "duracion": "6 días / 4 noches",
+        "transporte": "Bus semicama",
+        "incluye": [
+          "Traslado en bus semicama",
+          "Alojamiento",
+          "Desayuno"
+        ],
+        "opcionales": [
+          "Media pensión (incluye cena del 31/12)"
+        ]
+      }
+    ],
+    "pais": "Argentina",
+    "puerta": "escapadas",
+    "tags": [
+      "escapadas",
+      "fiestas"
+    ],
+    "transporte": "Bus semicama",
+    "precio": 328240,
+    "moneda": "ARS",
+    "reserva": 15000,
+    "fotoAlt": "Paisaje de Villa Carlos Paz",
+    "pagoConsulta": "Consultá el plan de cuotas con o sin tarjeta",
+    "aclaracionPrecio": "Cobertura de salud adicional: $6.000 por pasajero.",
+    "incluye": [
+      "Traslado en bus semicama",
+      "Alojamiento",
+      "Desayuno"
+    ]
+  },
+  {
+    "id": "fiestas-giardino",
+    "nombre": "Villa Giardino · Fin de año",
+    "provincia": "Córdoba",
+    "region": "Sierras",
+    "foto": "../foto-sierras.jpg",
+    "fotoAlt": "Paisaje de las sierras de Córdoba",
+    "fechas": "28 dic",
+    "duracion": "6 días / 4 noches",
+    "hotel": "Luz y Fuerza",
+    "salidas": [
+      {
+        "fechas": "28 dic · Fin de año",
+        "precio": 512180,
+        "hotel": "Luz y Fuerza",
+        "duracion": "6 días / 4 noches",
+        "transporte": "Bus semicama",
+        "incluye": [
+          "Traslado en bus semicama",
+          "Alojamiento",
+          "Pensión completa",
+          "Cena del 31/12"
+        ],
+        "opcionales": [
+          "Excursión a La Cumbre y Los Cocos"
+        ]
+      }
+    ],
+    "pais": "Argentina",
+    "puerta": "escapadas",
+    "tags": [
+      "escapadas",
+      "fiestas"
+    ],
+    "transporte": "Bus semicama",
+    "precio": 512180,
+    "moneda": "ARS",
+    "reserva": 15000,
+    "pagoConsulta": "Consultá el plan de cuotas con o sin tarjeta",
+    "aclaracionPrecio": "Cobertura de salud adicional: $6.000 por pasajero.",
+    "incluye": [
+      "Traslado en bus semicama",
+      "Alojamiento",
+      "Pensión completa",
+      "Cena del 31/12"
+    ]
+  },
+  {
+    "id": "fiestas-la-falda",
+    "nombre": "La Falda · Fin de año",
+    "provincia": "Córdoba",
+    "region": "Sierras",
+    "foto": "../foto-la-falda.jpg",
+    "fechas": "29 dic",
+    "duracion": "6 días / 4 noches",
+    "hotel": "San Jorge",
+    "salidas": [
+      {
+        "fechas": "29 dic · Fin de año",
+        "precio": 441140,
+        "hotel": "San Jorge",
+        "duracion": "6 días / 4 noches",
+        "transporte": "Bus semicama",
+        "incluye": [
+          "Traslado en bus semicama",
+          "Alojamiento",
+          "Pensión completa",
+          "Cena del 31/12"
+        ],
+        "opcionales": [
+          "Excursión a La Cumbre y Los Cocos"
+        ]
+      }
+    ],
+    "pais": "Argentina",
+    "puerta": "escapadas",
+    "tags": [
+      "escapadas",
+      "fiestas"
+    ],
+    "transporte": "Bus semicama",
+    "precio": 441140,
+    "moneda": "ARS",
+    "reserva": 15000,
+    "fotoAlt": "Paisaje de La Falda",
+    "pagoConsulta": "Consultá el plan de cuotas con o sin tarjeta",
+    "aclaracionPrecio": "Cobertura de salud adicional: $6.000 por pasajero.",
+    "incluye": [
+      "Traslado en bus semicama",
+      "Alojamiento",
+      "Pensión completa",
+      "Cena del 31/12"
+    ]
+  },
+  {
+    "id": "fiestas-mar-del-plata",
+    "nombre": "Mar del Plata · Fin de año",
+    "provincia": "Buenos Aires",
+    "region": "Costa Atlántica",
+    "foto": "../foto-mar-del-plata.jpg",
+    "fechas": "28 y 30 dic",
+    "duracion": "5 días / 4 noches o 6 días / 5 noches",
+    "hotel": "Ortegal / Miglierina",
+    "salidas": [
+      {
+        "fechas": "30 dic · Fin de año",
+        "precio": 308980,
+        "hotel": "Ortegal / Miglierina",
+        "duracion": "5 días / 4 noches",
+        "transporte": "Bus semicama",
+        "incluye": [
+          "Traslado en bus semicama",
+          "Alojamiento",
+          "Desayuno",
+          "Coordinador"
+        ],
+        "opcionales": [
+          "Media pensión en restaurante Zafarrancho, con menú media carta; consultar opción con o sin cena especial del 31/12"
+        ]
+      },
+      {
+        "fechas": "28 dic · Fin de año",
+        "precio": 358480,
+        "hotel": "Ortegal / Miglierina",
+        "duracion": "6 días / 5 noches",
+        "transporte": "Bus semicama",
+        "incluye": [
+          "Traslado en bus semicama",
+          "Alojamiento",
+          "Desayuno",
+          "Coordinador"
+        ],
+        "opcionales": [
+          "Media pensión en restaurante Zafarrancho, con menú media carta; consultar opción con o sin cena especial del 31/12"
+        ]
+      }
+    ],
+    "pais": "Argentina",
+    "puerta": "escapadas",
+    "tags": [
+      "escapadas",
+      "fiestas"
+    ],
+    "transporte": "Bus semicama",
+    "precio": 308980,
+    "moneda": "ARS",
+    "reserva": 15000,
+    "fotoAlt": "Paisaje de Mar del Plata",
+    "pagoConsulta": "Consultá el plan de cuotas con o sin tarjeta",
+    "aclaracionPrecio": "Cobertura de salud adicional: $6.000 por pasajero.",
+    "incluye": [
+      "Traslado en bus semicama",
+      "Alojamiento",
+      "Desayuno",
+      "Coordinador"
+    ]
+  },
+  {
+    "id": "fiestas-mendoza",
+    "nombre": "Mendoza y Termas de Cacheuta · Fin de año",
+    "provincia": "Mendoza",
+    "region": "Cuyo",
+    "foto": "../foto-mendoza-vinedos.jpg",
+    "fechas": "29 dic",
+    "duracion": "6 días / 4 noches",
+    "hotel": "Cordón del Plata",
+    "salidas": [
+      {
+        "fechas": "29 dic · Fin de año",
+        "precio": 492840,
+        "hotel": "Cordón del Plata",
+        "duracion": "6 días / 4 noches",
+        "transporte": "Bus semicama",
+        "incluye": [
+          "Traslado en bus semicama",
+          "Alojamiento",
+          "Desayuno",
+          "Visita a Termas de Cacheuta, sin entrada"
+        ],
+        "opcionales": [
+          "Media pensión (incluye cena del 31/12)",
+          "Excursiones: city tour, visita a una bodega, panorámica de la iglesia de la Virgen de la Carrodilla y Alta Montaña"
+        ],
+        "noIncluye": [
+          "Entrada a Termas de Cacheuta"
+        ]
+      }
+    ],
+    "pais": "Argentina",
+    "puerta": "escapadas",
+    "tags": [
+      "escapadas",
+      "fiestas",
+      "termas"
+    ],
+    "transporte": "Bus semicama",
+    "precio": 492840,
+    "moneda": "ARS",
+    "reserva": 15000,
+    "fotoAlt": "Paisaje de Mendoza y Termas de Cacheuta",
+    "pagoConsulta": "Consultá el plan de cuotas con o sin tarjeta",
+    "aclaracionPrecio": "Cobertura de salud adicional: $6.000 por pasajero.",
+    "incluye": [
+      "Traslado en bus semicama",
+      "Alojamiento",
+      "Desayuno",
+      "Visita a Termas de Cacheuta, sin entrada"
+    ]
+  },
+  {
+    "id": "fiestas-federacion",
+    "nombre": "Termas de Federación · Fin de año",
+    "provincia": "Entre Ríos",
+    "region": "Litoral",
+    "foto": "../foto-federacion.jpg",
+    "fechas": "30 dic",
+    "duracion": "5 días / 4 noches",
+    "hotel": "Guarumba / Paraíso Termal",
+    "salidas": [
+      {
+        "fechas": "30 dic · Fin de año",
+        "precio": 422680,
+        "hotel": "Guarumba / Paraíso Termal",
+        "duracion": "5 días / 4 noches",
+        "transporte": "Bus semicama",
+        "incluye": [
+          "Traslado en bus semicama",
+          "Alojamiento",
+          "Desayuno"
+        ],
+        "opcionales": [
+          "Media pensión (no incluye cena del 31/12)"
+        ],
+        "noIncluye": [
+          "Cena del 31/12"
+        ],
+        "descuentoTercerPasajero": 135000
+      }
+    ],
+    "pais": "Argentina",
+    "puerta": "escapadas",
+    "tags": [
+      "escapadas",
+      "fiestas",
+      "termas"
+    ],
+    "transporte": "Bus semicama",
+    "precio": 422680,
+    "moneda": "ARS",
+    "reserva": 15000,
+    "fotoAlt": "Paisaje de Termas de Federación",
+    "pagoConsulta": "Consultá el plan de cuotas con o sin tarjeta",
+    "aclaracionPrecio": "Cobertura de salud adicional: $6.000 por pasajero.",
+    "incluye": [
+      "Traslado en bus semicama",
+      "Alojamiento",
+      "Desayuno"
+    ]
+  },
+  {
+    "id": "fiestas-puerto-madryn-aereo",
+    "nombre": "Puerto Madryn · Fin de año",
+    "provincia": "Chubut",
+    "region": "Patagonia",
+    "foto": "../foto-puerto-madryn.jpg",
+    "fechas": "30 dic",
+    "duracion": "5 días / 4 noches",
+    "hotel": "Rayentray",
+    "salidas": [
+      {
+        "fechas": "30 dic · Fin de año",
+        "precio": 794940,
+        "hotel": "Rayentray",
+        "duracion": "5 días / 4 noches",
+        "transporte": "Aéreo",
+        "incluye": [
+          "Aéreos",
+          "Traslados",
+          "Equipaje",
+          "Alojamiento",
+          "Seguro",
+          "Desayuno"
+        ],
+        "opcionales": [
+          "Media pensión (incluye cena del 31/12)",
+          "Excursión a Punta Tombo con Isla Escondida (sin entrada)"
+        ]
+      }
+    ],
+    "pais": "Argentina",
+    "puerta": "aereos",
+    "tags": [
+      "aereos",
+      "fiestas"
+    ],
+    "transporte": "Aéreo",
+    "precio": 794940,
+    "moneda": "ARS",
+    "reserva": 15000,
+    "fotoAlt": "Paisaje de Puerto Madryn",
+    "pagoConsulta": "Consultá el plan de cuotas con o sin tarjeta",
+    "incluye": [
+      "Aéreos",
+      "Traslados",
+      "Equipaje",
+      "Alojamiento",
+      "Seguro",
+      "Desayuno"
+    ]
+  },
+  {
+    "id": "fiestas-iguazu-aereo",
+    "nombre": "Cataratas del Iguazú · Fin de año",
+    "provincia": "Misiones",
+    "region": "Litoral",
+    "foto": "../foto-iguazu.jpg",
+    "fechas": "30 dic",
+    "duracion": "5 días / 4 noches",
+    "hotel": "Carmen",
+    "salidas": [
+      {
+        "fechas": "30 dic · Fin de año",
+        "precio": 814040,
+        "hotel": "Carmen",
+        "duracion": "5 días / 4 noches",
+        "transporte": "Aéreo",
+        "incluye": [
+          "Aéreos",
+          "Traslados",
+          "Equipaje",
+          "Alojamiento",
+          "Seguro",
+          "Desayuno buffet",
+          "Excursión a Cataratas del lado argentino, sin entrada"
+        ],
+        "opcionales": [
+          "Media pensión (incluye cena del 31/12)",
+          "Excursión a Cataratas de ambos lados, sin entradas"
+        ],
+        "noIncluye": [
+          "Entradas a Cataratas"
+        ]
+      }
+    ],
+    "pais": "Argentina",
+    "puerta": "aereos",
+    "tags": [
+      "aereos",
+      "fiestas"
+    ],
+    "transporte": "Aéreo",
+    "precio": 814040,
+    "moneda": "ARS",
+    "reserva": 15000,
+    "fotoAlt": "Paisaje de Cataratas del Iguazú",
+    "pagoConsulta": "Consultá el plan de cuotas con o sin tarjeta",
+    "incluye": [
+      "Aéreos",
+      "Traslados",
+      "Equipaje",
+      "Alojamiento",
+      "Seguro",
+      "Desayuno buffet",
+      "Excursión a Cataratas del lado argentino, sin entrada"
+    ]
+  },
   /* ---------- NOVIEMBRE Y DICIEMBRE 2026 — Full day ---------- */
   {
     "id": "fd-tierra-vasca",

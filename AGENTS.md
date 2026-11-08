@@ -172,6 +172,10 @@ landings generadas conservan las tarifas normales de estos paquetes.
 `fiestas`, sin duplicarlos. Los accesos de la home aparecen solo cuando hay
 al menos una propuesta cargada con ese tag; no etiquetar salidas de diciembre
 como fiestas únicamente por el mes, sino por su propuesta de Navidad o Año Nuevo.
+En las variantes de fiestas, `hotel` y `duracion` pueden cambiar por opción.
+`opcionales` y `noIncluye` distinguen, por ejemplo, una cena festiva contratada
+con media pensión de una cena ya incluida. `aclaracionPrecio` informa cargos
+adicionales del paquete sin sumarlos al precio grande del flyer.
 
 ### 2.3 Trampa: el array viejo dentro de `index.html`
 

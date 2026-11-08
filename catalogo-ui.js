@@ -21,6 +21,7 @@
     if (p.cyberActiva) l.push(`• Promoción Cyber para reservar hasta el ${p.cyber.hasta.split("-").reverse().join("/")}.`);
     if (p.cyberActiva && p.cyber.condicion) l.push(`• ${p.cyber.condicion}.`);
     if (p.condicionPago) l.push(`• ${p.condicionPago}.`);
+    if (p.aclaracionPrecio) l.push(`• ${p.aclaracionPrecio}`);
     if (p.salidas) p.salidas.forEach(s=>l.push(`• ${s.fechas}: ${dinero(s.precio,p.moneda)} por persona${s.gastosAdministrativos ? " + " + dinero(s.gastosAdministrativos,p.moneda) + " de gastos administrativos" : ""}${s.condicionPago ? " · " + s.condicionPago : ""}.`));
     l.push(`• ${p.duracion} · ${p.transporte}`);
     if (p.hotel) l.push(`• Hotel: ${p.hotel}`);
@@ -108,7 +109,7 @@ function tarjetaNormal(p) {
     const variantes = p.circuitos ? p.circuitos.map(c => `<li><span>${e(c.nombre)}</span><b>${money(c.precio)}</b>${c.tercerPax ? `<em>3er pasajero ${money(c.tercerPax)}</em>` : ""}${c.nota ? `<em>${e(c.nota)}</em>` : ""}</li>`).join("")
       : p.ocupaciones ? p.ocupaciones.map(o=>`<li><span>${e(o.nombre)}</span><b>${money(o.enero)}</b>${o.febrero && o.febrero!==o.enero ? `<em>febrero ${money(o.febrero)}</em>` : ""}</li>`).join("") : "";
     const cuota = p.cuotas || (p.cyberActiva && p.cyber.cuotas);
-    const salidas = p.salidas ? p.salidas.map(s=>`<section class="paq-salida"><h4>📅 ${e(s.fechas)}</h4><p><strong>${money(s.precio)}</strong> por persona</p>${s.condicionPago ? `<p>${e(s.condicionPago)}</p>` : ""}${s.cuotas ? `<p>o ${s.cuotas.cantidad} cuotas de ${money(s.cuotas.valor)}</p>` : ""}${s.gastosAdministrativos ? `<p>+ ${money(s.gastosAdministrativos)} de gastos administrativos por pasajero</p>` : ""}${s.precioLista ? `<p class="paq-precio-nota">Precio de lista: ${money(s.precioLista)}</p>` : ""}<p>${e(s.transporte)}</p><details class="paq-detalle"><summary>Qué incluye esta salida</summary><ul>${s.incluye.map(i=>`<li>${e(i)}</li>`).join("")}</ul></details></section>`).join("") : "";
+    const salidas = p.salidas ? p.salidas.map(s=>`<section class="paq-salida"><h4>📅 ${e(s.fechas)}</h4><p><strong>${money(s.precio)}</strong> por persona</p>${s.condicionPago ? `<p>${e(s.condicionPago)}</p>` : ""}${s.cuotas ? `<p>o ${s.cuotas.cantidad} cuotas de ${money(s.cuotas.valor)}</p>` : ""}${s.gastosAdministrativos ? `<p>+ ${money(s.gastosAdministrativos)} de gastos administrativos por pasajero</p>` : ""}${s.precioLista ? `<p class="paq-precio-nota">Precio de lista: ${money(s.precioLista)}</p>` : ""}${s.descuentoTercerPasajero ? `<p>Descuento de ${money(s.descuentoTercerPasajero)} para el tercer pasajero.</p>` : ""}${s.duracion ? `<p>${e(s.duracion)}</p>` : ""}${s.hotel ? `<p>Hotel: ${e(s.hotel)}</p>` : ""}<p>${e(s.transporte)}</p><details class="paq-detalle"><summary>Qué incluye esta salida</summary><ul>${s.incluye.map(i=>`<li>${e(i)}</li>`).join("")}${(s.noIncluye||[]).map(i=>`<li class="no">No incluye: ${e(i)}</li>`).join("")}${(s.opcionales||[]).map(i=>`<li>Opcional: ${e(i)}</li>`).join("")}</ul></details></section>`).join("") : "";
     return `<article class="paq${p.foto ? " paq-con-foto" : ""}" id="${e(p.id)}">
       ${p.foto ? `<figure class="paq-foto${p.fotoCompleta ? " paq-foto--completa" : p.fotoContener ? " paq-foto--contener" : ""}"${encuadreFoto(p)}><img src="${e(p.foto)}" alt="${e(p.fotoAlt || p.nombre)}"${p.fotoCompleta ? "" : ' width="1600" height="1000"'} loading="lazy" decoding="async"></figure>` : ""}
       ${p.destacado ? `<span class="paq-badge">${e(p.destacado)}</span>` : ""}
@@ -127,6 +128,7 @@ function tarjetaNormal(p) {
         ${p.cyberActiva && p.cyber.condicion ? `<span class="paq-precio-nota">${e(p.cyber.condicion)}.</span>` : ""}
         ${p.condicionPago ? `<span class="paq-precio-nota">${e(p.condicionPago)}.</span>` : ""}
         ${p.pagoConsulta ? `<span class="paq-precio-nota">${e(p.pagoConsulta)}.</span>` : ""}
+        ${p.aclaracionPrecio ? `<span class="paq-precio-nota">${e(p.aclaracionPrecio)}</span>` : ""}
         ${p.precioLista && !p.salidas ? `<span class="paq-precio-nota">Precio de lista: ${money(p.precioLista)}</span>` : ""}
         ${p.gastosAdministrativos && !opciones.gastosGenerales ? `<span class="paq-precio-nota">No incluye ${money(p.gastosAdministrativos)} de gastos administrativos por pasajero.</span>` : ""}
       </div>
