@@ -224,8 +224,8 @@ window.PAQUETES = [
     "moneda": "ARS",
     "reserva": 0,
     "gastosAdministrativos": null,
-    "foto": "../landing-herradura.jpg",
-    "fotoAlt": "Jornada de campo y caballos",
+    "foto": "../collage-herradura-caballos.png",
+    "fotoAlt": "La Herradura: caballos, gastronomía, juegos y espacios de la estancia",
     "incluye": [
       "Traslado ida y vuelta en el día en Bus Mix",
       "Desayuno con infusión y galletas de campo, manteca y dulce",
