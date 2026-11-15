@@ -636,7 +636,7 @@ window.PAQUETES = [
       "full-day"
     ],
     "transporte": "Bus semicama",
-    "fechas": "15 y 29 nov",
+    "fechas": "29 nov",
     "duracion": "1 día",
     "precio": 69990,
     "moneda": "ARS",
@@ -652,33 +652,6 @@ window.PAQUETES = [
     "precioLista": 97000,
     "gastosAdministrativos": 10000,
     "condicionPago": "Pago en efectivo"
-  },
-  {
-    "id": "fd-concepcion-uruguay",
-    "nombre": "Termas de Concepción del Uruguay",
-    "pais": "Argentina",
-    "region": "Litoral",
-    "puerta": "full-day",
-    "tags": [
-      "full-day",
-      "termas"
-    ],
-    "transporte": "Traslado ida y vuelta",
-    "fechas": "15 nov",
-    "duracion": "1 día",
-    "precio": 95999,
-    "moneda": "ARS",
-    "reserva": 0,
-    "foto": "../foto-termas-generica.jpg",
-    "fotoAlt": "Piscina de agua termal",
-    "incluye": [
-      "Traslado ida y vuelta en el día",
-      "Coordinación",
-      "Entrada a las termas"
-    ],
-    "provincia": "Entre Ríos",
-    "gastosAdministrativos": 10000,
-    "pagoConsulta": "Consultá planes de pago en 1, 3 y 6 cuotas"
   },
   {
     "id": "fd-san-jose",
@@ -1981,32 +1954,6 @@ window.PAQUETES = [
   },
   /* ---------- FULL DAY ---------- */
   {
-    id: "fd-tandil",
-    foto: "../foto-tandil.jpg",
-    fotoAlt: "La Piedra Movediza de Tandil al atardecer",
-    fotoCredito: "Leopogonza · CC BY-SA 3.0",
-    nombre: "Tandil",
-    provincia: "Buenos Aires",
-    pais: "Argentina",
-    region: "Provincia de Buenos Aires",
-    puerta: "full-day",
-    tags: ["full-day"],
-    transporte: "Bus Mix",
-    fechas: "14 nov",
-    duracion: "1 día",
-    precio: 119990,
-    precioLista: 129990,
-    moneda: "ARS",
-    reserva: 0,
-    incluye: [
-      "Traslado ida y vuelta en el día",
-      "Visitas guiadas por el casco histórico",
-      "Almuerzo completo con bebida",
-      "Visita a regionales",
-      "Coordinador permanente"
-    ]
-  },
-  {
     "id": "fd-guaychu",
     "foto": "../foto-termas-guaychu.jpg",
     "fotoAlt": "Pileta climatizada del complejo termal de Gualeguaychú",
@@ -2019,45 +1966,19 @@ window.PAQUETES = [
       "full-day",
       "termas"
     ],
-    "transporte": "Bus · servicio según fecha",
-    "fechas": "15 nov · 29 nov",
+    "transporte": "Bus semicama",
+    "fechas": "29 nov",
     "duracion": "1 día",
-    "precio": 105990,
-    "precioLista": 124990,
+    "precio": 79990,
+    "precioLista": 97000,
     "moneda": "ARS",
     "reserva": 0,
     "incluye": [
       "Traslado ida y vuelta en el día",
-      "Entrada al complejo termal",
-      "Visita a regionales",
-      "Coordinador permanente"
+      "Coordinación"
     ],
-    "salidas": [
-      {
-        "fechas": "15 nov",
-        "precio": 105990,
-        "transporte": "Bus Mix",
-        "incluye": [
-          "Traslado ida y vuelta en el día",
-          "Entrada al complejo termal",
-          "Visita a regionales",
-          "Coordinador permanente"
-        ],
-        "precioLista": 124990
-      },
-      {
-        "fechas": "29 nov",
-        "precio": 79990,
-        "precioLista": 97000,
-        "gastosAdministrativos": 10000,
-        "condicionPago": "Pago en efectivo",
-        "transporte": "Bus semicama",
-        "incluye": [
-          "Traslado ida y vuelta en el día",
-          "Coordinación"
-        ]
-      }
-    ]
+    "gastosAdministrativos": 10000,
+    "condicionPago": "Pago en efectivo"
   },
   {
     "id": "fd-rosario-san-nicolas",
@@ -2507,30 +2428,6 @@ window.PAQUETES = [
   },
 
   /* ---------- ESCAPADAS EN BUS — temporada baja ---------- */
-  {
-    id: "bus-huerta-grande-mv",
-    foto: "../collage-huerta-grande.jpg",
-    fotoAlt: "Arroyo y parque de Huerta Grande, en las sierras de Córdoba",
-    fotoCompleta: true,
-    nombre: "Huerta Grande",
-    provincia: "Córdoba",
-    pais: "Argentina",
-    region: "Sierras",
-    puerta: "escapadas",
-    tags: ["escapadas"],
-    transporte: "Bus semicama",
-    fechas: "11 nov",
-    duracion: "5 días / 3 noches",
-    hotel: "11 de Junio (Sindicato del Vidrio)",
-    precio: 279999,
-    moneda: "ARS",
-    reserva: 10000,
-    incluye: [
-      "Bus semicama ida y vuelta",
-      "3 noches de alojamiento con pensión completa",
-      "Coordinador permanente"
-    ]
-  },
   /* ---------- ESCAPADAS EN BUS — Oct a Dic ---------- */
   {
     id: "bus-federacion-clima-termal",
@@ -2848,37 +2745,6 @@ window.PAQUETES = [
     ]
   },
   {
-    id: "aereo-bariloche",
-    foto: "../foto-bariloche.jpg",
-    fotoAlt: "Lago y cordillera en Bariloche",
-    nombre: "Bariloche",
-    provincia: "Río Negro",
-    pais: "Argentina",
-    region: "Patagonia",
-    puerta: "aereos",
-    tags: ["aereos", "patagonia"],
-    transporte: "Aéreo JetSmart",
-    fechas: "14 y 15 nov",
-    duracion: "6 días / 5 noches",
-    hotel: "Patagonia Sur",
-    precio: 616780,
-    moneda: "ARS",
-    reserva: 15000,
-    destacado: "Descuento en triple: $181.000",
-    circuitos: [
-      { nombre: "Desayuno buffet", precio: 616780 },
-      { nombre: "Media pensión", precio: 765380 },
-      { nombre: "Media pensión + 7 lagos con San Martín de los Andes", precio: 848740 }
-    ],
-    incluye: [
-      "Aéreo ida y vuelta con equipaje incluido",
-      "Transfer in/out",
-      "5 noches de alojamiento",
-      "Llao Llao con punto panorámico, Cerro Campanario y fábrica de chocolates",
-      "Cobertura de salud"
-    ]
-  },
-  {
     id: "aereo-salta",
     foto: "../foto-cafayate.jpg",
     fotoAlt: "Quebrada de las Conchas, Cafayate",
@@ -2890,7 +2756,7 @@ window.PAQUETES = [
     puerta: "aereos",
     tags: ["aereos", "norte"],
     transporte: "Aéreo JetSmart",
-    fechas: "14 y 25 nov · 1 dic",
+    fechas: "25 nov · 1 dic",
     duracion: "5 días / 4 noches",
     hotel: "Mirador del Cerro",
     precio: 562640,
