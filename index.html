@@ -6819,10 +6819,9 @@
       }).join("");
       const hoteles = (window.HOTELES || []).filter(h => h.id && h.nombre && h.destino && Array.isArray(h.fotos) && h.fotos.some(f => f.src && f.alt));
       if (hoteles.length) {
-        const foto = hoteles[0].fotos.find(f => f.src && f.alt);
         const imagen = document.createElement('img');
-        imagen.src = foto.src.replace(/^\.\.\//, '');
-        imagen.alt = foto.alt;
+        imagen.src = 'foto-solo-alojamiento-portada.png';
+        imagen.alt = 'Cabaña de madera con terraza, rodeada de árboles y montañas al atardecer.';
         imagen.width = 1100;
         imagen.height = 688;
         imagen.loading = 'lazy';
