@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Solos y Solas · Viajes grupales | MyE Turismo</title>
+  <meta name="description" content="Un viaje grupal para compartir y conocer gente. Solos y Solas en Villa Carlos Paz, Hotel Sierra Sol, abril de 2027. Consultá la propuesta de MyE Turismo.">
+  <link rel="canonical" href="https://mye-turismo-web.pages.dev/solos-y-solas/">
+  <link rel="stylesheet" href="../catalogo.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    .hero{background:linear-gradient(115deg,#123447,#077b7e);color:#fff}.hero h1{color:#fff}.hero .eyebrow{color:#f3e1c7}.solos-contenido{padding-top:32px;padding-bottom:48px}.solos-contenido .grid{grid-template-columns:minmax(0,1fr);max-width:760px;margin:auto}.solos-espera{padding:28px;background:#fff;border:1px solid #d9e5e7;border-radius:18px}.solos-espera p{margin:12px 0 20px}[hidden]{display:none!important}
+  </style>
+</head>
+<body>
+  <header class="top"><div class="container"><a class="volver" href="../">MyE Turismo · Volver al inicio</a><a class="tel" href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20Solos%20y%20Solas.">Consultar por WhatsApp</a></div></header>
+  <section class="hero"><div class="container"><span class="eyebrow">MyE Turismo · Salidas grupales</span><h1>Solos y Solas</h1><p>Un viaje para compartir, conocer gente y disfrutar juntos.</p></div></section>
+  <main class="container solos-contenido">
+    <div class="grid" id="salidas-solos"></div>
+    <div class="solos-espera" id="solos-espera"><h2>Consultá por nuestras salidas grupales</h2><p>Escribinos para conocer las próximas propuestas de Solos y Solas.</p><a class="btn btn-primary" href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20Solos%20y%20Solas.">Consultar por WhatsApp</a></div>
+    <noscript><p>Activá JavaScript para ver la propuesta actualizada o consultanos por WhatsApp.</p></noscript>
+  </main>
+  <footer class="pie"><div class="container"><p>Precios por persona, sujetos a disponibilidad. Consultar base de habitación, gastos adicionales y condiciones de reserva.</p><p>MyE Turismo · Estela · Técnica Superior en Turismo · Mat. 1077</p><p><a href="../terminos-y-condiciones/">Términos y condiciones</a></p></div></footer>
+  <script src="../paquetes.js"></script>
+  <script src="../catalogo-ui.js"></script>
+  <script>
+    (function(){
+      const salidas=(window.PAQUETES||[]).filter(p=>p.tags.includes('solos-y-solas'));
+      document.getElementById('salidas-solos').innerHTML=salidas.map(p=>window.MYE_CATALOGO.tarjeta(p,{abierto:true})).join('');
+      document.getElementById('solos-espera').hidden=salidas.length>0;
+    })();
+  </script>
+</body>
+</html>

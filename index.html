@@ -1209,6 +1209,9 @@
     [data-cyber-acceso][hidden] { display: none; }
     [data-fiestas-acceso][hidden] { display: none; }
     .header-cuotas--fiestas{background:#17473f;color:#ffe6a7;border-color:#e5c27b}
+    .header-cuotas--solos{background:#123447;color:#fff;border-color:#08989b}
+    .solos-destacado{display:flex;align-items:center;flex-wrap:wrap;gap:24px;margin-bottom:36px;padding:20px;border-radius:var(--radius);background:linear-gradient(115deg,#123447,#077b7e);color:#fff;text-decoration:none;box-shadow:var(--shadow)}
+    .solos-destacado img{width:240px;max-width:100%;height:156px;object-fit:cover;border-radius:14px}.solos-destacado-texto{flex:1 1 240px}.solos-destacado small{display:block;color:#f3e1c7;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.solos-destacado strong{display:block;font-family:"Playfair Display",Georgia,serif;font-size:clamp(1.7rem,3vw,2.3rem);line-height:1.15;margin:8px 0 12px}.solos-destacado-cta{background:#fff;color:#077b7e;border-radius:999px;padding:14px 20px;font-weight:800}@media(max-width:600px){.solos-destacado img{width:100%;height:180px}}
     .fiestas-destacado{display:flex;flex-wrap:wrap;align-items:center;gap:20px;margin-top:24px;padding:28px;border:2px solid #e5c27b;border-radius:var(--radius);background:linear-gradient(110deg,#17473f,#285b4b);color:white;text-decoration:none}
     .fiestas-destacado strong{display:block;font-size:clamp(1.5rem,3vw,2rem);color:#ffe6a7;margin-bottom:6px}
     .fiestas-destacado-texto{flex:1 1 260px}.fiestas-destacado-icono{font-size:2.8rem}.fiestas-destacado-cta{padding:14px 22px;border-radius:999px;background:#ffe6a7;color:#17473f;font-weight:900}
@@ -4175,6 +4178,7 @@
       <div class="container barra-avisos-inner">
         <a class="header-cuotas header-cuotas--cyber" href="cyber/" data-cyber-acceso hidden>⚡ Cyber · Ver promociones</a>
         <a class="header-cuotas header-cuotas--fiestas" href="fiestas/" data-fiestas-acceso hidden>🎄 Navidad y fin de año</a>
+        <a class="header-cuotas header-cuotas--solos" href="solos-y-solas/" data-solos-acceso hidden>Solos y Solas · Viaje grupal</a>
         <a class="header-cuotas header-cuotas--boca" href="boca-colombia/" data-hasta="2026-11-18">
           <span aria-hidden="true">⚽</span>
           <span class="ancho">¡Seguí a Boca en Colombia!</span><span class="corto">Boca en Colombia</span>
@@ -4257,6 +4261,11 @@
 
     <section class="section puertas-section" id="puertas">
       <div class="container">
+        <a class="solos-destacado" href="solos-y-solas/" data-solos-acceso hidden>
+          <img src="foto-sierra-sol-pileta-exterior.png" alt="Pileta del Hotel Sierra Sol en Villa Carlos Paz" width="1092" height="824" loading="lazy">
+          <span class="solos-destacado-texto"><small>Salida grupal · Solos y Solas</small><strong>Un viaje para compartir y conocer gente</strong><span>Villa Carlos Paz · Hotel Sierra Sol</span><br><span id="solos-resumen"></span></span>
+          <span class="solos-destacado-cta">Conocé la propuesta</span>
+        </a>
         <div class="section-heading">
           <span class="eyebrow">Elegí por dónde empezar</span>
           <h2>¿Qué tipo de viaje buscás?</h2>
@@ -4664,6 +4673,9 @@
     (function () {
       const ofertas = (window.PAQUETES || []).filter(p => p.cyberActiva);
       const fiestas = (window.PAQUETES || []).some(p => p.tags.includes('fiestas'));
+      const solos = (window.PAQUETES || []).filter(p => p.tags.includes('solos-y-solas'));
+      document.querySelectorAll('[data-solos-acceso]').forEach(el => { el.hidden = !solos.length; });
+      if (solos.length) document.getElementById('solos-resumen').textContent = solos[0].fechas + ' · ' + solos[0].duracion;
       document.querySelectorAll('[data-fiestas-acceso]').forEach(el => { el.hidden = !fiestas; });
       document.querySelectorAll('[data-cyber-acceso]').forEach(el => { el.hidden = !ofertas.length; });
       if (!ofertas.length) return;
