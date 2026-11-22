@@ -16,6 +16,37 @@
 
 window.PAQUETES = [
   {
+    id: "v27-carlos-paz-solos-y-solas",
+    foto: "../foto-sierra-sol-pileta-exterior.png",
+    fotoAlt: "Pileta exterior y sector de descanso del Hotel Sierra Sol en Villa Carlos Paz",
+    nombre: "Villa Carlos Paz · Solos y Solas",
+    provincia: "Córdoba",
+    pais: "Argentina",
+    region: "Centro",
+    subtitulo: "Hotel Sierra Sol · Un viaje grupal para compartir y conocer gente",
+    puerta: "verano-2027",
+    tags: ["verano-2027"],
+    transporte: "Transporte a consultar",
+    fechas: "Abril de 2027 · fecha exacta a consultar",
+    duracion: "5 días / 3 noches",
+    hotel: "Hotel Sierra Sol",
+    precio: 379500,
+    precioLista: 401500,
+    moneda: "ARS",
+    reserva: null,
+    gastosAdministrativos: null,
+    destacado: "Preventa · Solos y Solas",
+    cuotas: { cantidad: 5, valor: 75900 },
+    aclaracionPrecio: "Consultar base de habitación, gastos adicionales y condiciones de preventa.",
+    incluye: [
+      "3 noches de alojamiento en Hotel Sierra Sol",
+      "Media pensión: desayuno y cena",
+      "Pileta climatizada",
+      "Salida grupal Solos y Solas para compartir y conocer gente"
+    ],
+    nota: "Salida en abril de 2027, con día exacto a definir. Cupos limitados. Preventa $379.500; valor regular informado $401.500. Plan de 5 cuotas de $75.900. Consultar transporte, base de habitación, gastos adicionales, disponibilidad y condiciones de reserva."
+  },
+  {
     "id": "fiestas-salta-aereo",
     "nombre": "Salta · Fin de año",
     "provincia": "Salta",
