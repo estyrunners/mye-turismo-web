@@ -4658,6 +4658,7 @@
   </a>
 
   <script src="paquetes.js"></script>
+  <script src="hoteles.js"></script>
   <script src="catalogo-ui.js"></script>
   <script>
     (function () {
@@ -6816,6 +6817,25 @@
             </span>
           </a>`;
       }).join("");
+      const hoteles = (window.HOTELES || []).filter(h => h.id && h.nombre && h.destino && Array.isArray(h.fotos) && h.fotos.some(f => f.src && f.alt));
+      if (hoteles.length) {
+        const foto = hoteles[0].fotos.find(f => f.src && f.alt);
+        const imagen = document.createElement('img');
+        imagen.src = foto.src.replace(/^\.\.\//, '');
+        imagen.alt = foto.alt;
+        imagen.width = 1100;
+        imagen.height = 688;
+        imagen.loading = 'lazy';
+        imagen.decoding = 'async';
+        grid.insertAdjacentHTML('beforeend', `
+          <a class="puerta-card" href="alojamiento/">
+            <span class="puerta-foto">${imagen.outerHTML}<span class="puerta-contador">${hoteles.length} ${hoteles.length === 1 ? 'hotel' : 'hoteles'}</span></span>
+            <span class="eyebrow">Hotelería</span>
+            <h3>Solo alojamiento</h3>
+            <p>Elegí dónde quedarte. Mirá las fotos de cada hotel y consultá por tu estadía.</p>
+            <span class="puerta-meta"><span class="puerta-desde"><small>Para tus fechas</small><strong>Consultar tarifa</strong></span><span class="puerta-cantidad">Ver hoteles</span></span>
+          </a>`);
+      }
     })();
 
     /* =========================================================
