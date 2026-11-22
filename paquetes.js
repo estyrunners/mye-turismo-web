@@ -27,7 +27,7 @@ window.PAQUETES = [
     puerta: "solos-y-solas",
     tags: ["solos-y-solas"],
     transporte: "Transporte a consultar",
-    fechas: "Abril de 2027 · fecha exacta a consultar",
+    fechas: "Abril de 2027 · Consultar fechas de salida",
     duracion: "5 días / 3 noches",
     hotel: "Hotel Sierra Sol",
     precio: 379500,
@@ -37,14 +37,14 @@ window.PAQUETES = [
     gastosAdministrativos: null,
     destacado: "Preventa · Solos y Solas",
     cuotas: { cantidad: 5, valor: 75900 },
-    aclaracionPrecio: "Consultar base de habitación, gastos adicionales y condiciones de preventa.",
+    aclaracionPrecio: "Consultá cómo reservar tu lugar con una seña. Base de habitación, gastos adicionales y condiciones de preventa a consultar.",
     incluye: [
       "3 noches de alojamiento en Hotel Sierra Sol",
       "Media pensión: desayuno y cena",
       "Pileta climatizada",
       "Salida grupal Solos y Solas para compartir y conocer gente"
     ],
-    nota: "Salida en abril de 2027, con día exacto a definir. Cupos limitados. Preventa $379.500; valor regular informado $401.500. Plan de 5 cuotas de $75.900. Consultar transporte, base de habitación, gastos adicionales, disponibilidad y condiciones de reserva."
+    nota: "Abril de 2027 · Consultar fechas de salida. Cupos limitados. Preventa $379.500; valor regular informado $401.500. Plan de 5 cuotas de $75.900. Consultá cómo reservar tu lugar con una seña. Consultar transporte, base de habitación, gastos adicionales, disponibilidad y condiciones de reserva."
   },
   {
     "id": "fiestas-salta-aereo",
