@@ -23,18 +23,21 @@ window.HOTELES = [
     id: 'hotel-sierra-sol-carlos-paz',
     nombre: 'Hotel Sierra Sol',
     destino: 'Villa Carlos Paz · Córdoba',
-    descripcion: 'Instalaciones renovadas y habitaciones para 2, 3, 4 y 5 pasajeros, con piso de parquet y camas tipo sommier. Un espacio para descansar y disfrutar de Villa Carlos Paz. Consultanos por el tipo de habitación, el régimen de comidas y la disponibilidad para tus fechas.',
+    descripcion: 'A 400 metros del centro de Villa Carlos Paz, con instalaciones renovadas y habitaciones para 2, 3, 4 y 5 pasajeros. Cuenta con una amplia sala de estar renovada, áreas de relax y espacios de entretenimiento. Consultanos por el tipo de habitación, el régimen de comidas y la disponibilidad para tus fechas.',
     servicios: [
       'Habitaciones para 2, 3, 4 y 5 pasajeros',
+      'A 400 metros del centro',
+      'Sala de estar renovada, relax y entretenimiento',
       'Pileta climatizada',
       'Piso de parquet',
       'Camas tipo sommier',
-      'Climatización frío/calor',
+      'Aire acondicionado split frío/calor con control remoto',
+      'Wi-Fi de banda ancha en habitaciones, desayunador y lobby',
       'TV por cable · Full HD LED de 32 pulgadas',
       'Iluminación LED',
       'Cortinas blackout',
       'Caja de seguridad en todas las habitaciones',
-      'Cerradura con tarjeta magnética'
+      'Cerraduras electrónicas con tarjeta por aproximación en todas las habitaciones'
     ],
     fotos: [
       {src: '../foto-sierra-sol-pileta-exterior.png', alt: 'Pileta exterior y sector de descanso del Hotel Sierra Sol'},

@@ -53,13 +53,16 @@ window.PAQUETES = [
       "Pileta climatizada",
       "Salida grupal Solos y Solas para compartir y conocer gente",
       "Instalaciones renovadas",
+      "Hotel a 400 metros del centro de Villa Carlos Paz",
+      "Amplia sala de estar renovada, áreas de relax y espacios de entretenimiento",
       "Habitaciones para 2, 3, 4 y 5 pasajeros: consultar disponibilidad y base de la tarifa",
       "Piso de parquet y camas tipo sommier",
-      "Climatización frío/calor",
+      "Aire acondicionado split frío/calor con control remoto",
+      "Wi-Fi de banda ancha en habitaciones, desayunador y lobby",
       "Televisión por cable y TV Full HD LED de 32 pulgadas",
       "Iluminación LED y cortinas blackout",
       "Caja de seguridad en todas las habitaciones",
-      "Cerradura de seguridad con tarjeta magnética"
+      "Cerraduras electrónicas con tarjeta por aproximación en todas las habitaciones"
     ],
     nota: "Abril de 2027 · Consultar fechas de salida. Cupos limitados. Preventa $379.500; valor regular informado $401.500. Plan de 5 cuotas de $75.900. Consultá cómo reservar tu lugar con una seña. Consultar transporte, base de habitación, gastos adicionales, disponibilidad y condiciones de reserva."
   },
