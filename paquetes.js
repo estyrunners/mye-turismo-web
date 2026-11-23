@@ -51,7 +51,15 @@ window.PAQUETES = [
       "3 noches de alojamiento en Hotel Sierra Sol",
       "Media pensión: desayuno y cena",
       "Pileta climatizada",
-      "Salida grupal Solos y Solas para compartir y conocer gente"
+      "Salida grupal Solos y Solas para compartir y conocer gente",
+      "Instalaciones renovadas",
+      "Habitaciones para 2, 3, 4 y 5 pasajeros: consultar disponibilidad y base de la tarifa",
+      "Piso de parquet y camas tipo sommier",
+      "Climatización frío/calor",
+      "Televisión por cable y TV Full HD LED de 32 pulgadas",
+      "Iluminación LED y cortinas blackout",
+      "Caja de seguridad en todas las habitaciones",
+      "Cerradura de seguridad con tarjeta magnética"
     ],
     nota: "Abril de 2027 · Consultar fechas de salida. Cupos limitados. Preventa $379.500; valor regular informado $401.500. Plan de 5 cuotas de $75.900. Consultá cómo reservar tu lugar con una seña. Consultar transporte, base de habitación, gastos adicionales, disponibilidad y condiciones de reserva."
   },

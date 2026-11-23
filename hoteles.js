@@ -18,5 +18,32 @@ window.HOTELES = [
       {src: '../foto-hotel-carama-necochea-desayuno.png', alt: 'Desayuno con café con leche, tostadas, medialunas y untables.'},
       {src: '../foto-hotel-carama-necochea-playa.png', alt: 'Vista de la playa de Necochea con pasarela y carpas de balneario.'}
     ]
+  },
+  {
+    id: 'hotel-sierra-sol-carlos-paz',
+    nombre: 'Hotel Sierra Sol',
+    destino: 'Villa Carlos Paz · Córdoba',
+    descripcion: 'Instalaciones renovadas y habitaciones para 2, 3, 4 y 5 pasajeros, con piso de parquet y camas tipo sommier. Un espacio para descansar y disfrutar de Villa Carlos Paz. Consultanos por el tipo de habitación, el régimen de comidas y la disponibilidad para tus fechas.',
+    servicios: [
+      'Habitaciones para 2, 3, 4 y 5 pasajeros',
+      'Pileta climatizada',
+      'Piso de parquet',
+      'Camas tipo sommier',
+      'Climatización frío/calor',
+      'TV por cable · Full HD LED de 32 pulgadas',
+      'Iluminación LED',
+      'Cortinas blackout',
+      'Caja de seguridad en todas las habitaciones',
+      'Cerradura con tarjeta magnética'
+    ],
+    fotos: [
+      {src: '../foto-sierra-sol-pileta-exterior.png', alt: 'Pileta exterior y sector de descanso del Hotel Sierra Sol'},
+      {src: '../foto-sierra-sol-entrada.png', alt: 'Entrada iluminada del Hotel Sierra Sol en Villa Carlos Paz'},
+      {src: '../foto-sierra-sol-habitacion.png', alt: 'Habitación del Hotel Sierra Sol con cama doble y decoración con toallas'},
+      {src: '../foto-sierra-sol-sillones.png', alt: 'Sillones colgantes con almohadones amarillos en el Hotel Sierra Sol'},
+      {src: '../foto-sierra-sol-salon.png', alt: 'Salón del Hotel Sierra Sol con mesas, sillas y sector de estar'},
+      {src: '../foto-sierra-sol-desayuno.png', alt: 'Desayuno del Hotel Sierra Sol con frutas, tortas, medialunas y bocaditos'},
+      {src: '../foto-sierra-sol-pileta-climatizada.png', alt: 'Pileta climatizada cubierta del Hotel Sierra Sol'}
+    ]
   }
 ];
