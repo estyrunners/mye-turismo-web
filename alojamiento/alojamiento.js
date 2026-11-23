@@ -1,7 +1,16 @@
 (function () {
   'use strict';
   const grid = document.getElementById('hoteles-grid');
-  const hoteles = (window.HOTELES || []).filter(h => h.id && h.nombre && h.destino && Array.isArray(h.fotos) && h.fotos.some(f => f.src && f.alt));
+  const esDetalle = grid.dataset.vista === 'detalle';
+  const catalogo = (window.HOTELES || []).filter(h => h.id && h.nombre && h.destino && Array.isArray(h.fotos) && h.fotos.some(f => f.src && f.alt));
+  const hotelId = new URLSearchParams(window.location.search).get('hotel');
+  const hoteles = esDetalle ? catalogo.filter(h => h.id === hotelId) : catalogo;
+  if (esDetalle) {
+    document.getElementById('hotel-titulo').textContent = hoteles[0]?.nombre || 'Hotel no encontrado';
+    document.getElementById('hotel-ubicacion').textContent = hoteles[0]?.destino || 'Volvé al listado para elegir un alojamiento.';
+    document.title = hoteles[0] ? hoteles[0].nombre + ' · Solo alojamiento | MyE Turismo' : 'Hotel no encontrado | MyE Turismo';
+    document.getElementById('hotel-pago').hidden = !hoteles.length;
+  }
   const elemento = (tag, clase, texto) => {
     const el = document.createElement(tag);
     if (clase) el.className = clase;
@@ -10,6 +19,19 @@
   };
   hoteles.forEach(hotel => {
     const fotos = hotel.fotos.filter(f => f.src && f.alt);
+    if (!esDetalle) {
+      const resumen = elemento('a', 'hotel-card hotel-resumen');
+      resumen.href = 'hotel.html?hotel=' + encodeURIComponent(hotel.id);
+      const portada = elemento('img', 'hotel-portada');
+      portada.src = fotos[0].src;
+      portada.alt = fotos[0].alt;
+      portada.width = 960; portada.height = 600; portada.loading = 'lazy';
+      const texto = elemento('div', 'hotel-info');
+      texto.append(elemento('p', 'hotel-destino', hotel.destino), elemento('h3', '', hotel.nombre), elemento('span', 'btn btn-primary', 'Ver hotel'));
+      resumen.append(portada, texto);
+      grid.append(resumen);
+      return;
+    }
     const card = elemento('article', 'hotel-card');
     const galeria = elemento('div', 'hotel-galeria');
     galeria.setAttribute('role', 'region');

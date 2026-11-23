@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Detalle del hotel · Solo alojamiento | MyE Turismo</title>
+  <meta name="description" content="Conocé las fotos, los servicios y las condiciones de tu alojamiento. Consultá tu estadía con MyE Turismo.">
+  <link rel="stylesheet" href="../catalogo.css">
+  <link rel="stylesheet" href="alojamiento.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="top"><div class="container"><a class="volver" href="./">Ver todos los hoteles</a><a class="tel" href="../">MyE Turismo · Inicio</a></div></header>
+  <main>
+    <section class="container hotel-ficha-cabecera"><span class="eyebrow">Solo alojamiento · MyE Turismo</span><h1 id="hotel-titulo">Tu próxima estadía</h1><p id="hotel-ubicacion"></p></section>
+    <section class="container hoteles-contenido hotel-ficha-contenido" aria-labelledby="hotel-titulo">
+      <div class="hoteles-grid hoteles-grid--detalle" id="hoteles-grid" data-vista="detalle"></div>
+      <div class="hoteles-espera" id="hoteles-espera" hidden><h2>No encontramos ese alojamiento</h2><p>Podés volver al listado para ver los hoteles disponibles.</p><a class="btn btn-primary" href="./">Ver hoteles</a></div>
+      <aside class="hoteles-pago" id="hotel-pago" aria-labelledby="hotel-pago-titulo" hidden>
+        <span class="eyebrow">Reservá tu próxima estadía</span>
+        <h3 id="hotel-pago-titulo">Reservá con una pequeña seña</h3>
+        <p>Asegurá tu reserva con una pequeña seña y completá el pago al ingresar al hotel.</p>
+        <p>Podés abonar tu estadía en <strong>efectivo</strong>, con <strong>transferencia bancaria</strong> o con cualquier <strong>tarjeta de crédito o débito</strong>.</p>
+        <p class="hoteles-pago-consulta">Consultanos el importe de la seña para tu estadía.</p>
+      </aside>
+      <noscript><p>Activá JavaScript para ver las fotos y los detalles del hotel, o <a href="https://wa.me/5491131537638?text=Hola%20MyE%20Turismo%2C%20quiero%20consultar%20por%20solo%20alojamiento.">consultanos por WhatsApp</a>.</p></noscript>
+      <p class="hoteles-condiciones">Solo alojamiento. Tarifas, disponibilidad, régimen de comidas y condiciones de reserva se confirman para tus fechas y la cantidad de huéspedes.</p>
+    </section>
+  </main>
+  <footer class="pie"><div class="container"><p>MyE Turismo · Estela · Técnica Superior en Turismo · Mat. 1077</p><p><a href="./">Ver todos los hoteles</a> · <a href="../terminos-y-condiciones/">Términos y condiciones</a></p></div></footer>
+  <script src="../hoteles.js"></script>
+  <script src="alojamiento.js"></script>
+</body>
+</html>
