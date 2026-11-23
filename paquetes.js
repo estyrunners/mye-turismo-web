@@ -19,6 +19,12 @@ window.PAQUETES = [
     id: "v27-carlos-paz-solos-y-solas",
     foto: "../foto-sierra-sol-pileta-exterior.png",
     fotoAlt: "Pileta exterior y sector de descanso del Hotel Sierra Sol en Villa Carlos Paz",
+    galeria: [
+      {src: "../foto-sierra-sol-pileta-exterior.png", alt: "Pileta exterior y sector de descanso del Hotel Sierra Sol"},
+      {src: "../foto-sierra-sol-entrada.png", alt: "Entrada iluminada del Hotel Sierra Sol en Villa Carlos Paz"},
+      {src: "../foto-sierra-sol-habitacion.png", alt: "Habitación del Hotel Sierra Sol con cama doble y decoración con toallas"},
+      {src: "../foto-sierra-sol-sillones.png", alt: "Sillones colgantes con almohadones amarillos en el Hotel Sierra Sol"}
+    ],
     nombre: "Villa Carlos Paz · Solos y Solas",
     provincia: "Córdoba",
     pais: "Argentina",
