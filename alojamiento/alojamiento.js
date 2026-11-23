@@ -25,6 +25,7 @@
       const img = elemento('img');
       img.src = foto.src;
       img.alt = foto.alt;
+      if (foto.contener) img.style.objectFit = 'contain';
       img.loading = 'lazy';
       img.width = 960;
       img.height = 600;
