@@ -23,6 +23,7 @@
       figure.setAttribute('aria-label', 'Foto ' + (i + 1) + ' de ' + fotos.length);
       const img = crear('img', '');
       img.src = foto.src; img.alt = foto.alt; img.width = 1600; img.height = 1000; img.loading = 'lazy'; img.decoding = 'async';
+      if (foto.contener) img.style.objectFit = 'contain';
       figure.append(img); tira.append(figure);
     });
     const anterior = crear('button', 'solos-foto-anterior', '‹');

@@ -31,8 +31,22 @@ window.PAQUETES = [
       {src: "../foto-hotel-le-mirage-fachada.jpeg", alt: "Fachada del Hotel Le Mirage en Mar del Plata"},
       {src: "../foto-hotel-le-mirage-habitacion.jpeg", alt: "Habitación del Hotel Le Mirage con tres camas individuales"},
       {src: "../foto-hotel-le-mirage-sala.jpeg", alt: "Sala de estar del Hotel Le Mirage con sillones junto al acceso"},
-      {src: "../foto-hotel-le-mirage-recepcion.jpeg", alt: "Mostrador de recepción y sector de estar del Hotel Le Mirage"}
+      {src: "../foto-hotel-le-mirage-recepcion.jpeg", alt: "Mostrador de recepción y sector de estar del Hotel Le Mirage"},
+      {src: "../foto-hotel-le-mirage-matrimonial.png", alt: "Fotos de una habitación matrimonial del Hotel Le Mirage, con cama doble, ventana y ventilador de techo", contener: true},
+      {src: "../foto-hotel-le-mirage-triple.png", alt: "Fotos de una habitación triple del Hotel Le Mirage, con cama matrimonial y cama individual", contener: true}
     ],
+    detalleHotel: {
+      descripcion: "En el corazón de Mar del Plata, con opciones de habitaciones privadas y a compartir. Consultá la base de habitación correspondiente a tu reserva.",
+      servicios: ["Baño privado en todas las unidades", "Smart TV", "Conexión Wi-Fi", "Calefacción", "Ventilación", "Clóset", "Servicio de limpieza diario", "Área de estudio"],
+      ubicacion: [
+        {lugar: "Playa", minutos: 6},
+        {lugar: "Plaza Colón", minutos: 5},
+        {lugar: "Casino", minutos: 6},
+        {lugar: "Monumento al lobo marino", minutos: 5},
+        {lugar: "Teatro", minutos: 5},
+        {lugar: "Catedral", minutos: 8}
+      ]
+    },
     subtitulo: "Verano 2027 · Media pensión · Coche cama total / cama suite",
     transporte: "Coche cama total / cama suite",
     fechas: "Enero 2027: 2, 5, 8, 11, 14, 17, 20, 23, 26 y 29 · Febrero 2027: 1, 4, 7, 10, 13, 16, 19, 22 y 25",
