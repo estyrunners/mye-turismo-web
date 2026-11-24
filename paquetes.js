@@ -16,6 +16,44 @@
 
 window.PAQUETES = [
   {
+    id: "v27-mar-del-plata-le-mirage",
+    nombre: "Mar del Plata · Hotel Le Mirage",
+    provincia: "Buenos Aires",
+    pais: "Argentina",
+    region: "Costa Atlántica",
+    puerta: "verano-2027",
+    tags: ["verano-2027", "mardel-especial"],
+    foto: "../foto-mardel-le-mirage-costa-noche.jpeg",
+    fotoAlt: "Costa de Mar del Plata y edificios iluminados junto a la playa",
+    galeria: [
+      {src: "../foto-mardel-le-mirage-costa-noche.jpeg", alt: "Costa de Mar del Plata al anochecer"},
+      {src: "../foto-mardel-le-mirage-playa.jpeg", alt: "Playas y costa de Mar del Plata durante el día"},
+      {src: "../foto-hotel-le-mirage-fachada.jpeg", alt: "Fachada del Hotel Le Mirage en Mar del Plata"},
+      {src: "../foto-hotel-le-mirage-habitacion.jpeg", alt: "Habitación del Hotel Le Mirage con tres camas individuales"},
+      {src: "../foto-hotel-le-mirage-sala.jpeg", alt: "Sala de estar del Hotel Le Mirage con sillones junto al acceso"},
+      {src: "../foto-hotel-le-mirage-recepcion.jpeg", alt: "Mostrador de recepción y sector de estar del Hotel Le Mirage"}
+    ],
+    subtitulo: "Verano 2027 · Media pensión · Coche cama total / cama suite",
+    transporte: "Coche cama total / cama suite",
+    fechas: "Enero 2027: 2, 5, 8, 11, 14, 17, 20, 23, 26 y 29 · Febrero 2027: 1, 4, 7, 10, 13, 16, 19, 22 y 25",
+    duracion: "3 noches",
+    hotel: "Hotel Le Mirage · 3 estrellas",
+    precio: 289900,
+    moneda: "ARS",
+    reserva: null,
+    gastosAdministrativos: null,
+    destacado: "Especial Mar del Plata · Verano 2027",
+    pagoConsulta: "Consultá formas de pago y reserva",
+    aclaracionPrecio: "Precio por persona. Consultá base de habitación, gastos adicionales y disponibilidad para la salida elegida.",
+    incluye: [
+      "Bus de ida y vuelta en coche cama total / cama suite",
+      "Traslados al hotel de ida y de regreso",
+      "3 noches de alojamiento en Hotel Le Mirage, Mar del Plata",
+      "Media pensión: 3 desayunos y 3 cenas"
+    ],
+    nota: "Tarifa por persona para las salidas informadas de enero y febrero de 2027. Consultar base de habitación, lugares de ascenso, horarios, gastos adicionales, disponibilidad y condiciones de pago."
+  },
+  {
     id: "v27-carlos-paz-solos-y-solas",
     foto: "../foto-sierra-sol-pileta-exterior.png",
     fotoAlt: "Pileta exterior y sector de descanso del Hotel Sierra Sol en Villa Carlos Paz",

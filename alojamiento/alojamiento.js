@@ -107,7 +107,38 @@
       hotel.servicios.forEach(s => servicios.append(elemento('li', '', s)));
       info.append(servicios);
     }
-    info.append(elemento('p', 'hotel-consulta', 'Consultá tarifa y disponibilidad para tus fechas.'));
+    const tarifas = hotel.tarifas;
+    if (tarifas && Array.isArray(tarifas.opciones) && tarifas.opciones.length) {
+      const bloque = elemento('section', 'hotel-tarifas');
+      const tituloId = 'tarifas-' + hotel.id;
+      const titulo = elemento('h4', '', 'Tarifas de solo alojamiento');
+      titulo.id = tituloId;
+      bloque.setAttribute('aria-labelledby', tituloId);
+      bloque.append(titulo, elemento('p', 'hotel-tarifas-unidad', tarifas.unidad), elemento('p', '', tarifas.regimen));
+      const tabla = elemento('table');
+      const cabecera = elemento('thead');
+      const encabezados = elemento('tr');
+      ['Habitación', 'Por noche'].forEach(texto => {
+        const celda = elemento('th', '', texto);
+        celda.scope = 'col';
+        encabezados.append(celda);
+      });
+      cabecera.append(encabezados);
+      const cuerpo = elemento('tbody');
+      const moneda = new Intl.NumberFormat('es-AR', {style: 'currency', currency: tarifas.moneda || 'ARS', maximumFractionDigits: 0});
+      tarifas.opciones.forEach(opcion => {
+        const fila = elemento('tr');
+        const habitacion = elemento('th', '', opcion.habitacion);
+        habitacion.scope = 'row';
+        fila.append(habitacion, elemento('td', '', moneda.format(opcion.precio)));
+        cuerpo.append(fila);
+      });
+      tabla.append(cabecera, cuerpo);
+      bloque.append(tabla);
+      if (tarifas.nota) bloque.append(elemento('p', 'hotel-consulta', tarifas.nota));
+      info.append(bloque);
+    }
+    info.append(elemento('p', 'hotel-consulta', tarifas ? 'Confirmá la tarifa y la disponibilidad para tus fechas antes de reservar.' : 'Consultá tarifa y disponibilidad para tus fechas.'));
     const consulta = elemento('a', 'btn btn-primary', 'Consultar este hotel');
     consulta.href = 'https://wa.me/5491131537638?text=' + encodeURIComponent('Hola MyE Turismo, quiero consultar por solo alojamiento en ' + hotel.nombre + ' (' + hotel.destino + '). Fechas de entrada y salida: . Cantidad de personas: .');
     info.append(consulta);

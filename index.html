@@ -4261,6 +4261,11 @@
 
     <section class="section puertas-section" id="puertas">
       <div class="container">
+        <a class="solos-destacado" href="mar-del-plata/" data-mardel-acceso hidden>
+          <img src="foto-mardel-le-mirage-costa-noche.jpeg" alt="La costa de Mar del Plata iluminada al anochecer" width="993" height="889" loading="lazy">
+          <span class="solos-destacado-texto"><small>Especial verano 2027 · Enero y febrero</small><strong>¡Tu verano en Mar del Plata!</strong><span>Hotel Le Mirage · 3 noches · Media pensión</span><br><span>Coche cama total / cama suite y traslados al hotel</span><br><b id="mardel-precio"></b></span>
+          <span class="solos-destacado-cta">Ver fechas y paquete</span>
+        </a>
         <a class="solos-destacado" href="solos-y-solas/" data-solos-acceso hidden>
           <img src="foto-sierra-sol-pileta-exterior.png" alt="Pileta del Hotel Sierra Sol en Villa Carlos Paz" width="1092" height="824" loading="lazy">
           <span class="solos-destacado-texto"><small>Salida grupal · Solos y Solas</small><strong>¡Animate a viajar, compartir y conocer gente!</strong><span>Villa Carlos Paz · Hotel Sierra Sol</span><br><span id="solos-resumen"></span><br><span>Tu próxima escapada puede traer nuevas amistades. Consultá cómo reservar tu lugar con una seña.</span></span>
@@ -4674,6 +4679,9 @@
       const ofertas = (window.PAQUETES || []).filter(p => p.cyberActiva);
       const fiestas = (window.PAQUETES || []).some(p => p.tags.includes('fiestas'));
       const solos = (window.PAQUETES || []).filter(p => p.tags.includes('solos-y-solas'));
+      const mardel = (window.PAQUETES || []).find(p => p.id === 'v27-mar-del-plata-le-mirage');
+      document.querySelectorAll('[data-mardel-acceso]').forEach(el => { el.hidden = !mardel; });
+      if (mardel) document.getElementById('mardel-precio').textContent = '$' + mardel.precio.toLocaleString('es-AR') + ' por persona';
       document.querySelectorAll('[data-solos-acceso]').forEach(el => { el.hidden = !solos.length; });
       if (solos.length) document.getElementById('solos-resumen').textContent = solos[0].fechas + ' · ' + solos[0].duracion;
       document.querySelectorAll('[data-fiestas-acceso]').forEach(el => { el.hidden = !fiestas; });

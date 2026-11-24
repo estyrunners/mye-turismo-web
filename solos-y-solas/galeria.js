@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  (window.PAQUETES || []).filter(p => p.tags.includes('solos-y-solas')).forEach(p => {
+  (window.PAQUETES || []).filter(p => Array.isArray(p.galeria)).forEach(p => {
     const fotos = (p.galeria || []).filter(f => f.src && f.alt);
     const portada = document.getElementById(p.id)?.querySelector('.paq-foto');
     if (!portada || fotos.length < 2) return;
