@@ -57,15 +57,15 @@ window.PAQUETES = [
     reserva: null,
     gastosAdministrativos: 4348.50,
     destacado: "Especial Mar del Plata · Verano 2027",
-    condicionPago: "Reservá con un anticipo mínimo y completá el saldo como puedas hasta 10 días antes de la salida. Todos los medios de pago. Consultá el importe del anticipo",
-    aclaracionPrecio: "Se adiciona el 1,5% de gastos administrativos ($4.348,50 por persona). Total con gastos: $294.248,50 por persona. Consultá base de habitación y disponibilidad para la salida elegida.",
+    condicionPago: "Reservá con un anticipo mínimo y completá el saldo hasta 10 días antes de la salida. Todos los medios de pago",
+    aclaracionPrecio: "Adicional, 1,5% de gastos administrativos. Consultá disponibilidad para la salida y habitación elegida.",
     incluye: [
       "Bus de ida y vuelta en coche cama total / cama suite",
       "Traslados al hotel de ida y de regreso",
       "3 noches de alojamiento en Hotel Le Mirage, Mar del Plata",
       "Media pensión: 3 desayunos y 3 cenas"
     ],
-    nota: "Tarifa por persona para las salidas informadas de enero y febrero de 2027. Anticipo mínimo a consultar y saldo a completar como puedas hasta 10 días antes de la salida. Todos los medios de pago. Se adiciona el 1,5% de gastos administrativos: $4.348,50 por persona. Total con gastos: $294.248,50 por persona. Consultar base de habitación, lugares de ascenso, horarios y disponibilidad."
+    nota: "Reservá con un anticipo mínimo y completá el saldo hasta 10 días antes de la salida. Todos los medios de pago. Adicional, 1,5% de gastos administrativos. Consultá disponibilidad para la salida y habitación elegida."
   },
   {
     id: "v27-carlos-paz-solos-y-solas",
