@@ -19,15 +19,21 @@
   <style>
     .hero{background:linear-gradient(115deg,#123447,#077b7e);color:#fff}.hero h1{color:#fff}.hero .eyebrow{color:#f3e1c7}.mardel-contenido{padding-top:32px;padding-bottom:48px}.mardel-contenido .grid{grid-template-columns:minmax(0,1fr);max-width:800px;margin:auto}.mardel-espera{padding:28px;background:#fff;border:1px solid #d9e5e7;border-radius:18px}.mardel-espera p{margin:12px 0 20px}.mardel-hotel{max-width:800px;margin:28px auto 0;padding:24px;border:1px solid #d9e5e7;border-radius:20px;background:#fff;box-shadow:var(--shadow)}.mardel-hotel h2{font-size:1.8rem;margin-bottom:16px}.mardel-hotel h3{font-size:1.3rem;margin:24px 0 12px}.mardel-servicios{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:18px 0;padding:0}.mardel-servicios li{background:#edf7f7;padding:8px 12px;border-radius:9px}.mardel-ubicacion{padding-left:20px}.mardel-ubicacion li{margin:8px 0}.mardel-aclaracion{margin-top:16px;color:#5c7180;font-size:.9rem}[hidden]{display:none!important}
   </style>
+  <style>
+    .mardel-intro{max-width:800px;margin:0 auto 24px}.mardel-intro h2{font-size:clamp(1.6rem,4vw,2rem);line-height:1.3;margin-bottom:12px}
+  </style>
 </head>
 <body>
   <header class="top"><div class="container"><a class="volver" href="../">MyE Turismo · Volver al inicio</a><a class="tel" href="../verano-2027/">Ver todo el verano</a></div></header>
   <section class="hero"><div class="container"><span class="eyebrow">Especial verano 2027 · Enero y febrero</span><h1>¡Tu verano en Mar del Plata!</h1><p>Unos días de playa, paseos y descanso, con el viaje y la estadía organizados.</p><p>Hotel Le Mirage · 3 noches · Media pensión · Coche cama total / cama suite</p></div></section>
   <main class="container mardel-contenido">
+    <section class="mardel-intro" id="mardel-galeria-intro" aria-labelledby="mardel-galeria-titulo" hidden>
+      <h2 id="mardel-galeria-titulo">Conocé el Hotel Le Mirage deslizando las fotos</h2>
+      <p>En el corazón de Mar del Plata, con opciones de habitaciones privadas y a compartir.</p>
+    </section>
     <div class="grid" id="mardel-paquete"></div>
     <section class="mardel-hotel" id="mardel-hotel" aria-labelledby="mardel-hotel-titulo" hidden>
-      <h2 id="mardel-hotel-titulo">Conocé el Hotel Le Mirage</h2>
-      <p id="mardel-hotel-descripcion"></p>
+      <h2 id="mardel-hotel-titulo">Servicios y ubicación del Hotel Le Mirage</h2>
       <h3>Servicios y habitaciones</h3>
       <ul class="mardel-servicios" id="mardel-servicios"></ul>
       <p>En este paquete disfrutás de media pensión: 3 desayunos y 3 cenas incluidos.</p>
@@ -44,10 +50,10 @@
     (function(){
       const paquete=(window.PAQUETES||[]).find(p=>p.id==='v27-mar-del-plata-le-mirage');
       if(paquete){
+        document.getElementById('mardel-galeria-intro').hidden=false;
         document.getElementById('mardel-paquete').innerHTML=window.MYE_CATALOGO.tarjeta(paquete,{abierto:true});
         const hotel=paquete.detalleHotel;
         if(hotel){
-          document.getElementById('mardel-hotel-descripcion').textContent=hotel.descripcion;
           hotel.servicios.forEach(texto=>{const li=document.createElement('li');li.textContent=texto;document.getElementById('mardel-servicios').append(li);});
           hotel.ubicacion.forEach(punto=>{const li=document.createElement('li');li.textContent=punto.lugar+': '+punto.minutos+' minutos a pie aproximadamente.';document.getElementById('mardel-ubicacion').append(li);});
           document.getElementById('mardel-hotel').hidden=false;
